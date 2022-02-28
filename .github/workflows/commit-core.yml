@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.MY_GITHUB_TOKEN }}
-      - uses: ./.github/actions/export-unpack-commit/action.yml
+      - uses: ./.github/actions/export-unpack-commit
         with:
           message: ${{ github.event.inputs.message }}
           environment-url: ${{ secrets.URL }}
