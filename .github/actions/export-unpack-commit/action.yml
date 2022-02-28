@@ -34,18 +34,18 @@ runs:
   steps:
     - uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: ${{ inputs.URL }}
-        app-id: ${{ inputs.CLIENT_ID }}
-        client-secret: ${{ inputs.CLIENT_SECRET }}
-        tenant-id: ${{ inputs.TENANT_ID }}
+        environment-url: ${{ inputs.environment-url }}
+        app-id: ${{ inputs.app-id }}
+        client-secret: ${{ inputs.client-secret }}
+        tenant-id: ${{ inputs.tenant-id }}
         solution-name: ${{ inputs.solution-name }}
         solution-output-file: ${{ inputs.solution-name }}.zip
     - uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: ${{ inputs.URL }}
-        app-id: ${{ inputs.CLIENT_ID }}
-        client-secret: ${{ inputs.CLIENT_SECRET }}
-        tenant-id: ${{ inputs.TENANT_ID }}
+        environment-url: ${{ inputs.environment-url }}
+        app-id: ${{ inputs.app-id }}
+        client-secret: ${{ inputs.client-secret }}
+        tenant-id: ${{ inputs.tenant-id }}
         solution-name: ${{ inputs.solution-name }}
         solution-output-file: ${{ inputs.solution-name }}_managed.zip
         managed: true
