@@ -36,3 +36,4 @@ jobs:
           client-secret: ${{ secrets.CLIENT_SECRET }}
           tenant-id: ${{ secrets.TENANT_ID }}
           solution-file: con_core_managed.zip
+          run-asynchronously: true
