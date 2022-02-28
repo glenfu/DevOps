@@ -2,7 +2,7 @@ name: Commit Core
 
 on:
   workflow_dispatch:
-   secrets:
+    inputs:
       message:
         default: Automated commit
         description: Message for the commit
