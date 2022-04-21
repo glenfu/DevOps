@@ -34,6 +34,7 @@ namespace ILoggerExample
 
             try
             {
+                //start adding to traces
                 string startExecMsg = "Start execution of AccountPostOperation";
                 logger.LogInformation(startExecMsg);
                 tracingService.Trace(startExecMsg);
