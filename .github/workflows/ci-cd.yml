@@ -19,6 +19,10 @@ jobs:
         uses: ./.github/actions/pack-solution
         with: 
           name: con_core
+      - name: pack plugins
+        uses: ./.github/actions/pack-solution
+        with: 
+          name: plugins
       - name: pack con_admissions
         uses: ./.github/actions/pack-solution
         with: 
