@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22034.148" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22041.152" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>con_core</UniqueName>
     <LocalizedNames>
@@ -81,6 +81,8 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="con_widget" behavior="0" />
+      <RootComponent type="61" schemaName="con_AI.Default.js" behavior="0" />
+      <RootComponent type="61" schemaName="con_airesource" behavior="0" />
       <RootComponent type="91" id="{e3eaae73-e85e-4e3a-be89-1fab8f58f02b}" schemaName="plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" behavior="0" />
       <RootComponent type="92" id="{f38a0fb4-4ec1-ec11-983e-00224817d257}" behavior="0" />
     </RootComponents>
