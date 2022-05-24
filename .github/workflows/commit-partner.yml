@@ -23,4 +23,4 @@ jobs:
           app-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
           tenant-id: ${{ secrets.TENANT_ID }}
-          solution-name: con_partnertrackingapplication
+          solution-name: PartnerTrackingSolution
