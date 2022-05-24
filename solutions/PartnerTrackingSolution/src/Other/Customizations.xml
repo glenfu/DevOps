@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Entities />
+  <Roles />
+  <Workflows />
+  <FieldSecurityProfiles />
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <AppModuleSiteMaps />
+  <AppModules />
+  <EntityDataProviders />
+  <msdyn_helppages>
+    <msdyn_helppage msdyn_helppageid="6671903b-36db-ec11-bb3c-00224817478b">
+      <iscustomizable>1</iscustomizable>
+      <msdyn_content>&lt;pphml&gt;&lt;h1&gt;&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;collapsible title="How to Create a Partner"&gt;&lt;p&gt;&lt;balloon target="[data-lp-id=&amp;quot;23e168fc-dde3-4d56-abe4-8f18cbe682f9|con_microsoftpartner.fieldControl|con_partner&amp;quot;]" title="Change the Value to Yes" details="Flip this switch to Yes and watch the behaviour change."&gt;Change the Value to Yes&lt;/balloon&gt;&lt;/p&gt;&lt;p&gt;&lt;balloon target="[data-lp-id=&amp;quot;23e168fc-dde3-4d56-abe4-8f18cbe682f9|con_microsoftpartner.fieldControl|con_partner&amp;quot;]" title="Change the Value to Yes" details="Flip this switch to Yes and watch the behaviour change."&gt;&lt;coachmark target="[data-id=&amp;quot;con_partnerrating.fieldControl_container&amp;quot;]"&gt;&lt;/coachmark&gt;&lt;/balloon&gt;&lt;/p&gt;&lt;p&gt;&lt;balloon target="[data-lp-id=&amp;quot;23e168fc-dde3-4d56-abe4-8f18cbe682f9|con_microsoftpartner.fieldControl|con_partner&amp;quot;]" title="Change the Value to Yes" details="Flip this switch to Yes and watch the behaviour change."&gt;&lt;coachmark target="[data-id=&amp;quot;con_partnerrating.fieldControl_container&amp;quot;]"&gt;Rating Control&lt;/coachmark&gt;&lt;/balloon&gt;&lt;/p&gt;&lt;/collapsible&gt;&lt;p&gt;&lt;/p&gt;&lt;/pphml&gt;</msdyn_content>
+      <msdyn_contenttype>text/pphml</msdyn_contenttype>
+      <msdyn_locale>1033</msdyn_locale>
+      <msdyn_path>CDS/Apps/con_PartnerTracking/Entities/con_partner/Forms/Default</msdyn_path>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </msdyn_helppage>
+    <msdyn_helppage msdyn_helppageid="bfd64e19-35db-ec11-bb3c-00224817478b">
+      <iscustomizable>1</iscustomizable>
+      <msdyn_content>&lt;pphml&gt;&lt;h1&gt;&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;collapsible title="Partner Tracking Application"&gt;&lt;p&gt;This is the Partner Tracking Application, below are pointers on how to navigate the landing page. &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;balloon target="[data-lp-id=&amp;quot;sitemap-launcher&amp;quot;]" title="Sitemap Menu" details="Clicking this will expand the different areas you have access to"&gt;Sitemap Menu&lt;/balloon&gt;&lt;/p&gt;&lt;p&gt;&lt;balloon title="Sitemap Menu" details="Clicking this will expand the different areas you have access to"&gt;&lt;/balloon&gt;&lt;/p&gt;&lt;p&gt;&lt;balloon target="[data-lp-id=&amp;quot;HomePageGrid:con_partner-con_partner|NoRelationship|HomePageGrid|Mscrm.HomepageGrid.con_partner.NewRecord&amp;quot;]" title="New Partner" details="Clicking this will open a create form for a new partner."&gt;New Partner&lt;/balloon&gt;&lt;balloon title="Sitemap Menu" details="Clicking this will expand the different areas you have access to"&gt;&lt;/balloon&gt;&lt;/p&gt;&lt;/collapsible&gt;&lt;p&gt;&lt;/p&gt;&lt;/pphml&gt;</msdyn_content>
+      <msdyn_contenttype>text/pphml</msdyn_contenttype>
+      <msdyn_locale>1033</msdyn_locale>
+      <msdyn_path>CDS/Apps/con_PartnerTracking/Entities/con_partner/Views/Default</msdyn_path>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </msdyn_helppage>
+  </msdyn_helppages>
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

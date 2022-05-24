@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{92528b03-14c6-448a-a5f2-d87ec48d862d}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{95721cea-31e4-4f0a-8bfb-9d04ba8a1394}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{623ba5c0-6d53-419f-b605-c96118865ee4}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{0127e9e6-740f-4335-81b2-fdad077e1e9c}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="con_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="con_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0080f229-966a-44a7-89df-2af79ad36a28}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{11fdc37b-9f2b-456f-9329-f0d3517ad19d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Website" languagecode="1033" />
+                        </labels>
+                        <control id="con_website" classid="{71716B6C-711E-476C-8AB8-5D11542BFB47}" datafieldname="con_website" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c0e03805-6907-4682-909a-f621fe199858}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="Main Phone" languagecode="1033" />
+                        </labels>
+                        <control id="con_mainphone" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_mainphone" disabled="false" uniqueid="{6a5bb5ad-c27b-60c8-771e-deb1e9eb46dc}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f8938b4f-fd70-42b3-b558-327a4dd63185}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="Microsoft Partner" languagecode="1033" />
+                        </labels>
+                        <control id="con_microsoftpartner" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_microsoftpartner" disabled="false" uniqueid="{0e8aa143-bce8-2a56-7dd7-2ee46a07a687}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0d52d4d2-372a-4a8a-b399-da4d03d4e8a6}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="Partner Rating" languagecode="1033" />
+                        </labels>
+                        <control id="con_partnerrating" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_partnerrating" disabled="false" uniqueid="{04199de3-64da-7472-ea52-dec48dc3d5db}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f219fbe5-7da0-409a-a097-2e4208610fab}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Partner Number" languagecode="1033" />
+                        </labels>
+                        <control id="con_partnernumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="con_partnernumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4dc5808e-647e-4355-a040-1b447f2cd0d2}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="D365 Partner" languagecode="1033" />
+                        </labels>
+                        <control id="con_d365partner" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_d365partner" disabled="false" uniqueid="{20a1b1ee-3a79-cab2-a823-a098608a0842}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7b0f7ffc-72ad-43c7-852f-ca31f3e964bb}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Industry" languagecode="1033" />
+                        </labels>
+                        <control id="con_industry" classid="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}" datafieldname="con_industry" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Contract Information" id="a06ab3ca-0cca-48c9-bd00-9365a30b775a" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Contract Information" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{fd6c8ec4-3638-48d4-80b3-f192ca08aec8}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Contract Start" languagecode="1033" />
+                        </labels>
+                        <control id="con_contractstart" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="con_contractstart" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8ee3567c-4dcb-49b1-b4ce-eafcb3d43f3b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Contract End" languagecode="1033" />
+                        </labels>
+                        <control id="con_contractend" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="con_contractend" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{709028d4-9eb4-403c-b31a-ce4a30de20c6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Start Renewal" languagecode="1033" />
+                        </labels>
+                        <control id="con_startrenewal" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="con_startrenewal" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{562e5944-29c4-48ac-a41f-3567fc3064af}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{bae1c0a0-791e-4c41-bac1-ad17ae2309cb}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{6fc68b41-3e28-4d10-8068-9a0b6f852a4d}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{cb7ecbba-dab5-4f15-810e-b6751b187a57}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{b05aac0c-6d3e-47ec-a1d9-ef1ac8c881fe}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{6ba090cc-77ca-4117-8e7b-1b364b8a1011}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{b204acee-ae17-4f7e-afe4-0d9b94efa20c}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f0912f62-f13f-40f3-862a-971d4b0df06a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <Navigation>
+        <NavBar></NavBar>
+        <NavBarAreas>
+          <NavBarArea Id="Info">
+            <Titles>
+              <Title LCID="1033" Text="Common" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Sales">
+            <Titles>
+              <Title LCID="1033" Text="Sales" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Service">
+            <Titles>
+              <Title LCID="1033" Text="Service" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="Marketing">
+            <Titles>
+              <Title LCID="1033" Text="Marketing" />
+            </Titles>
+          </NavBarArea>
+          <NavBarArea Id="ProcessCenter">
+            <Titles>
+              <Title LCID="1033" Text="Process Sessions" />
+            </Titles>
+          </NavBarArea>
+        </NavBarAreas>
+      </Navigation>
+      <controlDescriptions>
+        <controlDescription forControl="{0e8aa143-bce8-2a56-7dd7-2ee46a07a687}">
+          <customControl id="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>con_microsoftpartner</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>con_microsoftpartner</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>con_microsoftpartner</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.ToggleControl">
+            <parameters>
+              <value>con_microsoftpartner</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{20a1b1ee-3a79-cab2-a823-a098608a0842}">
+          <customControl id="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}">
+            <parameters>
+              <datafieldname>con_d365partner</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.OptionSet.OptionSetControl">
+            <parameters>
+              <value>con_d365partner</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.OptionSet.OptionSetControl">
+            <parameters>
+              <value>con_d365partner</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.OptionSet.OptionSetControl">
+            <parameters>
+              <value>con_d365partner</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{04199de3-64da-7472-ea52-dec48dc3d5db}">
+          <customControl id="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}">
+            <parameters>
+              <datafieldname>con_partnerrating</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Rating.StarRatingControl">
+            <parameters>
+              <value>con_partnerrating</value>
+              <max static="true" type="Enum">5</max>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Rating.StarRatingControl">
+            <parameters>
+              <value>con_partnerrating</value>
+              <max static="true" type="Enum">5</max>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Rating.StarRatingControl">
+            <parameters>
+              <value>con_partnerrating</value>
+              <max static="true" type="Enum">5</max>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{6a5bb5ad-c27b-60c8-771e-deb1e9eb46dc}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>con_mainphone</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.InputMask.InputMaskControl">
+            <parameters>
+              <value>con_mainphone</value>
+              <mask static="true" type="SingleLine.Text">(000) 000 - 0000</mask>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.InputMask.InputMaskControl">
+            <parameters>
+              <value>con_mainphone</value>
+              <mask static="true" type="SingleLine.Text">(000) 000 - 0000</mask>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.InputMask.InputMaskControl">
+            <parameters>
+              <value>con_mainphone</value>
+              <mask static="true" type="SingleLine.Text">(000) 000 - 0000</mask>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
