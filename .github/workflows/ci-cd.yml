@@ -23,6 +23,10 @@ jobs:
         uses: ./.github/actions/pack-solution
         with: 
           name: con_admissions
+      - name: pack con_partnertrackingapplication
+        uses: ./.github/actions/pack-solution
+        with: 
+          name: con_partnertrackingapplication
       - uses: actions/upload-artifact@v2
         with:
           name: packed-solutions
@@ -53,3 +57,11 @@ jobs:
           client-secret: ${{ secrets.CLIENT_SECRET }}
           tenant-id: ${{ secrets.TENANT_ID }}
           solution-file: con_admissions_managed.zip
+      - name: Import con_partnertrackingapplication
+        uses: microsoft/powerplatform-actions/import-solution@v0
+        with:
+          environment-url: ${{ secrets.URL }}
+          app-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          solution-file: con_partnertrackingapplication_managed.zip
