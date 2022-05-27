@@ -7,14 +7,14 @@
     <FormActivationState>1</FormActivationState>
     <form headerdensity="HighWithControls">
       <tabs>
-        <tab verticallayout="true" id="{95721cea-31e4-4f0a-8bfb-9d04ba8a1394}" IsUserDefined="1">
+        <tab verticallayout="true" id="{95721cea-31e4-4f0a-8bfb-9d04ba8a1394}" IsUserDefined="1" name="General" contenttype="cardSections" visible="true">
           <labels>
             <label description="General" languagecode="1033" />
           </labels>
           <columns>
             <column width="100%">
               <sections>
-                <section showlabel="false" showbar="false" IsUserDefined="0" id="{623ba5c0-6d53-419f-b605-c96118865ee4}">
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{623ba5c0-6d53-419f-b605-c96118865ee4}" name="General">
                   <labels>
                     <label description="General" languagecode="1033" />
                   </labels>
@@ -172,7 +172,7 @@
         </rows>
       </footer>
       <Navigation>
-        <NavBar></NavBar>
+        <NavBar />
         <NavBarAreas>
           <NavBarArea Id="Info">
             <Titles>

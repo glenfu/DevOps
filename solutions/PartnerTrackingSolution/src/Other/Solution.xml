@@ -94,6 +94,10 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2205.1013)" />
+        <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2205.1013)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Partner" id="{92528b03-14c6-448a-a5f2-d87ec48d862d}" />
       </MissingDependency>
       <MissingDependency>
@@ -102,11 +106,23 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22051.00136)" />
+        <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22051.00136)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Partner" id="{92528b03-14c6-448a-a5f2-d87ec48d862d}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.OptionSet.OptionSetControl" displayName="MscrmControls.OptionSet.OptionSetControl" solution="CustomControlsCore (9.2.22051.00136)" />
+        <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.OptionSet.OptionSetControl" displayName="MscrmControls.OptionSet.OptionSetControl" solution="CustomControlsCore (9.2.22051.00136)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Partner" id="{92528b03-14c6-448a-a5f2-d87ec48d862d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.Rating.StarRatingControl" displayName="MscrmControls.Rating.StarRatingControl" solution="CustomControlsCore (9.2.22051.00136)" />
+        <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.Rating.StarRatingControl" displayName="MscrmControls.Rating.StarRatingControl" solution="CustomControlsCore (9.2.22051.00136)" />
