@@ -13,4 +13,4 @@ runs:
         solution-file: packed-solutions/${{ inputs.name }}.zip
         solution-folder: solutions/${{ inputs.name }}/src
         solution-type: Both
-        process-canvas-apps: solutions/${{ inputs.name }}/src
+        process-canvas-apps: 'solution-folder'
