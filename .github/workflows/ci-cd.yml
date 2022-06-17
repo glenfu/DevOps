@@ -35,10 +35,6 @@ jobs:
         uses: ./.github/actions/pack-solution
         with: 
           name: con_cases
-      - name: pack con_canvasapp
-        uses: ./.github/actions/pack-solution
-        with: 
-          name: con_canvasapp
       - name: pack casesurvey
         uses: ./.github/actions/pack-solution
         with: 
