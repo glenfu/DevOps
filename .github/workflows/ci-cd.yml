@@ -27,6 +27,22 @@ jobs:
         uses: ./.github/actions/pack-solution
         with: 
           name: con_partnertrackingapplication
+      - name: pack ContosoFlows
+        uses: ./.github/actions/pack-solution
+        with: 
+          name: ContosoFlows
+      - name: pack con_cases
+        uses: ./.github/actions/pack-solution
+        with: 
+          name: con_cases
+      - name: pack con_canvasapp
+        uses: ./.github/actions/pack-solution
+        with: 
+          name: con_canvasapp
+      - name: pack casesurvey
+        uses: ./.github/actions/pack-solution
+        with: 
+          name: casesurvey
       - uses: actions/upload-artifact@v2
         with:
           name: packed-solutions
