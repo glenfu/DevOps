@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>con_creatorkitapp_5fa6e</Name>
+  <AppVersion>2022-06-14T03:41:39Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.22055.13.0</CreatedByClientVersion>
+  <MinClientVersion>3.22055.13.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.22055.13","minimumRequiredApiVersion":"2.2.0","hasComponent":"true","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20220614T030248Z-3.22055.13.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>CreatorKitApp</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher xsi:nil="true"></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified"}},"dataSources":{"Contacts":{"entitySetName":"contacts","logicalName":"contact"}},"components":[{"componentName":"CustomControl","identifier":"cat_PowerCAT.FluentDetailsList","identifierType":"LogicalName","capabilities":{"pcfExternalServiceUsageAllowed":false}}]}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[{"appComponentName":"174a744e6baa47b4857cec5814d6422e","appName":"a644aa54-6615-47c4-a467-e7ef2edd2916","appComponentLibraryName":"1da09095-d6e5-4b5a-878d-db09d5db2c3b","appComponentLibraryVersion":"2022-06-14T02:25:02Z","appComponentLibraryLogicalName":"cat_powercatcomponentlibrary_0be3a","environmentName":"05a2eb5b-33e1-4734-bbc3-12cb19981391"},{"appComponentName":"2e88179d732a402184a767c94eab038b","appName":"a644aa54-6615-47c4-a467-e7ef2edd2916","appComponentLibraryName":"1da09095-d6e5-4b5a-878d-db09d5db2c3b","appComponentLibraryVersion":"2022-06-14T02:25:02Z","appComponentLibraryLogicalName":"cat_powercatcomponentlibrary_0be3a","environmentName":"05a2eb5b-33e1-4734-bbc3-12cb19981391"},{"appComponentName":"33750a84e06043cbb776fbb640114aaf","appName":"a644aa54-6615-47c4-a467-e7ef2edd2916","appComponentLibraryName":"1da09095-d6e5-4b5a-878d-db09d5db2c3b","appComponentLibraryVersion":"2022-06-14T02:25:02Z","appComponentLibraryLogicalName":"cat_powercatcomponentlibrary_0be3a","environmentName":"05a2eb5b-33e1-4734-bbc3-12cb19981391"},{"appComponentName":"44e7951b1fad4ad98126f8c108dd1e9f","appName":"a644aa54-6615-47c4-a467-e7ef2edd2916","appComponentLibraryName":"1da09095-d6e5-4b5a-878d-db09d5db2c3b","appComponentLibraryVersion":"2022-06-14T02:25:02Z","appComponentLibraryLogicalName":"cat_powercatcomponentlibrary_0be3a","environmentName":"05a2eb5b-33e1-4734-bbc3-12cb19981391"},{"appComponentName":"45ef3b58cba141ccb72325a8844e9634","appName":"a644aa54-6615-47c4-a467-e7ef2edd2916","appComponentLibraryName":"1da09095-d6e5-4b5a-878d-db09d5db2c3b","appComponentLibraryVersion":"2022-06-14T02:25:02Z","appComponentLibraryLogicalName":"cat_powercatcomponentlibrary_0be3a","environmentName":"05a2eb5b-33e1-4734-bbc3-12cb19981391"},{"appComponentName":"599bd02396dc426681a20784c48547f9","appName":"a644aa54-6615-47c4-a467-e7ef2edd2916","appComponentLibraryName":"1da09095-d6e5-4b5a-878d-db09d5db2c3b","appComponentLibraryVersion":"2022-06-14T02:25:02Z","appComponentLibraryLogicalName":"cat_powercatcomponentlibrary_0be3a","environmentName":"05a2eb5b-33e1-4734-bbc3-12cb19981391"},{"appComponentName":"6da4b2f929d240969e49e05e10e720ce","appName":"a644aa54-6615-47c4-a467-e7ef2edd2916","appComponentLibraryName":"1da09095-d6e5-4b5a-878d-db09d5db2c3b","appComponentLibraryVersion":"2022-06-14T02:25:02Z","appComponentLibraryLogicalName":"cat_powercatcomponentlibrary_0be3a","environmentName":"05a2eb5b-33e1-4734-bbc3-12cb19981391"},{"appComponentName":"952d39d80fc84420b772a5058b19d909","appName":"a644aa54-6615-47c4-a467-e7ef2edd2916","appComponentLibraryName":"1da09095-d6e5-4b5a-878d-db09d5db2c3b","appComponentLibraryVersion":"2022-06-14T02:25:02Z","appComponentLibraryLogicalName":"cat_powercatcomponentlibrary_0be3a","environmentName":"05a2eb5b-33e1-4734-bbc3-12cb19981391"}]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"contact","componenttype":1},{"dependencyid":"","logicalname":"cat_PowerCAT.FluentDetailsList","componenttype":66,"componenttypeplatformname":"CustomControl"},{"logicalname":"cat_powercatcomponentlibrary_0be3a","componenttype":300,"componenttypeplatformname":"CanvasApp"}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/con_creatorkitapp_5fa6e_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/con_creatorkitapp_5fa6e_DocumentUri.msapp</DocumentUri>
+</CanvasApp>
