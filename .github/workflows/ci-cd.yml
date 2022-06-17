@@ -35,10 +35,6 @@ jobs:
         uses: ./.github/actions/pack-solution
         with: 
           name: con_cases
-      - name: pack casesurvey
-        uses: ./.github/actions/pack-solution
-        with: 
-          name: casesurvey
       - uses: actions/upload-artifact@v2
         with:
           name: packed-solutions
