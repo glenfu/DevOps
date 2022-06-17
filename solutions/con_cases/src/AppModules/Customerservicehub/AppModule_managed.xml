@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>Customerservicehub</UniqueName>
+  <IntroducedVersion>9.0.0.0</IntroducedVersion>
+  <WebResourceId>21aa1d8b-2c55-e711-80f0-000d3aa2b1c4</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_ksinsights" solutionaction="Added" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{3dac4d9e-568c-e611-80d4-00155d42a122}" />
+    <Role id="{e8fb3146-7717-ec11-b1b7-000d3af68e17}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Customer Service Hub" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A focused, interactive experience for managing your customer service." languagecode="1033" />
+  </Descriptions>
+</AppModule>

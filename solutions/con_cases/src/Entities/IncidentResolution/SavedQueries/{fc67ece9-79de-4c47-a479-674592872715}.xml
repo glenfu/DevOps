@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{fc67ece9-79de-4c47-a479-674592872715}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
+        <row name="result" id="activityid">
+          <cell name="subject" width="232" />
+          <cell name="a_8cbf6c66098c408caf2b18487be32c21.createdon" width="230" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="incidentresolution">
+          <attribute name="activityid" />
+          <attribute name="subject" />
+          <filter type="and">
+            <condition attribute="statecode" operator="not-null" />
+          </filter>
+          <order attribute="subject" descending="false" />
+          <link-entity alias="a_8cbf6c66098c408caf2b18487be32c21" name="activitypointer" to="activityid" from="activityid" link-type="outer" visible="false">
+            <attribute name="createdon" />
+          </link-entity>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Incident Resolution View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
