@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>cr529_casesurvey1_3958d</Name>
+  <AppVersion>2022-06-15T03:42:25Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.22061.6.0</CreatedByClientVersion>
+  <MinClientVersion>3.22061.6.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"768","primaryDeviceHeight":"1366","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.22061.6","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false","sienaVersion":"20220614T104405Z-3.22054.15.0"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>Case Survey1</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"6c809fea-c346-4030-a8aa-c632cb73979b":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png","dataSources":["CreateSurveyTaskactivity"],"dependencies":["f8c7dfe7-868e-4a4a-8522-e8fddb652af3"],"dependents":[],"parameterHints":{"workflowName":{"value":"e075e190-cc91-4309-a72d-5086bd0f9daa"},"workflowEntityId":{"value":"cf1a0e10-5dec-ec11-bb3c-002248174cae"},"f8c7dfe7-868e-4a4a-8522-e8fddb652af3":{"value":"shared_commondataserviceforapps"}},"parameterHintsV2":{"workflowName":{"value":"e075e190-cc91-4309-a72d-5086bd0f9daa"},"workflowEntityId":{"value":"cf1a0e10-5dec-ec11-bb3c-002248174cae"},"shared_commondataserviceforapps":{"value":"f8c7dfe7-868e-4a4a-8522-e8fddb652af3"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"f8c7dfe7-868e-4a4a-8522-e8fddb652af3":{"id":"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps","displayName":"Microsoft Dataverse","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1584/1.0.1584.2880/commondataserviceforapps/icon.png","dataSources":[],"dependencies":[],"dependents":["6c809fea-c346-4030-a8aa-c632cb73979b"],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium"}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified"}},"dataSources":{"Accounts":{"entitySetName":"accounts","logicalName":"account"},"Contacts":{"entitySetName":"contacts","logicalName":"contact"},"Cases":{"entitySetName":"incidents","logicalName":"incident"},"Teams":{"entitySetName":"teams","logicalName":"team"},"Users":{"entitySetName":"systemusers","logicalName":"systemuser"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>2</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"logicalname":"account","componenttype":1},{"logicalname":"contact","componenttype":1},{"logicalname":"incident","componenttype":1},{"logicalname":"team","componenttype":1},{"logicalname":"systemuser","componenttype":1}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/cr529_casesurvey1_3958d_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/cr529_casesurvey1_3958d_DocumentUri.msapp</DocumentUri>
+</CanvasApp>

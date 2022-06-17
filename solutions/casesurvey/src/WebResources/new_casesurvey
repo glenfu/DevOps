@@ -1,0 +1,31 @@
+function run(selectedItems)
+{
+    let selectedItem = selectedItems[0];
+
+    if (selectedItem) {     
+        let pageInput = {
+            pageType: "custom",
+            name: "cr529_casesurvey1_3958d",
+            entityName: selectedItem.TypeName,
+            recordId: selectedItem.Id,
+        };
+        let navigationOptions = {
+            target: 2, 
+            position: 2,
+            width: {value: 500, unit: "px"},
+            title: "Case Survey"
+        };
+        Xrm.Navigation.navigateTo(pageInput, navigationOptions)
+            .then(
+                function () {
+                    // Handle success
+                    console.log("Success");
+                }
+            ).catch(
+                function (error) {
+                    // Handle error
+                    console.log(error);
+                }
+            );
+    }
+}

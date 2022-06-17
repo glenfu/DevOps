@@ -1,0 +1,152 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_14ee2"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "f8a4aa05-4b94-477f-aa12-c9a33cb834d0"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Addanewrow_Subject": {
+                  "type": "string",
+                  "description": "Type a short description about the objective or primary topic of the task.. This parameter is used as part of \"D749B771-3F0C-401E-ADE9-A5900B31094C\"",
+                  "x-ms-powerflows-param-ispartial": true
+                },
+                "Addanewrow_Subject_1": {
+                  "type": "string"
+                },
+                "Addanewrow_Description": {
+                  "type": "string",
+                  "description": "Type additional information to describe the task.. This parameter is used as part of \"CB8040A2-1904-45D6-AAFF-271AB854FB0B\"",
+                  "x-ms-powerflows-param-ispartial": true
+                },
+                "Addanewrow_Regarding(Contacts)": {
+                  "type": "string",
+                  "description": "Choose the record that the task relates to.. This parameter is used as part of \"63EDD36E-6132-4BC0-8B68-0D562B94BFA9\"",
+                  "x-ms-powerflows-param-ispartial": true
+                }
+              },
+              "required": [
+                "Addanewrow_Subject",
+                "Addanewrow_Subject_1",
+                "Addanewrow_Description",
+                "Addanewrow_Regarding(Contacts)"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Add_a_new_row": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "4ceea5af-fc49-46e3-869b-c676d0e37055"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "tasks",
+              "item/subject": "Case survey with @{triggerBody()['Addanewrow_Subject']} regarding Case @{triggerBody()['Addanewrow_Subject_1']}",
+              "item/description": "Support Rating\n@{triggerBody()['Addanewrow_Description']}",
+              "item/scheduledend": "@utcNow()",
+              "item/regardingobjectid_contact_task@odata.bind": "/contacts(@{triggerBody()['Addanewrow_Regarding(Contacts)']})"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Update_a_row": {
+          "runAfter": {
+            "Add_a_new_row": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "555b5823-63d0-4403-a2c8-691d394704b9"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "tasks",
+              "recordId": "@outputs('Add_a_new_row')?['body/activityid']",
+              "item/statecode": 1
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Respond_to_a_PowerApp_or_flow": {
+          "runAfter": {
+            "Update_a_row": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e6455d17-1ac8-4f81-a530-6e28c71f2e9a"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "flowresponse": "Task Survey record successfully created"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "flowresponse": {
+                  "title": "FlowResponse",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
