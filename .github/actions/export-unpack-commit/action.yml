@@ -58,7 +58,7 @@ runs:
         solution-file: ${{ inputs.solution-name }}.zip
         solution-folder: solutions/${{ inputs.solution-name }}/src
         solution-type: Both
-        process-canvas-apps: 'solution-folder'
+        #process-canvas-apps: 'solution-folder'
     - uses: endbug/add-and-commit@v8
       with:
         message: ${{ inputs.message }}
