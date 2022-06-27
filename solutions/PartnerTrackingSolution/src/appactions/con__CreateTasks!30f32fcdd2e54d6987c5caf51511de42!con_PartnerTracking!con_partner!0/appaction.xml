@@ -1,0 +1,32 @@
+<appaction uniquename="con__CreateTasks!30f32fcdd2e54d6987c5caf51511de42!con_PartnerTracking!con_partner!0">
+  <appmoduleid>
+    <uniquename>con_PartnerTracking</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Create Tasks">
+    <label description="Create Tasks" languagecode="1033" />
+  </buttonlabeltext>
+  <buttonsequencepriority>10.0000000000</buttonsequencepriority>
+  <context>1</context>
+  <contextentity>
+    <logicalname>con_partner</logicalname>
+  </contextentity>
+  <contextvalue>con_partner</contextvalue>
+  <hidden>0</hidden>
+  <iconwebresourceid>
+    <webresourceid>8b58660d-be50-4d47-bad0-e7aa6f2f0fdc</webresourceid>
+  </iconwebresourceid>
+  <iscustomizable>1</iscustomizable>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>CreateTasks!30f32fcdd2e54d6987c5caf51511de42</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>con_partnertrackingdefaultcommandlibrary_ea635</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>4b497998bc024c98bde27608a6e6d926</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilitytype>0</visibilitytype>
+</appaction>

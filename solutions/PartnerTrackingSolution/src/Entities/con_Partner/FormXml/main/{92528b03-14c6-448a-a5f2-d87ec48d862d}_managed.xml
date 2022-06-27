@@ -52,6 +52,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{bfbb5290-6943-46d9-866d-035fd4d6086f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Man-Day Cost Price" languagecode="1033" />
+                        </labels>
+                        <control id="con_mandaycostprice" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="con_mandaycostprice" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7ae4b6cf-d1da-43a9-aadd-a5adaff589e7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Man-Day Rate" languagecode="1033" />
+                        </labels>
+                        <control id="con_mandayrate" classid="{533B9E00-756B-4312-95A0-DC888637AC78}" datafieldname="con_mandayrate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{f8938b4f-fd70-42b3-b558-327a4dd63185}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
                         <labels>
                           <label description="Microsoft Partner" languagecode="1033" />

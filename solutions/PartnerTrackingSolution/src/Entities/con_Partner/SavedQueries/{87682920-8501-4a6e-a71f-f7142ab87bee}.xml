@@ -14,6 +14,8 @@
           <cell name="con_website" width="133" />
           <cell name="con_mainphone" width="128" />
           <cell name="con_partnernumber" width="190" />
+          <cell name="con_contractstart" width="100" />
+          <cell name="con_contractend" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -30,6 +32,8 @@
           <attribute name="con_website" />
           <attribute name="con_mainphone" />
           <attribute name="con_partnernumber" />
+          <attribute name="con_contractstart" />
+          <attribute name="con_contractend" />
         </entity>
       </fetch>
     </fetchxml>

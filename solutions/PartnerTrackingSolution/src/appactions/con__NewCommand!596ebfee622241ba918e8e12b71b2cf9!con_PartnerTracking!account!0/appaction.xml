@@ -1,0 +1,29 @@
+<appaction uniquename="con__NewCommand!596ebfee622241ba918e8e12b71b2cf9!con_PartnerTracking!account!0">
+  <appmoduleid>
+    <uniquename>con_PartnerTracking</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Update Account">
+    <label description="Update Account" languagecode="1033" />
+  </buttonlabeltext>
+  <buttonsequencepriority>5.5000000000</buttonsequencepriority>
+  <context>1</context>
+  <contextentity>
+    <logicalname>account</logicalname>
+  </contextentity>
+  <contextvalue>account</contextvalue>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>NewCommand!596ebfee622241ba918e8e12b71b2cf9</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>con_partnertrackingdefaultcommandlibrary_ea635</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>192cc335ea6445d1a9698f476c962ba0</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilitytype>0</visibilitytype>
+</appaction>

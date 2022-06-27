@@ -13,6 +13,7 @@
     <AppModuleComponent type="1" schemaName="con_partner" />
     <AppModuleComponent type="1" schemaName="contact" />
     <AppModuleComponent type="1" schemaName="account" />
+    <AppModuleComponent type="1" schemaName="task" />
     <AppModuleComponent type="62" schemaName="con_PartnerTracking" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
@@ -22,4 +23,13 @@
   <LocalizedNames>
     <LocalizedName description="Partner Tracking" languagecode="1033" />
   </LocalizedNames>
+  <appelements>
+    <appelement uniquename="con_con_PartnerTracking_canvasappid_con_partnertrackingdefaultcommandlibrary_ea635">
+      <canvasappid>
+        <name>con_partnertrackingdefaultcommandlibrary_ea635</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>con_con_PartnerTracking_canvasappid_con_partnertrackingdefaultcommandlibrary_ea635</name>
+    </appelement>
+  </appelements>
 </AppModule>

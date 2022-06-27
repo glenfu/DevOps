@@ -13,6 +13,7 @@
   <AppModuleSiteMaps />
   <AppModules />
   <EntityDataProviders />
+  <CanvasApps />
   <msdyn_helppages>
     <msdyn_helppage msdyn_helppageid="6671903b-36db-ec11-bb3c-00224817478b">
       <iscustomizable>1</iscustomizable>
