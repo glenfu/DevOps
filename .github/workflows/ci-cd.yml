@@ -23,10 +23,10 @@ jobs:
         uses: ./.github/actions/pack-solution
         with: 
           name: con_admissions
-      - name: pack con_partnertrackingapplication
+      - name: pack PartnerTrackingSolution
         uses: ./.github/actions/pack-solution
         with: 
-          name: con_partnertrackingapplication
+          name: PartnerTrackingSolution
       - name: pack ContosoFlows
         uses: ./.github/actions/pack-solution
         with: 
