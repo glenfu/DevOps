@@ -10,11 +10,15 @@
     <layoutxml>
       <grid name="resultset" jump="con_name" select="1" icon="1" preview="1">
         <row name="result" id="con_partnerid">
-          <cell name="con_name" width="300" />
+          <cell name="con_name" width="166" />
           <cell name="con_website" width="133" />
           <cell name="con_mainphone" width="128" />
-          <cell name="con_partnernumber" width="190" />
-          <cell name="con_partnerrating" width="100" />
+          <cell name="con_partnernumber" width="124" />
+          <cell name="con_contractstart" width="107" />
+          <cell name="con_contractend" width="100" />
+          <cell name="con_startrenewal" width="100" />
+          <cell name="modifiedon" width="100" />
+          <cell name="modifiedby" width="100" />
         </row>
       </grid>
     </layoutxml>
@@ -31,7 +35,11 @@
           <attribute name="con_website" />
           <attribute name="con_mainphone" />
           <attribute name="con_partnernumber" />
-          <attribute name="con_partnerrating" />
+          <attribute name="modifiedon" />
+          <attribute name="modifiedby" />
+          <attribute name="con_contractstart" />
+          <attribute name="con_contractend" />
+          <attribute name="con_startrenewal" />
         </entity>
       </fetch>
     </fetchxml>
