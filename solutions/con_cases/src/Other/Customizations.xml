@@ -5,6 +5,13 @@
   <Workflows />
   <FieldSecurityProfiles />
   <Templates />
+  <AttributeImageConfigs>
+    <AttributeImageConfig>
+      <attributelogicalname>con_caseimage</attributelogicalname>
+      <parententitylogicalname>incident</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
+  </AttributeImageConfigs>
   <EntityMaps />
   <EntityRelationships />
   <OrganizationSettings />

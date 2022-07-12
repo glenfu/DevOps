@@ -146,6 +146,22 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{351051e9-0f16-4749-9d23-5d73d868b7d6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Case Image" languagecode="1033" />
+                        </labels>
+                        <control id="con_caseimage" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="con_caseimage" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1b7b2569-435b-49a1-964d-5791dd68edc6}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Case File" languagecode="1033" />
+                        </labels>
+                        <control id="con_casefile" classid="{0A7FF475-B016-4687-9CE5-042BFDBD6519}" datafieldname="con_casefile" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{77a8a1e6-1eb3-5d38-bcb6-8dc29b646cd5}" showlabel="true" locklevel="0" visible="false" labelid="{19c44385-f7d5-43e1-a801-c5c1362a8ec3}">
                         <labels>
                           <label description="IoT Alert" languagecode="1033" />
@@ -940,8 +956,7 @@
         </rows>
       </header>
       <DisplayConditions FallbackForm="true" Order="11">
-        <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
-        <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+        <Everyone />
       </DisplayConditions>
       <events>
         <event name="onload" application="true" active="true">
