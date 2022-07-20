@@ -1,0 +1,87 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_14ee2"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "37c65226-40dd-4e4a-9ef1-46b9edcdd765"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "List_rows": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "0d32ffc5-6d00-4095-9eff-b6daee8ef05e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "audits",
+              "fetchXml": "<fetch>\n  <!-- Table -->\n  <entity name=\"audit\">\n    <link-entity name=\"systemuser\" from=\"systemuserid\" to=\"objectid\">\n      <attribute name=\"fullname\" />\n    </link-entity>\n    <!-- Columns -->\n    <attribute name=\"auditid\" />\n    <attribute name=\"callinguserid\" />\n    <attribute name=\"userid\" />\n    <attribute name=\"createdon\" />\n    <attribute name=\"action\" />\n    <attribute name=\"operation\" />\n    <attribute name=\"objectid\" />\n    <attribute name=\"regardingobjectid\" />\n    <attribute name=\"transactionid\" />\n    <attribute name=\"useradditionalinfo\" />\n    <!-- Filter By -->\n    <filter type=\"or\">\n      <condition attribute=\"action\" operator=\"eq\" value=\"64\">\n        <!--user access via web-->\n      </condition>\n      <condition attribute=\"action\" operator=\"eq\" value=\"65\">\n        <!--user access via web service -->\n      </condition>\n    </filter>\n  </entity>\n</fetch>",
+              "$top": 10
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Create_HTML_table": {
+          "runAfter": {
+            "List_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ac760bf4-08b0-4af6-a00d-c1047f0305b7"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@outputs('List_rows')?['body/value']",
+            "format": "HTML"
+          }
+        }
+      },
+      "outputs": {}
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
