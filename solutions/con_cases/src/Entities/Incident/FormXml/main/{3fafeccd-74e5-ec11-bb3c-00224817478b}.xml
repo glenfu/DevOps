@@ -24,6 +24,7 @@
                       <cell id="{70cc3529-ab81-650b-3bd0-3147ba77667d}" showlabel="true" locklevel="0" labelid="{df1c51d2-6426-4360-a4d1-a8f01589ce7b}">
                         <labels>
                           <label description="Case Title" languagecode="1033" />
+                          <label description="Título de caso" languagecode="3082" />
                         </labels>
                         <control id="title" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="title" disabled="false" uniqueid="{2cbdb9b2-8e18-363a-488e-61c12c86d761}" />
                       </cell>
@@ -32,6 +33,7 @@
                       <cell id="{f28544c6-382e-4e29-a09c-3f2804012d04}" showlabel="true" locklevel="0" labelid="{30cd63e1-e566-4e1a-864e-b0dc2596faec}">
                         <labels>
                           <label description="ID" languagecode="1033" />
+                          <label description="Número de caso" languagecode="3082" />
                         </labels>
                         <control id="ticketnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="ticketnumber" disabled="true" />
                       </cell>
@@ -40,6 +42,7 @@
                       <cell id="{b6f69544-6287-4b8a-b60c-3d66f1cac75d}" userspacer="0" labelid="{635c316c-6ba4-412b-b1bd-543afb7bc106}">
                         <labels>
                           <label description="Subject" languagecode="1033" />
+                          <label description="Asunto" languagecode="3082" />
                         </labels>
                         <control id="subjectid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="subjectid" />
                       </cell>
@@ -48,6 +51,7 @@
                       <cell id="{b579ee22-ced2-44ed-0bb8-8290e9b23164}" showlabel="true" locklevel="0" labelid="{b71cb672-a3d8-41a3-bb31-e1730f6083b0}">
                         <labels>
                           <label description="Customer" languagecode="1033" />
+                          <label description="Cliente" languagecode="3082" />
                         </labels>
                         <control id="customerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="customerid" disabled="false" />
                       </cell>
@@ -56,6 +60,7 @@
                       <cell id="{76d17ce6-ce11-da3c-aeee-e2886e506221}" showlabel="true" locklevel="0" labelid="{26d6b4d7-d5bf-4f7f-b8e9-2884280fa827}">
                         <labels>
                           <label description="Origin" languagecode="1033" />
+                          <label description="Origen" languagecode="3082" />
                         </labels>
                         <control id="caseorigincode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="caseorigincode" disabled="false" />
                       </cell>
@@ -64,6 +69,7 @@
                       <cell id="{26940645-ec02-4f99-bbcf-c4cc33a2be4c}" showlabel="true" locklevel="0" labelid="{998fedfb-4e49-4e50-8275-5e4d038b26cb}">
                         <labels>
                           <label description="Contact" languagecode="1033" />
+                          <label description="Contacto" languagecode="3082" />
                         </labels>
                         <events>
                           <event name="onclick" application="true" active="true">
@@ -97,6 +103,7 @@
                       <cell id="{959273e2-e600-3b18-6572-763b94414e67}" showlabel="true" locklevel="0" labelid="{00508aa8-87ec-4c0f-b982-71d19a5703ad}">
                         <labels>
                           <label description="Entitlement" languagecode="1033" />
+                          <label description="Derecho" languagecode="3082" />
                         </labels>
                         <events>
                           <event name="onclick" application="true" active="true">
@@ -136,6 +143,7 @@
                       <cell id="{2973ce06-0486-461f-9381-48a174703d01}" labelid="{82da142c-0384-44f9-b40d-497846f0dcf1}">
                         <labels>
                           <label description="Product" languagecode="1033" />
+                          <label description="Producto" languagecode="3082" />
                         </labels>
                         <control id="productid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="productid">
                           <parameters>
@@ -165,6 +173,7 @@
                       <cell id="{77a8a1e6-1eb3-5d38-bcb6-8dc29b646cd5}" showlabel="true" locklevel="0" visible="false" labelid="{19c44385-f7d5-43e1-a801-c5c1362a8ec3}">
                         <labels>
                           <label description="IoT Alert" languagecode="1033" />
+                          <label description="Alerta de IoT" languagecode="3082" />
                         </labels>
                         <control id="msdyn_iotalert" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_iotalert" disabled="false" />
                       </cell>
@@ -180,6 +189,7 @@
                       <cell id="{2D8C61A2-7CFC-4DD8-A8AF-2CB82760E559}" showlabel="false" locklevel="0" rowspan="8" auto="true" labelid="{b87b9b09-160c-47ff-b0c1-8a7f766bd9c2}">
                         <labels>
                           <label description="Description" languagecode="1033" />
+                          <label description="Descripción" languagecode="3082" />
                         </labels>
                         <control id="description" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="description" disabled="false" />
                       </cell>
@@ -202,6 +212,7 @@
                       <cell id="{9ed95127-7c3c-9c3e-a424-07d8144a246d}" showlabel="true" locklevel="0" labelid="{9cb9862f-f634-4405-b375-2c39dbe98753}">
                         <labels>
                           <label description="First Response By" languagecode="1033" />
+                          <label description="Primera respuesta por" languagecode="3082" />
                         </labels>
                         <control id="responseby" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="responseby" disabled="true" />
                       </cell>
@@ -210,6 +221,7 @@
                       <cell id="{573b6d21-4cc3-20c7-00c0-97160b24567a}" showlabel="true" locklevel="0" labelid="{c6a12fef-661c-4723-a63e-b653b54db8ce}">
                         <labels>
                           <label description="Resolve By" languagecode="1033" />
+                          <label description="Resolver por" languagecode="3082" />
                         </labels>
                         <control id="resolveby" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="resolveby" disabled="true" />
                       </cell>
@@ -225,6 +237,7 @@
                       <cell locklevel="0" id="{78943991-0489-4534-af55-e304970ac11a}" rowspan="1" colspan="1" auto="false" labelid="{051d5ab7-f876-4c3e-9af5-29dcc71a547a}">
                         <labels>
                           <label description="Case Resolution" languagecode="1033" />
+                          <label description="Resoluciones de caso" languagecode="3082" />
                         </labels>
                         <control indicationOfSubgrid="true" id="Subgrid_caseresolution" classid="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
                           <parameters>
@@ -264,6 +277,7 @@
                       <cell id="{75bc5581-dde6-d9e8-a877-5a28e96246ee}" showlabel="true" colspan="1" auto="false" rowspan="7" labelid="{3e06bdf4-1fe2-4fb7-8228-3bc1d81f5e2b}">
                         <labels>
                           <label description="SIMILAR CASES" languagecode="1033" />
+                          <label description="Conexiones" languagecode="3082" />
                         </labels>
                         <control id="RelatedSolutionGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
                           <parameters>
@@ -323,6 +337,7 @@
                       <cell id="{db20c8bd-b402-4323-83ac-514921ab7ca5}" showlabel="true" colspan="1" auto="false" rowspan="7" labelid="{ee0c1d7e-02b1-40c5-9853-79389946aa67}">
                         <labels>
                           <label description="MERGED CASES" languagecode="1033" />
+                          <label description="Casos" languagecode="3082" />
                         </labels>
                         <control id="MergedCasesGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
                           <parameters>
@@ -362,6 +377,7 @@
                       <cell id="{363a5e29-8bfe-492f-8a8f-d0e1c114f2f9}" showlabel="true" colspan="1" auto="false" rowspan="7" labelid="{7cccb732-0b1a-405c-904b-c4514d88321b}">
                         <labels>
                           <label description="CHILD CASES" languagecode="1033" />
+                          <label description="Casos" languagecode="3082" />
                         </labels>
                         <control id="ChildCasesGrid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
                           <parameters>
@@ -408,6 +424,7 @@
                       <cell id="{d9842a79-9570-417e-9d7c-817d09bf3e7d}" showlabel="true" colspan="2" auto="false" rowspan="7" labelid="{bc3b1e32-7631-4a20-b0af-8a6f44b3c071}">
                         <labels>
                           <label description="ASSOCIATED KNOWLEDGE RECORDS" languagecode="1033" />
+                          <label description="Registros de Knowledge Base" languagecode="3082" />
                         </labels>
                         <control id="Associated_Articles" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
                           <parameters>
@@ -443,6 +460,7 @@
                       <cell id="{5da7be3a-8fac-486b-aa24-c8fb1092cda3}" showlabel="true" colspan="2" auto="false" rowspan="7" labelid="{f3425e0e-490b-4636-bc7e-fc6e90da806e}">
                         <labels>
                           <label description="ASSOCIATED KNOWLEDGE RECORDS" languagecode="1033" />
+                          <label description="Incidentes de artículos de conocimientos" languagecode="3082" />
                         </labels>
                         <control id="Associated_KnowledgeArticles" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
                           <parameters>
@@ -489,6 +507,7 @@
                       <cell id="{347988d6-75a0-4464-bf4c-098e348c1a0d}" colspan="1" showlabel="false" labelid="{2b98f93d-54ed-467a-9a55-dc81ea429497}">
                         <labels>
                           <label description="First Response By KPI" languagecode="1033" />
+                          <label description="Primera respuesta por KPI" languagecode="3082" />
                         </labels>
                         <control id="firstresponseslaquickform" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="firstresponsebykpiid" disabled="false">
                           <parameters>
@@ -502,6 +521,7 @@
                       <cell id="{c26fcdc2-fdac-4bed-a853-cfb9438d2591}" colspan="1" showlabel="false" labelid="{fdcf43f4-2a4f-4bb3-9196-04fc118c7ff0}">
                         <labels>
                           <label description="Resolve By KPI" languagecode="1033" />
+                          <label description="Resolver por KPI" languagecode="3082" />
                         </labels>
                         <control id="resolvebyslaquickform" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="resolvebykpiid" disabled="false">
                           <parameters>
@@ -526,6 +546,7 @@
                       <cell id="{c896a94e-e4c9-45ed-927c-a339d76a693c}" showlabel="false" colspan="1" auto="false" rowspan="2" labelid="{1ccec3df-0f6a-47a7-b888-ea0aac7e9118}">
                         <labels>
                           <label description="SLA KPI Instances" languagecode="1033" />
+                          <label description="Instancias de KPI de SLA" languagecode="3082" />
                         </labels>
                         <control id="SLA_KPI_Instances_List" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
                           <parameters>
@@ -567,6 +588,7 @@
                       <cell id="{b03cc760-ab70-463c-ba03-6ec64efff698}" showlabel="true" locklevel="0" labelid="{1e0a486b-4dad-485b-a55d-36d29217b3b3}">
                         <labels>
                           <label description="Type" languagecode="1033" />
+                          <label description="Tipo de caso" languagecode="3082" />
                         </labels>
                         <control id="casetypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="casetypecode" disabled="false" />
                       </cell>
@@ -575,6 +597,7 @@
                       <cell id="{622a5065-a78e-4caf-ad1a-9ccafe579e93}" showlabel="true" locklevel="0" labelid="{91a59e29-e081-41ef-a1fe-877b3047f8e9}">
                         <labels>
                           <label description="Parent Case" languagecode="1033" />
+                          <label description="Caso principal" languagecode="3082" />
                         </labels>
                         <control id="parentcaseid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="parentcaseid" disabled="false">
                           <parameters>
@@ -598,6 +621,7 @@
                       <cell id="{e6273a33-39c6-43d2-93d3-70ed6ff36171}" showlabel="true" locklevel="0" labelid="{edf3302e-a194-4a48-8200-dcf12df39d32}">
                         <labels>
                           <label description="Escalated" languagecode="1033" />
+                          <label description="Se ha remitido a una instancia superior" languagecode="3082" />
                         </labels>
                         <control id="isescalated" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="isescalated" disabled="false" />
                       </cell>
@@ -606,6 +630,7 @@
                       <cell id="{09c5bc1b-4992-4b9b-9077-b6cc1c73fbb3}" showlabel="true" locklevel="0" labelid="{882cba1c-7ae0-4f4b-a8bf-56b3280e5a78}">
                         <labels>
                           <label description="Escalated On" languagecode="1033" />
+                          <label description="Remitido a una instancia superior el" languagecode="3082" />
                         </labels>
                         <control id="escalatedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="escalatedon" disabled="false" />
                       </cell>
@@ -625,6 +650,7 @@
                       <cell id="{420032d6-21a9-4ca2-95f9-dcf3b9684d78}" showlabel="true" locklevel="0" labelid="{83080f75-63d4-4c16-883b-d2f00b17e0e2}">
                         <labels>
                           <label description="Follow Up By" languagecode="1033" />
+                          <label description="Seguimiento para el" languagecode="3082" />
                         </labels>
                         <control id="followupby" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="followupby" disabled="false" />
                       </cell>
@@ -633,6 +659,7 @@
                       <cell id="{c5fdfac4-9406-4ad1-b114-f409eec9e514}" showlabel="true" locklevel="0" labelid="{a5481a2b-2446-4768-a4f8-682929c582aa}">
                         <labels>
                           <label description="First Response Sent" languagecode="1033" />
+                          <label description="Primera respuesta enviada" languagecode="3082" />
                         </labels>
                         <control id="firstresponsesent" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="firstresponsesent" disabled="false" />
                       </cell>
@@ -659,6 +686,7 @@
                       <cell id="{acb2c742-73f1-4545-970a-870272bf1eb9}" showlabel="true" locklevel="0" labelid="{5d7fb18e-5000-43d4-96f6-f74daa136c1c}">
                         <labels>
                           <label description="Social Profile" languagecode="1033" />
+                          <label description="Perfil social" languagecode="3082" />
                         </labels>
                         <control id="socialprofileid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="socialprofileid" disabled="true" />
                       </cell>
@@ -667,6 +695,7 @@
                       <cell id="{0b018f6d-2937-4c0b-93f0-ae5f02280e2e}" showlabel="true" locklevel="0" labelid="{c9414129-21e3-4084-8ddc-8b16fcfdc0cd}">
                         <labels>
                           <label description="Received As" languagecode="1033" />
+                          <label description="Recibido como" languagecode="3082" />
                         </labels>
                         <control id="messagetypecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="messagetypecode" disabled="true" />
                       </cell>
@@ -686,6 +715,7 @@
                       <cell id="{10B6F366-35D9-4213-A88E-0B1B518E29DD}" showlabel="true" locklevel="0" labelid="{1e8f8a9b-044f-4521-bdbd-6dd0683ff626}">
                         <labels>
                           <label description="Influence Score" languagecode="1033" />
+                          <label description="Puntuación con influencia" languagecode="3082" />
                         </labels>
                         <control id="influencescore" classid="{0D2C745A-E5A8-4c8f-BA63-C6D3BB604660}" datafieldname="influencescore" disabled="true" />
                       </cell>
@@ -694,6 +724,7 @@
                       <cell id="{13650be6-418b-4440-949a-2179f20ed339}" showlabel="true" locklevel="0" labelid="{741c7be9-c9fc-4d9a-bcc0-fba88385c118}">
                         <labels>
                           <label description="Sentiment Score" languagecode="1033" />
+                          <label description="Valor de la opinión" languagecode="3082" />
                         </labels>
                         <control id="sentimentvalue" classid="{0D2C745A-E5A8-4c8f-BA63-C6D3BB604660}" datafieldname="sentimentvalue" disabled="true" />
                       </cell>
@@ -713,6 +744,7 @@
                       <cell id="{e7695773-b77d-4285-b57a-339cadbc233e}" showlabel="true" locklevel="0" labelid="{12bf7103-1a38-48f5-8714-6a2853ead3df}">
                         <labels>
                           <label description="Blocked Profile" languagecode="1033" />
+                          <label description="Perfil bloqueado" languagecode="3082" />
                         </labels>
                         <control id="blockedprofile" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="blockedprofile" disabled="true" />
                       </cell>
@@ -739,6 +771,7 @@
                       <cell colspan="2" id="{44424fb9-0507-4f9f-b42f-3d76f7c4d30d}" labelid="{808de302-bd06-4f9f-8121-d9fb42c83223}">
                         <labels>
                           <label description="Knowledge Base Article" languagecode="1033" />
+                          <label description="Artículo de Knowledge Base" languagecode="3082" />
                         </labels>
                         <events>
                           <event name="onshowdialog" application="true" active="true">
@@ -775,6 +808,7 @@
                       <cell id="{e41a12bc-599d-46be-85ca-e2c681350078}" labelid="{b3c91c52-13bb-4c19-87bd-dedcd5459e28}">
                         <labels>
                           <label description="Contract" languagecode="1033" />
+                          <label description="Contrato" languagecode="3082" />
                         </labels>
                         <events>
                           <event name="onclick" application="true" active="true">
@@ -808,6 +842,7 @@
                       <cell id="{a0d5255c-e331-4297-a8f8-805e03921086}" labelid="{0b06fe70-4a09-435a-9f6c-59a86893d064}">
                         <labels>
                           <label description="Contract Line" languagecode="1033" />
+                          <label description="Línea de contrato" languagecode="3082" />
                         </labels>
                         <events>
                           <event name="onclick" application="true" active="true">
@@ -836,6 +871,7 @@
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" id="{7d716e7b-bccd-4984-afce-02c47a9753c4}" labelid="{de4cc378-3d72-4216-9015-7ca0a8e8054d}">
                         <labels>
                           <label description="Serial Number" languagecode="1033" />
+                          <label description="Número de serie" languagecode="3082" />
                         </labels>
                         <control id="productserialnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="productserialnumber" disabled="false" />
                       </cell>
@@ -844,6 +880,7 @@
                       <cell auto="false" showlabel="true" locklevel="0" rowspan="1" colspan="1" id="{b5aed07b-ae04-485a-a45a-17b5261fa8a7}" labelid="{77e5dada-f34d-47c8-b16e-9eed87bfc753}">
                         <labels>
                           <label description="Service Level" languagecode="1033" />
+                          <label description="Nivel de servicio" languagecode="3082" />
                         </labels>
                         <control id="contractservicelevelcode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="contractservicelevelcode" disabled="false" />
                       </cell>
@@ -870,6 +907,7 @@
                       <cell id="{07029775-963b-bdbb-7dcb-e9d66118a8e0}" showlabel="false" locklevel="0" labelid="{abcd0ca5-fa56-45e9-86ac-cf3d977e4b4a}">
                         <labels>
                           <label description="Device Readings" languagecode="1033" />
+                          <label description="Alerta de IoT" languagecode="3082" />
                         </labels>
                         <control disabled="false" id="msdyn_iotalert" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="msdyn_iotalert" uniqueid="{3953d424-67da-227d-5e86-812ae4b2e85b}" />
                       </cell>
@@ -904,6 +942,7 @@
                       <cell id="{15e5a376-70d7-0435-9aae-8c5b232c3dae}" showlabel="true" locklevel="0" labelid="{8883487d-5b41-4223-9a9b-b24f547977bc}">
                         <labels>
                           <label description="Functional Location" languagecode="1033" />
+                          <label description="Ubicación técnica" languagecode="3082" />
                         </labels>
                         <control id="msdyn_functionallocation" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="msdyn_functionallocation" disabled="false" />
                       </cell>
@@ -931,24 +970,28 @@
             <cell id="{58a799a6-a483-30da-d32d-12c15ba0daa0}" showlabel="true" labelid="{f9edfb43-0901-404d-8260-d1d43d1333a9}">
               <labels>
                 <label description="Priority" languagecode="1033" />
+                <label description="Prioridad" languagecode="3082" />
               </labels>
               <control id="header_prioritycode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="prioritycode" disabled="false" />
             </cell>
             <cell id="{67c9b29b-c1b2-aa8e-6b95-5d295b76e224}" showlabel="true" labelid="{85d5c93d-d430-4fd8-b5c8-5fe292452e5d}">
               <labels>
                 <label description="Created On" languagecode="1033" />
+                <label description="Fecha de creación" languagecode="3082" />
               </labels>
               <control id="header_createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
             </cell>
             <cell id="{53dd311c-6ec7-4cde-b299-d39fe21c3dcf}" labelid="{baf35e5e-75ae-4364-b4dd-5c57ab9dc83f}">
               <labels>
                 <label description="Status" languagecode="1033" />
+                <label description="Razón para el estado" languagecode="3082" />
               </labels>
               <control id="header_statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
             </cell>
             <cell id="{d2c3b79d-4172-4f15-aa40-e69aa7bd2ab6}" labelid="{07140956-cf55-40df-b78b-530b548264fb}">
               <labels>
                 <label description="Owner" languagecode="1033" />
+                <label description="Propietario" languagecode="3082" />
               </labels>
               <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
             </cell>
