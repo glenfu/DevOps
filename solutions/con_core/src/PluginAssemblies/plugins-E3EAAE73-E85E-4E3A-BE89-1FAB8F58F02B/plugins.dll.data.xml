@@ -5,8 +5,8 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <FileName>/PluginAssemblies/plugins-E3EAAE73-E85E-4E3A-BE89-1FAB8F58F02B/plugins.dll</FileName>
   <PluginTypes>
-    <PluginType AssemblyQualifiedName="ILoggerExample.AccountPostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="4f0626d0-05cd-4311-8d6f-b97e29542667" Name="ILoggerExample.AccountPostOperation">
-      <FriendlyName>a6e2c0e1-69b9-43f8-987a-b399a8fac78f</FriendlyName>
+    <PluginType AssemblyQualifiedName="ILoggerExample.AccountPostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="640b9810-65a7-4cd2-b24a-0aa19df08121" Name="ILoggerExample.AccountPostOperation">
+      <FriendlyName>e4b7509d-59c4-4740-85f0-d666f2f9274c</FriendlyName>
     </PluginType>
   </PluginTypes>
 </PluginAssembly>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SdkMessageProcessingStep Name="ILoggerExample.AccountPostOperation: Create of account" SdkMessageProcessingStepId="{f38a0fb4-4ec1-ec11-983e-00224817d257}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<SdkMessageProcessingStep Name="ILoggerExample.AccountPostOperation: Create of account" SdkMessageProcessingStepId="{918b35eb-e107-ed11-82e5-000d3a819aba}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SdkMessageId>9ebdbb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
   <PluginTypeName>ILoggerExample.AccountPostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f</PluginTypeName>
-  <PluginTypeId>4f0626d0-05cd-4311-8d6f-b97e29542667</PluginTypeId>
+  <PluginTypeId>640b9810-65a7-4cd2-b24a-0aa19df08121</PluginTypeId>
   <PrimaryEntity>account</PrimaryEntity>
   <AsyncAutoDelete>0</AsyncAutoDelete>
   <Description>ILoggerExample.AccountPostOperation: Create of account</Description>
