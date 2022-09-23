@@ -1,10 +1,11 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_commondataserviceforapps": {
+      "shared_commondataserviceforapps_1": {
+        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_14ee2"
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_b7d8f"
         },
         "api": {
           "name": "shared_commondataserviceforapps"
@@ -37,7 +38,7 @@
               "properties": {
                 "Addanewrow_Subject": {
                   "type": "string",
-                  "description": "Type a short description about the objective or primary topic of the task.. This parameter is used as part of \"D749B771-3F0C-401E-ADE9-A5900B31094C\"",
+                  "description": "Type a short description about the objective or primary topic of the task.. This parameter is used as part of \"46694F18-161D-44CD-A585-3F6F98F25F2F\"",
                   "x-ms-powerflows-param-ispartial": true
                 },
                 "Addanewrow_Subject_1": {
@@ -45,12 +46,12 @@
                 },
                 "Addanewrow_Description": {
                   "type": "string",
-                  "description": "Type additional information to describe the task.. This parameter is used as part of \"CB8040A2-1904-45D6-AAFF-271AB854FB0B\"",
+                  "description": "Type additional information to describe the task.. This parameter is used as part of \"D4AF6999-FF8A-463B-AF02-2A7D26ACE67D\"",
                   "x-ms-powerflows-param-ispartial": true
                 },
                 "Addanewrow_Regarding(Contacts)": {
                   "type": "string",
-                  "description": "Choose the record that the task relates to.. This parameter is used as part of \"63EDD36E-6132-4BC0-8B68-0D562B94BFA9\"",
+                  "description": "Choose the record that the task relates to.. This parameter is used as part of \"B940DC3C-0579-4812-8766-5AA1DD249AD6\"",
                   "x-ms-powerflows-param-ispartial": true
                 }
               },
@@ -73,9 +74,9 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "CreateRecord",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "CreateRecord"
             },
             "parameters": {
               "entityName": "tasks",
@@ -84,10 +85,7 @@
               "item/scheduledend": "@utcNow()",
               "item/regardingobjectid_contact_task@odata.bind": "/contacts(@{triggerBody()['Addanewrow_Regarding(Contacts)']})"
             },
-            "authentication": {
-              "type": "Raw",
-              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
-            }
+            "authentication": "@parameters('$authentication')"
           }
         },
         "Update_a_row": {
@@ -102,19 +100,16 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "UpdateRecord",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateRecord"
             },
             "parameters": {
               "entityName": "tasks",
               "recordId": "@outputs('Add_a_new_row')?['body/activityid']",
               "item/statecode": 1
             },
-            "authentication": {
-              "type": "Raw",
-              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
-            }
+            "authentication": "@parameters('$authentication')"
           }
         },
         "Respond_to_a_PowerApp_or_flow": {

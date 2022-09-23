@@ -43,6 +43,7 @@
     <IntroducedVersion>6.0.0.0</IntroducedVersion>
     <LocalizedNames>
       <LocalizedName description="Active Cases" languagecode="1033" />
+      <LocalizedName description="Casos activos" languagecode="3082" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
