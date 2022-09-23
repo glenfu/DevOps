@@ -17,24 +17,28 @@ jobs:
       - uses: actions/checkout@v2
       - name: pack con_core
         uses: ./.github/actions/pack-solution
-        with: 
+        with:
           name: con_core
       - name: pack con_admissions
         uses: ./.github/actions/pack-solution
-        with: 
+        with:
           name: con_admissions
       - name: pack PartnerTrackingSolution
         uses: ./.github/actions/pack-solution
-        with: 
+        with:
           name: PartnerTrackingSolution
       - name: pack ContosoFlows
         uses: ./.github/actions/pack-solution
-        with: 
+        with:
           name: ContosoFlows
       - name: pack con_cases
         uses: ./.github/actions/pack-solution
-        with: 
+        with:
           name: con_cases
+      - name: pack casesurvey
+        uses: ./.github/actions/pack-solution
+        with:
+          name: casesurvey
       - uses: actions/upload-artifact@v2
         with:
           name: packed-solutions
@@ -80,7 +84,7 @@ jobs:
           app-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
           tenant-id: ${{ secrets.TENANT_ID }}
-          solution-file: ContosoFlows_managed.zip          
+          solution-file: ContosoFlows_managed.zip
       - name: Import con_cases
         uses: microsoft/powerplatform-actions/import-solution@v0
         with:
@@ -88,7 +92,15 @@ jobs:
           app-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
           tenant-id: ${{ secrets.TENANT_ID }}
-          solution-file: con_cases_managed.zip      
+          solution-file: con_cases_managed.zip
+      - name: Import casesurvey
+        uses: microsoft/powerplatform-actions/import-solution@v0
+        with:
+          environment-url: ${{ secrets.URL }}
+          app-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          solution-file: casesurvey_managed.zip
       # - name: Import con_canvasapp
       #   uses: microsoft/powerplatform-actions/import-solution@v0
       #   with:
@@ -96,7 +108,7 @@ jobs:
       #     app-id: ${{ secrets.CLIENT_ID }}
       #     client-secret: ${{ secrets.CLIENT_SECRET }}
       #     tenant-id: ${{ secrets.TENANT_ID }}
-      #     solution-file: con_canvasapp_managed.zip    
+      #     solution-file: con_canvasapp_managed.zip
       # - name: Import casesurvey
       #   uses: microsoft/powerplatform-actions/import-solution@v0
       #   with:
@@ -104,4 +116,4 @@ jobs:
       #     app-id: ${{ secrets.CLIENT_ID }}
       #     client-secret: ${{ secrets.CLIENT_SECRET }}
       #     tenant-id: ${{ secrets.TENANT_ID }}
-      #     solution-file: casesurvey_managed.zip      
+      #     solution-file: casesurvey_managed.zip
