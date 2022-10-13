@@ -21,13 +21,4 @@
   <LocalizedNames>
     <LocalizedName description="ContactCards" languagecode="1033" />
   </LocalizedNames>
-  <appelements>
-    <appelement uniquename="con_con_ContactCards_canvasappid_cat_custompagetemplate_231d0">
-      <canvasappid>
-        <name>cat_custompagetemplate_231d0</name>
-      </canvasappid>
-      <iscustomizable>1</iscustomizable>
-      <name>con_con_ContactCards_canvasappid_cat_custompagetemplate_231d0</name>
-    </appelement>
-  </appelements>
 </AppModule>

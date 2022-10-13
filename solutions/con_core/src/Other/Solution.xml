@@ -163,10 +163,6 @@
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="300" schemaName="cat_custompagetemplate_231d0" displayName="Custom Page Template" solution="CreatorKitCore (1.0.20220604.1)" />
-        <Dependent type="AppElement" displayName="con_con_ContactCards_canvasappid_cat_custompagetemplate_231d0" id.uniquename="con_con_ContactCards_canvasappid_cat_custompagetemplate_231d0" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="59" schemaName="Top Customers" displayName="Top Customers" parentSchemaName="opportunity" parentDisplayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)" id="{8bc5fb18-48f2-4782-9e16-3d452fa4ddce}">
           <package>msdynce_SalesAnchor (9.0.22093.10003)</package>
         </Required>
