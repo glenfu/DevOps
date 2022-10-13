@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{0b031745-8fd6-e711-8122-000d3a70329f}</WebResourceId>
+  <Name>msdyn_talkingpointsloader.js</Name>
+  <DisplayName>talkingpointsloader</DisplayName>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>8.2.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <FileName>/WebResources/msdyn_talkingpointsloaderjs0B031745-8FD6-E711-8122-000D3A70329F</FileName>
+</WebResource>
