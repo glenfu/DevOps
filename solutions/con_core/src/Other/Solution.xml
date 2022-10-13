@@ -82,6 +82,7 @@
     <RootComponents>
       <RootComponent type="1" schemaName="contact" behavior="2" />
       <RootComponent type="1" schemaName="con_widget" behavior="0" />
+      <RootComponent type="1" schemaName="cre1b_link" behavior="0" />
       <RootComponent type="61" schemaName="con_AI.Default.js" behavior="0" />
       <RootComponent type="61" schemaName="con_airesource" behavior="0" />
       <RootComponent type="61" schemaName="con_contactcards.css" behavior="0" />
@@ -95,10 +96,6 @@
       <RootComponent type="92" id="{918b35eb-e107-ed11-82e5-000d3a819aba}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
-      <MissingDependency>
-        <Required type="1" schemaName="cre1b_link" displayName="Link" solution="Active" />
-        <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="entitlement" displayName="Entitlement" solution="msdynce_Service (9.0.5.56)">
           <package>msdynce_ServiceAnchor (9.0.22093.1008)</package>
@@ -115,10 +112,6 @@
         <Required type="1" schemaName="opportunity" displayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)">
           <package>msdynce_SalesAnchor (9.0.22093.10003)</package>
         </Required>
-        <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="10" schemaName="cre1b_Link_Contact_Contact" displayName="cre1b_Link_Contact_Contact" parentSchemaName="contact" parentDisplayName="Contact" solution="Active" />
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
@@ -161,10 +154,6 @@
         <Required type="26" schemaName="All Entitlements" displayName="All Entitlements" parentSchemaName="entitlement" parentDisplayName="Entitlement" solution="msdynce_Service (9.0.5.56)" id="{aa69e7e2-913a-4a5a-8609-8ca443554909}">
           <package>msdynce_ServiceAnchor (9.0.22093.1008)</package>
         </Required>
-        <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Active Links" displayName="Active Links" parentSchemaName="cre1b_link" parentDisplayName="Link" solution="Active" id="{b3fa4137-1d56-49ce-9dd8-7eb27c4575be}" />
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>

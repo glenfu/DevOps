@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{b3fa4137-1d56-49ce-9dd8-7eb27c4575be}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cre1b_name" select="1" icon="1" preview="1">
+        <row name="result" id="cre1b_linkid">
+          <cell name="cre1b_name" width="274" />
+          <cell name="cre1b_url" width="202" />
+          <cell name="cre1b_imageurl" width="199" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cre1b_link">
+          <attribute name="cre1b_linkid" />
+          <attribute name="cre1b_name" />
+          <attribute name="createdon" />
+          <order attribute="cre1b_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cre1b_url" />
+          <attribute name="cre1b_imageurl" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Links" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
