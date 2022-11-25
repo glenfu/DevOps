@@ -1,0 +1,980 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_powerplatformforadmins_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_PowerPlatformforAdmins"
+        },
+        "api": {
+          "name": "shared_powerplatformforadmins"
+        }
+      },
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoECoreO365Outlook"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "Singapore Standard Time",
+            "startTime": "2022-11-24T09:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "cad08b22-cdaf-4e99-9ef5-e5f8603b3bd7"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "List_Environments_as_Admin": {
+          "runAfter": {
+            "EnvironmentCapacityArray": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5b577255-ab88-45ea-a607-731721d5946d"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_powerplatformforadmins_1",
+              "operationId": "Get-AdminEnvironment",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerplatformforadmins"
+            },
+            "parameters": {
+              "api-version": "2018-10-01",
+              "$expand": "properties.capacity,properties.addons"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Retrieve_all_environments": {
+          "runAfter": {
+            "List_Environments_as_Admin": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8b5f1b0c-5780-41e5-a077-f01c7ae6ce95"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@outputs('List_Environments_as_Admin')?['body/value']",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "properties": {
+                    "type": "object",
+                    "properties": {
+                      "tenantId": {
+                        "type": "string"
+                      },
+                      "azureRegionHint": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      },
+                      "createdTime": {
+                        "type": "string"
+                      },
+                      "createdBy": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "displayName": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "tenantId": {
+                            "type": "string"
+                          },
+                          "userPrincipalName": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "lastModifiedTime": {
+                        "type": "string"
+                      },
+                      "provisioningState": {
+                        "type": "string"
+                      },
+                      "creationType": {
+                        "type": "string"
+                      },
+                      "environmentSku": {
+                        "type": "string"
+                      },
+                      "isDefault": {
+                        "type": "boolean"
+                      },
+                      "capacity": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "capacityType": {
+                              "type": "string"
+                            },
+                            "actualConsumption": {
+                              "type": "number"
+                            },
+                            "ratedConsumption": {
+                              "type": "number"
+                            },
+                            "capacityUnit": {
+                              "type": "string"
+                            },
+                            "updatedOn": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "capacityType",
+                            "actualConsumption",
+                            "ratedConsumption",
+                            "capacityUnit",
+                            "updatedOn"
+                          ]
+                        }
+                      },
+                      "addons": {
+                        "type": "array"
+                      },
+                      "runtimeEndpoints": {
+                        "type": "object",
+                        "properties": {
+                          "microsoft.BusinessAppPlatform": {
+                            "type": "string"
+                          },
+                          "microsoft.CommonDataModel": {
+                            "type": "string"
+                          },
+                          "microsoft.PowerApps": {
+                            "type": "string"
+                          },
+                          "microsoft.PowerAppsAdvisor": {
+                            "type": "string"
+                          },
+                          "microsoft.PowerVirtualAgents": {
+                            "type": "string"
+                          },
+                          "microsoft.ApiManagement": {
+                            "type": "string"
+                          },
+                          "microsoft.Flow": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "linkedEnvironmentMetadata": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "resourceId": {
+                            "type": "string"
+                          },
+                          "friendlyName": {
+                            "type": "string"
+                          },
+                          "uniqueName": {
+                            "type": "string"
+                          },
+                          "domainName": {
+                            "type": "string"
+                          },
+                          "version": {
+                            "type": "string"
+                          },
+                          "instanceUrl": {
+                            "type": "string"
+                          },
+                          "instanceApiUrl": {
+                            "type": "string"
+                          },
+                          "baseLanguage": {
+                            "type": "integer"
+                          },
+                          "instanceState": {
+                            "type": "string"
+                          },
+                          "createdTime": {
+                            "type": "string"
+                          },
+                          "modifiedTime": {
+                            "type": "string"
+                          },
+                          "hostNameSuffix": {
+                            "type": "string"
+                          },
+                          "bapSolutionId": {
+                            "type": "string"
+                          },
+                          "creationTemplates": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "webApiVersion": {
+                            "type": "string"
+                          },
+                          "backgroundOperationsState": {
+                            "type": "string"
+                          },
+                          "scaleGroup": {
+                            "type": "string"
+                          },
+                          "platformSku": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "trialScenarioType": {
+                        "type": "string"
+                      },
+                      "notificationMetadata": {
+                        "type": "object",
+                        "properties": {
+                          "state": {
+                            "type": "string"
+                          },
+                          "branding": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "retentionPeriod": {
+                        "type": "string"
+                      },
+                      "states": {
+                        "type": "object",
+                        "properties": {
+                          "management": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "runtime": {
+                            "type": "object",
+                            "properties": {
+                              "runtimeReasonCode": {
+                                "type": "string"
+                              },
+                              "requestedBy": {
+                                "type": "object",
+                                "properties": {
+                                  "displayName": {
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "id": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "updateCadence": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "retentionDetails": {
+                        "type": "object",
+                        "properties": {
+                          "retentionPeriod": {
+                            "type": "string"
+                          },
+                          "backupsAvailableFromDateTime": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "protectionStatus": {
+                        "type": "object",
+                        "properties": {
+                          "keyManagedBy": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "cluster": {
+                        "type": "object",
+                        "properties": {
+                          "category": {
+                            "type": "string"
+                          },
+                          "number": {
+                            "type": "string"
+                          },
+                          "uriSuffix": {
+                            "type": "string"
+                          },
+                          "geoShortName": {
+                            "type": "string"
+                          },
+                          "environment": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "connectedGroups": {
+                        "type": "array"
+                      },
+                      "lifecycleOperationsEnforcement": {
+                        "type": "object",
+                        "properties": {
+                          "allowedOperations": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              },
+                              "required": [
+                                "type"
+                              ]
+                            }
+                          },
+                          "disallowedOperations": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "reason": {
+                                  "type": "object",
+                                  "properties": {
+                                    "message": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              },
+                              "required": [
+                                "type",
+                                "reason"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "governanceConfiguration": {
+                        "type": "object",
+                        "properties": {
+                          "protectionLevel": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "location",
+                  "name",
+                  "properties"
+                ]
+              }
+            }
+          }
+        },
+        "EnvironmentCapacityArray": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "b02c5f94-9844-4a37-87da-278766b66301"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "capacityArray",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "For_each_environment": {
+          "foreach": "@body('Filter_out_environments_containing_gfu')",
+          "actions": {
+            "Retrieve_a_single_environment": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "5d942dc0-d84a-4a4f-bdc6-f115ed1b650e"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@items('For_each_environment')",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "location": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "tenantId": {
+                          "type": "string"
+                        },
+                        "azureRegionHint": {
+                          "type": "string"
+                        },
+                        "displayName": {
+                          "type": "string"
+                        },
+                        "createdTime": {
+                          "type": "string"
+                        },
+                        "createdBy": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "displayName": {
+                              "type": "string"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "tenantId": {
+                              "type": "string"
+                            },
+                            "userPrincipalName": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "lastModifiedTime": {
+                          "type": "string"
+                        },
+                        "provisioningState": {
+                          "type": "string"
+                        },
+                        "creationType": {
+                          "type": "string"
+                        },
+                        "environmentSku": {
+                          "type": "string"
+                        },
+                        "isDefault": {
+                          "type": "boolean"
+                        },
+                        "capacity": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "capacityType": {
+                                "type": "string"
+                              },
+                              "actualConsumption": {
+                                "type": "number"
+                              },
+                              "ratedConsumption": {
+                                "type": "number"
+                              },
+                              "capacityUnit": {
+                                "type": "string"
+                              },
+                              "updatedOn": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "capacityType",
+                              "actualConsumption",
+                              "ratedConsumption",
+                              "capacityUnit",
+                              "updatedOn"
+                            ]
+                          }
+                        },
+                        "addons": {
+                          "type": "array"
+                        },
+                        "runtimeEndpoints": {
+                          "type": "object",
+                          "properties": {
+                            "microsoft.BusinessAppPlatform": {
+                              "type": "string"
+                            },
+                            "microsoft.CommonDataModel": {
+                              "type": "string"
+                            },
+                            "microsoft.PowerApps": {
+                              "type": "string"
+                            },
+                            "microsoft.PowerAppsAdvisor": {
+                              "type": "string"
+                            },
+                            "microsoft.PowerVirtualAgents": {
+                              "type": "string"
+                            },
+                            "microsoft.ApiManagement": {
+                              "type": "string"
+                            },
+                            "microsoft.Flow": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "linkedEnvironmentMetadata": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "resourceId": {
+                              "type": "string"
+                            },
+                            "friendlyName": {
+                              "type": "string"
+                            },
+                            "uniqueName": {
+                              "type": "string"
+                            },
+                            "domainName": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "string"
+                            },
+                            "instanceUrl": {
+                              "type": "string"
+                            },
+                            "instanceApiUrl": {
+                              "type": "string"
+                            },
+                            "baseLanguage": {
+                              "type": "integer"
+                            },
+                            "instanceState": {
+                              "type": "string"
+                            },
+                            "createdTime": {
+                              "type": "string"
+                            },
+                            "modifiedTime": {
+                              "type": "string"
+                            },
+                            "hostNameSuffix": {
+                              "type": "string"
+                            },
+                            "bapSolutionId": {
+                              "type": "string"
+                            },
+                            "creationTemplates": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "webApiVersion": {
+                              "type": "string"
+                            },
+                            "backgroundOperationsState": {
+                              "type": "string"
+                            },
+                            "scaleGroup": {
+                              "type": "string"
+                            },
+                            "platformSku": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "trialScenarioType": {
+                          "type": "string"
+                        },
+                        "notificationMetadata": {
+                          "type": "object",
+                          "properties": {
+                            "state": {
+                              "type": "string"
+                            },
+                            "branding": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "retentionPeriod": {
+                          "type": "string"
+                        },
+                        "states": {
+                          "type": "object",
+                          "properties": {
+                            "management": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "runtime": {
+                              "type": "object",
+                              "properties": {
+                                "runtimeReasonCode": {
+                                  "type": "string"
+                                },
+                                "requestedBy": {
+                                  "type": "object",
+                                  "properties": {
+                                    "displayName": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "updateCadence": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "retentionDetails": {
+                          "type": "object",
+                          "properties": {
+                            "retentionPeriod": {
+                              "type": "string"
+                            },
+                            "backupsAvailableFromDateTime": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "protectionStatus": {
+                          "type": "object",
+                          "properties": {
+                            "keyManagedBy": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "cluster": {
+                          "type": "object",
+                          "properties": {
+                            "category": {
+                              "type": "string"
+                            },
+                            "number": {
+                              "type": "string"
+                            },
+                            "uriSuffix": {
+                              "type": "string"
+                            },
+                            "geoShortName": {
+                              "type": "string"
+                            },
+                            "environment": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "connectedGroups": {
+                          "type": "array"
+                        },
+                        "lifecycleOperationsEnforcement": {
+                          "type": "object",
+                          "properties": {
+                            "allowedOperations": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "type"
+                                ]
+                              }
+                            },
+                            "disallowedOperations": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "reason": {
+                                    "type": "object",
+                                    "properties": {
+                                      "message": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "type",
+                                  "reason"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "governanceConfiguration": {
+                          "type": "object",
+                          "properties": {
+                            "protectionLevel": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "For_each_capacity": {
+              "foreach": "@body('Retrieve_a_single_environment')?['properties']?['capacity']",
+              "actions": {
+                "Retrieve_capacity_for_a_single_environment": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "d8e9ff50-04bf-4dd8-bc08-a7f7d81f7ccf"
+                  },
+                  "type": "ParseJson",
+                  "inputs": {
+                    "content": "@items('For_each_capacity')",
+                    "schema": {
+                      "properties": {
+                        "actualConsumption": {
+                          "type": "number"
+                        },
+                        "capacityType": {
+                          "type": "string"
+                        },
+                        "capacityUnit": {
+                          "type": "string"
+                        },
+                        "ratedConsumption": {
+                          "type": "number"
+                        },
+                        "updatedOn": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  }
+                },
+                "Append_to_environment_capacity_array": {
+                  "runAfter": {
+                    "Retrieve_capacity_for_a_single_environment": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "d433c506-1fad-4f63-bd34-29b1f86193bb"
+                  },
+                  "type": "AppendToArrayVariable",
+                  "inputs": {
+                    "name": "capacityArray",
+                    "value": {
+                      "Org ID": "@body('Retrieve_a_single_environment')?['properties']?['linkedEnvironmentMetadata']?['resourceId']",
+                      "Environment Name": "@body('Retrieve_a_single_environment')?['properties']?['linkedEnvironmentMetadata']?['friendlyName']",
+                      "Environment Type": "@body('Retrieve_a_single_environment')?['properties']?['environmentSku']",
+                      "Instance URL": "@body('Retrieve_a_single_environment')?['properties']?['linkedEnvironmentMetadata']?['instanceUrl']",
+                      "Capacity Type": "@body('Retrieve_capacity_for_a_single_environment')?['capacityType']",
+                      "Capacity Unit": "@body('Retrieve_capacity_for_a_single_environment')?['capacityUnit']",
+                      "Actual Consumption": "@body('Retrieve_capacity_for_a_single_environment')?['actualConsumption']"
+                    }
+                  }
+                }
+              },
+              "runAfter": {
+                "Retrieve_a_single_environment": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1b77f903-9ee3-4ced-b4ac-6f510392faf9"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Filter_out_environments_containing_gfu": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "79a57f3c-070d-4a8f-a30f-01f95559923b"
+          },
+          "type": "Foreach"
+        },
+        "Create_HTML_table": {
+          "runAfter": {
+            "For_each_environment": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c955bd02-a613-4342-9ea7-91afd772ac27"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@variables('capacityArray')",
+            "format": "HTML"
+          }
+        },
+        "Filter_out_environments_containing_gfu": {
+          "runAfter": {
+            "Retrieve_all_environments": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2788389e-5edf-4222-8fe2-58d3cdf3d35d"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@body('Retrieve_all_environments')",
+            "where": "@contains(item()?['properties']?['displayName'], 'gfu')"
+          }
+        },
+        "Send_an_email_(V2)": {
+          "runAfter": {
+            "Create_HTML_table": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b0c1a975-8509-45a6-97b3-40823174bafa"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365_1",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "emailMessage/To": "glenfu@pfecrmonline.onmicrosoft.com",
+              "emailMessage/Subject": "Daily Capacity",
+              "emailMessage/Body": "<p>@{body('Create_HTML_table')}</p>",
+              "emailMessage/Importance": "Normal"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

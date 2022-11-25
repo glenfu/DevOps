@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22081.166" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.22104.192" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>ContosoFlows</UniqueName>
     <LocalizedNames>
@@ -81,9 +81,16 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="29" id="{058c3992-0dcd-ec11-a7b6-000d3a8570bb}" behavior="0" />
+      <RootComponent type="29" id="{7574061e-103e-ed11-bba2-000d3a8563cf}" behavior="0" />
       <RootComponent type="29" id="{8ecb72da-6bfe-ec11-82e6-000d3a81912a}" behavior="0" />
+      <RootComponent type="29" id="{a1b5a193-776c-ed11-81ac-000d3a856680}" behavior="0" />
       <RootComponent type="29" id="{fd434c9a-d607-ed11-82e5-000d3a819aba}" behavior="0" />
     </RootComponents>
-    <MissingDependencies />
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="admin_CoECoreO365Outlook" solution="CenterofExcellenceCoreComponents (3.38)" id.connectionreferencelogicalname="admin_CoECoreO365Outlook" />
+        <Dependent type="29" displayName="Get Daily Capacity" id="{a1b5a193-776c-ed11-81ac-000d3a856680}" />
+      </MissingDependency>
+    </MissingDependencies>
   </SolutionManifest>
 </ImportExportXml>
