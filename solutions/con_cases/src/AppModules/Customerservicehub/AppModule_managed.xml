@@ -10,6 +10,9 @@
   <ClientType>4</ClientType>
   <NavigationType>0</NavigationType>
   <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="con_partner" solutionaction="Added" />
+    <AppModuleComponent type="1" schemaName="goal" solutionaction="Added" />
+    <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_ksinsights" solutionaction="Added" />
     <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001004}" solutionaction="Added" />
     <AppModuleComponent type="26" id="{73bc2d9b-4e0e-424c-8839-ed59d6817e3a}" solutionaction="Added" />
     <AppModuleComponent type="26" id="{0d5d377b-5e7c-47b5-bab1-a5cb8b4ac105}" solutionaction="Added" />
@@ -32,8 +35,6 @@
     <AppModuleComponent type="26" id="{ab582fb0-a846-453e-ad88-77f75ce91264}" solutionaction="Added" />
     <AppModuleComponent type="26" id="{1d3a0a34-653a-e911-8185-000d3a070f2c}" solutionaction="Added" />
     <AppModuleComponent type="26" id="{38962192-31ff-46fc-9ac3-2db0a7d9dc7c}" solutionaction="Added" />
-    <AppModuleComponent type="1" schemaName="goal" solutionaction="Added" />
-    <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_ksinsights" solutionaction="Added" />
     <AppModuleComponent type="26" id="{9e2f290a-e1c8-4c71-9a67-fe6b98b36a88}" solutionaction="Removed" />
     <AppModuleComponent type="26" id="{6fcff708-36a4-4091-b94a-fe4ce63e36b7}" solutionaction="Removed" />
     <AppModuleComponent type="60" id="{f7502aaf-4874-49fc-868d-cc201c6c4453}" solutionaction="Removed" />

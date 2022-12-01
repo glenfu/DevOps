@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Sla SLAId="aa8b9819-5f70-ed11-81ac-000d3a856354" Name="SLA" PrimaryEntityLogicalName="incident" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SLAId>{aa8b9819-5f70-ed11-81ac-000d3a856354}</SLAId>
+  <ApplicableFrom>NA</ApplicableFrom>
+  <Name>SLA</Name>
+  <AllowPauseResume>0</AllowPauseResume>
+  <SLAType>1</SLAType>
+  <SLAVersion>100000001</SLAVersion>
+  <SlaItems>
+    <SlaItem slaitemid="f3b28166-5f70-ed11-81ac-000d3a856354" name="First Response By SLA Item">
+      <slaid>{aa8b9819-5f70-ed11-81ac-000d3a856354}</slaid>
+      <slaitemid>{f3b28166-5f70-ed11-81ac-000d3a856354}</slaitemid>
+      <name>First Response By SLA Item</name>
+      <applicablewhenxml>&lt;fetch version="1.0" output-format="xml-platform" mapping="logical"&gt;
+    &lt;entity name="incident"/&gt;
+&lt;/fetch&gt;</applicablewhenxml>
+      <successconditionsxml>&lt;fetch version="1.0" output-format="xml-platform" mapping="logical"&gt;
+    &lt;entity name="incident"&gt;
+        &lt;filter type="and"&gt;
+            &lt;condition attribute="firstresponsesent" operator="eq" value="1"/&gt;
+        &lt;/filter&gt;
+    &lt;/entity&gt;
+&lt;/fetch&gt;</successconditionsxml>
+      <sequencenumber>1</sequencenumber>
+      <workflowid>{7f58537a-5f70-ed11-81ac-000d3a856354}</workflowid>
+      <failureafter>60</failureafter>
+      <warnafter>30</warnafter>
+      <allowpauseresume>True</allowpauseresume>
+      <actionflowuniquename>ServiceLevelAgreement_ActionFlow_dff600ab-6ffc-4d24-a8d9-925eed77d6f8</actionflowuniquename>
+      <actionurl>https://flow.microsoft.com/manage/environments/05a2eb5b-33e1-4734-bbc3-12cb19981391/flows/4e0c1e7b-069d-416f-83c0-30e742cb2ae8</actionurl>
+      <applicableentity>incident</applicableentity>
+      <msdyn_slakpiid>5b1d2dc5-5d70-ed11-81ac-000d3a856354</msdyn_slakpiid>
+      <changedattributelist>firstresponsesent,createdon,slaid,statuscode,entitlementid,customerid</changedattributelist>
+      <msdyn_advancedpauseconfiguration>False</msdyn_advancedpauseconfiguration>
+      <msdyn_customtimecalculation>False</msdyn_customtimecalculation>
+    </SlaItem>
+    <SlaItem slaitemid="2da32a78-6070-ed11-81ac-000d3a856354" name="Resolved By SLA Item">
+      <slaid>{aa8b9819-5f70-ed11-81ac-000d3a856354}</slaid>
+      <slaitemid>{2da32a78-6070-ed11-81ac-000d3a856354}</slaitemid>
+      <name>Resolved By SLA Item</name>
+      <applicablewhenxml>&lt;fetch version="1.0" output-format="xml-platform" mapping="logical"&gt;
+    &lt;entity name="incident"/&gt;
+&lt;/fetch&gt;</applicablewhenxml>
+      <successconditionsxml>&lt;fetch version="1.0" output-format="xml-platform" mapping="logical"&gt;
+    &lt;entity name="incident"&gt;
+        &lt;filter type="and"&gt;
+            &lt;condition attribute="statecode" operator="in"&gt;
+                &lt;value&gt;1&lt;/value&gt;
+                &lt;value&gt;2&lt;/value&gt;
+            &lt;/condition&gt;
+        &lt;/filter&gt;
+    &lt;/entity&gt;
+&lt;/fetch&gt;</successconditionsxml>
+      <sequencenumber>2</sequencenumber>
+      <failureafter>480</failureafter>
+      <warnafter>360</warnafter>
+      <allowpauseresume>True</allowpauseresume>
+      <applicableentity>incident</applicableentity>
+      <msdyn_slakpiid>6784d8f9-5e70-ed11-81ac-000d3a856354</msdyn_slakpiid>
+      <changedattributelist>statecode,followupby,slaid,statuscode,entitlementid,customerid</changedattributelist>
+      <msdyn_advancedpauseconfiguration>False</msdyn_advancedpauseconfiguration>
+      <msdyn_customtimecalculation>False</msdyn_customtimecalculation>
+    </SlaItem>
+    <SlaItem slaitemid="9dffbbe6-6670-ed11-81ac-000d3a856354" name="Resolution Planned By SLA Item">
+      <slaid>{aa8b9819-5f70-ed11-81ac-000d3a856354}</slaid>
+      <slaitemid>{9dffbbe6-6670-ed11-81ac-000d3a856354}</slaitemid>
+      <name>Resolution Planned By SLA Item</name>
+      <applicablewhenxml>&lt;fetch version="1.0" output-format="xml-platform" mapping="logical"&gt;
+    &lt;entity name="incident"/&gt;
+&lt;/fetch&gt;</applicablewhenxml>
+      <successconditionsxml>&lt;fetch version="1.0" output-format="xml-platform" mapping="logical"&gt;
+    &lt;entity name="incident"&gt;
+        &lt;filter type="and"&gt;
+            &lt;condition attribute="con_resolutionplanned" operator="eq" value="1"/&gt;
+        &lt;/filter&gt;
+    &lt;/entity&gt;
+&lt;/fetch&gt;</successconditionsxml>
+      <sequencenumber>3</sequencenumber>
+      <failureafter>60</failureafter>
+      <warnafter>30</warnafter>
+      <allowpauseresume>True</allowpauseresume>
+      <applicableentity>incident</applicableentity>
+      <msdyn_slakpiid>d4fd31a8-6670-ed11-81ac-000d3a856354</msdyn_slakpiid>
+      <changedattributelist>con_resolutionplanned,createdon,slaid,statuscode,entitlementid,customerid</changedattributelist>
+      <msdyn_advancedpauseconfiguration>False</msdyn_advancedpauseconfiguration>
+      <msdyn_customtimecalculation>False</msdyn_customtimecalculation>
+    </SlaItem>
+  </SlaItems>
+</Sla>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{7f58537a-5f70-ed11-81ac-000d3a856354}" Name="ServiceLevelAgreement_ActionFlow_dff600ab-6ffc-4d24-a8d9-925eed77d6f8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/ServiceLevelAgreement_ActionFlow_dff600ab-6ffc-4d2-7F58537A-5F70-ED11-81AC-000D3A856354.json</JsonFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>5</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>1</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <UniqueName>ServiceLevelAgreement_ActionFlow_dff600ab-6ffc-4d24-a8d9-925eed77d6f8</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <RendererObjectTypeCode>9751</RendererObjectTypeCode>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <PrimaryEntity>none</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="ServiceLevelAgreement_ActionFlow_dff600ab-6ffc-4d24-a8d9-925eed77d6f8" />
+  </LocalizedNames>
+</Workflow>

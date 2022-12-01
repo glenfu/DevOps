@@ -1,0 +1,147 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_b7d8f"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_CoEAuditLogsO365Outlook"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "[Do not delete or update] Invoked Through Execution Workflow Call": {
+          "metadata": {
+            "operationMetadataId": "b0008a21-d152-4b94-8b01-375947771cb8"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "slakpiinstance",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "versionnumber,createdon"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "[Do not delete or update] Switch": {
+          "runAfter": {},
+          "cases": {
+            "[Do not delete] Is Near Non Compliance.": {
+              "case": 2,
+              "actions": {
+                "Send_an_email_(V2)": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365",
+                      "operationId": "SendEmailV2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                    },
+                    "parameters": {
+                      "emailMessage/To": "glenfu@pfecrmonline.onmicrosoft.com",
+                      "emailMessage/Subject": "First response near non compliance ",
+                      "emailMessage/Body": "<p>First response near non compliance&nbsp;</p>",
+                      "emailMessage/Importance": "Normal"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              }
+            },
+            "[Do not delete] Is Succeeded.": {
+              "case": 4,
+              "actions": {
+                "Send_an_email_(V2)_2": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365",
+                      "operationId": "SendEmailV2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                    },
+                    "parameters": {
+                      "emailMessage/To": "glenfu@pfecrmonline.onmicrosoft.com",
+                      "emailMessage/Subject": "First response succeeded",
+                      "emailMessage/Body": "<p>First response succeeded</p>",
+                      "emailMessage/Importance": "Normal"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              }
+            },
+            "[Do not delete] Is Non-compliant.": {
+              "case": 1,
+              "actions": {
+                "Send_an_email_(V2)_3": {
+                  "runAfter": {},
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_office365",
+                      "operationId": "SendEmailV2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                    },
+                    "parameters": {
+                      "emailMessage/To": "glenfu@pfecrmonline.onmicrosoft.com",
+                      "emailMessage/Subject": "First response is non compliant",
+                      "emailMessage/Body": "<p>First response is non compliant</p>",
+                      "emailMessage/Importance": "Normal"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "actions": {}
+          },
+          "expression": "@triggerOutputs()?['body/status']",
+          "metadata": {
+            "operationMetadataId": "cab9442d-96c1-4217-a6a6-a3c8a263abdc"
+          },
+          "type": "Switch"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

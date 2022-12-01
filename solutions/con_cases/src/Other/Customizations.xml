@@ -16,6 +16,7 @@
   <EntityRelationships />
   <OrganizationSettings />
   <optionsets />
+  <Slas />
   <CustomControls />
   <AppModules />
   <EntityDataProviders />
@@ -28,6 +29,38 @@
       <statuscode>1</statuscode>
     </connectionreference>
   </connectionreferences>
+  <msdyn_slakpis>
+    <msdyn_slakpi msdyn_slakpiid="5b1d2dc5-5d70-ed11-81ac-000d3a856354">
+      <iscustomizable>1</iscustomizable>
+      <msdyn_advancedpauseconfiguration>0</msdyn_advancedpauseconfiguration>
+      <msdyn_applicablefromfield>createdon</msdyn_applicablefromfield>
+      <msdyn_entityname>incident</msdyn_entityname>
+      <msdyn_kpifield>firstresponsebykpiid</msdyn_kpifield>
+      <msdyn_name>First Response KPI</msdyn_name>
+      <statecode>1</statecode>
+      <statuscode>2</statuscode>
+    </msdyn_slakpi>
+    <msdyn_slakpi msdyn_slakpiid="6784d8f9-5e70-ed11-81ac-000d3a856354">
+      <iscustomizable>1</iscustomizable>
+      <msdyn_advancedpauseconfiguration>0</msdyn_advancedpauseconfiguration>
+      <msdyn_applicablefromfield>followupby</msdyn_applicablefromfield>
+      <msdyn_entityname>incident</msdyn_entityname>
+      <msdyn_kpifield>resolvebykpiid</msdyn_kpifield>
+      <msdyn_name>Resolve By KPI (old)</msdyn_name>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </msdyn_slakpi>
+    <msdyn_slakpi msdyn_slakpiid="d4fd31a8-6670-ed11-81ac-000d3a856354">
+      <iscustomizable>1</iscustomizable>
+      <msdyn_advancedpauseconfiguration>0</msdyn_advancedpauseconfiguration>
+      <msdyn_applicablefromfield>createdon</msdyn_applicablefromfield>
+      <msdyn_entityname>incident</msdyn_entityname>
+      <msdyn_kpifield>con_resolutionplannedbykpi</msdyn_kpifield>
+      <msdyn_name>Resolution Planned By SLA</msdyn_name>
+      <statecode>1</statecode>
+      <statuscode>2</statuscode>
+    </msdyn_slakpi>
+  </msdyn_slakpis>
   <Languages>
     <Language>1033</Language>
     <Language>3082</Language>
