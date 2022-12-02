@@ -86,11 +86,6 @@
       <RootComponent type="29" id="{a1b5a193-776c-ed11-81ac-000d3a856680}" behavior="0" />
       <RootComponent type="29" id="{fd434c9a-d607-ed11-82e5-000d3a819aba}" behavior="0" />
     </RootComponents>
-    <MissingDependencies>
-      <MissingDependency>
-        <Required type="connectionreference" displayName="admin_CoECoreO365Outlook" solution="CenterofExcellenceCoreComponents (3.38)" id.connectionreferencelogicalname="admin_CoECoreO365Outlook" />
-        <Dependent type="29" displayName="Get Daily Capacity" id="{a1b5a193-776c-ed11-81ac-000d3a856680}" />
-      </MissingDependency>
-    </MissingDependencies>
+    <MissingDependencies />
   </SolutionManifest>
 </ImportExportXml>

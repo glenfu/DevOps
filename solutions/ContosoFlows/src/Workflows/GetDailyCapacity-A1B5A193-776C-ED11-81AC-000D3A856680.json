@@ -10,10 +10,10 @@
           "name": "shared_powerplatformforadmins"
         }
       },
-      "shared_office365_1": {
+      "shared_office365": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "admin_CoECoreO365Outlook"
+          "connectionReferenceLogicalName": "con_sharedoffice365_abc61"
         },
         "api": {
           "name": "shared_office365"
@@ -954,12 +954,12 @@
             ]
           },
           "metadata": {
-            "operationMetadataId": "b0c1a975-8509-45a6-97b3-40823174bafa"
+            "operationMetadataId": "885a31e6-ba19-434e-b840-28b4bd648b64"
           },
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_office365_1",
+              "connectionName": "shared_office365",
               "operationId": "SendEmailV2",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
             },
