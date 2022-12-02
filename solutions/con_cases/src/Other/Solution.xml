@@ -1437,10 +1437,6 @@
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
-      <MissingDependency>
-        <Required type="connectionreference" displayName="new_CoEAuditLogsO365Outlook" solution="CenterofExcellenceAuditLogs (2.9)" id.connectionreferencelogicalname="new_CoEAuditLogsO365Outlook" />
-        <Dependent type="29" displayName="ServiceLevelAgreement_ActionFlow_dff600ab-6ffc-4d24-a8d9-925eed77d6f8" id="{7f58537a-5f70-ed11-81ac-000d3a856354}" />
-      </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>
 </ImportExportXml>

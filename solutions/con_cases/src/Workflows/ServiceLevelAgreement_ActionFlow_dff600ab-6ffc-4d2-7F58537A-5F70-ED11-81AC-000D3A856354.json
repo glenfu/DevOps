@@ -1,6 +1,15 @@
 {
   "properties": {
     "connectionReferences": {
+      "shared_office365_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedoffice365_abc61"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
       "shared_commondataserviceforapps": {
         "runtimeSource": "embedded",
         "connection": {
@@ -8,15 +17,6 @@
         },
         "api": {
           "name": "shared_commondataserviceforapps"
-        }
-      },
-      "shared_office365": {
-        "runtimeSource": "embedded",
-        "connection": {
-          "connectionReferenceLogicalName": "new_CoEAuditLogsO365Outlook"
-        },
-        "api": {
-          "name": "shared_office365"
         }
       }
     },
@@ -67,7 +67,7 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "connectionName": "shared_office365",
+                      "connectionName": "shared_office365_1",
                       "operationId": "SendEmailV2",
                       "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                     },
@@ -90,7 +90,7 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "connectionName": "shared_office365",
+                      "connectionName": "shared_office365_1",
                       "operationId": "SendEmailV2",
                       "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                     },
@@ -113,7 +113,7 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "connectionName": "shared_office365",
+                      "connectionName": "shared_office365_1",
                       "operationId": "SendEmailV2",
                       "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
                     },
