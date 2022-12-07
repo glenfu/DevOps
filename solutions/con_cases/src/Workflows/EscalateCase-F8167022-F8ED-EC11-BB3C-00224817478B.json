@@ -9,6 +9,15 @@
         "api": {
           "name": "shared_commondataserviceforapps"
         }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedoffice365_abc61"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
       }
     },
     "definition": {
@@ -65,11 +74,36 @@
             },
             "authentication": "@parameters('$authentication')"
           }
+        },
+        "Send_an_email_(V2)": {
+          "runAfter": {
+            "Update_a_row": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "03770cf9-256c-4279-9889-a5161bcf0f9c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "emailMessage/To": "gfuuser2@pfecrmonline.onmicrosoft.com",
+              "emailMessage/Subject": "@{outputs('Update_a_row')?['body/title']}@{outputs('Update_a_row')?['body/ticketnumber']}",
+              "emailMessage/Body": "<p>@{outputs('Update_a_row')?['body/title']}@{outputs('Update_a_row')?['body/ticketnumber']}</p>",
+              "emailMessage/Importance": "Normal"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
         }
       },
       "outputs": {}
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }

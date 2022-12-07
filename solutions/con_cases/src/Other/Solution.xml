@@ -87,6 +87,7 @@
       <RootComponent type="20" id="{0bd15258-c008-ed11-82e5-000d3a819aba}" behavior="0" />
       <RootComponent type="29" id="{378055d5-efed-ec11-bb3c-00224817478b}" behavior="0" />
       <RootComponent type="29" id="{7f58537a-5f70-ed11-81ac-000d3a856354}" behavior="0" />
+      <RootComponent type="29" id="{c75ae6da-fd75-ed11-81ac-000d3a856354}" behavior="0" />
       <RootComponent type="29" id="{d38afe28-47ed-ec11-bb3c-002248174cae}" behavior="0" />
       <RootComponent type="29" id="{f8167022-f8ed-ec11-bb3c-00224817478b}" behavior="0" />
       <RootComponent type="431" schemaName="incident con_caseimage" behavior="0" />
@@ -634,6 +635,12 @@
           <package>msdynce_ServiceAnchor (9.0.22105.1008)</package>
         </Required>
         <Dependent type="60" displayName="Portal Case Form" parentDisplayName="Case" id="{3fafeccd-74e5-ec11-bb3c-00224817478b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="incident" parentDisplayName="Case" solution="msdynce_Service (9.0.5.56)">
+          <package>msdynce_ServiceAnchor (9.0.22105.1008)</package>
+        </Required>
+        <Dependent type="29" displayName="Escalate case to shared mailbox" id="{c75ae6da-fd75-ed11-81ac-000d3a856354}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="ownerid" displayName="Owner" parentSchemaName="incident" parentDisplayName="Case" solution="msdynce_Service (9.0.5.56)">
