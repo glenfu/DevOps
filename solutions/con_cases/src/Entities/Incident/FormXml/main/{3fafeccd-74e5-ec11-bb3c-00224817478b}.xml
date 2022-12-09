@@ -297,6 +297,38 @@
                     <row />
                     <row />
                     <row />
+                    <row>
+                      <cell id="{30409b61-07c6-10b8-0689-5e108e3438c0}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="SLA KPI Instances (Regarding)" languagecode="1033" />
+                          <label description="Ubicaciones de documentos" languagecode="3082" />
+                        </labels>
+                        <control id="SLATimer" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" indicationOfSubgrid="true" uniqueid="{a7126b8d-6466-6a71-b102-de484ed91be8}">
+                          <parameters>
+                            <ViewId>{0696602A-B187-4BAF-8C12-3395AC7FD454}</ViewId>
+                            <IsUserView>false</IsUserView>
+                            <RelationshipName>slakpiinstance_incident</RelationshipName>
+                            <TargetEntityType>slakpiinstance</TargetEntityType>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <ViewIds>{0696602A-B187-4BAF-8C12-3395AC7FD454}</ViewIds>
+                            <EnableJumpBar>false</EnableJumpBar>
+                            <ChartGridMode>All</ChartGridMode>
+                            <VisualizationId />
+                            <IsUserChart>false</IsUserChart>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
                 <section id="{2335806E-F713-402F-A9BD-6BEEEC6B8645}" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" height="auto" visible="false" labelid="{3762601e-8bea-4c3c-b09b-d4adaf2004d5}">
@@ -1157,7 +1189,15 @@
                   <labels>
                     <label description="Section" languagecode="1033" />
                   </labels>
-                  <rows />
+                  <rows>
+                    <row>
+                      <cell id="{017f1bc2-43b5-4add-9685-202d3baeede3}" showlabel="false">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
                 </section>
               </sections>
             </column>
@@ -1198,65 +1238,6 @@
           </row>
         </rows>
       </header>
-      <DisplayConditions FallbackForm="true" Order="11">
-        <Everyone />
-      </DisplayConditions>
-      <events>
-        <event name="onload" application="true" active="true">
-          <InternalHandlers>
-            <Handler functionName="Mscrm.Form_onload" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="76e18454-eeba-47c3-8a9d-6d701c77fbcc" enabled="true">
-              <dependencies>
-                <dependency id="contractid" />
-                <dependency id="contractdetailid" />
-              </dependencies>
-            </Handler>
-          </InternalHandlers>
-          <Handlers>
-            <Handler functionName="msdyn.caseForm.onLoad" libraryName="msdyn_/CFS/Case/CaseForm.js" handlerUniqueId="{ec972224-b4c4-7267-8010-80ba5c488663}" enabled="true" parameters="" passExecutionContext="true" />
-            <Handler functionName="FS.Incident.Library.Load" libraryName="msdyn_/Case/Case.Library.js" handlerUniqueId="{ce190b7b-5e43-7367-cb16-3770da0b2436}" enabled="true" parameters="" passExecutionContext="true" />
-          </Handlers>
-        </event>
-        <event name="onchange" application="true" active="true" attribute="contractid">
-          <InternalHandlers>
-            <Handler functionName="Mscrm.contractid_onchange" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="1ff26f3d-f9f4-470b-a379-bc74ce466a53" enabled="true">
-              <dependencies>
-                <dependency id="contractdetailid" />
-              </dependencies>
-            </Handler>
-          </InternalHandlers>
-        </event>
-        <event name="onchange" application="true" active="true" attribute="contractdetailid">
-          <InternalHandlers>
-            <Handler functionName="Mscrm.contractdetailid_onchange" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="fde679b3-af20-4b24-ab99-13f7de54fbb1" enabled="true">
-              <dependencies>
-                <dependency id="contractid" />
-              </dependencies>
-            </Handler>
-          </InternalHandlers>
-        </event>
-        <event name="onchange" application="true" active="true" attribute="kbarticleid">
-          <InternalHandlers>
-            <Handler functionName="Mscrm.kbarticleid_onchange" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="1d4f95de-79c3-44e4-a782-469a8fc6132d" enabled="true" />
-          </InternalHandlers>
-        </event>
-        <event name="onsave" application="true" active="true">
-          <InternalHandlers>
-            <Handler functionName="Mscrm.IncidentMainSystemLibraryWebResource.form_OnSave" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="ed27ea24-dc09-47be-8af3-52721df36d96" enabled="true" passExecutionContext="true" />
-          </InternalHandlers>
-        </event>
-        <event name="onchange" application="false" active="false" attribute="msdyn_iotalert">
-          <Handlers>
-            <Handler functionName="msdyn.RibbonUtils.refreshRibbonFnFromExecutionFormContext" libraryName="$webresource:msdyn_/CFS/Utils/RibbonUtils.js" handlerUniqueId="{9a2aa075-8be9-a548-dbbe-d9071773d39c}" enabled="true" parameters="" passExecutionContext="true" />
-            <Handler functionName="msdyn.caseForm.ShoworHideDeviceInsights" libraryName="msdyn_/CFS/Case/CaseForm.js" handlerUniqueId="{58488171-3ad2-0ee1-7393-3757b0dac606}" enabled="true" parameters="" passExecutionContext="false" />
-            <Handler functionName="msdyn.caseForm.prefillIncidentType" libraryName="msdyn_/CFS/Case/CaseForm.js" handlerUniqueId="{B742D069-8AE9-4430-B47F-5CA18B326728}" enabled="true" parameters="" passExecutionContext="true" />
-          </Handlers>
-        </event>
-        <event name="onchange" application="false" active="false" attribute="msdyn_incidenttype">
-          <Handlers>
-            <Handler functionName="msdyn.caseForm.clearSetNotification" libraryName="msdyn_/CFS/Case/CaseForm.js" handlerUniqueId="{03AA1F7F-A69F-468F-B0E7-6FE0E5F48C36}" enabled="true" parameters="" passExecutionContext="true" />
-          </Handlers>
-        </event>
-      </events>
       <clientresources>
         <internalresources>
           <clientincludes>
@@ -1744,15 +1725,74 @@
             </parameters>
           </customControl>
         </controlDescription>
+        <controlDescription forControl="{a7126b8d-6466-6a71-b102-de484ed91be8}">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{0696602A-B187-4BAF-8C12-3395AC7FD454}</ViewId>
+              <IsUserView>false</IsUserView>
+              <RelationshipName>slakpiinstance_incident</RelationshipName>
+              <TargetEntityType>slakpiinstance</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <ViewIds>{0696602A-B187-4BAF-8C12-3395AC7FD454}</ViewIds>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>All</ChartGridMode>
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+              <EnableChartPicker>true</EnableChartPicker>
+              <RecordsPerPage>4</RecordsPerPage>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.SlaTimer.SlaTimerControl">
+            <parameters>
+              <data-set name="dataSetGrid_1">
+                <ViewId>{0696602A-B187-4BAF-8C12-3395AC7FD454}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>slakpiinstance_incident</RelationshipName>
+                <TargetEntityType>slakpiinstance</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{0696602A-B187-4BAF-8C12-3395AC7FD454}</FilteredViewIds>
+              </data-set>
+              <Update_Frequency static="true" type="Enum">1800</Update_Frequency>
+              <EnableNegativeTimer static="true" type="Enum">0</EnableNegativeTimer>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.SlaTimer.SlaTimerControl">
+            <parameters>
+              <data-set name="dataSetGrid_1">
+                <ViewId>{0696602A-B187-4BAF-8C12-3395AC7FD454}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>slakpiinstance_incident</RelationshipName>
+                <TargetEntityType>slakpiinstance</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{0696602A-B187-4BAF-8C12-3395AC7FD454}</FilteredViewIds>
+              </data-set>
+              <Update_Frequency static="true" type="Enum">1800</Update_Frequency>
+              <EnableNegativeTimer static="true" type="Enum">0</EnableNegativeTimer>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.SlaTimer.SlaTimerControl">
+            <parameters>
+              <data-set name="dataSetGrid_1">
+                <ViewId>{0696602A-B187-4BAF-8C12-3395AC7FD454}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>slakpiinstance_incident</RelationshipName>
+                <TargetEntityType>slakpiinstance</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds>{0696602A-B187-4BAF-8C12-3395AC7FD454}</FilteredViewIds>
+              </data-set>
+              <Update_Frequency static="true" type="Enum">1800</Update_Frequency>
+              <EnableNegativeTimer static="true" type="Enum">0</EnableNegativeTimer>
+            </parameters>
+          </customControl>
+        </controlDescription>
       </controlDescriptions>
       <hiddencontrols>
         <data id="FirstResponseSLAStatus" datafieldname="firstresponseslastatus" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
         <data id="ResolveBySLAStatus" datafieldname="resolvebyslastatus" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
       </hiddencontrols>
-      <formLibraries>
-        <Library name="msdyn_/Case/Case.Library.js" libraryUniqueId="{160e2c11-66e6-d954-d801-b3a207eb52e1}" />
-        <Library name="msdyn_/CFS/Case/CaseForm.js" libraryUniqueId="{1c19b7e9-6c86-20c3-ceda-5401c292792a}" />
-      </formLibraries>
       <footer id="{c0a7d51c-a35b-4f2d-98c0-c3f4fdb0f149}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
         <rows>
           <row>
@@ -1774,6 +1814,69 @@
           </row>
         </rows>
       </footer>
+      <formLibraries>
+        <Library name="msdyn_/Case/Case.Library.js" libraryUniqueId="{160e2c11-66e6-d954-d801-b3a207eb52e1}" />
+        <Library name="msdyn_/CFS/Case/CaseForm.js" libraryUniqueId="{1c19b7e9-6c86-20c3-ceda-5401c292792a}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="true" active="true">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.Form_onload" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="76e18454-eeba-47c3-8a9d-6d701c77fbcc" enabled="true">
+              <dependencies>
+                <dependency id="contractid" />
+                <dependency id="contractdetailid" />
+              </dependencies>
+            </Handler>
+          </InternalHandlers>
+          <Handlers>
+            <Handler functionName="msdyn.caseForm.onLoad" libraryName="msdyn_/CFS/Case/CaseForm.js" handlerUniqueId="{ec972224-b4c4-7267-8010-80ba5c488663}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="FS.Incident.Library.Load" libraryName="msdyn_/Case/Case.Library.js" handlerUniqueId="{ce190b7b-5e43-7367-cb16-3770da0b2436}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="true" active="true" attribute="contractid">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.contractid_onchange" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="1ff26f3d-f9f4-470b-a379-bc74ce466a53" enabled="true">
+              <dependencies>
+                <dependency id="contractdetailid" />
+              </dependencies>
+            </Handler>
+          </InternalHandlers>
+        </event>
+        <event name="onchange" application="true" active="true" attribute="contractdetailid">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.contractdetailid_onchange" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="fde679b3-af20-4b24-ab99-13f7de54fbb1" enabled="true">
+              <dependencies>
+                <dependency id="contractid" />
+              </dependencies>
+            </Handler>
+          </InternalHandlers>
+        </event>
+        <event name="onchange" application="true" active="true" attribute="kbarticleid">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.kbarticleid_onchange" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="1d4f95de-79c3-44e4-a782-469a8fc6132d" enabled="true" />
+          </InternalHandlers>
+        </event>
+        <event name="onsave" application="true" active="true">
+          <InternalHandlers>
+            <Handler functionName="Mscrm.IncidentMainSystemLibraryWebResource.form_OnSave" libraryName="Service/Incident/Incident_main_system_library.js" handlerUniqueId="ed27ea24-dc09-47be-8af3-52721df36d96" enabled="true" passExecutionContext="true" />
+          </InternalHandlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="msdyn_iotalert">
+          <Handlers>
+            <Handler functionName="msdyn.RibbonUtils.refreshRibbonFnFromExecutionFormContext" libraryName="$webresource:msdyn_/CFS/Utils/RibbonUtils.js" handlerUniqueId="{9a2aa075-8be9-a548-dbbe-d9071773d39c}" enabled="true" parameters="" passExecutionContext="true" />
+            <Handler functionName="msdyn.caseForm.ShoworHideDeviceInsights" libraryName="msdyn_/CFS/Case/CaseForm.js" handlerUniqueId="{58488171-3ad2-0ee1-7393-3757b0dac606}" enabled="true" parameters="" passExecutionContext="false" />
+            <Handler functionName="msdyn.caseForm.prefillIncidentType" libraryName="msdyn_/CFS/Case/CaseForm.js" handlerUniqueId="{B742D069-8AE9-4430-B47F-5CA18B326728}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="msdyn_incidenttype">
+          <Handlers>
+            <Handler functionName="msdyn.caseForm.clearSetNotification" libraryName="msdyn_/CFS/Case/CaseForm.js" handlerUniqueId="{03AA1F7F-A69F-468F-B0E7-6FE0E5F48C36}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <DisplayConditions FallbackForm="true" Order="11">
+        <Everyone />
+      </DisplayConditions>
     </form>
     <IsCustomizable>1</IsCustomizable>
     <CanBeDeleted>1</CanBeDeleted>
