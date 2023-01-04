@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDataSource EntityDataSourceId="{daf2cd5e-0f64-ed11-9561-000d3a856300}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>AdventureWorksDB</Name>
+  <ConnectionDefinition>%7B%0D%0A++%22tenant%22%3A+null%2C%0D%0A++%22appsenvironment%22%3A+null%2C%0D%0A++%22Name%22%3A+%22AdventureWorksDB%22%2C%0D%0A++%22connectortype%22%3A+null%2C%0D%0A++%22ConnectionReference%22%3A+%22con_AdventureWorksDB%22%2C%0D%0A++%22userAuth%22%3A+%22false%22%2C%0D%0A++%22resource%22%3A+null%2C%0D%0A++%22DatasetValue%22%3A+null%2C%0D%0A++%22URL%22%3A+null%2C%0D%0A++%22clientid%22%3A+null%2C%0D%0A++%22ConnectorDataSource%22%3A+%22daf2cd5e-0f64-ed11-9561-000d3a856300%22%2C%0D%0A++%22host%22%3A+null%2C%0D%0A++%22connectionreference%22%3A+null%0D%0A%7D</ConnectionDefinition>
+  <EntityDataProviderId>{b581d5dc-72e1-ea11-a81e-000d3af5fff1}</EntityDataProviderId>
+  <IsCustomizable>1</IsCustomizable>
+</EntityDataSource>

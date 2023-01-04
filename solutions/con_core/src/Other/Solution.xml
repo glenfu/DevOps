@@ -86,6 +86,8 @@
       <RootComponent type="1" schemaName="con_widgetcategory" behavior="0" />
       <RootComponent type="1" schemaName="contact" behavior="2" />
       <RootComponent type="1" schemaName="cre1b_link" behavior="0" />
+      <RootComponent type="181" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}" schemaName="Virtual Connector Data Provider" behavior="0" />
+      <RootComponent type="183" id="{daf2cd5e-0f64-ed11-9561-000d3a856300}" schemaName="AdventureWorksDB" behavior="0" />
       <RootComponent type="61" schemaName="con_AI.Default.js" behavior="0" />
       <RootComponent type="61" schemaName="con_airesource" behavior="0" />
       <RootComponent type="61" schemaName="con_contactcards.css" behavior="0" />
@@ -145,8 +147,18 @@
         <Dependent type="1" schemaName="con_person" displayName="Person" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="183" schemaName="AdventureWorksDB" displayName="AdventureWorksDB" solution="Active" id="{daf2cd5e-0f64-ed11-9561-000d3a856300}" />
-        <Dependent type="1" schemaName="con_person" displayName="Person" />
+        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
+          <package>msft_ConnectorProvider (9.0.0.453)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+        </Required>
+        <Dependent type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
+          <package>msft_ConnectorProvider (9.0.0.453)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+        </Required>
+        <Dependent type="183" schemaName="AdventureWorksDB" displayName="AdventureWorksDB" id="{daf2cd5e-0f64-ed11-9561-000d3a856300}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="businesscard" displayName="Business Card" parentSchemaName="contact" parentDisplayName="Contact" solution="msdynce_SalesPatch201904 (9.0.1912.1007)">

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDataProvider xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityDataProviderId>{b581d5dc-72e1-ea11-a81e-000d3af5fff1}</EntityDataProviderId>
+  <Name>Virtual Connector Data Provider</Name>
+  <DataSourceLogicalName>msdyn_connectordatasource</DataSourceLogicalName>
+  <IsCustomizable>1</IsCustomizable>
+  <RetrievePluginTypeId>4e82455f-a85b-45e4-8957-72f90e03cf87</RetrievePluginTypeId>
+  <RetrieveMultiplePluginTypeId>f8986bff-ab57-4387-9b70-78ab83eedcc9</RetrieveMultiplePluginTypeId>
+  <CreatePluginTypeId>bcfb097b-9d84-4a10-8a20-723592d995cd</CreatePluginTypeId>
+  <UpdatePluginTypeId>c457bea7-5623-4181-9a29-53037559189a</UpdatePluginTypeId>
+  <DeletePluginTypeId>457d9fc0-9a2e-44af-9db1-3a97da1f34e6</DeletePluginTypeId>
+</EntityDataProvider>
