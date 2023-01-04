@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{b4c3dcd7-2374-4ee8-94f2-9c7d5440b08a}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="msdyn_displayname" select="1" icon="1" preview="1">
+        <row name="result" id="msdyn_ec_conadventureworksdbid">
+          <cell name="msdyn_displayname" width="300" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="msdyn_ec_conadventureworksdb">
+          <attribute name="msdyn_ec_conadventureworksdbid" />
+          <attribute name="msdyn_displayname" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="All Entity Catalog for AdventureWorksDBs" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -86,6 +86,7 @@
       <RootComponent type="1" schemaName="con_widgetcategory" behavior="0" />
       <RootComponent type="1" schemaName="contact" behavior="2" />
       <RootComponent type="1" schemaName="cre1b_link" behavior="0" />
+      <RootComponent type="1" schemaName="msdyn_ec_conadventureworksdb" behavior="0" />
       <RootComponent type="181" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}" schemaName="Virtual Connector Data Provider" behavior="0" />
       <RootComponent type="183" id="{daf2cd5e-0f64-ed11-9561-000d3a856300}" schemaName="AdventureWorksDB" behavior="0" />
       <RootComponent type="61" schemaName="con_AI.Default.js" behavior="0" />
@@ -126,14 +127,6 @@
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_ec_conadventureworksdb" displayName="Entity Catalog for AdventureWorksDB" solution="Active" />
-        <Dependent type="62" schemaName="con_AdventureWorks" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="1" schemaName="msdyn_ec_conadventureworksdb" displayName="Entity Catalog for AdventureWorksDB" solution="Active" />
-        <Dependent type="80" schemaName="con_AdventureWorks" displayName="AdventureWorks" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="1" schemaName="opportunity" displayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)">
           <package>msdynce_SalesAnchor (9.0.22112.10004)</package>
         </Required>
@@ -145,6 +138,13 @@
           <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
         </Required>
         <Dependent type="1" schemaName="con_person" displayName="Person" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
+          <package>msft_ConnectorProvider (9.0.0.453)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+        </Required>
+        <Dependent type="1" schemaName="msdyn_ec_conadventureworksdb" displayName="Entity Catalog for AdventureWorksDB" />
       </MissingDependency>
       <MissingDependency>
         <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
@@ -255,6 +255,13 @@
       <MissingDependency>
         <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)" />
         <Dependent type="80" schemaName="con_Person" displayName="Person" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_EntityCatalogPrimaryField" displayName="msdyn_EntityCatalogPrimaryField" solution="msft_ConnectorProvider (9.0.0.969)">
+          <package>msft_ConnectorProvider (9.0.0.453)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Entity Catalog for AdventureWorksDB" id="{6a84328a-ad69-4b8f-a1df-c378d92cdfe9}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_talkingpointsloader.js" displayName="msdyn_talkingpointsloader.js" solution="msdynce_Talkingpoints (9.0.1.701894)">

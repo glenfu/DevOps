@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{6a84328a-ad69-4b8f-a1df-c378d92cdfe9}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{8e086e63-7711-433b-a306-9648804fa21c}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{ec04bb8a-2ddf-455f-b10a-8c5f12251f97}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{da53ab2d-ef91-4fee-ad28-dc3039a6d2cc}">
+                        <labels>
+                          <label description="Virtual Entity Name" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_displayname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="msdyn_displayname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="9324638b-5fb6-4bf0-803d-ca48e1f5b7a9" showlabel="true" locklevel="0" labelid="8f1b2a18-4b36-49e1-971c-1830d16e97fb">
+                        <labels>
+                          <label description="Create or Refresh Entity" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_generated" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="msdyn_generated" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="09a1bf0a-9e7e-4716-9b18-852232f9cd11" showlabel="true" locklevel="0" labelid="6e6a1104-4319-4740-9e44-e5d99fd97c3e">
+                        <labels>
+                          <label description="Primary key of the Virtual Entity" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_pk_optionsetfield" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="msdyn_pk_optionsetfield" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="d7e359fb-445c-4320-8722-c7c17e831cda" showlabel="true" locklevel="0" labelid="73a49e9a-3525-470e-b71f-99ad1f0c0a7b">
+                        <labels>
+                          <label description="Primary key OptionSet Name" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_pk_optionsetname" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="msdyn_pk_optionsetname" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="ae516749-2e0f-4188-9182-35f996ef7fb5" showlabel="true" locklevel="0" labelid="e56779fd-ab99-44d2-b6a8-534b8cae51ca">
+                        <labels>
+                          <label description="Primary field of the Virtual Entity" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_optionsetfield" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="msdyn_optionsetfield" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="0480d2fe-34ad-4f6b-bccb-f4e94b18acaa" showlabel="true" locklevel="0" labelid="170e54d7-d960-40b3-808d-468bb336c1a9">
+                        <labels>
+                          <label description="OptionSet Name" languagecode="1033" />
+                        </labels>
+                        <control id="msdyn_optionsetname" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" datafieldname="msdyn_optionsetname" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <formLibraries>
+        <Library name="msdyn_EntityCatalogPrimaryField" libraryUniqueId="{3cc9ab2c-d1a8-0136-b8e2-ab4da20d7683}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="formLoad" libraryName="msdyn_EntityCatalogPrimaryField" handlerUniqueId="{417a4117-a07a-0965-c2ca-a979bba183c3}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+        <event name="onchange" application="false" active="false" attribute="msdyn_generated">
+          <Handlers>
+            <Handler functionName="onChange" libraryName="msdyn_EntityCatalogPrimaryField" handlerUniqueId="{317c7326-e9c7-c099-58a7-c63a497d583a}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
