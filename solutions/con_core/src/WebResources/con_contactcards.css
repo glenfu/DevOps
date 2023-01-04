@@ -7,8 +7,23 @@ body {
 }
 
 .con-contactcard {
-    padding: 1em;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* padding: 1em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    display: flex;
+    flex-direction: column;
+    background-color: #95dada;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+}
+
+.con-contactcard:hover {
+    transform: scale(1.05);
 }
 
 .con-contactcard > div:last-of-type {

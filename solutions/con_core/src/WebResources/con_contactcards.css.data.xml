@@ -3,6 +3,7 @@
   <WebResourceId>{d2165a15-b24a-ed11-bba2-000d3a856e95}</WebResourceId>
   <Name>con_contactcards.css</Name>
   <DisplayName>con_contactcards.css</DisplayName>
+  <LanguageCode>0</LanguageCode>
   <WebResourceType>2</WebResourceType>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>
   <IsEnabledForMobileClient>0</IsEnabledForMobileClient>

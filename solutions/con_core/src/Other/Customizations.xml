@@ -16,6 +16,15 @@
   <AppModuleSiteMaps />
   <AppModules />
   <EntityDataProviders />
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="con_AdventureWorksDB">
+      <connectionreferencedisplayname>AdventureWorksDB</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sql</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+  </connectionreferences>
   <Languages>
     <Language>1033</Language>
     <Language>3082</Language>
