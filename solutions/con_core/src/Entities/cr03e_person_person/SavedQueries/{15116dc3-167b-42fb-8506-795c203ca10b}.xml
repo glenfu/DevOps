@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{15116dc3-167b-42fb-8506-795c203ca10b}</savedqueryid>
+    <layoutxml>
+      <grid name="cr03e_person_persons" jump="cr03e_firstname" select="1" icon="1" preview="0">
+        <row name="cr03e_person_person" id="cr03e_person_personid">
+          <cell name="cr03e_firstname" width="300" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>64</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cr03e_person_person">
+          <attribute name="cr03e_person_personid" />
+          <attribute name="cr03e_firstname" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Custom Entity [Person].[Person] Lookup View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
