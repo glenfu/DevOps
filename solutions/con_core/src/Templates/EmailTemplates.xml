@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EmailTemplates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{da45573e-ae8c-ed11-81ac-00224817beb0}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>112</templatetypecode>
+    <body></body>
+    <title>Case</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <isenhancededitorenabledname>No</isenhancededitorenabledname>
+  </emailtemplate>
+  <emailtemplate>
+    <IsCustomizable>1</IsCustomizable>
+    <templateid>{e4db7d8e-c56b-ed11-81ac-000d3a856f51}</templateid>
+    <subject></subject>
+    <subjectpresentationxml></subjectpresentationxml>
+    <templatetypecode>8</templatetypecode>
+    <body></body>
+    <title>Knowledge Article Test</title>
+    <presentationxml></presentationxml>
+    <languagecode>1033</languagecode>
+    <generationtypecode>0</generationtypecode>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <isenhancededitorenabledname>No</isenhancededitorenabledname>
+  </emailtemplate>
+</EmailTemplates>
