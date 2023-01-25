@@ -34,6 +34,7 @@
     <AppModuleComponent type="1" schemaName="knowledgearticle" />
     <AppModuleComponent type="1" schemaName="knowledgearticleincident" />
     <AppModuleComponent type="1" schemaName="knowledgebaserecord" />
+    <AppModuleComponent type="1" schemaName="lead" />
     <AppModuleComponent type="1" schemaName="msdyn_applicationtabtemplate" />
     <AppModuleComponent type="1" schemaName="msdyn_customerasset" />
     <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_csrmanager" />

@@ -12,6 +12,7 @@
   <AppModuleComponents>
     <AppModuleComponent type="1" schemaName="con_partner" solutionaction="Added" />
     <AppModuleComponent type="1" schemaName="goal" solutionaction="Added" />
+    <AppModuleComponent type="1" schemaName="lead" solutionaction="Added" />
     <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_ksinsights" solutionaction="Added" />
     <AppModuleComponent type="26" id="{00000000-0000-0000-00aa-000010001004}" solutionaction="Added" />
     <AppModuleComponent type="26" id="{73bc2d9b-4e0e-424c-8839-ed59d6817e3a}" solutionaction="Added" />
