@@ -11,6 +11,7 @@
         }
       },
       "shared_commondataserviceforapps": {
+        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_b7d8f"
@@ -41,15 +42,16 @@
           "type": "OpenApiConnectionWebhook",
           "inputs": {
             "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
               "connectionName": "shared_commondataserviceforapps",
-              "operationId": "SubscribeWebhookTrigger",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+              "operationId": "SubscribeWebhookTrigger"
             },
             "parameters": {
               "subscriptionRequest/message": 3,
               "subscriptionRequest/entityname": "slakpiinstance",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "versionnumber,createdon"
+              "subscriptionRequest/filteringattributes": "versionnumber,createdon",
+              "subscriptionRequest/name": "7f58537a-5f70-ed11-81ac-000d3a856354"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -67,9 +69,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                       "connectionName": "shared_office365_1",
-                      "operationId": "SendEmailV2",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                      "operationId": "SendEmailV2"
                     },
                     "parameters": {
                       "emailMessage/To": "glenfu@pfecrmonline.onmicrosoft.com",
@@ -90,9 +92,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                       "connectionName": "shared_office365_1",
-                      "operationId": "SendEmailV2",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                      "operationId": "SendEmailV2"
                     },
                     "parameters": {
                       "emailMessage/To": "glenfu@pfecrmonline.onmicrosoft.com",
@@ -113,9 +115,9 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365",
                       "connectionName": "shared_office365_1",
-                      "operationId": "SendEmailV2",
-                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                      "operationId": "SendEmailV2"
                     },
                     "parameters": {
                       "emailMessage/To": "glenfu@pfecrmonline.onmicrosoft.com",
@@ -141,7 +143,7 @@
       },
       "outputs": {}
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }
