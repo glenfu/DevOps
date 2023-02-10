@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SdkMessageProcessingStep Name="plugins.CaseAgePreOperation: RetrieveMultiple of incident" SdkMessageProcessingStepId="{2eb8a7ca-b4a2-ed11-aad1-000d3a856f48}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SdkMessageId>03bebb1b-ea3e-db11-86a7-000a3a5473e8</SdkMessageId>
+  <PluginTypeName>plugins.CaseAgePreOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f</PluginTypeName>
+  <PluginTypeId>ee93d192-3203-40eb-8f54-ddc6ca7a5faf</PluginTypeId>
+  <PrimaryEntity>incident</PrimaryEntity>
+  <AsyncAutoDelete>0</AsyncAutoDelete>
+  <Description>plugins.CaseAgePreOperation: RetrieveMultiple of incident</Description>
+  <FilteringAttributes></FilteringAttributes>
+  <InvocationSource>0</InvocationSource>
+  <Mode>0</Mode>
+  <Rank>1</Rank>
+  <EventHandlerTypeCode>4602</EventHandlerTypeCode>
+  <Stage>20</Stage>
+  <IsCustomizable>1</IsCustomizable>
+  <IsHidden>0</IsHidden>
+  <SupportedDeployment>0</SupportedDeployment>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <SdkMessageProcessingStepImages />
+</SdkMessageProcessingStep>

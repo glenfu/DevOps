@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{2cce44b9-7a0e-e211-a768-00155d03a708}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" preview="1" icon="1">
+        <row name="result" id="incidentid">
+          <cell name="title" width="150" />
+          <cell name="ticketnumber" width="100" />
+          <cell name="customerid" width="100" />
+          <cell name="caseorigincode" width="100" />
+          <cell name="incidentstagecode" width="100" />
+          <cell name="casetypecode" width="100" />
+          <cell name="createdon" width="100" />
+          <cell name="description" width="100" disableSorting="1" />
+          <cell name="modifiedon" width="100" />
+          <cell name="ownerid" width="100" />
+          <cell name="prioritycode" width="100" />
+          <cell name="productid" width="100" />
+          <cell name="adx_publishtoweb" width="100" />
+          <cell name="adx_resolution" width="100" disableSorting="1" />
+          <cell name="responsiblecontactid" width="100" />
+          <cell name="severitycode" width="100" />
+          <cell name="statecode" width="100" />
+          <cell name="statuscode" width="100" />
+          <cell name="subjectid" width="100" />
+          <cell name="primarycontactid" width="100" />
+          <cell name="entitlementid" width="100" />
+          <cell name="adx_resolutiondate" width="100" />
+          <cell name="slaid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="incident">
+          <order attribute="title" descending="false" />
+          <attribute name="subjectid" />
+          <attribute name="statuscode" />
+          <attribute name="statecode" />
+          <attribute name="severitycode" />
+          <attribute name="responsiblecontactid" />
+          <attribute name="adx_resolution" />
+          <attribute name="adx_publishtoweb" />
+          <attribute name="productid" />
+          <attribute name="prioritycode" />
+          <attribute name="ownerid" />
+          <attribute name="modifiedon" />
+          <attribute name="description" />
+          <attribute name="customerid" />
+          <attribute name="createdon" />
+          <attribute name="casetypecode" />
+          <attribute name="incidentstagecode" />
+          <attribute name="caseorigincode" />
+          <attribute name="ticketnumber" />
+          <attribute name="title" />
+          <attribute name="slaid" />
+          <attribute name="adx_resolutiondate" />
+          <attribute name="entitlementid" />
+          <attribute name="primarycontactid" />
+          <attribute name="incidentid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>7.0.0003</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Portal Search" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

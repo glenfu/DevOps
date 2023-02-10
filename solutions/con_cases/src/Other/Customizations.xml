@@ -18,6 +18,7 @@
   <optionsets />
   <Slas />
   <CustomControls />
+  <SdkMessageProcessingSteps />
   <AppModules />
   <EntityDataProviders />
   <connectionreferences>

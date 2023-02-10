@@ -196,6 +196,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{1329b1b0-fa7b-46f2-b66f-891775bf578e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Publish to Web" languagecode="1033" />
+                        </labels>
+                        <control id="adx_publishtoweb" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="adx_publishtoweb" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell locklevel="0" id="{01fee743-59d7-4525-ac46-0c20f7f10299}" colspan="1" rowspan="1">
                         <labels>
                           <label description="New QV control 1669781590826" languagecode="1033" />

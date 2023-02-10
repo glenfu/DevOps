@@ -2,4 +2,5 @@
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EntityRelationship Name="con_incident_ResolutionPlannedByKPI_slakpiins" />
   <EntityRelationship Name="FileAttachment_Incident_con_CaseFile" />
+  <EntityRelationship Name="msdyn_msdyn_incidenttype_incident_IncidentType" />
 </EntityRelationships>
