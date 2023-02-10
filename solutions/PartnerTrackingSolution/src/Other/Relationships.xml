@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EntityRelationship Name="business_unit_con_partner" />
+  <EntityRelationship Name="con_con_partner_Contact_contact" />
   <EntityRelationship Name="lk_con_partner_createdby" />
   <EntityRelationship Name="lk_con_partner_modifiedby" />
   <EntityRelationship Name="owner_con_partner" />

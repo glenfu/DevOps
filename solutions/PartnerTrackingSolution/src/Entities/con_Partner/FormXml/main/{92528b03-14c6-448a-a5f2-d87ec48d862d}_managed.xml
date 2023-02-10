@@ -138,6 +138,55 @@
                         <control id="con_startrenewal" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="con_startrenewal" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell locklevel="0" id="{77d0399e-286f-4a4f-8f18-5dceb1c051e0}" rowspan="15" colspan="1">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{648aac12-ab6a-5cae-651b-08b1652246e4}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="reports" languagecode="1033" />
+                        </labels>
+                        <control id="IFRAME_reports" classid="{FD2A7985-3187-444e-908D-6624B21F69C0}">
+                          <parameters>
+                            <Url>https://gfudev.crm5.dynamics.com/crmreports/reportproperty.aspx</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>true</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{bd6bfc72-705e-ed11-9562-000d3a856354}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="con_name" select="1" icon="1" preview="1">
+        <row name="result" id="con_partnerid">
+          <cell name="con_name" width="200" />
+          <cell name="con_partnernumber" width="100" />
+          <cell name="con_partnerrating" width="100" />
+          <cell name="con_website" width="100" />
+          <cell name="con_industry" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="con_partner">
+          <attribute name="con_name" />
+          <attribute name="con_partnerid" />
+          <attribute name="con_partnernumber" />
+          <attribute name="con_partnerrating" />
+          <attribute name="con_website" />
+          <attribute name="con_industry" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Portal Search" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

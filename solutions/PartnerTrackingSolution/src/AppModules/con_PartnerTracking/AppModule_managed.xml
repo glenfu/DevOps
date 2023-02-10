@@ -10,9 +10,9 @@
   <ClientType>4</ClientType>
   <NavigationType>0</NavigationType>
   <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="account" />
     <AppModuleComponent type="1" schemaName="con_partner" />
     <AppModuleComponent type="1" schemaName="contact" />
-    <AppModuleComponent type="1" schemaName="account" />
     <AppModuleComponent type="1" schemaName="task" />
     <AppModuleComponent type="62" schemaName="con_PartnerTracking" />
   </AppModuleComponents>

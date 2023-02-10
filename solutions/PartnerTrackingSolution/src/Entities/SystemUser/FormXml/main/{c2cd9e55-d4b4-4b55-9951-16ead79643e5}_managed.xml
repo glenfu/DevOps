@@ -225,6 +225,10 @@
             <column width="50%" id="1">
               <sections>
                 <section name="mailing address" showlabel="true" showbar="true" id="{9cce3064-bdb7-4bfd-ac2b-83eeaa9a34c7}" IsUserDefined="0" ordinalvalue="0">
+                  <labels>
+                    <label description="Address" languagecode="1033" solutionaction="Modified" />
+                    <label description="Dirección" languagecode="3082" solutionaction="Modified" />
+                  </labels>
                   <rows>
                     <row>
                       <cell id="{f9d3aefa-2658-4540-82a1-27a5d0ddfd82}" ordinalvalue="10000">
@@ -266,6 +270,9 @@
             <column width="50%" id="1">
               <sections>
                 <section name="e-mail configuration" showlabel="true" showbar="true" locklevel="0" id="{213541fd-4665-46d1-b0a3-095de74a8f17}" IsUserDefined="0" ordinalvalue="0">
+                  <labels>
+                    <label description="Email Access Configuration" languagecode="1033" solutionaction="Modified" />
+                  </labels>
                   <rows>
                     <row>
                       <cell id="{3e67f0f2-9ade-4d0f-88e5-e437f8648c9a}" ordinalvalue="10000">
@@ -312,32 +319,16 @@
         </rows>
       </footer>
       <header id="{297d99cb-c201-41a0-82c4-fc99de73b078}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows>
-          <row>
-            <cell id="{edfcf467-6cfc-4a49-a315-00d39f6976bd}" showlabel="false" ordinalvalue="10000">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-            <cell id="{ea0f79b2-1a4f-427d-87c8-f33eff7af7e7}" showlabel="false" ordinalvalue="20001">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-            <cell id="{3c343f4b-29ba-46e9-af54-7bc84466eb71}" showlabel="false" ordinalvalue="30002">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-          </row>
-        </rows>
+        <rows></rows>
       </header>
     </form>
     <LocalizedNames>
       <LocalizedName description="User" languagecode="1033" />
+      <LocalizedName description="Usuario" languagecode="3082" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Updated default User form" languagecode="1033" />
+      <Description description="Formulario predeterminado de usuario actualizado" languagecode="3082" />
     </Descriptions>
   </systemform>
 </forms>

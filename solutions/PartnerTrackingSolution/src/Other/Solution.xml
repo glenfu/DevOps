@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22061.168" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23013.186" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>PartnerTrackingSolution</UniqueName>
     <LocalizedNames>
@@ -82,13 +82,14 @@
     <RootComponents>
       <RootComponent type="1" schemaName="account" behavior="2" />
       <RootComponent type="1" schemaName="con_partner" behavior="0" />
+      <RootComponent type="1" schemaName="contact" behavior="1" />
       <RootComponent type="1" schemaName="systemuser" behavior="2" />
-      <RootComponent type="9" schemaName="con_d365partner" behavior="0" />
-      <RootComponent type="9" schemaName="con_industry" behavior="0" />
       <RootComponent type="29" id="{39cecff6-12db-ec11-bb3c-00224817478b}" behavior="0" />
+      <RootComponent type="300" schemaName="con_partnertrackingdefaultcommandlibrary_ea635" behavior="0" />
       <RootComponent type="62" schemaName="con_PartnerTracking" behavior="0" />
       <RootComponent type="80" schemaName="con_PartnerTracking" behavior="0" />
-      <RootComponent type="300" schemaName="con_partnertrackingdefaultcommandlibrary_ea635" behavior="0" />
+      <RootComponent type="9" schemaName="con_d365partner" behavior="0" />
+      <RootComponent type="9" schemaName="con_industry" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
@@ -96,165 +97,129 @@
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_capacityprofile" displayName="Capacity Profile" solution="UnifiedRouting (1.0.0.2157)">
+        <Required type="1" schemaName="msdyn_capacityprofile" displayName="Capacity Profile" solution="UnifiedRouting (1.0.0.3795)">
           <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="10" schemaName="msdyn_msdyn_ocphonenumber_systemuser_phonenumberid" displayName="msdyn_msdyn_ocphonenumber_systemuser_phonenumberid" parentSchemaName="msdyn_ocphonenumber" parentDisplayName="Phone Number" solution="OmnichannelCommunicationBase (1.5.0.140)">
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+        <Required type="10" schemaName="msdyn_msdyn_ocphonenumber_systemuser_phonenumberid" displayName="msdyn_msdyn_ocphonenumber_systemuser_phonenumberid" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelCommunicationBase (1.5.0.145)">
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="10" schemaName="msdyn_msdyn_presence_systemuser" displayName="msdyn_msdyn_presence_systemuser" parentSchemaName="msdyn_presence" parentDisplayName="Presence" solution="OmnichannelBase (1.5.0.5689)">
-          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeOutboundAnchor (1.5.16.6454)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+        <Required type="10" schemaName="msdyn_msdyn_presence_systemuser" displayName="msdyn_msdyn_presence_systemuser" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBase (1.5.0.5946)">
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeOutboundAnchor (1.5.16.7976)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="msdyn_agentType" displayName="User type" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBotEnabler (1.5.0.4)">
           <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="msdyn_botapplicationid" displayName="Bot application ID" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBotEnabler (1.5.0.4)">
           <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_botdescription" displayName="Description" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBase (1.5.0.5689)">
+        <Required type="2" schemaName="msdyn_botdescription" displayName="Description" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBase (1.5.0.5946)">
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeOutboundAnchor (1.5.16.7976)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+        </Required>
+        <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="2" schemaName="msdyn_botprovider" displayName="Bot Provider" parentSchemaName="systemuser" parentDisplayName="User" solution="msdyn_OmnichannelBotEnablerPatch (1.5.16.57)">
           <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeOutboundAnchor (1.5.16.6454)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_botprovider" displayName="Bot Provider" parentSchemaName="systemuser" parentDisplayName="User" solution="msdyn_OmnichannelBotEnablerPatch (1.5.16.52)">
-          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+        <Required type="2" schemaName="msdyn_capacity" displayName="Capacity" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBase (1.5.0.5946)">
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeOutboundAnchor (1.5.16.7976)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_capacity" displayName="Capacity" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBase (1.5.0.5689)">
-          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeOutboundAnchor (1.5.16.6454)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+        <Required type="2" schemaName="msdyn_defaultpresenceiduser" displayName="Default Presence" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBase (1.5.0.5946)">
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeOutboundAnchor (1.5.16.7976)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_defaultpresenceiduser" displayName="Default Presence" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelBase (1.5.0.5689)">
-          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeOutboundAnchor (1.5.16.6454)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
-        </Required>
-        <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="2" schemaName="msdyn_phonenumberid" displayName="Phone Number" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelCommunicationBase (1.5.0.140)">
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+        <Required type="2" schemaName="msdyn_phonenumberid" displayName="Phone Number" parentSchemaName="systemuser" parentDisplayName="User" solution="OmnichannelCommunicationBase (1.5.0.145)">
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="siteid" displayName="Site" parentSchemaName="systemuser" parentDisplayName="User" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.22055.1012)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="territoryid" displayName="Territory" parentSchemaName="systemuser" parentDisplayName="User" solution="msdynce_AppCommon (9.0.4.0066)">
-          <package>msdynce_AppCommonAnchor (9.0.22061.10001)</package>
-        </Required>
-        <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Omnichannel queues" displayName="Omnichannel queues" parentSchemaName="queue" parentDisplayName="Queue" solution="OmnichannelBase (1.5.0.5689)" id="{475ba760-c16c-e911-8196-000d3af7379e}">
-          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeOutboundAnchor (1.5.16.6454)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
-        </Required>
-        <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Active Capacity Profiles" displayName="Active Capacity Profiles" parentSchemaName="msdyn_capacityprofile" parentDisplayName="Capacity Profile" solution="UnifiedRouting (1.0.0.2157)" id="{59137c65-5747-433b-8a7d-fd1dc252f13f}">
-          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
-        </Required>
-        <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="26" schemaName="Capacity profile Subgrid View" displayName="Capacity profile Subgrid View" parentSchemaName="msdyn_capacityprofile" parentDisplayName="Capacity Profile" solution="OCBaseURBase (1.0.0.2156)" id="{6313eed9-e160-eb11-a812-000d3a9bbc54}">
-          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+          <package>msdynce_AppCommonAnchor (9.0.23032.15002)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
@@ -263,14 +228,53 @@
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="Available Geographic Phone Numbers" displayName="Available Geographic Phone Numbers" parentSchemaName="msdyn_ocphonenumber" parentDisplayName="Phone Number" solution="OmnichannelTelephony (1.5.0.497)" id="{b56a225f-729b-494d-8dc6-96aefe90bd7a}">
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+        <Required type="26" schemaName="Active Capacity Profiles" displayName="Active Capacity Profiles" parentSchemaName="msdyn_capacityprofile" parentDisplayName="Capacity Profile" solution="UnifiedRouting (1.0.0.3795)" id="{59137c65-5747-433b-8a7d-fd1dc252f13f}">
+          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+        </Required>
+        <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Available Geographic Phone Numbers" displayName="Available Geographic Phone Numbers" parentSchemaName="msdyn_ocphonenumber" parentDisplayName="Phone Number" solution="OmnichannelTelephony (1.5.0.563)" id="{b56a225f-729b-494d-8dc6-96aefe90bd7a}">
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+        </Required>
+        <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Capacity profile Subgrid View" displayName="Capacity profile Subgrid View" parentSchemaName="msdyn_capacityprofile" parentDisplayName="Capacity Profile" solution="OCBaseURBase (1.0.0.3794)" id="{6313eed9-e160-eb11-a812-000d3a9bbc54}">
+          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+        </Required>
+        <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="26" schemaName="Omnichannel queues" displayName="Omnichannel queues" parentSchemaName="queue" parentDisplayName="Queue" solution="OmnichannelBase (1.5.0.5946)" id="{475ba760-c16c-e911-8196-000d3af7379e}">
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeOutboundAnchor (1.5.16.7976)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_/fps/Icons/CommandBar/CalendarButton.svg" displayName="msdyn_/fps/Icons/CommandBar/CalendarButton.svg" solution="MicrosoftDynamicsScheduling (3.12.0.448)">
-          <package>FieldService_Anchor (8.8.67.16)</package>
+          <package>FieldService_Anchor (8.8.87.7)</package>
         </Required>
         <Dependent type="appaction" displayName="con__CreateTasks!30f32fcdd2e54d6987c5caf51511de42!con_PartnerTracking!con_partner!0" id.uniquename="con__CreateTasks!30f32fcdd2e54d6987c5caf51511de42!con_PartnerTracking!con_partner!0" />
       </MissingDependency>
@@ -280,86 +284,93 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_/User/FieldService.SystemUser.js" displayName="msdyn_/User/FieldService.SystemUser.js" solution="FieldService (8.8.0.88)">
-          <package>FieldService_Anchor (8.8.67.16)</package>
+          <package>FieldService_Anchor (8.8.87.7)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_capacityprofileSubgridActions.js" displayName="msdyn_capacityprofileSubgridActions.js" solution="OCBaseURBase (1.0.0.2156)">
+        <Required type="61" schemaName="msdyn_capacityprofileSubgridActions.js" displayName="msdyn_capacityprofileSubgridActions.js" solution="OCBaseURBase (1.0.0.3794)">
           <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_OmnichannelBotEnabler/msdyn_BotUser.js" displayName="msdyn_OmnichannelBotEnabler/msdyn_BotUser.js" solution="msdyn_OmnichannelBotEnablerPatch (1.5.16.52)">
+        <Required type="61" schemaName="msdyn_OmnichannelBotEnabler/msdyn_BotUser.js" displayName="msdyn_OmnichannelBotEnabler/msdyn_BotUser.js" solution="msdyn_OmnichannelBotEnablerPatch (1.5.16.57)">
           <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_userSettings.js" displayName="msdyn_userSettings.js" solution="OmnichannelBase (1.5.0.5689)">
-          <package>OmnichannelPrimeAnchor (1.5.16.6435)</package>
-          <package>OmnichannelPrimeChatAnchor (1.5.16.8258)</package>
-          <package>OmnichannelPrimeFacebookAnchor (1.5.16.6681)</package>
-          <package>OmnichannelPrimeOutboundAnchor (1.5.16.6454)</package>
-          <package>OmnichannelPrimeSMSAnchor (1.5.16.6866)</package>
-          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.6768)</package>
-          <package>OmnichannelPrimeTeams (1.5.16.6683)</package>
-          <package>OmnichannelPrimeTelephony (1.5.16.7084)</package>
+        <Required type="61" schemaName="msdyn_userSettings.js" displayName="msdyn_userSettings.js" solution="OmnichannelBase (1.5.0.5946)">
+          <package>OmnichannelPrimeChatAnchor (1.5.16.9920)</package>
+          <package>OmnichannelPrimeFacebookAnchor (1.5.16.8342)</package>
+          <package>OmnichannelPrimeOutboundAnchor (1.5.16.7976)</package>
+          <package>OmnichannelPrimeSMSAnchor (1.5.16.8543)</package>
+          <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
+          <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
+          <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
         </Required>
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.AddressInputUCI" displayName="Microsoft.AddressInputUCI" solution="BaseCustomControlsCore (9.0.2206.1010)" />
+        <Required type="66" schemaName="Microsoft.AddressInputUCI" displayName="Microsoft.AddressInputUCI" solution="BaseCustomControlsCore (9.0.2301.3010)" />
         <Dependent type="60" displayName="User" parentDisplayName="User" id="{c2cd9e55-d4b4-4b55-9951-16ead79643e5}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2206.1010)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2301.3010)" />
         <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2206.1010)" />
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2301.3010)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Partner" id="{92528b03-14c6-448a-a5f2-d87ec48d862d}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2206.1010)" />
+        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2301.3010)" />
         <Dependent type="68" id="{cb2f80cc-ff15-4123-8574-df72be0ea2dd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22061.00168)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.23013.00186)" />
         <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.22061.00168)" />
+        <Required type="66" schemaName="MscrmControls.InputMask.InputMaskControl" displayName="MscrmControls.InputMask.InputMaskControl" solution="CustomControlsCore (9.2.23013.00186)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Partner" id="{92528b03-14c6-448a-a5f2-d87ec48d862d}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.OptionSet.OptionSetControl" displayName="MscrmControls.OptionSet.OptionSetControl" solution="CustomControlsCore (9.2.22061.00168)" />
+        <Required type="66" schemaName="MscrmControls.OptionSet.OptionSetControl" displayName="MscrmControls.OptionSet.OptionSetControl" solution="CustomControlsCore (9.2.23013.00186)" />
         <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.OptionSet.OptionSetControl" displayName="MscrmControls.OptionSet.OptionSetControl" solution="CustomControlsCore (9.2.22061.00168)" />
+        <Required type="66" schemaName="MscrmControls.OptionSet.OptionSetControl" displayName="MscrmControls.OptionSet.OptionSetControl" solution="CustomControlsCore (9.2.23013.00186)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Partner" id="{92528b03-14c6-448a-a5f2-d87ec48d862d}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Rating.StarRatingControl" displayName="MscrmControls.Rating.StarRatingControl" solution="CustomControlsCore (9.2.22061.00168)" />
+        <Required type="66" schemaName="MscrmControls.Rating.StarRatingControl" displayName="MscrmControls.Rating.StarRatingControl" solution="CustomControlsCore (9.2.23013.00186)" />
         <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Rating.StarRatingControl" displayName="MscrmControls.Rating.StarRatingControl" solution="CustomControlsCore (9.2.22061.00168)" />
+        <Required type="66" schemaName="MscrmControls.Rating.StarRatingControl" displayName="MscrmControls.Rating.StarRatingControl" solution="CustomControlsCore (9.2.23013.00186)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Partner" id="{92528b03-14c6-448a-a5f2-d87ec48d862d}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="msdyn_MscrmControls.FieldService.MultiselectLookupControl" displayName="msdyn_MscrmControls.FieldService.MultiselectLookupControl" solution="msdyn_FieldService_patch_update (8.8.87.7)">
+          <package>FieldService_Anchor (8.8.87.7)</package>
+        </Required>
+        <Dependent type="60" displayName="Partner main form" parentDisplayName="Partner" id="{52f0febf-6edd-ec11-bb3c-00224817478b}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

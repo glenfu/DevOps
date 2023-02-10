@@ -28,11 +28,27 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{e4c19352-e753-e891-4d5a-e59b46c64161}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Accounts" languagecode="1033" />
+                        </labels>
+                        <control id="con_accounts" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_accounts" disabled="false" uniqueid="{35294bba-0630-14e9-3e32-db5d6bb4ad92}" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{0080f229-966a-44a7-89df-2af79ad36a28}" labelid="{40e55f66-3743-4a49-8f79-c4de96f33541}" visible="false">
                         <labels>
                           <label description="Owner" languagecode="1033" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fccb2c39-a2ee-4ab2-a528-e3103c6342f9}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Contact" languagecode="1033" />
+                        </labels>
+                        <control id="con_contact" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_contact" disabled="false" />
                       </cell>
                     </row>
                     <row>
@@ -122,6 +138,55 @@
                         <control id="con_startrenewal" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="con_startrenewal" disabled="false" />
                       </cell>
                     </row>
+                    <row>
+                      <cell locklevel="0" id="{2a667414-5708-4695-a7a0-a8ded7aef1cd}" rowspan="15" colspan="1">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{885e1eb7-1b25-2899-ebb0-613999acd722}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                        <labels>
+                          <label description="signin" languagecode="1033" />
+                        </labels>
+                        <control id="IFRAME_signin" classid="{FD2A7985-3187-444e-908D-6624B21F69C0}">
+                          <parameters>
+                            <Url>https://gfudev.powerappsportals.com/SignIn?returnUrl=%2Fen-US%2F</Url>
+                            <PassParameters>false</PassParameters>
+                            <Security>true</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
                   </rows>
                 </section>
               </sections>
@@ -289,6 +354,34 @@
             <parameters>
               <value>con_mainphone</value>
               <mask static="true" type="SingleLine.Text">(000) 000 - 0000</mask>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{35294bba-0630-14e9-3e32-db5d6bb4ad92}">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>con_accounts</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="msdyn_MscrmControls.FieldService.MultiselectLookupControl">
+            <parameters>
+              <outputProperty>con_accounts</outputProperty>
+              <entityName static="true" type="SingleLine.Text">account</entityName>
+              <defaultViewId static="true" type="SingleLine.Text">00000000-0000-0000-00aa-000010001002</defaultViewId>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="msdyn_MscrmControls.FieldService.MultiselectLookupControl">
+            <parameters>
+              <outputProperty>con_accounts</outputProperty>
+              <entityName static="true" type="SingleLine.Text">account</entityName>
+              <defaultViewId static="true" type="SingleLine.Text">00000000-0000-0000-00aa-000010001002</defaultViewId>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="msdyn_MscrmControls.FieldService.MultiselectLookupControl">
+            <parameters>
+              <outputProperty>con_accounts</outputProperty>
+              <entityName static="true" type="SingleLine.Text">account</entityName>
+              <defaultViewId static="true" type="SingleLine.Text">00000000-0000-0000-00aa-000010001002</defaultViewId>
             </parameters>
           </customControl>
         </controlDescription>
