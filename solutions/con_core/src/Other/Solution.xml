@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.22113.172" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23013.186" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>con_core</UniqueName>
     <LocalizedNames>
@@ -106,161 +106,160 @@
       <RootComponent type="80" schemaName="con_ContactCards" behavior="0" />
       <RootComponent type="80" schemaName="con_Person" behavior="0" />
       <RootComponent type="91" id="{e3eaae73-e85e-4e3a-be89-1fab8f58f02b}" schemaName="plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" behavior="0" />
-      <RootComponent type="92" id="{918b35eb-e107-ed11-82e5-000d3a819aba}" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
         <Required type="1" schemaName="entitlement" displayName="Entitlement" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="incident" displayName="Case" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="36" displayName="Case" id="{da45573e-ae8c-ed11-81ac-00224817beb0}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="incident" displayName="Case" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="opportunity" displayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)">
-          <package>msdynce_SalesAnchor (9.0.22112.10004)</package>
+          <package>msdynce_SalesAnchor (9.0.23032.15006)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
+        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.1057)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
           <package>msft_ConnectorProvider (9.0.0.453)</package>
-          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.1057)</package>
         </Required>
         <Dependent type="1" schemaName="con_person" displayName="Person" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
+        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.1057)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
           <package>msft_ConnectorProvider (9.0.0.453)</package>
-          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.1057)</package>
         </Required>
         <Dependent type="1" schemaName="cr03e_person_person" displayName="Custom Entity [Person].[Person]" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
+        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.1057)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
           <package>msft_ConnectorProvider (9.0.0.453)</package>
-          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.1057)</package>
         </Required>
         <Dependent type="1" schemaName="msdyn_ec_conadventureworksdb" displayName="Entity Catalog for AdventureWorksDB" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
+        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.1057)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
           <package>msft_ConnectorProvider (9.0.0.453)</package>
-          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.1057)</package>
         </Required>
         <Dependent type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.969)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
+        <Required type="181" schemaName="Virtual Connector Data Provider" displayName="Virtual Connector Data Provider" solution="msft_ConnectorProvider (9.0.0.1057)" id="{b581d5dc-72e1-ea11-a81e-000d3af5fff1}">
           <package>msft_ConnectorProvider (9.0.0.453)</package>
-          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.1057)</package>
         </Required>
         <Dependent type="183" schemaName="AdventureWorksDB" displayName="AdventureWorksDB" id="{daf2cd5e-0f64-ed11-9561-000d3a856300}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="businesscard" displayName="Business Card" parentSchemaName="contact" parentDisplayName="Contact" solution="msdynce_SalesPatch201904 (9.0.1912.1007)">
-          <package>msdynce_SalesAnchor (9.0.22112.10004)</package>
+          <package>msdynce_SalesAnchor (9.0.23032.15006)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="businesscardattributes" displayName="BusinessCardAttributes" parentSchemaName="contact" parentDisplayName="Contact" solution="msdynce_SalesPatch201904 (9.0.1912.1007)">
-          <package>msdynce_SalesAnchor (9.0.22112.10004)</package>
+          <package>msdynce_SalesAnchor (9.0.23032.15006)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="incidentid" displayName="Case" parentSchemaName="incident" parentDisplayName="Case" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="36" displayName="Case" id="{da45573e-ae8c-ed11-81ac-00224817beb0}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="originatingleadid" displayName="Originating Lead" parentSchemaName="contact" parentDisplayName="Contact" solution="msdynce_LeadManagement (9.0.4.0066)">
-          <package>msdynce_LeadManagementAnchor (9.0.22112.10001)</package>
+          <package>msdynce_LeadManagementAnchor (9.0.23012.10001)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="2" schemaName="title" displayName="Case Title" parentSchemaName="incident" parentDisplayName="Case" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="36" displayName="Case" id="{da45573e-ae8c-ed11-81ac-00224817beb0}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="All Entitlements" displayName="All Entitlements" parentSchemaName="entitlement" parentDisplayName="Entitlement" solution="msdynce_Service (9.0.5.56)" id="{aa69e7e2-913a-4a5a-8609-8ca443554909}">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="My Active Cases" displayName="My Active Cases" parentSchemaName="incident" parentDisplayName="Case" solution="msdynce_Service (9.0.5.56)" id="{00000000-0000-0000-00aa-000010001028}">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="My Open Opportunities" displayName="My Open Opportunities" parentSchemaName="opportunity" parentDisplayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)" id="{00000000-0000-0000-00aa-000010003000}">
-          <package>msdynce_SalesAnchor (9.0.22112.10004)</package>
+          <package>msdynce_SalesAnchor (9.0.23032.15006)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Recent Cases" displayName="Recent Cases" parentSchemaName="incident" parentDisplayName="Case" solution="msdynce_Service (9.0.5.56)" id="{ebd1d24a-eea7-e211-9fb6-00155dd0ea05}">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Recent Opportunities" displayName="Recent Opportunities" parentSchemaName="opportunity" parentDisplayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)" id="{9c3f7ee8-eca7-e211-9fb6-00155dd0ea05}">
-          <package>msdynce_SalesAnchor (9.0.22112.10004)</package>
+          <package>msdynce_SalesAnchor (9.0.23032.15006)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="59" schemaName="Case Mix (By Business Unit)" displayName="Case Mix (By Business Unit)" parentSchemaName="incident" parentDisplayName="Case" solution="msdynce_Service (9.0.5.56)" id="{f10375a6-4893-de11-97d4-00155da3b01e}">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="59" schemaName="Entitlements Expiration" displayName="Entitlements Expiration" parentSchemaName="entitlement" parentDisplayName="Entitlement" solution="msdynce_Service (9.0.5.56)" id="{fdb919bb-c6fc-4fc8-8fa5-67ace68e41d1}">
-          <package>msdynce_ServiceAnchor (9.0.22112.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="59" schemaName="Top Customers" displayName="Top Customers" parentSchemaName="opportunity" parentDisplayName="Opportunity" solution="msdynce_Sales (9.0.4.0076)" id="{8bc5fb18-48f2-4782-9e16-3d452fa4ddce}">
-          <package>msdynce_SalesAnchor (9.0.22112.10004)</package>
+          <package>msdynce_SalesAnchor (9.0.23032.15006)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}">
-          <package>msdynce_AppCommonAnchor (9.0.22112.10001)</package>
+          <package>msdynce_AppCommonAnchor (9.0.23032.15002)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="account contact card" parentDisplayName="Contact" solution="msdynce_AppCommon (9.0.4.0066)" id="{29de27bc-a257-4f29-99cf-bab4a84e688f}">
-          <package>msdynce_AppCommonAnchor (9.0.22112.10001)</package>
+          <package>msdynce_AppCommonAnchor (9.0.23032.15002)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_/Contact/Contact.Library.js" displayName="msdyn_/Contact/Contact.Library.js" solution="FieldService (8.8.0.88)">
-          <package>FieldService_Anchor (8.8.80.48)</package>
+          <package>FieldService_Anchor (8.8.87.7)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
@@ -277,33 +276,47 @@
         <Dependent type="80" schemaName="con_Person" displayName="Person" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="61" schemaName="msdyn_EntityCatalogPrimaryField" displayName="msdyn_EntityCatalogPrimaryField" solution="msft_ConnectorProvider (9.0.0.969)">
+        <Required type="61" schemaName="msdyn_/Scripts/WhoKnowsWhomLoader.js" displayName="msdyn_/Scripts/WhoKnowsWhomLoader.js" solution="msdyn_connectiongraph (9.2.0.982)">
+          <package>msdynce_SalesInsightsAnchor (9.0.23032.15011)</package>
+          <package>SalesInsightsAddOn (9.0.23021.10002)</package>
+        </Required>
+        <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_EntityCatalogPrimaryField" displayName="msdyn_EntityCatalogPrimaryField" solution="msft_ConnectorProvider (9.0.0.1057)">
           <package>msft_ConnectorProvider (9.0.0.453)</package>
-          <package>msft_ConnectorProviderAnchor (9.0.0.969)</package>
+          <package>msft_ConnectorProviderAnchor (9.0.0.1057)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Entity Catalog for AdventureWorksDB" id="{6a84328a-ad69-4b8f-a1df-c378d92cdfe9}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_talkingpointsloader.js" displayName="msdyn_talkingpointsloader.js" solution="msdynce_Talkingpoints (9.0.1.701894)">
-          <package>msdynce_SalesInsightsAnchor (9.0.22112.10006)</package>
+          <package>msdynce_SalesInsightsAnchor (9.0.23032.15011)</package>
         </Required>
         <Dependent type="61" schemaName="msdyn_talkingpointsloader.js" displayName="msdyn_talkingpointsloader.js" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Intelligence.BusinessCardReaderControl.BusinessCardReader" displayName="Intelligence.BusinessCardReaderControl.BusinessCardReader" solution="BaseCustomControlsCore (9.0.2211.3014)" />
+        <Required type="66" schemaName="Intelligence.BusinessCardReaderControl.BusinessCardReader" displayName="Intelligence.BusinessCardReaderControl.BusinessCardReader" solution="BaseCustomControlsCore (9.0.2301.3010)" />
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.AddressInputUCI" displayName="Microsoft.AddressInputUCI" solution="BaseCustomControlsCore (9.0.2211.3014)" />
+        <Required type="66" schemaName="Microsoft.AddressInputUCI" displayName="Microsoft.AddressInputUCI" solution="BaseCustomControlsCore (9.0.2301.3010)" />
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2211.3014)" />
+        <Required type="66" schemaName="MscrmControls.CardFeedContainer.CardFeedContainer" displayName="MscrmControls.CardFeedContainer.CardFeedContainer" solution="BaseCustomControlsCore (9.0.2301.3010)" />
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="66" schemaName="MscrmControls.TalkingPointsControl.TalkingPoints" displayName="MscrmControls.TalkingPointsControl.TalkingPoints" solution="msdynce_Talkingpoints (9.0.1.701894)">
-          <package>msdynce_SalesInsightsAnchor (9.0.22112.10006)</package>
+          <package>msdynce_SalesInsightsAnchor (9.0.23032.15011)</package>
+        </Required>
+        <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MsdynControls.WKWControls.ConnectionsWidget" displayName="MsdynControls.WKWControls.ConnectionsWidget" solution="msdyn_connectiongraph (9.2.0.982)">
+          <package>msdynce_SalesInsightsAnchor (9.0.23032.15011)</package>
+          <package>SalesInsightsAddOn (9.0.23021.10002)</package>
         </Required>
         <Dependent type="60" displayName="Contact" parentDisplayName="Contact" id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
       </MissingDependency>

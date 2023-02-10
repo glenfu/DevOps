@@ -5,8 +5,11 @@
   <IntroducedVersion>1.0</IntroducedVersion>
   <FileName>/PluginAssemblies/plugins-E3EAAE73-E85E-4E3A-BE89-1FAB8F58F02B/plugins.dll</FileName>
   <PluginTypes>
-    <PluginType AssemblyQualifiedName="ILoggerExample.AccountPostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="640b9810-65a7-4cd2-b24a-0aa19df08121" Name="ILoggerExample.AccountPostOperation">
-      <FriendlyName>e4b7509d-59c4-4740-85f0-d666f2f9274c</FriendlyName>
+    <PluginType AssemblyQualifiedName="ILoggerExample.AccountPostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="af9349eb-6937-4f4b-b81a-22fd939f0a40" Name="ILoggerExample.AccountPostOperation">
+      <FriendlyName>57003505-e827-4b7d-aed8-55dad9108b5f</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="plugins.CaseAgePreOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="ee93d192-3203-40eb-8f54-ddc6ca7a5faf" Name="plugins.CaseAgePreOperation">
+      <FriendlyName>ff5b2fa5-f1c3-4081-b6f2-6267479d33bb</FriendlyName>
     </PluginType>
   </PluginTypes>
 </PluginAssembly>

@@ -5,7 +5,7 @@
     <IntroducedVersion>5.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form showImage="true" headerdensity="HighWithControls" solutionaction="Modified">
+    <form showImage="true" headerdensity="HighWithControls">
       <tabs>
         <tab name="SUMMARY_TAB" id="{15bb2d4b-71da-74ea-3c5b-e497d78a55a2}" IsUserDefined="0" showlabel="true" expanded="true" ordinalvalue="0">
           <columns>
@@ -132,7 +132,7 @@
             </column>
             <column width="25%" id="2">
               <sections>
-                <section name="CUSTOMER_DETAILS_TAB" showlabel="false" showbar="false" id="{0ed6b616-7ef0-4ffe-9a77-610beef03f9c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" ordinalvalue="2">
+                <section name="CUSTOMER_DETAILS_TAB" showlabel="false" showbar="false" id="{0ed6b616-7ef0-4ffe-9a77-610beef03f9c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" ordinalvalue="3">
                   <rows>
                     <row>
                       <cell id="{309AA48F-B748-4C9E-A0A8-F8A93BE633E5}" colspan="1" showlabel="false" ordinalvalue="10001">
@@ -302,6 +302,7 @@
       <events>
         <event name="onload" application="true" active="true">
           <Handlers>
+            <Handler functionName="checkWKWVisibility" libraryName="msdyn_/Scripts/WhoKnowsWhomLoader.js" handlerUniqueId="{d0a56571-d889-700d-9445-0a26120a54d3}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="4" solutionaction="Modified" />
             <Handler functionName="con.CRM.Contact.onFormLoad" libraryName="con_contactform.js" handlerUniqueId="{f1c4c57c-2b37-4176-ba4c-c8727f995de8}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="3" solutionaction="Added" />
           </Handlers>
         </event>
