@@ -100,6 +100,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{c165f82b-156d-475e-8cb7-e0725facf29c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Manager" languagecode="1033" />
+                        </labels>
+                        <control id="con_manager" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_manager" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{959273e2-e600-3b18-6572-763b94414e67}" showlabel="true" locklevel="0" labelid="{00508aa8-87ec-4c0f-b982-71d19a5703ad}">
                         <labels>
                           <label description="Entitlement" languagecode="1033" />
@@ -457,6 +465,14 @@
                           <label description="Contacto" languagecode="3082" />
                         </labels>
                         <control id="primarycontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="primarycontactid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{deb7d5ad-7fc0-4871-8dfb-041c22f018ac}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Manager" languagecode="1033" />
+                        </labels>
+                        <control id="con_manager" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_manager" disabled="false" />
                       </cell>
                     </row>
                     <row>

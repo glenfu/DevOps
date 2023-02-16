@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23013.186" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23014.168" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>con_cases</UniqueName>
     <LocalizedNames>
@@ -80,6 +80,7 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="1" schemaName="contact" behavior="1" />
       <RootComponent type="1" schemaName="incident" behavior="2" />
       <RootComponent type="1" schemaName="incidentresolution" behavior="2" />
       <RootComponent type="1" schemaName="slakpiinstance" behavior="1" />
@@ -171,7 +172,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="lead" displayName="Lead" solution="msdynce_LeadManagement (9.0.4.0066)">
-          <package>msdynce_LeadManagementAnchor (9.0.23012.10001)</package>
+          <package>msdynce_LeadManagementAnchor (9.0.23014.10001)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -338,7 +339,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -351,7 +352,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -363,15 +364,15 @@
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_productivityagentscript" displayName="Agent script" solution="msdyn_Agentscripts (9.2.22123.1010)">
-          <package>AgentProductivityToolsAnchor (9.2.22123.1010)</package>
+        <Required type="1" schemaName="msdyn_productivityagentscript" displayName="Agent script" solution="msdyn_Agentscripts (9.2.23014.1006)">
+          <package>AgentProductivityToolsAnchor (9.2.23014.1006)</package>
           <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_productivityagentscriptstep" displayName="Agent script step" solution="msdyn_Agentscripts (9.2.22123.1010)">
-          <package>AgentProductivityToolsAnchor (9.2.22123.1010)</package>
+        <Required type="1" schemaName="msdyn_productivityagentscriptstep" displayName="Agent script step" solution="msdyn_Agentscripts (9.2.23014.1006)">
+          <package>AgentProductivityToolsAnchor (9.2.23014.1006)</package>
           <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
@@ -942,7 +943,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Products Lookup View" displayName="Active Products Lookup View" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)" id="{58afc3c5-8add-4552-98cb-473bc8f75619}">
-          <package>msdynce_ProductManagementAnchor (9.0.23012.10002)</package>
+          <package>msdynce_ProductManagementAnchor (9.0.23014.10002)</package>
         </Required>
         <Dependent type="60" displayName="Portal Case Form" parentDisplayName="Case" id="{3fafeccd-74e5-ec11-bb3c-00224817478b}" />
       </MissingDependency>
@@ -979,7 +980,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -992,7 +993,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1005,7 +1006,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1023,7 +1024,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="All Contacts Not at Company" displayName="All Contacts Not at Company" parentSchemaName="contact" parentDisplayName="Contact" solution="msdyn_LinkedInExtensions (9.0.20122.10070)" id="{973e2d26-653a-e911-8185-000d3a070f2c}">
-          <package>msdyn_SalesIntegrationsAddOns (9.0.23012.10002)</package>
+          <package>msdyn_SalesIntegrationsAddOns (9.0.23014.10007)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1088,7 +1089,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Excluded Contacts Campaigns" displayName="Excluded Contacts Campaigns" parentSchemaName="contact" parentDisplayName="Contact" solution="msdynce_MarketingPatch (9.0.1904.1019)" id="{69103b65-f27e-45ce-a69c-eb1a7c805a45}">
-          <package>msdynce_MarketingAnchor (9.0.23012.10001)</package>
+          <package>msdynce_MarketingAnchor (9.0.23014.10001)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1140,8 +1141,8 @@
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="My Active Contacts by Relationship" displayName="My Active Contacts by Relationship" parentSchemaName="contact" parentDisplayName="Contact" solution="RelationshipAnalytics (9.0.1.2703)" id="{ef26335d-6f4e-e611-80be-0024e8469fb9}">
-          <package>msdynce_SalesInsightsAnchor (9.0.23032.15011)</package>
+        <Required type="26" schemaName="My Active Contacts by Relationship" displayName="My Active Contacts by Relationship" parentSchemaName="contact" parentDisplayName="Contact" solution="RelationshipAnalytics (9.0.1.2704)" id="{ef26335d-6f4e-e611-80be-0024e8469fb9}">
+          <package>msdynce_SalesInsightsAnchor (9.0.23032.15013)</package>
           <package>SalesInsightsAddOn (9.0.23021.10002)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
@@ -1154,7 +1155,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="My Contacts Not at Company" displayName="My Contacts Not at Company" parentSchemaName="contact" parentDisplayName="Contact" solution="msdyn_LinkedInExtensions (9.0.20122.10070)" id="{1d3a0a34-653a-e911-8185-000d3a070f2c}">
-          <package>msdyn_SalesIntegrationsAddOns (9.0.23012.10002)</package>
+          <package>msdyn_SalesIntegrationsAddOns (9.0.23014.10007)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1191,13 +1192,13 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Selected Contacts Campaigns" displayName="Selected Contacts Campaigns" parentSchemaName="contact" parentDisplayName="Contact" solution="msdynce_MarketingPatch (9.0.1904.1019)" id="{38962192-31ff-46fc-9ac3-2db0a7d9dc7c}">
-          <package>msdynce_MarketingAnchor (9.0.23012.10001)</package>
+          <package>msdynce_MarketingAnchor (9.0.23014.10001)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1210,7 +1211,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1312,7 +1313,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1329,7 +1330,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1346,7 +1347,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1454,7 +1455,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact for Interactive experience" parentDisplayName="Contact" solution="msdynce_LeadManagement (9.0.4.0066)" id="{cc760212-3eab-4009-b5c3-ea9cf6f3e141}">
-          <package>msdynce_LeadManagementAnchor (9.0.23012.10001)</package>
+          <package>msdynce_LeadManagementAnchor (9.0.23014.10001)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -1493,7 +1494,7 @@
           <package>OmnichannelPrimeSocialChannelsAnchor (1.5.16.8522)</package>
           <package>OmnichannelPrimeTeams (1.5.16.8345)</package>
           <package>OmnichannelPrimeTelephony (1.5.16.8783)</package>
-          <package>UnifiedRoutingPrimeAnchor (1.5.16.6386)</package>
+          <package>UnifiedRoutingPrimeAnchor (1.5.16.6424)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
