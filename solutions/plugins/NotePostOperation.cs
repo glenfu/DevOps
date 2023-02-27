@@ -32,7 +32,7 @@ namespace plugins
                             Entity postImageAnnotation = (Entity)context.PostEntityImages["Image"];
 
                             string noteText = postImageAnnotation.GetAttributeValue<string>("notetext");
-
+                            // Check if notetext starts with *WEB*
                             if (!noteText.StartsWith("*WEB*"))
                             {
                                 annotation["notetext"] = "*WEB*" + noteText;
