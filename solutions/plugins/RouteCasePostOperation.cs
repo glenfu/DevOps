@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace plugins
 {
-    public class NotePostOperation : IPlugin
+    public class RouteCasePostOperation : IPlugin
     {
         public void Execute(IServiceProvider serviceProvider)
         {
@@ -24,31 +24,21 @@ namespace plugins
                     // Obtain the target entity from the input parameters 
                     Entity entity = (Entity)context.InputParameters["Target"];
                     // Target is an email 
-                    if (entity.LogicalName.ToLower().Equals("annotation"))
+                    if (entity.LogicalName.ToLower().Equals("incident"))
                     {
                         try
                         {
-                            Entity annotation = (Entity)context.InputParameters["Target"];
-                            Entity postImageAnnotation = (Entity)context.PostEntityImages["Image"];
-
-                            string noteText = postImageAnnotation.GetAttributeValue<string>("notetext");
-
-                            if (!noteText.StartsWith("*WEB*"))
-                            {
-                                annotation["notetext"] = "*WEB*" + noteText;
-
-                                // Obtain the organization service reference.
-                                IOrganizationServiceFactory serviceFactory = (IOrganizationServiceFactory)serviceProvider
-                                .GetService(typeof(IOrganizationServiceFactory));
-
-                                IOrganizationService service = serviceFactory.CreateOrganizationService(context.UserId);
-                                //Update notetext with prefix *WEB*
-                                service.Update(annotation);
-                            }
+                            // Obtain the organization service reference that you'll need for web service calls 
+                            IOrganizationServiceFactory serviceFactory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+                            IOrganizationService service = serviceFactory.CreateOrganizationService(context.UserId);
+                            // Execute msdyn_ApplyRoutingRuleEntityRecord request 
+                            OrganizationRequest request = new OrganizationRequest("msdyn_ApplyRoutingRuleEntityRecord");
+                            request["Target"] = new EntityReference("incident", entity.Id);
+                            service.Execute(request);
                         }
                         catch (Exception ex)
                         {
-                            tracingService.Trace("NotePostOperation: {0}", ex.ToString());
+                            tracingService.Trace("RouteCasePostOperation: {0}", ex.ToString());
                             throw;
                         }
                     }
