@@ -33,25 +33,30 @@
             <IntroducedVersion>7.0.3</IntroducedVersion>
             <displaynames>
               <displayname description="Publish to Web" languagecode="1033" />
+              <displayname description="Publicar en Web" languagecode="3082" />
             </displaynames>
             <options>
               <option value="0">
                 <labels>
                   <label description="No" languagecode="1033" />
+                  <label description="No" languagecode="3082" />
                 </labels>
               </option>
               <option value="1">
                 <labels>
                   <label description="Yes" languagecode="1033" />
+                  <label description="Sí" languagecode="3082" />
                 </labels>
               </option>
             </options>
           </optionset>
           <displaynames>
             <displayname description="Publish to Web" languagecode="1033" />
+            <displayname description="Publicar en Web" languagecode="3082" />
           </displaynames>
           <Descriptions>
             <Description description="If set to Yes, the case will be visible and searchable on portals connected to this organization." languagecode="1033" />
+            <Description description="Si se configura en Sí, el caso será visible y permitirá búsquedas en los portales conectados a esta organización." languagecode="3082" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="adx_resolution">
@@ -81,6 +86,7 @@
           <MaxLength>10000</MaxLength>
           <displaynames>
             <displayname description="Resolution" languagecode="1033" />
+            <displayname description="Resolución" languagecode="3082" />
           </displaynames>
         </attribute>
         <attribute PhysicalName="adx_resolutiondate">
@@ -110,6 +116,7 @@
           <Behavior>1</Behavior>
           <displaynames>
             <displayname description="Resolution Date" languagecode="1033" />
+            <displayname description="Fecha de resolución" languagecode="3082" />
           </displaynames>
         </attribute>
         <attribute PhysicalName="CaseOriginCode">
@@ -209,6 +216,44 @@
           <Descriptions>
             <Description description="Select the type of case to identify the incident for use in case routing and analysis." languagecode="1033" />
             <Description description="Seleccione el tipo de caso para identificar el incidente para su uso en enrutamiento de casos y análisis." languagecode="3082" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="con_ApprovingTeam">
+          <Type>lookup</Type>
+          <Name>con_approvingteam</Name>
+          <LogicalName>con_approvingteam</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>0</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <LookupStyle>single</LookupStyle>
+          <LookupTypes />
+          <displaynames>
+            <displayname description="Approving Team" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="con_CaseFile">
@@ -423,6 +468,46 @@
           <LookupTypes />
           <displaynames>
             <displayname description="Resolution Planned By KPI" languagecode="1033" />
+          </displaynames>
+          <Descriptions>
+            <Description description="" languagecode="1033" />
+          </Descriptions>
+        </attribute>
+        <attribute PhysicalName="con_Uploader">
+          <Type>nvarchar</Type>
+          <Name>con_uploader</Name>
+          <LogicalName>con_uploader</LogicalName>
+          <RequiredLevel>none</RequiredLevel>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
+          <ImeMode>auto</ImeMode>
+          <ValidForUpdateApi>1</ValidForUpdateApi>
+          <ValidForReadApi>1</ValidForReadApi>
+          <ValidForCreateApi>1</ValidForCreateApi>
+          <IsCustomField>1</IsCustomField>
+          <IsAuditEnabled>1</IsAuditEnabled>
+          <IsSecured>0</IsSecured>
+          <IntroducedVersion>1.0.0.0</IntroducedVersion>
+          <IsCustomizable>1</IsCustomizable>
+          <IsRenameable>1</IsRenameable>
+          <CanModifySearchSettings>1</CanModifySearchSettings>
+          <CanModifyRequirementLevelSettings>1</CanModifyRequirementLevelSettings>
+          <CanModifyAdditionalSettings>1</CanModifyAdditionalSettings>
+          <SourceType>0</SourceType>
+          <IsGlobalFilterEnabled>0</IsGlobalFilterEnabled>
+          <IsSortableEnabled>0</IsSortableEnabled>
+          <CanModifyGlobalFilterSettings>1</CanModifyGlobalFilterSettings>
+          <CanModifyIsSortableSettings>1</CanModifyIsSortableSettings>
+          <IsDataSourceSecret>0</IsDataSourceSecret>
+          <AutoNumberFormat></AutoNumberFormat>
+          <IsSearchable>0</IsSearchable>
+          <IsFilterable>0</IsFilterable>
+          <IsRetrievable>0</IsRetrievable>
+          <IsLocalizable>0</IsLocalizable>
+          <Format>text</Format>
+          <MaxLength>100</MaxLength>
+          <Length>200</Length>
+          <displaynames>
+            <displayname description="Uploader" languagecode="1033" />
           </displaynames>
           <Descriptions>
             <Description description="" languagecode="1033" />
