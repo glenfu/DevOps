@@ -95,6 +95,7 @@
       <RootComponent type="29" id="{f8167022-f8ed-ec11-bb3c-00224817478b}" behavior="0" />
       <RootComponent type="431" schemaName="incident con_caseimage" behavior="0" />
       <RootComponent type="80" schemaName="Customerservicehub" behavior="0" />
+      <RootComponent type="91" id="{e3eaae73-e85e-4e3a-be89-1fab8f58f02b}" schemaName="plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" behavior="0" />
       <RootComponent type="92" id="{0f8b688e-7bb6-ed11-b596-002248ecfec6}" behavior="0" />
       <RootComponent type="92" id="{10a47b1a-d0b1-ed11-83fe-000d3a856710}" behavior="0" />
       <RootComponent type="92" id="{2eb8a7ca-b4a2-ed11-aad1-000d3a856f48}" behavior="0" />
@@ -1832,22 +1833,6 @@
           <package>msdynce_ServiceAnchor (9.0.23033.3031)</package>
         </Required>
         <Dependent type="2" schemaName="caseorigincode" displayName="Origin" parentSchemaName="incident" parentDisplayName="Case" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="90" schemaName="ILoggerExample.AccountPostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" displayName="ILoggerExample.AccountPostOperation" solution="Active" id="{af9349eb-6937-4f4b-b81a-22fd939f0a40}" />
-        <Dependent type="92" displayName="ILoggerExample.AccountPostOperation: Create of account" id="{753664b8-b4a2-ed11-aad1-000d3a856f48}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="90" schemaName="plugins.CaseAgePreOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" displayName="plugins.CaseAgePreOperation" solution="Active" id="{ee93d192-3203-40eb-8f54-ddc6ca7a5faf}" />
-        <Dependent type="92" displayName="plugins.CaseAgePreOperation: RetrieveMultiple of incident" id="{2eb8a7ca-b4a2-ed11-aad1-000d3a856f48}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="90" schemaName="plugins.NotePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" displayName="plugins.NotePostOperation" solution="Active" id="{85062262-38d6-469c-a00d-db445be80d4f}" />
-        <Dependent type="92" displayName="plugins.NotePostOperation: Create of annotation" id="{10a47b1a-d0b1-ed11-83fe-000d3a856710}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="90" schemaName="plugins.RouteCasePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" displayName="plugins.RouteCasePostOperation" solution="Active" id="{bc22c568-a7b8-4e93-9343-25212de05228}" />
-        <Dependent type="92" displayName="plugins.RouteCasePostOperation: Create of incident" id="{0f8b688e-7bb6-ed11-b596-002248ecfec6}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

@@ -18,6 +18,7 @@
   <optionsets />
   <Slas />
   <CustomControls />
+  <SolutionPluginAssemblies />
   <SdkMessageProcessingSteps />
   <AppModules />
   <EntityDataProviders />
