@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginAssemblyId="e3eaae73-e85e-4e3a-be89-1fab8f58f02b" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/plugins-E3EAAE73-E85E-4E3A-BE89-1FAB8F58F02B/plugins.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="ILoggerExample.AccountPostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="af9349eb-6937-4f4b-b81a-22fd939f0a40" Name="ILoggerExample.AccountPostOperation">
+      <FriendlyName>57003505-e827-4b7d-aed8-55dad9108b5f</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="plugins.CaseAgePreOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="ee93d192-3203-40eb-8f54-ddc6ca7a5faf" Name="plugins.CaseAgePreOperation">
+      <FriendlyName>ff5b2fa5-f1c3-4081-b6f2-6267479d33bb</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="plugins.NotePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="85062262-38d6-469c-a00d-db445be80d4f" Name="plugins.NotePostOperation">
+      <FriendlyName>39f8d144-4b52-4e14-8bf3-eaf67772deea</FriendlyName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="plugins.RouteCasePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="9f1babfc-6412-4679-9c92-5b1ba4b0daad" Name="plugins.RouteCasePostOperation">
+      <FriendlyName>bd7189ed-7f1d-451e-82c6-0a3d6bde0161</FriendlyName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

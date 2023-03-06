@@ -107,6 +107,7 @@
       <RootComponent type="80" schemaName="con_AdventureWorks" behavior="0" />
       <RootComponent type="80" schemaName="con_ContactCards" behavior="0" />
       <RootComponent type="80" schemaName="con_Person" behavior="0" />
+      <RootComponent type="91" id="{e3eaae73-e85e-4e3a-be89-1fab8f58f02b}" schemaName="plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" behavior="0" />
     </RootComponents>
     <MissingDependencies>
       <MissingDependency>
