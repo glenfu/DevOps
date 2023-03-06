@@ -77,6 +77,23 @@
                         </labels>
                       </cell>
                     </row>
+                    <row>
+                      <cell id="{40e6026c-e08e-c685-8aae-4375228996d7}" showlabel="true" locklevel="0" ordinalvalue="10009" solutionaction="Added">
+                        <labels>
+                          <label description="Portal Team" languagecode="1033" />
+                        </labels>
+                        <control id="con_portalteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_portalteam" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1dbcd0ed-2cd0-c2d6-4ee2-a9ad6b38c719}" showlabel="true" locklevel="0" ordinalvalue="10010" solutionaction="Added">
+                        <labels>
+                          <label description="Route Case" languagecode="1033" />
+                          <label description="Enrutar caso" languagecode="3082" />
+                        </labels>
+                        <control id="routecase" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="routecase" disabled="false" />
+                      </cell>
+                    </row>
                   </rows>
                 </section>
                 <section id="{2335806E-F713-402F-A9BD-6BEEEC6B8645}" columns="1" showlabel="true" showbar="false" IsUserDefined="0" locklevel="0" height="auto" ordinalvalue="1">
@@ -169,7 +186,7 @@
         </tab>
         <tab name="CASERELATIONSHIP_TAB" id="{820e1ad0-5b40-4d15-9746-32f10735edde}" IsUserDefined="0" showlabel="true" expanded="false" ordinalvalue="2" solutionaction="Modified" />
         <tab name="AssociatedKnowledgeBaseRecords" id="{39ba3269-5e29-49ff-9f59-a0c0e26c3ca7}" IsUserDefined="0" showlabel="true" expanded="false" ordinalvalue="3" solutionaction="Modified" />
-        <tab name=" Enhanced_SLA_Details_Tab" id="{70a83419-91af-4c8e-b39e-42bf8fa286f3}" IsUserDefined="0" showlabel="true" expanded="false" ordinalvalue="4" solutionaction="Modified">
+        <tab name=" Enhanced_SLA_Details_Tab" id="{70a83419-91af-4c8e-b39e-42bf8fa286f3}" IsUserDefined="0" showlabel="true" expanded="true" ordinalvalue="4" solutionaction="Modified">
           <columns>
             <column width="34%" id="0">
               <sections>
@@ -189,6 +206,29 @@
                           <label description="Resolve By KPI" languagecode="1033" solutionaction="Added" />
                           <label description="Resolver por KPI" languagecode="3082" solutionaction="Added" />
                         </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="66%" id="1">
+              <sections>
+                <section name="SLAKPIInstances" showlabel="false" showbar="false" id="{468927ba-238f-4199-847d-20c2544e18a9}" IsUserDefined="0" layout="varwidth" labelwidth="102" celllabelposition="Left" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{c896a94e-e4c9-45ed-927c-a339d76a693c}" showlabel="false" colspan="1" auto="false" rowspan="7" ordinalvalue="10000" solutionaction="Modified">
+                        <control id="SLA_KPI_Instances_List" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{218d1388-eb22-d791-2a8c-59ee2390d3bb}" indicationOfSubgrid="true" solutionaction="Modified">
+                          <parameters>
+                            <ViewId solutionaction="Modified">{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
+                            <AutoExpand solutionaction="Modified">Fixed</AutoExpand>
+                            <HeaderColorCode solutionaction="Added">#F3F3F3</HeaderColorCode>
+                            <IsUserView solutionaction="Added">false</IsUserView>
+                            <ViewIds solutionaction="Added" />
+                            <VisualizationId solutionaction="Added" />
+                            <IsUserChart solutionaction="Added">false</IsUserChart>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                   </rows>
@@ -406,7 +446,15 @@
             <column width="50%" id="1">
               <sections>
                 <section name="tab_8_section_2" showlabel="false" showbar="false" locklevel="0" id="{02ee4497-88ad-0943-edb0-d08b60903ebb}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
-                  <rows />
+                  <rows>
+                    <row>
+                      <cell id="{b75bf619-c08c-4348-b962-0736e21a5b0c}" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
                 </section>
               </sections>
             </column>
@@ -486,9 +534,91 @@
             </parameters>
           </customControl>
         </controlDescription>
+        <controlDescription forControl="{218d1388-eb22-d791-2a8c-59ee2390d3bb}" solutionaction="Added">
+          <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+            <parameters>
+              <ViewId>{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
+              <RelationshipName>slakpiinstance_incident</RelationshipName>
+              <TargetEntityType>slakpiinstance</TargetEntityType>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <EnableJumpBar>false</EnableJumpBar>
+              <ChartGridMode>Grid</ChartGridMode>
+              <EnableChartPicker>false</EnableChartPicker>
+              <RecordsPerPage>5</RecordsPerPage>
+              <EnableContextualActions>false</EnableContextualActions>
+              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+              <IsUserView>false</IsUserView>
+              <ViewIds />
+              <VisualizationId />
+              <IsUserChart>false</IsUserChart>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.SlaTimer.SlaTimerControl">
+            <parameters>
+              <data-set name="dataSetGrid_1">
+                <ViewId>{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>slakpiinstance_incident</RelationshipName>
+                <TargetEntityType>slakpiinstance</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds />
+              </data-set>
+              <Update_Frequency static="true" type="Enum">1800</Update_Frequency>
+              <EnableNegativeTimer static="true" type="Enum">1</EnableNegativeTimer>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.SlaTimer.SlaTimerControl">
+            <parameters>
+              <data-set name="dataSetGrid_1">
+                <ViewId>{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>slakpiinstance_incident</RelationshipName>
+                <TargetEntityType>slakpiinstance</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds />
+              </data-set>
+              <Update_Frequency static="true" type="Enum">1800</Update_Frequency>
+              <EnableNegativeTimer static="true" type="Enum">1</EnableNegativeTimer>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.SlaTimer.SlaTimerControl">
+            <parameters>
+              <data-set name="dataSetGrid_1">
+                <ViewId>{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
+                <IsUserView>false</IsUserView>
+                <RelationshipName>slakpiinstance_incident</RelationshipName>
+                <TargetEntityType>slakpiinstance</TargetEntityType>
+                <EnableViewPicker>false</EnableViewPicker>
+                <FilteredViewIds />
+              </data-set>
+              <Update_Frequency static="true" type="Enum">1800</Update_Frequency>
+              <EnableNegativeTimer static="true" type="Enum">1</EnableNegativeTimer>
+            </parameters>
+          </customControl>
+        </controlDescription>
       </controlDescriptions>
       <footer id="{bd97315b-576d-45b8-8015-18846ef3056c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows></rows>
+        <rows>
+          <row>
+            <cell id="{3cd3a5c4-af40-4aef-8c69-b834dc1c1457}" ordinalvalue="10000">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f0924756-554f-4c1d-a033-f631bb837e1c}" ordinalvalue="20001">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{72ca0b7c-7aa3-4d4c-b39d-906ae7675cb7}" ordinalvalue="30002">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
       </footer>
     </form>
     <LocalizedNames>
