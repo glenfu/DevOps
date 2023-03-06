@@ -3,6 +3,7 @@
   <EntityRelationship Name="business_unit_con_widget" />
   <EntityRelationship Name="business_unit_con_widgetcategory" />
   <EntityRelationship Name="business_unit_cre1b_link" />
+  <EntityRelationship Name="con_category_Account_account" />
   <EntityRelationship Name="con_WidgetCategory_Category_Category" />
   <EntityRelationship Name="con_WidgetCategory_con_Widget_con_Widget" />
   <EntityRelationship Name="cre1b_Link_Contact_Contact" />

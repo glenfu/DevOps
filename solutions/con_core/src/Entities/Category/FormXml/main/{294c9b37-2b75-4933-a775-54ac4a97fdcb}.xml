@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{294c9b37-2b75-4933-a775-54ac4a97fdcb}</formid>
+    <IntroducedVersion>8.1.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" solutionaction="Modified">
+      <tabs>
+        <tab id="{4A751D2D-D70E-4648-B26C-AAC247641DB8}" showlabel="true" IsUserDefined="1" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section id="{932A6FEA-DA90-4F9F-8F11-27C0407E3A1F}" showlabel="true" showbar="true" IsUserDefined="0" name="General" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{358EBDD6-136D-4DCE-B5E3-28134E262991}" showlabel="true" locklevel="0" ordinalvalue="10000">
+                        <labels>
+                          <label description="Title" languagecode="1033" solutionaction="Added" />
+                          <label description="Título" languagecode="3082" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2A11E155-15F3-4CAE-9562-0274547D7942}" showlabel="true" locklevel="0" ordinalvalue="10001">
+                        <labels>
+                          <label description="Description" languagecode="1033" solutionaction="Added" />
+                          <label description="Descripción" languagecode="3082" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6988B777-E5DA-4AB4-A28B-758F061AA2C8}" showlabel="true" locklevel="0" ordinalvalue="10002">
+                        <labels>
+                          <label description="Display Order" languagecode="1033" solutionaction="Added" />
+                          <label description="Orden de visualización" languagecode="3082" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ECED90A8-9171-4ECE-962C-C55C634E8A35}" showlabel="true" locklevel="0" ordinalvalue="10003">
+                        <labels>
+                          <label description="Parent Category" languagecode="1033" solutionaction="Added" />
+                          <label description="Categoría principal" languagecode="3082" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6BE61B7C-49AE-4DB6-B6FF-E08285C54F3D}" showlabel="true" locklevel="0" ordinalvalue="10004">
+                        <labels>
+                          <label description="Category Number" languagecode="1033" solutionaction="Added" />
+                          <label description="Número de categoría" languagecode="3082" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{44de49c2-9bed-426b-93bb-55afce6f31a4}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10005" solutionaction="Added">
+                        <labels>
+                          <label description="Account" languagecode="1033" />
+                        </labels>
+                        <control id="con_account" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_account" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{fa7838b4-e271-4a8e-9d1e-5e0ed9162b06}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
+        <rows>
+          <row>
+            <cell id="{e7e23964-1aa1-48e3-994b-9ca548334166}" showlabel="false" ordinalvalue="10000">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{cb106e6f-4e4a-49f8-9639-583f4389d861}" showlabel="false" ordinalvalue="20001">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9bb29a2b-a5df-4be3-a040-5a42e4912100}" showlabel="false" ordinalvalue="30002">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{5724da87-dc6b-4350-a2b9-60e470234e7b}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
+        <rows>
+          <row>
+            <cell id="{2079cec7-931f-4c20-aa69-d198be3100bd}" showlabel="false" ordinalvalue="10000">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{96eae8e1-515f-465a-80a6-5518ffa02ab1}" showlabel="false" ordinalvalue="20001">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{c790ddd5-deb9-4057-a453-63abce95e689}" showlabel="false" ordinalvalue="30002">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true" solutionaction="Added">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Category" languagecode="1033" />
+      <LocalizedName description="Categoría" languagecode="3082" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Default Category form" languagecode="1033" />
+      <Description description="Formulario de categoría predeterminado" languagecode="3082" />
+    </Descriptions>
+  </systemform>
+</forms>
