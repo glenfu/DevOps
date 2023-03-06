@@ -14,8 +14,8 @@
     <PluginType AssemblyQualifiedName="plugins.NotePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="85062262-38d6-469c-a00d-db445be80d4f" Name="plugins.NotePostOperation">
       <FriendlyName>39f8d144-4b52-4e14-8bf3-eaf67772deea</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="plugins.RouteCasePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="bc22c568-a7b8-4e93-9343-25212de05228" Name="plugins.RouteCasePostOperation">
-      <FriendlyName>87b205c1-2de2-4ea1-9c8c-991afdaa48e4</FriendlyName>
+    <PluginType AssemblyQualifiedName="plugins.RouteCasePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="9f1babfc-6412-4679-9c92-5b1ba4b0daad" Name="plugins.RouteCasePostOperation">
+      <FriendlyName>bd7189ed-7f1d-451e-82c6-0a3d6bde0161</FriendlyName>
     </PluginType>
   </PluginTypes>
 </PluginAssembly>

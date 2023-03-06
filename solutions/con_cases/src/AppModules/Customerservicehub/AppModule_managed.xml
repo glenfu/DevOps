@@ -11,6 +11,7 @@
   <NavigationType>0</NavigationType>
   <AppModuleComponents>
     <AppModuleComponent type="1" schemaName="con_partner" solutionaction="Added" />
+    <AppModuleComponent type="1" schemaName="con_portalteam" solutionaction="Added" />
     <AppModuleComponent type="1" schemaName="goal" solutionaction="Added" />
     <AppModuleComponent type="1" schemaName="lead" solutionaction="Added" />
     <AppModuleComponent type="1" schemaName="msdyn_dataanalyticsreport_ksinsights" solutionaction="Added" />

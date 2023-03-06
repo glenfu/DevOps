@@ -39,6 +39,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{301c4d36-8059-4016-994a-b12bd35b7869}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Portal Team" languagecode="1033" />
+                        </labels>
+                        <control id="con_portalteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_portalteam" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{b6f69544-6287-4b8a-b60c-3d66f1cac75d}" userspacer="0" labelid="{635c316c-6ba4-412b-b1bd-543afb7bc106}">
                         <labels>
                           <label description="Subject" languagecode="1033" />
@@ -215,8 +223,26 @@
                       <cell id="{1329b1b0-fa7b-46f2-b66f-891775bf578e}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="Publish to Web" languagecode="1033" />
+                          <label description="Publicar en Web" languagecode="3082" />
                         </labels>
                         <control id="adx_publishtoweb" classid="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}" datafieldname="adx_publishtoweb" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{16c4793e-8179-5992-a377-7cd8a2651abb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Route Case" languagecode="1033" />
+                          <label description="Enrutar caso" languagecode="3082" />
+                        </labels>
+                        <control id="routecase" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="routecase" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7e4f8158-2942-485e-8c71-8ffb56603695}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                        </labels>
+                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{c43686a2-08d3-4ab0-a625-787a40d7aa6a}" />
                       </cell>
                     </row>
                     <row>
@@ -458,6 +484,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{952bc2b1-0fcf-400a-a4d0-e12b7ec2ae20}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Portal Team" languagecode="1033" />
+                        </labels>
+                        <control id="con_portalteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_portalteam" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{fc89e0ed-d7ed-46c1-945a-828cff4ec124}" locklevel="0" colspan="1" rowspan="1">
                         <labels>
                           <label description="Customer" languagecode="1033" />
@@ -525,6 +559,24 @@
                           <label description="Producto" languagecode="3082" />
                         </labels>
                         <control id="productid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="productid" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{68cdc695-6a04-8423-bad3-2362262a7bcb}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Route Case" languagecode="1033" />
+                          <label description="Enrutar caso" languagecode="3082" />
+                        </labels>
+                        <control id="routecase" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="routecase" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{739d5d81-ba81-7ae9-58eb-b18ddd298b0d}" showlabel="true" locklevel="0">
+                        <labels>
+                          <label description="Description" languagecode="1033" />
+                          <label description="Descripción" languagecode="3082" />
+                        </labels>
+                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{e058db91-bf4e-438e-b6b6-9320d6c6e8a5}" />
                       </cell>
                     </row>
                   </rows>
@@ -1825,6 +1877,50 @@
               </data-set>
               <Update_Frequency static="true" type="Enum">1800</Update_Frequency>
               <EnableNegativeTimer static="true" type="Enum">0</EnableNegativeTimer>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{e058db91-bf4e-438e-b6b6-9320d6c6e8a5}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>description</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{c43686a2-08d3-4ab0-a625-787a40d7aa6a}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>description</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
             </parameters>
           </customControl>
         </controlDescription>

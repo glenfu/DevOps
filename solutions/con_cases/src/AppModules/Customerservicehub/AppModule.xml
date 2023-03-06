@@ -18,6 +18,7 @@
     <AppModuleComponent type="1" schemaName="bookableresourcecategoryassn" />
     <AppModuleComponent type="1" schemaName="category" />
     <AppModuleComponent type="1" schemaName="con_partner" />
+    <AppModuleComponent type="1" schemaName="con_portalteam" />
     <AppModuleComponent type="1" schemaName="constraintbasedgroup" />
     <AppModuleComponent type="1" schemaName="contact" />
     <AppModuleComponent type="1" schemaName="convertrule" />

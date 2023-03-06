@@ -1,8 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_con_portalteam" />
+  <EntityRelationship Name="con_con_portalteam_PortalAccountTeam_account" />
   <EntityRelationship Name="con_incident_ApprovingTeam_account" />
   <EntityRelationship Name="con_incident_Manager_contact" />
+  <EntityRelationship Name="con_incident_PortalTeam_con_portalteam" />
   <EntityRelationship Name="con_incident_ResolutionPlannedByKPI_slakpiins" />
+  <EntityRelationship Name="con_PortalTeam_Contact_Contact" />
   <EntityRelationship Name="FileAttachment_Incident_con_CaseFile" />
+  <EntityRelationship Name="lk_con_portalteam_createdby" />
+  <EntityRelationship Name="lk_con_portalteam_modifiedby" />
   <EntityRelationship Name="msdyn_msdyn_incidenttype_incident_IncidentType" />
+  <EntityRelationship Name="owner_con_portalteam" />
+  <EntityRelationship Name="team_con_portalteam" />
+  <EntityRelationship Name="user_con_portalteam" />
 </EntityRelationships>
