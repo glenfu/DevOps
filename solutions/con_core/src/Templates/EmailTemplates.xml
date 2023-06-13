@@ -13,6 +13,18 @@
     <generationtypecode>0</generationtypecode>
     <IntroducedVersion>1.0</IntroducedVersion>
     <isenhancededitorenabledname>No</isenhancededitorenabledname>
+    <ActivityMimeAttachments>
+      <ActivityMimeAttachment>
+        <activitymimeattachmentid>{5193430e-7106-ee11-8f6e-6045bd57c806}</activitymimeattachmentid>
+        <attachmentid>{5493430e-7106-ee11-8f6e-6045bd57c806}</attachmentid>
+        <attachmentnumber>0</attachmentnumber>
+        <filename>ccx.png</filename>
+        <filesize>199610</filesize>
+        <objectid>{da45573e-ae8c-ed11-81ac-00224817beb0}</objectid>
+        <mimetype>image/png</mimetype>
+        <SolutionAttachmentsFileName>/SolutionAttachments/5493430E-7106-EE11-8F6E-6045BD57C806/ccxpng</SolutionAttachmentsFileName>
+      </ActivityMimeAttachment>
+    </ActivityMimeAttachments>
   </emailtemplate>
   <emailtemplate>
     <IsCustomizable>1</IsCustomizable>

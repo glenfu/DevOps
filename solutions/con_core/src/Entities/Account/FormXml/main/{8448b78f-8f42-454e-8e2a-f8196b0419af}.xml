@@ -85,7 +85,7 @@
                     </row>
                   </rows>
                 </section>
-                <section name="DETAILS_TAB_section_6" showlabel="true" showbar="false" locklevel="0" id="{e201b9ce-c3d5-c922-dba5-528c25066940}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top" height="auto" ordinalvalue="1">
+                <section name="DETAILS_TAB_Dynamic_Description" showlabel="true" showbar="false" locklevel="0" id="{e201b9ce-c3d5-c922-dba5-528c25066940}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top" height="auto" ordinalvalue="1" solutionaction="Modified">
                   <rows>
                     <row>
                       <cell id="{a4a726a2-8e3e-79d0-02c3-0a04a6b71089}" showlabel="false" locklevel="0" rowspan="3" auto="false" ordinalvalue="10000" solutionaction="Modified">
@@ -93,7 +93,7 @@
                           <label description="Description" languagecode="1033" solutionaction="Added" />
                           <label description="Descripción" languagecode="3082" solutionaction="Added" />
                         </labels>
-                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{48ccd2c0-e451-661c-20e1-67560d67e4d5}" solutionaction="Modified" />
+                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{48CCD2C0-E451-661C-20E1-67560D67E4D5}" solutionaction="Modified" />
                       </cell>
                     </row>
                   </rows>
@@ -167,30 +167,14 @@
             <column width="33%" id="1">
               <sections>
                 <section name="tab_3_section_2" showlabel="false" showbar="false" locklevel="0" id="{26e829cb-9a5d-a0b5-b062-0a931e082a1e}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
-                  <rows>
-                    <row>
-                      <cell id="{9376f84c-d9db-4080-99e9-f97d6ea6d6a6}" ordinalvalue="10000" solutionaction="Added">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                  </rows>
+                  <rows />
                 </section>
               </sections>
             </column>
             <column width="33%" id="2">
               <sections>
                 <section name="tab_3_section_3" showlabel="false" showbar="false" locklevel="0" id="{329c50b5-c80d-155e-aae5-50ca4db32d1a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
-                  <rows>
-                    <row>
-                      <cell id="{571b7f76-668c-4ba0-b3e5-6c84b9849091}" ordinalvalue="10000" solutionaction="Added">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                  </rows>
+                  <rows />
                 </section>
               </sections>
             </column>
@@ -312,9 +296,6 @@
           </row>
         </rows>
       </header>
-      <Navigation>
-        <NavBar />
-      </Navigation>
       <controlDescriptions>
         <controlDescription forControl="{771DB681-B422-E9C8-E112-C1396655459D}" solutionaction="Modified">
           <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
@@ -338,7 +319,7 @@
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{48ccd2c0-e451-661c-20e1-67560d67e4d5}" solutionaction="Added">
+        <controlDescription forControl="{48CCD2C0-E451-661C-20E1-67560D67E4D5}" solutionaction="Added">
           <customControl id="{E0DECE4B-6FC8-4a8f-A065-082708572369}">
             <parameters>
               <datafieldname>description</datafieldname>
@@ -362,25 +343,7 @@
         </controlDescription>
       </controlDescriptions>
       <footer id="{d1a76c7b-1e00-4114-8650-f399e6cd9112}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows>
-          <row>
-            <cell id="{db1f84fd-1a00-4ff3-a7e3-91e2ae993842}" ordinalvalue="10000">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-            <cell id="{bf9e2375-4874-4394-83d2-0dec898f151b}" ordinalvalue="20001">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-            <cell id="{272e97a7-04dd-4b36-b38a-a677d12964ae}" ordinalvalue="30002">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-          </row>
-        </rows>
+        <rows />
       </footer>
     </form>
     <LocalizedNames>
