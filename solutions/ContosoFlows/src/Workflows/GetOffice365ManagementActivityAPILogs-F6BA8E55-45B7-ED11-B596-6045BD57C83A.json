@@ -1,0 +1,365 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2023-02-24T11:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "2399d65d-6e35-4354-b77d-a4ad04981647"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Compose_-_Tenant_ID": {
+          "runAfter": {
+            "Compose_-_endTime_-utcNow": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ed3e2901-fb11-43c5-9610-a4f6e8a0086e"
+          },
+          "type": "Compose",
+          "inputs": "1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+        },
+        "Compose_-_Client_ID": {
+          "runAfter": {
+            "Compose_-_Tenant_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "37efd483-58ab-4402-9f3a-be48e02020fd"
+          },
+          "type": "Compose",
+          "inputs": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203"
+        },
+        "Compose_-_Client_Secret": {
+          "runAfter": {
+            "Compose_-_Client_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f5564fec-aa81-496f-8f14-3c65b5330e74"
+          },
+          "type": "Compose",
+          "inputs": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ"
+        },
+        "HTTP_-_Get_Token": {
+          "runAfter": {
+            "Compose_-_Client_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "92fafe4d-77b8-48ab-b55c-dfcd2b3b67cf"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://login.microsoftonline.com/@{outputs('Compose_-_Tenant_ID')}/oauth2/token",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "body": "client_id=@{outputs('Compose_-_Client_ID')}&client_secret=@{outputs('Compose_-_Client_Secret')}&resource=https://manage.office.com&grant_type=client_credentials"
+          }
+        },
+        "Parse_JSON_-_Access_Token": {
+          "runAfter": {
+            "HTTP_-_Get_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0d2280c4-7a9d-4f64-9584-27482d499492"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('HTTP_-_Get_Token')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token_type": {
+                  "type": "string"
+                },
+                "expires_in": {
+                  "type": "string"
+                },
+                "ext_expires_in": {
+                  "type": "string"
+                },
+                "expires_on": {
+                  "type": "string"
+                },
+                "not_before": {
+                  "type": "string"
+                },
+                "resource": {
+                  "type": "string"
+                },
+                "access_token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "HTTP_-_Start_Subscription": {
+          "runAfter": {
+            "Parse_JSON_-_Access_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "63d5832a-19d4-4483-bc30-39fdf7a5cd60"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://manage.office.com/api/v1.0/@{outputs('Compose_-_Tenant_ID')}/activity/feed/subscriptions/start?contentType=Audit.General",
+            "headers": {
+              "Authorization": "Bearer @{body('Parse_JSON_-_Access_Token')?['access_token']}",
+              "Content-Type": "application/json"
+            }
+          }
+        },
+        "Initialize_variable_varLogsArray": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "edb4e002-04c2-4f48-b936-7388cfffda11"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varLogsArray",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Compose_-_startTime_-_utcNow_minus_24_hours_-_yyyy-MM-ddThh:mm": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b2526839-3685-4725-bf4f-92b600fff0dd"
+          },
+          "type": "Compose",
+          "inputs": "@convertTimeZone(subtractFromTime(utcNow(),5,'Minute'),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')"
+        },
+        "Compose_-_endTime_-utcNow": {
+          "runAfter": {
+            "Compose_-_startTime_-_utcNow_minus_24_hours_-_yyyy-MM-ddThh:mm": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b6534db4-f092-41cf-b7e8-d1d10c6a7a88"
+          },
+          "type": "Compose",
+          "inputs": "@convertTimeZone(utcNow(),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')"
+        },
+        "HTTP_-_Get_Content_Blobs": {
+          "runAfter": {
+            "HTTP_-_Start_Subscription": [
+              "Succeeded",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1b6cf0a0-bf85-45ad-b18e-eb4eae24eae9"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "GET",
+            "uri": "https://manage.office.com/api/v1.0/@{outputs('Compose_-_Tenant_ID')}/activity/feed/subscriptions/content?contentType=Audit.General&startTime=@{outputs('Compose_-_startTime_-_utcNow_minus_24_hours_-_yyyy-MM-ddThh:mm')}&endTime=@{outputs('Compose_-_endTime_-utcNow')}",
+            "headers": {
+              "Authorization": "Bearer @{body('Parse_JSON_-_Access_Token')?['access_token']}",
+              "Content-Type": "application/json"
+            }
+          }
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "HTTP_-_Get_Content_Blobs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e4d1f48f-cb8e-4b92-b53c-cc287e5cd2d2"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('HTTP_-_Get_Content_Blobs')",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "contentUri": {
+                    "type": "string"
+                  },
+                  "contentId": {
+                    "type": "string"
+                  },
+                  "contentType": {
+                    "type": "string"
+                  },
+                  "contentCreated": {
+                    "type": "string"
+                  },
+                  "contentExpiration": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "contentUri",
+                  "contentId",
+                  "contentType",
+                  "contentCreated",
+                  "contentExpiration"
+                ]
+              }
+            }
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@body('Parse_JSON')",
+          "actions": {
+            "HTTP_-_Get_Content_Blob": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "3e32020b-7c95-4687-8d31-7af5fabc78bf"
+              },
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@items('Apply_to_each')['contentUri']",
+                "headers": {
+                  "Authorization": "Bearer @{body('Parse_JSON_-_Access_Token')?['access_token']}",
+                  "Content-Type": "application/json"
+                }
+              }
+            },
+            "Filter_array_-_D365_Events": {
+              "runAfter": {
+                "HTTP_-_Get_Content_Blob": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a25cae7c-6db3-4bd3-97c1-f401a6133656"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@json(body('HTTP_-_Get_Content_Blob'))",
+                "where": "@equals(item()?['RecordType'], 21)"
+              }
+            },
+            "Apply_to_each_2": {
+              "foreach": "@body('Filter_array_-_Instance_Url')",
+              "actions": {
+                "Append_to_array_variable": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "d37a1d5d-b420-4f77-8507-db2046411388"
+                  },
+                  "type": "AppendToArrayVariable",
+                  "inputs": {
+                    "name": "varLogsArray",
+                    "value": "@items('Apply_to_each_2')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Filter_array_-_Instance_Url": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1e8185e3-a21a-43e8-995d-302de380c3a8"
+              },
+              "type": "Foreach"
+            },
+            "Filter_array_-_Instance_Url": {
+              "runAfter": {
+                "Filter_array_-_D365_Events": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2fee335e-1fcb-4715-b8d0-a8eb4ca6cde5"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Filter_array_-_D365_Events')",
+                "where": "@equals(item()?['InstanceUrl'], variables('InstanceUrl'))"
+              }
+            }
+          },
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c5bf8c24-5475-45bc-bb27-1e3209058d9f"
+          },
+          "type": "Foreach"
+        },
+        "Compose": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d94adf76-aaf4-4d02-9d95-27531ff4c5bd"
+          },
+          "type": "Compose",
+          "inputs": "@variables('varLogsArray')"
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "Initialize_variable_varLogsArray": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "13ce1de7-e622-4d0a-880a-2d870a486eb8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "InstanceUrl",
+                "type": "string",
+                "value": "https://gfudev.crm5.dynamics.com/"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

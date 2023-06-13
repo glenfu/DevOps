@@ -1,0 +1,357 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_documentdb_1": {
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_documentdb"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "55fdd02b-6979-4d87-a465-a4e28cceeada"
+          },
+          "type": "Request",
+          "kind": "Http",
+          "inputs": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "string"
+                  },
+                  "contentCreated": {
+                    "type": "string"
+                  },
+                  "contentExpiration": {
+                    "type": "string"
+                  },
+                  "contentId": {
+                    "type": "string"
+                  },
+                  "contentType": {
+                    "type": "string"
+                  },
+                  "contentUri": {
+                    "type": "string"
+                  },
+                  "tenantId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "clientId",
+                  "contentCreated",
+                  "contentExpiration",
+                  "contentId",
+                  "contentType",
+                  "contentUri",
+                  "tenantId"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "actions": {
+        "Response": {
+          "runAfter": {
+            "Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "29ce17ed-4c20-4d80-b1e6-c5d090f9038f"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200
+          }
+        },
+        "TenantId": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "0d6cc62e-38ab-47ef-a175-7dc71afff903"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TenantId",
+                "type": "String",
+                "value": "1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+              }
+            ]
+          }
+        },
+        "ClientId": {
+          "runAfter": {
+            "TenantId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "922e89a6-1f5d-4e1a-8730-ae1d13717944"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ClientId",
+                "type": "String",
+                "value": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203"
+              }
+            ]
+          }
+        },
+        "Secret": {
+          "runAfter": {
+            "ClientId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e785b930-7a80-4282-b930-88ed202400ae"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Secret",
+                "type": "String",
+                "value": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ"
+              }
+            ]
+          }
+        },
+        "For_each_content_URI_in_the_notification": {
+          "foreach": "@triggerBody()",
+          "actions": {
+            "HTTP_call_to_content_URI": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "fc318768-4f38-4b93-8231-927a56e0d9b6"
+              },
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@items('For_each_content_URI_in_the_notification')['contentUri']",
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "authentication": {
+                  "type": "ActiveDirectoryOAuth",
+                  "tenant": "@variables('TenantId')",
+                  "audience": "https://manage.office.com",
+                  "clientId": "@variables('ClientId')",
+                  "secret": "@variables('Secret')"
+                }
+              }
+            },
+            "Parse_JSON": {
+              "runAfter": {
+                "HTTP_call_to_content_URI": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "afc1c9a9-e2c0-4f24-a7a7-0a79151231af"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@body('HTTP_call_to_Content_URI')",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Id": {
+                        "type": "string"
+                      },
+                      "RecordType": {
+                        "type": "integer"
+                      },
+                      "CreationTime": {
+                        "type": "string"
+                      },
+                      "Operation": {
+                        "type": "string"
+                      },
+                      "OrganizationId": {
+                        "type": "string"
+                      },
+                      "UserType": {
+                        "type": "integer"
+                      },
+                      "UserKey": {
+                        "type": "string"
+                      },
+                      "Workload": {
+                        "type": "string"
+                      },
+                      "UserId": {
+                        "type": "string"
+                      },
+                      "ClientIP": {
+                        "type": "string"
+                      },
+                      "UserAgent": {
+                        "type": "string"
+                      },
+                      "Activity": {
+                        "type": "string"
+                      },
+                      "ItemName": {
+                        "type": "string"
+                      },
+                      "WorkSpaceName": {
+                        "type": "string"
+                      },
+                      "DashboardName": {
+                        "type": "string"
+                      },
+                      "WorkspaceId": {
+                        "type": "string"
+                      },
+                      "ObjectId": {
+                        "type": "string"
+                      },
+                      "DashboardId": {
+                        "type": "string"
+                      },
+                      "Datasets": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "DatasetId": {
+                              "type": "string"
+                            },
+                            "DatasetName": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "DatasetId",
+                            "DatasetName"
+                          ]
+                        }
+                      },
+                      "IsSuccess": {
+                        "type": "boolean"
+                      },
+                      "DataflowRefreshScheduleType": {
+                        "type": "string"
+                      },
+                      "DataflowType": {
+                        "type": "string"
+                      },
+                      "Version": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "Id",
+                      "RecordType",
+                      "CreationTime",
+                      "Operation",
+                      "OrganizationId",
+                      "UserType",
+                      "UserKey",
+                      "Workload",
+                      "UserId"
+                    ]
+                  }
+                }
+              }
+            },
+            "For_each_audit_record": {
+              "foreach": "@body('Filter_Dynamics_Records')",
+              "actions": {
+                "Create_or_update_document_(V3)": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "480c1ede-0e21-45df-a65a-3eb6c4a77114",
+                    "flowSystemMetadata": {
+                      "swaggerOperationId": "CreateDocument_V3"
+                    }
+                  },
+                  "type": "ApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['shared_documentdb_1']['connectionId']"
+                      }
+                    },
+                    "method": "post",
+                    "body": "@replace(string(items('For_each_audit_record')),'Id','id')",
+                    "headers": {
+                      "x-ms-documentdb-is-upsert": true
+                    },
+                    "path": "/v2/cosmosdb/@{encodeURIComponent('AccountNameFromSettings')}/dbs/@{encodeURIComponent('Audit')}/colls/@{encodeURIComponent('Audits')}/docs",
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Filter_Dynamics_Records": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "91c42b02-9448-4afe-b08b-fba2e3403268"
+              },
+              "type": "Foreach"
+            },
+            "Filter_Dynamics_Records": {
+              "runAfter": {
+                "Parse_JSON": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "96cca48b-cc55-46b7-9c64-887cdae8e4e1"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Parse_JSON')",
+                "where": "@equals(item()['RecordType'], 21)"
+              }
+            }
+          },
+          "runAfter": {
+            "Response": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3fa0213f-0bf3-49e1-8960-00f22f86b714"
+          },
+          "type": "Foreach"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,430 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {},
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "73782ec5-be0f-4d40-a29e-8dbb25255101"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 7,
+              "subscriptionRequest/entityname": "systemuser",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Client_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "6ea7dbc8-e931-4bb0-82ee-1803ff597121"
+          },
+          "type": "Compose",
+          "inputs": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203"
+        },
+        "Tenant_ID": {
+          "runAfter": {
+            "Client_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "84e7ecf7-782b-488b-b0d1-0a7db92f6d8b"
+          },
+          "type": "Compose",
+          "inputs": "1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+        },
+        "Client_Secret": {
+          "runAfter": {
+            "Tenant_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "77718e59-292e-4420-8619-8245c76029ff"
+          },
+          "type": "Compose",
+          "inputs": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ"
+        },
+        "HTTP_-_Get_Last_Signed_In": {
+          "runAfter": {
+            "nextLink": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f6729958-08ec-4063-8a0a-9a661d397fb9"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "GET",
+            "uri": "https://graph.microsoft.com/v1.0/users?$filter=signInActivity/lastSignInDateTime%20le%20@{addDays(utcNow(), -90)}&$select=displayName,userPrincipalName,signInActivity",
+            "authentication": {
+              "type": "ActiveDirectoryOAuth",
+              "authority": "https://login.microsoftonline.com",
+              "tenant": "@{outputs('Tenant_ID')}",
+              "audience": "https://graph.microsoft.com",
+              "clientId": "@{outputs('Client_ID')}",
+              "secret": "@{outputs('Client_Secret')}"
+            }
+          }
+        },
+        "Create_HTML_table": {
+          "runAfter": {
+            "Select": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e9d13295-b242-49ca-bb56-9eec15b4d870"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@body('Select')",
+            "format": "HTML"
+          }
+        },
+        "loopDone": {
+          "runAfter": {
+            "Client_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a8e3f9eb-2429-41a4-8ff5-c62d02da8068"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "loopDone",
+                "type": "boolean",
+                "value": "@false"
+              }
+            ]
+          }
+        },
+        "lastSignedInArray": {
+          "runAfter": {
+            "loopDone": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ede0a9ee-4472-4b3c-8db8-b67e33fcb073"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "lastSignedInArray",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "nextLink": {
+          "runAfter": {
+            "lastSignedInArray": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "002ee405-8db4-46a0-968c-38efbc202031"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "nextLink",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@body('HTTP_-_Get_Last_Signed_In')['value']",
+          "actions": {
+            "Append_to_array_variable_-_lastSignedInArray": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "bcb62b3e-4845-43e3-8971-5defd661413a"
+              },
+              "type": "AppendToArrayVariable",
+              "inputs": {
+                "name": "lastSignedInArray",
+                "value": "@items('Apply_to_each')"
+              }
+            },
+            "Is_there_another_page": {
+              "actions": {
+                "Set_nextLink": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "3a57cd5d-bc92-46a4-9424-d5a62aa33238"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "nextLink",
+                    "value": "@{decodeUriComponent(body('HTTP_-_Get_Last_Signed_In')?['@odata.nextLink'])}"
+                  }
+                },
+                "Do_until": {
+                  "actions": {
+                    "HTTP_-_Get_Last_Signed_In_2": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "eef9622c-1f95-466d-9cc4-0735d7c3c54f"
+                      },
+                      "type": "Http",
+                      "inputs": {
+                        "method": "GET",
+                        "uri": "@variables('nextLink')",
+                        "authentication": {
+                          "type": "ActiveDirectoryOAuth",
+                          "authority": "https://login.microsoftonline.com",
+                          "tenant": "@{outputs('Tenant_ID')}",
+                          "audience": "https://graph.microsoft.com",
+                          "clientId": "@{outputs('Client_ID')}",
+                          "secret": "@{outputs('Client_Secret')}"
+                        }
+                      }
+                    },
+                    "Apply_to_each_2": {
+                      "foreach": "@body('HTTP_-_Get_Last_Signed_In_2')['value']",
+                      "actions": {
+                        "Append_to_array_variable_-_lastSignedInArray_2": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "bed9da4f-106a-412f-9987-1f6d7ceff626"
+                          },
+                          "type": "AppendToArrayVariable",
+                          "inputs": {
+                            "name": "lastSignedInArray",
+                            "value": "@items('Apply_to_each_2')"
+                          }
+                        },
+                        "Is_there_yet_another_page": {
+                          "actions": {
+                            "Set_nextLink_2": {
+                              "runAfter": {},
+                              "metadata": {
+                                "operationMetadataId": "b3a3d056-17f9-4017-bb29-3d1be02f355b"
+                              },
+                              "type": "SetVariable",
+                              "inputs": {
+                                "name": "nextLink",
+                                "value": "@{decodeUriComponent(body('HTTP_-_Get_Last_Signed_In_2')?['@odata.nextLink'])}"
+                              }
+                            }
+                          },
+                          "runAfter": {
+                            "Append_to_array_variable_-_lastSignedInArray_2": [
+                              "Succeeded"
+                            ]
+                          },
+                          "else": {
+                            "actions": {
+                              "Set_loopDone_2": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "4cb4421c-2b0e-4cec-b4e0-551c77e643f1"
+                                },
+                                "type": "SetVariable",
+                                "inputs": {
+                                  "name": "loopDone",
+                                  "value": "@true"
+                                }
+                              }
+                            }
+                          },
+                          "expression": {
+                            "contains": [
+                              "@string(body('HTTP_-_Get_Last_Signed_In_2'))",
+                              "odata.nextLink"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "1e55cbb7-02e8-47c8-b1b2-fb3aa73d4609"
+                          },
+                          "type": "If"
+                        }
+                      },
+                      "runAfter": {
+                        "HTTP_-_Get_Last_Signed_In_2": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "74df7f46-1c6e-45e3-877c-1ae62efc6779"
+                      },
+                      "type": "Foreach"
+                    }
+                  },
+                  "runAfter": {
+                    "Set_nextLink": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": "@equals(variables('loopDone'), true)",
+                  "limit": {
+                    "count": 60,
+                    "timeout": "PT1H"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "87baba7f-1bc1-45d4-9adc-aad9ac7bcd81"
+                  },
+                  "type": "Until"
+                }
+              },
+              "runAfter": {
+                "Append_to_array_variable_-_lastSignedInArray": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Set_loopDone": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "18119368-1d76-45df-8366-1c917af708ee"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "loopDone",
+                      "value": "@true"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "contains": [
+                  "@string(body('HTTP_-_Get_Last_Signed_In'))",
+                  "odata.nextLink"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f668c5f9-ea5d-41ab-a2a0-ad4f0b5a07fb"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "HTTP_-_Get_Last_Signed_In": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d207f6f4-7f9a-4ca3-9463-1cac7543f2f6"
+          },
+          "type": "Foreach"
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "211d62d6-8f74-407a-b71e-2f03275785ae"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@variables('lastSignedInArray')",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "userPrincipalName": {
+                    "type": "string"
+                  },
+                  "signInActivity": {
+                    "type": "object",
+                    "properties": {
+                      "lastSignInDateTime": {
+                        "type": "string"
+                      },
+                      "lastSignInRequestId": {
+                        "type": "string"
+                      },
+                      "lastNonInteractiveSignInDateTime": {
+                        "type": "string"
+                      },
+                      "lastNonInteractiveSignInRequestId": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "displayName",
+                  "userPrincipalName",
+                  "signInActivity"
+                ]
+              }
+            }
+          }
+        },
+        "Select": {
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7120bc6a-3fa7-4d7e-9cba-8b2c378e6a8c"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@body('Parse_JSON')",
+            "select": {
+              "UPN": "@item()?['userPrincipalName']",
+              "lastSignInDateTime": "@item()['signInActivity']['lastSignInDateTime']"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

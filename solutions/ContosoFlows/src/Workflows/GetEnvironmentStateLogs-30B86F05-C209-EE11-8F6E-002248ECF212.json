@@ -1,0 +1,173 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Week",
+            "interval": 1
+          },
+          "metadata": {
+            "operationMetadataId": "548e4c17-13c3-48bb-8250-52961864882e"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Compose_-_Tenant_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "d6f2e662-2a90-4542-87d9-d7975318c4e0"
+          },
+          "type": "Compose",
+          "inputs": "1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+        },
+        "Compose_-_Client_ID": {
+          "runAfter": {
+            "Compose_-_Tenant_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7a91adce-3b94-4421-99c2-0b0a036ca964"
+          },
+          "type": "Compose",
+          "inputs": "33efc560-552a-43ab-8251-9be28ce514f4"
+        },
+        "Compose_-_Client_Secret": {
+          "runAfter": {
+            "Compose_-_Client_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0b1aad8e-fdcd-4a92-9695-763ba75577eb"
+          },
+          "type": "Compose",
+          "inputs": "Uyc8Q~DLUvRLbW7YYZa2esaqOwbxz4nbhrrhYdvr"
+        },
+        "HTTP_-_Get_Token": {
+          "runAfter": {
+            "Compose_-_Client_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0e7d3667-5313-4173-9182-9d3fbff7c41f"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://login.microsoftonline.com/@{outputs('Compose_-_Tenant_ID')}/oauth2/v2.0/token",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "body": "client_id=@{outputs('Compose_-_Client_ID')}&scope=https://service.powerapps.com//.default&client_secret=@{outputs('Compose_-_Client_Secret')}&grant_type=client_credentials"
+          }
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "HTTP_-_Get_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fb7571e5-76a3-4bf5-b4ac-61b0c78ad9b5"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('HTTP_-_Get_Token')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token_type": {
+                  "type": "string"
+                },
+                "expires_in": {
+                  "type": "integer"
+                },
+                "ext_expires_in": {
+                  "type": "integer"
+                },
+                "access_token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "HTTP_-_Get_Environment_States": {
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "06e5d5a4-57d7-4f81-8f3a-91afb26fdf59"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "GET",
+            "uri": "https://api.bap.microsoft.com/providers/Microsoft.BusinessAppPlatform/lifecycleOperations?api-version=2020-06-01&$filter=environment%20eq%20%2705a2eb5b-33e1-4734-bbc3-12cb19981391%27",
+            "headers": {
+              "Authorization": "Bearer @{body('Parse_JSON')?['access_token']}",
+              "Content-Type": "application/json"
+            }
+          }
+        },
+        "HTTP_-_Backup_Environment": {
+          "runAfter": {
+            "HTTP_-_Get_Environment_States": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "87951eaa-8de4-4de7-8058-b5ca5f3910ae"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://api.bap.microsoft.com/providers/Microsoft.BusinessAppPlatform/environments/594e698b-5dee-ed62-b94d-76b30310a182/backups?api-version=2020-06-01",
+            "headers": {
+              "Authorization": "Bearer @{body('Parse_JSON')?['access_token']}",
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "label": "gfubak1"
+            }
+          }
+        },
+        "HTTP_-_Get_Manual_Backups": {
+          "runAfter": {
+            "HTTP_-_Backup_Environment": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3024890d-f559-4ab4-bf7e-b38617560c45"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "GET",
+            "uri": "https://api.bap.microsoft.com/providers/Microsoft.BusinessAppPlatform/environments/594e698b-5dee-ed62-b94d-76b30310a182/backups?api-version=2020-06-01",
+            "headers": {
+              "Authorization": "Bearer @{body('Parse_JSON')?['access_token']}",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
