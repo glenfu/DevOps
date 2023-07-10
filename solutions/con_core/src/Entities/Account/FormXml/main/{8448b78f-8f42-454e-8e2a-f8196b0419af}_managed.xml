@@ -348,11 +348,11 @@
     </form>
     <LocalizedNames>
       <LocalizedName description="Account" languagecode="1033" />
-      <LocalizedName description="Account" languagecode="3082" />
+      <LocalizedName description="Cuenta" languagecode="3082" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Updated default Account form." languagecode="1033" />
-      <Description description="Updated default Account form." languagecode="3082" />
+      <Description description="Formulario predeterminado de cuenta actualizado." languagecode="3082" />
     </Descriptions>
   </systemform>
 </forms>

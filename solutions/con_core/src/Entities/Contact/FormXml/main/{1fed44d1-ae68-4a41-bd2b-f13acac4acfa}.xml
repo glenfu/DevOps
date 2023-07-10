@@ -45,6 +45,12 @@
                     </row>
                   </rows>
                 </section>
+                <section name="SUMMARY_TAB_section_6" showlabel="true" showbar="false" locklevel="0" id="{8b406cb5-a885-9b5e-ad30-ab6e8707dc79}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="1">
+                  <labels>
+                    <label description="ADDRESS" languagecode="1033" solutionaction="Modified" />
+                    <label description="DIRECCIÓN" languagecode="3082" solutionaction="Modified" />
+                  </labels>
+                </section>
                 <section name="BusinessCard" showlabel="true" locklevel="0" id="{d6928560-988d-56e4-55b6-99aa3c898561}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false" ordinalvalue="3">
                   <rows>
                     <row>
@@ -261,6 +267,7 @@
           <Handlers>
             <Handler functionName="Sales.DocumentsTabController.shouldShowDocumentsTab" libraryName="Sales/ClientCommon/Sales_ClientCommon.js" handlerUniqueId="{8386030F-4166-4B1E-9428-5E4525B0F0EC}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="4" solutionaction="Modified" />
             <Handler functionName="checkWKWVisibility" libraryName="msdyn_/Scripts/WhoKnowsWhomLoader.js" handlerUniqueId="{d0a56571-d889-700d-9445-0a26120a54d3}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="5" solutionaction="Modified" />
+            <Handler functionName="Sales.AddressSuggestionsControl.shouldShowAddressSuggestionsControl" libraryName="Sales/ClientCommon/Sales_ClientCommon.js" handlerUniqueId="{530a360a-4b4d-45b7-ac14-806b8884d803}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="6" solutionaction="Modified" />
             <Handler functionName="con.CRM.Contact.onFormLoad" libraryName="con_contactform.js" handlerUniqueId="{f1c4c57c-2b37-4176-ba4c-c8727f995de8}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="3" solutionaction="Added" />
           </Handlers>
         </event>
