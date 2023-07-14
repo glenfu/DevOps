@@ -1,0 +1,164 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "6de78201-6dbf-4adc-b93c-6c6b79cdbbc4"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Compose_-_Tenant_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "9f435649-76fa-46a0-9a15-efd0d4cc5b93"
+          },
+          "type": "Compose",
+          "inputs": "1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+        },
+        "Compose_-_Client_ID": {
+          "runAfter": {
+            "Compose_-_Tenant_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6adf3e8e-e87b-4e7a-be8a-a92217c3724b"
+          },
+          "type": "Compose",
+          "inputs": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203"
+        },
+        "Compose_-_Client_Secret": {
+          "runAfter": {
+            "Compose_-_Client_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b97aa480-7459-4a73-a9df-b65a759b1baa"
+          },
+          "type": "Compose",
+          "inputs": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ"
+        },
+        "Compose_-_Webhook_Address": {
+          "runAfter": {
+            "Compose_-_Client_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d672d473-4477-4f84-8578-9a2d4f45e4ba"
+          },
+          "type": "Compose",
+          "inputs": "https://prod-46.southeastasia.logic.azure.com:443/workflows/45590c13539b404fa195518cce5867bf/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=D00HvpZ4FaWgx4QUXCS5TdeJeErTpCESyolE_PuYe6g"
+        },
+        "HTTP_-_Get_Token": {
+          "runAfter": {
+            "Compose_-_Webhook_Address": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0ece7638-5e02-444c-8671-eca1447d55cf"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://login.microsoftonline.com/@{outputs('Compose_-_Tenant_ID')}/oauth2/token",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "body": "client_id=@{outputs('Compose_-_Client_ID')}&client_secret=@{outputs('Compose_-_Client_Secret')}&resource=https://manage.office.com&grant_type=client_credentials"
+          }
+        },
+        "Parse_JSON_-_Access_Token": {
+          "runAfter": {
+            "HTTP_-_Get_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "78e95436-99a2-4bcf-8092-2782b48cd6c4"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('HTTP_-_Get_Token')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token_type": {
+                  "type": "string"
+                },
+                "expires_in": {
+                  "type": "string"
+                },
+                "ext_expires_in": {
+                  "type": "string"
+                },
+                "expires_on": {
+                  "type": "string"
+                },
+                "not_before": {
+                  "type": "string"
+                },
+                "resource": {
+                  "type": "string"
+                },
+                "access_token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "HTTP_-_Start_Subscription": {
+          "runAfter": {
+            "Parse_JSON_-_Access_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c63d8ef0-af82-4aac-870a-b0ef63544180"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://manage.office.com/api/v1.0/@{outputs('Compose_-_Tenant_ID')}/activity/feed/subscriptions/start?contentType=Audit.General",
+            "headers": {
+              "Authorization": "Bearer @{body('Parse_JSON_-_Access_Token')?['access_token']}",
+              "Content-Type": "application/json"
+            },
+            "body": {
+              "webhook": {
+                "address": "@{outputs('Compose_-_Webhook_Address')}",
+                "authId": "",
+                "expiration": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

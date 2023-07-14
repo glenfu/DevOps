@@ -1,0 +1,1881 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_powerappsforadmins": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoECorePowerAppsAdmin"
+        },
+        "api": {
+          "name": "shared_powerappsforadmins"
+        }
+      },
+      "shared_flowmanagement": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoECorePowerAutomateManagement"
+        },
+        "api": {
+          "name": "shared_flowmanagement"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2023-07-11T12:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "e5bd8de2-d366-4953-bd9d-c7242aa6e579"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Compose_-_Environment_Name": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "2c0b9835-55bd-4734-80af-a5c11adf92c1"
+          },
+          "type": "Compose",
+          "inputs": "default-1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+        },
+        "Get_Apps_as_Admin": {
+          "runAfter": {
+            "Compose_-_Environment_Name": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "63df6e6a-61ec-4054-a9df-7c96c8cc04cc"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_powerappsforadmins",
+              "operationId": "Get-AdminApps",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
+            },
+            "parameters": {
+              "environment": "@outputs('Compose_-_Environment_Name')",
+              "api-version": "2016-11-01",
+              "$top": 250
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Parse_JSON_-_Get_Apps": {
+          "runAfter": {
+            "Get_Apps_as_Admin": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3fdc2f1f-09c1-4044-a2ce-f682e2509553"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@outputs('Get_Apps_as_Admin')?['body/value']",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "content": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "tags": {
+                            "type": "object",
+                            "properties": {
+                              "primaryDeviceWidth": {
+                                "type": "string"
+                              },
+                              "primaryDeviceHeight": {
+                                "type": "string"
+                              },
+                              "sienaVersion": {
+                                "type": "string"
+                              },
+                              "deviceCapabilities": {
+                                "type": "string"
+                              },
+                              "supportsPortrait": {
+                                "type": "string"
+                              },
+                              "supportsLandscape": {
+                                "type": "string"
+                              },
+                              "primaryFormFactor": {
+                                "type": "string"
+                              },
+                              "publisherVersion": {
+                                "type": "string"
+                              },
+                              "minimumRequiredApiVersion": {
+                                "type": "string"
+                              },
+                              "hasComponent": {
+                                "type": "string"
+                              },
+                              "hasUnlockedComponent": {
+                                "type": "string"
+                              },
+                              "isUnifiedRootApp": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "properties": {
+                            "type": "object",
+                            "properties": {
+                              "appVersion": {
+                                "type": "string"
+                              },
+                              "createdByClientVersion": {
+                                "type": "object",
+                                "properties": {
+                                  "major": {
+                                    "type": "integer"
+                                  },
+                                  "minor": {
+                                    "type": "integer"
+                                  },
+                                  "build": {
+                                    "type": "integer"
+                                  },
+                                  "revision": {
+                                    "type": "integer"
+                                  },
+                                  "majorRevision": {
+                                    "type": "integer"
+                                  },
+                                  "minorRevision": {
+                                    "type": "integer"
+                                  }
+                                }
+                              },
+                              "minClientVersion": {
+                                "type": "object",
+                                "properties": {
+                                  "major": {
+                                    "type": "integer"
+                                  },
+                                  "minor": {
+                                    "type": "integer"
+                                  },
+                                  "build": {
+                                    "type": "integer"
+                                  },
+                                  "revision": {
+                                    "type": "integer"
+                                  },
+                                  "majorRevision": {
+                                    "type": "integer"
+                                  },
+                                  "minorRevision": {
+                                    "type": "integer"
+                                  }
+                                }
+                              },
+                              "owner": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "displayName": {
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "tenantId": {
+                                    "type": "string"
+                                  },
+                                  "userPrincipalName": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "createdBy": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "displayName": {
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "tenantId": {
+                                    "type": "string"
+                                  },
+                                  "userPrincipalName": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "lastModifiedBy": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "displayName": {
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "tenantId": {
+                                    "type": "string"
+                                  },
+                                  "userPrincipalName": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "backgroundColor": {
+                                "type": "string"
+                              },
+                              "backgroundImageUri": {
+                                "type": "string"
+                              },
+                              "teamsColorIconUrl": {
+                                "type": "string"
+                              },
+                              "teamsOutlineIconUrl": {
+                                "type": "string"
+                              },
+                              "displayName": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "appUris": {
+                                "type": "object",
+                                "properties": {
+                                  "documentUri": {
+                                    "type": "object",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string"
+                                      },
+                                      "readonlyValue": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  "imageUris": {
+                                    "type": "array"
+                                  },
+                                  "additionalUris": {
+                                    "type": "array"
+                                  }
+                                }
+                              },
+                              "createdTime": {
+                                "type": "string"
+                              },
+                              "lastModifiedTime": {
+                                "type": "string"
+                              },
+                              "sharedGroupsCount": {
+                                "type": "integer"
+                              },
+                              "sharedUsersCount": {
+                                "type": "integer"
+                              },
+                              "appOpenProtocolUri": {
+                                "type": "string"
+                              },
+                              "appOpenUri": {
+                                "type": "string"
+                              },
+                              "appPlayUri": {
+                                "type": "string"
+                              },
+                              "appPlayEmbeddedUri": {
+                                "type": "string"
+                              },
+                              "appPlayTeamsUri": {
+                                "type": "string"
+                              },
+                              "connectionReferences": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "iconUri": {
+                                      "type": "string"
+                                    },
+                                    "displayName": {
+                                      "type": "string"
+                                    },
+                                    "apiTier": {
+                                      "type": "string"
+                                    },
+                                    "isOnPremiseConnection": {
+                                      "type": "boolean"
+                                    },
+                                    "isCustomApiConnection": {
+                                      "type": "boolean"
+                                    },
+                                    "bypassConsent": {
+                                      "type": "boolean"
+                                    },
+                                    "id": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "iconUri",
+                                    "displayName",
+                                    "apiTier",
+                                    "isOnPremiseConnection",
+                                    "isCustomApiConnection",
+                                    "bypassConsent",
+                                    "id"
+                                  ]
+                                }
+                              },
+                              "userAppMetadata": {
+                                "type": "object",
+                                "properties": {
+                                  "favorite": {
+                                    "type": "string"
+                                  },
+                                  "includeInAppsList": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              },
+                              "isFeaturedApp": {
+                                "type": "boolean"
+                              },
+                              "bypassConsent": {
+                                "type": "boolean"
+                              },
+                              "isHeroApp": {
+                                "type": "boolean"
+                              },
+                              "environment": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "location": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "embeddedApp": {
+                                "type": "object",
+                                "properties": {
+                                  "siteId": {
+                                    "type": "string"
+                                  },
+                                  "listId": {
+                                    "type": "string"
+                                  },
+                                  "listUrl": {
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  },
+                                  "screenWidth": {
+                                    "type": "integer"
+                                  },
+                                  "screenHeight": {
+                                    "type": "integer"
+                                  }
+                                }
+                              },
+                              "almMode": {
+                                "type": "string"
+                              },
+                              "performanceOptimizationEnabled": {
+                                "type": "boolean"
+                              },
+                              "unauthenticatedWebPackageHint": {
+                                "type": "string"
+                              },
+                              "canConsumeAppPass": {
+                                "type": "boolean"
+                              },
+                              "enableModernRuntimeMode": {
+                                "type": "boolean"
+                              },
+                              "executionRestrictions": {
+                                "type": "object",
+                                "properties": {
+                                  "isTeamsOnly": {
+                                    "type": "boolean"
+                                  },
+                                  "dataLossPreventionEvaluationResult": {
+                                    "type": "object",
+                                    "properties": {
+                                      "status": {
+                                        "type": "string"
+                                      },
+                                      "lastEvaluationDate": {
+                                        "type": "string"
+                                      },
+                                      "violationDetails": {
+                                        "type": "array"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "appPlanClassification": {
+                                "type": "string"
+                              },
+                              "usesPremiumApi": {
+                                "type": "boolean"
+                              },
+                              "usesOnlyGrandfatheredPremiumApis": {
+                                "type": "boolean"
+                              },
+                              "usesCustomApi": {
+                                "type": "boolean"
+                              },
+                              "usesOnPremiseGateway": {
+                                "type": "boolean"
+                              },
+                              "usesPcfExternalServiceUsage": {
+                                "type": "boolean"
+                              },
+                              "isCustomizable": {
+                                "type": "boolean"
+                              },
+                              "appDocumentComplexity": {
+                                "type": "object",
+                                "properties": {
+                                  "controlCount": {
+                                    "type": "integer"
+                                  },
+                                  "pcfControlCount": {
+                                    "type": "integer"
+                                  },
+                                  "uiComponentsCount": {
+                                    "type": "integer"
+                                  },
+                                  "totalRuleLengthOnStart": {
+                                    "type": "integer"
+                                  },
+                                  "dataSourceCount": {
+                                    "type": "integer"
+                                  },
+                                  "totalRuleLengthHistogram": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "blocksOnStart": {
+                                    "type": "boolean"
+                                  },
+                                  "namedFormulasCount": {
+                                    "type": "integer"
+                                  },
+                                  "startScreenUsed": {
+                                    "type": "boolean"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "appLocation": {
+                            "type": "string"
+                          },
+                          "appType": {
+                            "type": "string"
+                          },
+                          "isAppComponentLibrary": {
+                            "type": "boolean"
+                          },
+                          "logicalName": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "id",
+                          "type",
+                          "tags",
+                          "properties",
+                          "appLocation",
+                          "appType"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "properties": {
+                      "type": "object",
+                      "properties": {
+                        "body": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "properties": {
+                              "type": "object",
+                              "properties": {
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string"
+                                    },
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "type": {
+                                          "type": "string"
+                                        },
+                                        "properties": {
+                                          "type": "object",
+                                          "properties": {
+                                            "name": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "id": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "type": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "tags": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                },
+                                                "properties": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "primaryDeviceWidth": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "primaryDeviceHeight": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "sienaVersion": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "deviceCapabilities": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "supportsPortrait": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "supportsLandscape": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "primaryFormFactor": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "publisherVersion": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "minimumRequiredApiVersion": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "hasComponent": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "hasUnlockedComponent": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "isUnifiedRootApp": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "properties": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                },
+                                                "properties": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "appVersion": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "createdByClientVersion": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "major": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "minor": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "build": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "revision": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "majorRevision": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "minorRevision": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "minClientVersion": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "major": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "minor": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "build": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "revision": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "majorRevision": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "minorRevision": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "owner": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "id": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "displayName": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "type": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "tenantId": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "userPrincipalName": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "createdBy": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "id": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "displayName": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "type": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "tenantId": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "userPrincipalName": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "lastModifiedBy": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "id": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "displayName": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "type": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "tenantId": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "userPrincipalName": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "backgroundColor": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "backgroundImageUri": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "teamsColorIconUrl": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "teamsOutlineIconUrl": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "displayName": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "description": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "appUris": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "documentUri": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                },
+                                                                "properties": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "value": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "type": {
+                                                                          "type": "string"
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "readonlyValue": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "type": {
+                                                                          "type": "string"
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "imageUris": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "additionalUris": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "createdTime": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "lastModifiedTime": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "sharedGroupsCount": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "sharedUsersCount": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "appOpenProtocolUri": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "appOpenUri": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "appPlayUri": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "appPlayEmbeddedUri": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "appPlayTeamsUri": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "connectionReferences": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "items": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "type": {
+                                                              "type": "string"
+                                                            },
+                                                            "properties": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "iconUri": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "type": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "displayName": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "type": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "apiTier": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "type": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "isOnPremiseConnection": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "type": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "isCustomApiConnection": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "type": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "bypassConsent": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "type": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "id": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "type": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "required": {
+                                                              "type": "array",
+                                                              "items": {
+                                                                "type": "string"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "userAppMetadata": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "favorite": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "includeInAppsList": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "isFeaturedApp": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "bypassConsent": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "isHeroApp": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "environment": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "id": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "name": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "location": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "embeddedApp": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "siteId": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "listId": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "listUrl": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "type": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "screenWidth": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "screenHeight": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "almMode": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "performanceOptimizationEnabled": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "unauthenticatedWebPackageHint": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "canConsumeAppPass": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "enableModernRuntimeMode": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "executionRestrictions": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "isTeamsOnly": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "dataLossPreventionEvaluationResult": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                },
+                                                                "properties": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "status": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "type": {
+                                                                          "type": "string"
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "lastEvaluationDate": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "type": {
+                                                                          "type": "string"
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "violationDetails": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                        "type": {
+                                                                          "type": "string"
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "appPlanClassification": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "usesPremiumApi": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "usesOnlyGrandfatheredPremiumApis": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "usesCustomApi": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "usesOnPremiseGateway": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "usesPcfExternalServiceUsage": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "isCustomizable": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    },
+                                                    "appDocumentComplexity": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "type": {
+                                                          "type": "string"
+                                                        },
+                                                        "properties": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "controlCount": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "pcfControlCount": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "uiComponentsCount": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "totalRuleLengthOnStart": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "dataSourceCount": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "totalRuleLengthHistogram": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                },
+                                                                "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "type": {
+                                                                      "type": "string"
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "blocksOnStart": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "namedFormulasCount": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            },
+                                                            "startScreenUsed": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "type": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "appLocation": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "appType": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "isAppComponentLibrary": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            },
+                                            "logicalName": {
+                                              "type": "object",
+                                              "properties": {
+                                                "type": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "required": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Filter_array_-_Get_Apps_starting_with_gfu": {
+          "runAfter": {
+            "Parse_JSON_-_Get_Apps": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f3a788be-c268-47fb-afdf-82d807b58aa8"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@body('Parse_JSON_-_Get_Apps')?['content']?['value']",
+            "where": "@startsWith(item()?['properties']?['displayName'], 'gfu')"
+          }
+        },
+        "List_Flows_as_Admin_(V2)": {
+          "runAfter": {
+            "Filter_array_-_Get_Apps_starting_with_gfu": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "91a8a970-d922-4c62-a287-5b9f99976122"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_flowmanagement",
+              "operationId": "ListFlowsInEnvironment_V2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
+            },
+            "parameters": {
+              "environmentName": "Default-1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Parse_JSON_-_List_Flows": {
+          "runAfter": {
+            "List_Flows_as_Admin_(V2)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fcdb7927-88fd-40a3-83a5-9dfa38d39206"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('List_Flows_as_Admin_(V2)')",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "properties": {
+                    "type": "object",
+                    "properties": {
+                      "apiId": {
+                        "type": "string"
+                      },
+                      "displayName": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "createdTime": {
+                        "type": "string"
+                      },
+                      "lastModifiedTime": {
+                        "type": "string"
+                      },
+                      "flowSuspensionReason": {
+                        "type": "string"
+                      },
+                      "environment": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "definitionSummary": {
+                        "type": "object",
+                        "properties": {
+                          "triggers": {
+                            "type": "array"
+                          },
+                          "actions": {
+                            "type": "array"
+                          }
+                        }
+                      },
+                      "flowFailureAlertSubscribed": {
+                        "type": "boolean"
+                      },
+                      "isManaged": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "id",
+                  "type",
+                  "properties"
+                ]
+              }
+            }
+          }
+        },
+        "Filter_array_-_List_Flows_starting_with_gfu": {
+          "runAfter": {
+            "Parse_JSON_-_List_Flows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "31d23667-3373-4601-ad7b-554b6b59a65b"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@body('Parse_JSON_-_List_Flows')",
+            "where": "@startsWith(item()?['properties']?['displayName'], 'gfu')"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

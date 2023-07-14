@@ -1,0 +1,132 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_microsoftflowforadmins": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoEGovPowerAutomateforAdmins"
+        },
+        "api": {
+          "name": "shared_microsoftflowforadmins"
+        }
+      },
+      "shared_powerappsforadmins": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoECorePowerAppsAdmin"
+        },
+        "api": {
+          "name": "shared_powerappsforadmins"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "ee24407c-d083-4b73-a667-a528287569fb"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Remove_Flow_as_Admin": {
+          "runAfter": {
+            "Remove_App_as_Admin": [
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c18dd85c-6c28-4f36-b1fa-5d69a58f3270"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_microsoftflowforadmins",
+              "operationId": "Remove-AdminFlow",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_microsoftflowforadmins"
+            },
+            "parameters": {
+              "environment": "Default-1557f771-4c8e-4dbd-8b80-dd00a88e833e",
+              "flow": "a1b972f9-4466-424e-a0ee-b8e89f852f4d",
+              "api-version": "2016-11-01"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Remove_App_as_Admin": {
+          "runAfter": {
+            "Compose_2": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7027c5cd-4cd9-4e4b-b3d4-f7c425e7dc9e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_powerappsforadmins",
+              "operationId": "Remove-AdminApp",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
+            },
+            "parameters": {
+              "environment": "Default-1557f771-4c8e-4dbd-8b80-dd00a88e833e",
+              "app": "51c971cf-62ac-4a89-b20c-f070a2c32c0b",
+              "api-version": "2016-11-01"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Compose": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "86ca29ca-b67c-4a9f-a0ac-e6f14916e6a3"
+          },
+          "type": "Compose",
+          "inputs": "https://admin.powerplatform.microsoft.com/environments/05a2eb5b-33e1-4734-bbc3-12cb19981391/flows/7773b46f-7925-4182-a0ac-94ac002ddfbe/flowDetails"
+        },
+        "Compose_2": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1f1f7293-f1bc-444e-bf63-1a4c5aa742a2"
+          },
+          "type": "Compose",
+          "inputs": "@split(outputs('Compose'),'/')[6]"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

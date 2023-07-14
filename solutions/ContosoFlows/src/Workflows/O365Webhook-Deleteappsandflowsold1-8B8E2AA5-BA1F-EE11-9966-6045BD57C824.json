@@ -1,0 +1,562 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_microsoftflowforadmins": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoEGovPowerAutomateforAdmins"
+        },
+        "api": {
+          "name": "shared_microsoftflowforadmins"
+        }
+      },
+      "shared_powerappsforadmins": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoECorePowerAppsAdmin"
+        },
+        "api": {
+          "name": "shared_powerappsforadmins"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "01c84d35-5cae-4936-8570-7e06e3ea1c45"
+          },
+          "type": "Request",
+          "kind": "Http",
+          "inputs": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "clientId": {
+                    "type": "string"
+                  },
+                  "contentCreated": {
+                    "type": "string"
+                  },
+                  "contentExpiration": {
+                    "type": "string"
+                  },
+                  "contentId": {
+                    "type": "string"
+                  },
+                  "contentType": {
+                    "type": "string"
+                  },
+                  "contentUri": {
+                    "type": "string"
+                  },
+                  "tenantId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "clientId",
+                  "contentCreated",
+                  "contentExpiration",
+                  "contentId",
+                  "contentType",
+                  "contentUri",
+                  "tenantId"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "actions": {
+        "Compose_-_Tenant_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "cfb73926-4eed-4445-8160-c8bcc30c9aaf"
+          },
+          "type": "Compose",
+          "inputs": "1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+        },
+        "Compose_-_Client_ID": {
+          "runAfter": {
+            "Compose_-_Tenant_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f36c4abc-7182-46e9-af3b-c13483d46f54"
+          },
+          "type": "Compose",
+          "inputs": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203"
+        },
+        "Compose_-_Client_Secret": {
+          "runAfter": {
+            "Compose_-_Client_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "35324ebb-0e15-43b7-a46f-3ba58536bd4d"
+          },
+          "type": "Compose",
+          "inputs": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ"
+        },
+        "HTTP_-_Get_Token": {
+          "runAfter": {
+            "Response": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a6cf6007-def8-4489-ad1f-d77e7eed4927"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://login.microsoftonline.com/@{outputs('Compose_-_Tenant_ID')}/oauth2/token",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "body": "client_id=@{outputs('Compose_-_Client_ID')}&client_secret=@{outputs('Compose_-_Client_Secret')}&resource=https://manage.office.com&grant_type=client_credentials"
+          }
+        },
+        "Parse_JSON_-_Access_Token": {
+          "runAfter": {
+            "HTTP_-_Get_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c6434361-2600-47c6-815a-ba9ac68def0a"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('HTTP_-_Get_Token')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token_type": {
+                  "type": "string"
+                },
+                "expires_in": {
+                  "type": "string"
+                },
+                "ext_expires_in": {
+                  "type": "string"
+                },
+                "expires_on": {
+                  "type": "string"
+                },
+                "not_before": {
+                  "type": "string"
+                },
+                "resource": {
+                  "type": "string"
+                },
+                "access_token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@triggerBody()",
+          "actions": {
+            "HTTP_-_Get_Content_Blob": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "9d4e56aa-2feb-4b06-a158-3d6ffb128bfd"
+              },
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@items('Apply_to_each')['contentUri']",
+                "headers": {
+                  "Authorization": "Bearer @{body('Parse_JSON_-_Access_Token')?['access_token']}",
+                  "Content-Type": "application/json"
+                }
+              }
+            },
+            "Filter_array_-_Default_Environment": {
+              "runAfter": {
+                "HTTP_-_Get_Content_Blob": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "12fa8e14-12f3-4ccf-b0f2-e21b8fa2ddcf"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@json(body('HTTP_-_Get_Content_Blob'))",
+                "where": "@equals(item()?['OrganizationId'], outputs('Compose_-_Tenant_ID'))"
+              }
+            },
+            "Filter_array_-_glenfu_userid": {
+              "runAfter": {
+                "Filter_array_-_PowerApp_or_Flow_Record_Type": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ae9cc151-266a-4da2-bf06-96e38d2c21d0"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Filter_array_-_PowerApp_or_Flow_Record_Type')",
+                "where": "@equals(item()?['UserId'], 'glenfu@pfecrmonline.onmicrosoft.com')"
+              }
+            },
+            "Filter_array_-_PublishPowerApp": {
+              "runAfter": {
+                "Filter_array_-_glenfu_userid": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e0c0daa7-b090-4937-988b-f5df49a96f84"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Filter_array_-_glenfu_userid')",
+                "where": "@or(equals(item()?['Operation'], 'PublishPowerApp'), equals(item()?['Operation'], 'CreatePowerApp'))"
+              }
+            },
+            "Filter_array_-_CreateFlow": {
+              "runAfter": {
+                "Apply_to_each_3": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "777cf4ab-1681-4905-a99c-3c810b8b631f"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Filter_array_-_glenfu_userid')",
+                "where": "@equals(item()?['Operation'], 'CreateFlow')"
+              }
+            },
+            "Filter_array_-_PowerApp_or_Flow_Record_Type": {
+              "runAfter": {
+                "Filter_array_-_Default_Environment": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f9534f4c-c3e1-4640-80b0-36243ca13b12"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@body('Filter_array_-_Default_Environment')",
+                "where": "@or(equals(item()?['RecordType'], 30), equals(item()?['RecordType'], 45))"
+              }
+            },
+            "Parse_JSON_-_CreateFlow": {
+              "runAfter": {
+                "Filter_array_-_CreateFlow": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "77318f7c-275a-4dab-8378-b75d9a1ee24b"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@body('Filter_array_-_CreateFlow')",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "CreationTime": {
+                        "type": "string"
+                      },
+                      "Id": {
+                        "type": "string"
+                      },
+                      "Operation": {
+                        "type": "string"
+                      },
+                      "OrganizationId": {
+                        "type": "string"
+                      },
+                      "RecordType": {
+                        "type": "integer"
+                      },
+                      "ResultStatus": {
+                        "type": "string"
+                      },
+                      "UserKey": {
+                        "type": "string"
+                      },
+                      "UserType": {
+                        "type": "integer"
+                      },
+                      "Version": {
+                        "type": "integer"
+                      },
+                      "Workload": {
+                        "type": "string"
+                      },
+                      "ObjectId": {
+                        "type": "string"
+                      },
+                      "UserId": {
+                        "type": "string"
+                      },
+                      "FlowConnectorNames": {
+                        "type": "string"
+                      },
+                      "FlowDetailsUrl": {
+                        "type": "string"
+                      },
+                      "LicenseDisplayName": {
+                        "type": "string"
+                      },
+                      "SharingPermission": {
+                        "type": "integer"
+                      },
+                      "UserTypeInitiated": {
+                        "type": "integer"
+                      },
+                      "UserUPN": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "CreationTime",
+                      "Id",
+                      "Operation",
+                      "OrganizationId",
+                      "RecordType",
+                      "ResultStatus",
+                      "UserKey",
+                      "UserType",
+                      "Version",
+                      "Workload",
+                      "ObjectId",
+                      "UserId",
+                      "FlowConnectorNames",
+                      "FlowDetailsUrl",
+                      "LicenseDisplayName",
+                      "SharingPermission",
+                      "UserTypeInitiated",
+                      "UserUPN"
+                    ]
+                  }
+                }
+              }
+            },
+            "Apply_to_each_2": {
+              "foreach": "@body('Parse_JSON_-_CreateFlow')",
+              "actions": {
+                "Remove_Flow_as_Admin": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "2bd328d5-13bc-4553-b0fb-8c21a75218db"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_microsoftflowforadmins",
+                      "connectionName": "shared_microsoftflowforadmins",
+                      "operationId": "Remove-AdminFlow"
+                    },
+                    "parameters": {
+                      "environment": "@outputs('Compose_-_Environment_Name')",
+                      "flow": "@split(items('Apply_to_each_2')['FlowDetailsUrl'],'/')[6]",
+                      "api-version": "2016-11-01"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Parse_JSON_-_CreateFlow": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "14c9afca-3c90-4b00-946c-1fba0e201be8"
+              },
+              "type": "Foreach"
+            },
+            "Parse_JSON_-_PublishPowerApp": {
+              "runAfter": {
+                "Filter_array_-_PublishPowerApp": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8f99749a-a2ea-4924-9861-39ec2d8662e6"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@body('Filter_array_-_PublishPowerApp')",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "CreationTime": {
+                        "type": "string"
+                      },
+                      "Id": {
+                        "type": "string"
+                      },
+                      "Operation": {
+                        "type": "string"
+                      },
+                      "OrganizationId": {
+                        "type": "string"
+                      },
+                      "RecordType": {
+                        "type": "integer"
+                      },
+                      "UserKey": {
+                        "type": "string"
+                      },
+                      "UserType": {
+                        "type": "integer"
+                      },
+                      "Version": {
+                        "type": "integer"
+                      },
+                      "Workload": {
+                        "type": "string"
+                      },
+                      "ClientIP": {
+                        "type": "string"
+                      },
+                      "ObjectId": {
+                        "type": "string"
+                      },
+                      "UserId": {
+                        "type": "string"
+                      },
+                      "ResultStatus": {
+                        "type": "string"
+                      },
+                      "AdditionalInfo": {
+                        "type": "string"
+                      },
+                      "AppName": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "CreationTime",
+                      "Id",
+                      "Operation",
+                      "OrganizationId",
+                      "RecordType",
+                      "UserKey",
+                      "UserType",
+                      "Version",
+                      "Workload",
+                      "ClientIP",
+                      "ObjectId",
+                      "UserId",
+                      "ResultStatus",
+                      "AdditionalInfo",
+                      "AppName"
+                    ]
+                  }
+                }
+              }
+            },
+            "Apply_to_each_3": {
+              "foreach": "@body('Parse_JSON_-_PublishPowerApp')",
+              "actions": {
+                "Remove_App_as_Admin": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "9205bec6-ed94-4c78-9131-3bf6d9fe0c4b"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins",
+                      "connectionName": "shared_powerappsforadmins",
+                      "operationId": "Remove-AdminApp"
+                    },
+                    "parameters": {
+                      "environment": "@outputs('Compose_-_Environment_Name')",
+                      "app": "@items('Apply_to_each_3')['AppName']",
+                      "api-version": "2016-11-01"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Parse_JSON_-_PublishPowerApp": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "177a8bff-18ea-4e92-acbe-86db1f8481d6"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Parse_JSON_-_Access_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d0b6e18d-00b7-4918-964a-3d76e5457b41"
+          },
+          "type": "Foreach"
+        },
+        "Compose_-_Environment_Name": {
+          "runAfter": {
+            "Compose_-_Client_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "47d59d5b-c032-4ffb-841e-0d8b0154c75d"
+          },
+          "type": "Compose",
+          "inputs": "Default-1557f771-4c8e-4dbd-8b80-dd00a88e833e"
+        },
+        "Response": {
+          "runAfter": {
+            "Compose_-_Environment_Name": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "079c0701-8f0c-4c85-ad62-bae2ed5f2df6"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
