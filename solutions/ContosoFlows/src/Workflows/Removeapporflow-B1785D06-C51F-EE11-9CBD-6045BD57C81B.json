@@ -1,15 +1,6 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_microsoftflowforadmins": {
-        "runtimeSource": "invoker",
-        "connection": {
-          "connectionReferenceLogicalName": "admin_CoEGovPowerAutomateforAdmins"
-        },
-        "api": {
-          "name": "shared_microsoftflowforadmins"
-        }
-      },
       "shared_powerappsforadmins": {
         "runtimeSource": "invoker",
         "connection": {
@@ -17,6 +8,15 @@
         },
         "api": {
           "name": "shared_powerappsforadmins"
+        }
+      },
+      "shared_flowmanagement": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoECorePowerAutomateManagement"
+        },
+        "api": {
+          "name": "shared_flowmanagement"
         }
       }
     },
@@ -50,26 +50,64 @@
         }
       },
       "actions": {
-        "Remove_Flow_as_Admin": {
+        "List_Flows_as_Admin_(V2)": {
           "runAfter": {
-            "Remove_App_as_Admin": [
-              "Failed"
+            "Get_Apps_as_Admin_2": [
+              "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "c18dd85c-6c28-4f36-b1fa-5d69a58f3270"
+            "operationMetadataId": "2ee63e3b-00a6-41a3-b4b6-a819a877a2bb"
           },
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_microsoftflowforadmins",
-              "operationId": "Remove-AdminFlow",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_microsoftflowforadmins"
+              "connectionName": "shared_flowmanagement",
+              "operationId": "ListFlowsInEnvironment_V2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
             },
             "parameters": {
-              "environment": "Default-1557f771-4c8e-4dbd-8b80-dd00a88e833e",
-              "flow": "a1b972f9-4466-424e-a0ee-b8e89f852f4d",
-              "api-version": "2016-11-01"
+              "environmentName": "10195613-f7d0-4d8e-bc74-f8f6bf1fe7d4"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          },
+          "runtimeConfiguration": {
+            "paginationPolicy": {
+              "minimumItemCount": 5000
+            }
+          }
+        },
+        "Compose_2": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "04ccfa42-966d-4bc2-965c-f93bd5d17152"
+          },
+          "type": "Compose",
+          "inputs": "@body('Get_Apps_as_Admin_2')"
+        },
+        "Get_Apps_as_Admin": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "d4b9e3cb-bcd4-40c1-81a9-5790fdd6728f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_powerappsforadmins",
+              "operationId": "Get-AdminApps",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
+            },
+            "parameters": {
+              "environment": "default-1557f771-4c8e-4dbd-8b80-dd00a88e833e",
+              "api-version": "2016-11-01",
+              "$top": 10
             },
             "authentication": {
               "type": "Raw",
@@ -77,26 +115,27 @@
             }
           }
         },
-        "Remove_App_as_Admin": {
+        "Get_Apps_as_Admin_2": {
           "runAfter": {
-            "Compose_2": [
+            "Get_Apps_as_Admin": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "7027c5cd-4cd9-4e4b-b3d4-f7c425e7dc9e"
+            "operationMetadataId": "d229579f-da5f-43e0-9ce3-4538d7e8071e"
           },
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
               "connectionName": "shared_powerappsforadmins",
-              "operationId": "Remove-AdminApp",
+              "operationId": "Get-AdminApps",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
             },
             "parameters": {
-              "environment": "Default-1557f771-4c8e-4dbd-8b80-dd00a88e833e",
-              "app": "51c971cf-62ac-4a89-b20c-f070a2c32c0b",
-              "api-version": "2016-11-01"
+              "environment": "default-1557f771-4c8e-4dbd-8b80-dd00a88e833e",
+              "api-version": "2016-11-01",
+              "$skiptoken": "@split(outputs('Get_Apps_as_Admin')?['body/nextLink'],'%24skiptoken=')[1]",
+              "$top": 250
             },
             "authentication": {
               "type": "Raw",
@@ -105,24 +144,38 @@
           }
         },
         "Compose": {
-          "runAfter": {},
-          "metadata": {
-            "operationMetadataId": "86ca29ca-b67c-4a9f-a0ac-e6f14916e6a3"
-          },
-          "type": "Compose",
-          "inputs": "https://admin.powerplatform.microsoft.com/environments/05a2eb5b-33e1-4734-bbc3-12cb19981391/flows/7773b46f-7925-4182-a0ac-94ac002ddfbe/flowDetails"
-        },
-        "Compose_2": {
           "runAfter": {
-            "Compose": [
+            "Compose_2": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "1f1f7293-f1bc-444e-bf63-1a4c5aa742a2"
+            "operationMetadataId": "0e4dfe63-3276-4d9f-bd3d-c05d7324f6b3"
           },
           "type": "Compose",
-          "inputs": "@split(outputs('Compose'),'/')[6]"
+          "inputs": "@body('List_Flows_as_Admin_(V2)')"
+        },
+        "Apply_to_each": {
+          "foreach": "@body('List_Flows_as_Admin_(V2)')",
+          "actions": {
+            "Compose_3": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "835d0d9c-9507-4378-add4-2b60717718c9"
+              },
+              "type": "Compose",
+              "inputs": "@body('List_Flows_as_Admin_(V2)')"
+            }
+          },
+          "runAfter": {
+            "List_Flows_as_Admin_(V2)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9e6559ea-bdf9-4fcd-b17c-9bd231204bdf"
+          },
+          "type": "Foreach"
         }
       }
     },

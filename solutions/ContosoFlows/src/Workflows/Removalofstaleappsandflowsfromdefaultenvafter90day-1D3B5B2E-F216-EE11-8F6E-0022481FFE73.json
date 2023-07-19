@@ -1,0 +1,739 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_powerappsforadmins_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ms_sharedpowerappsforadmins_ef463"
+        },
+        "api": {
+          "name": "shared_powerappsforadmins"
+        }
+      },
+      "shared_flowmanagement_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ms_sharedflowmanagement_477f9"
+        },
+        "api": {
+          "name": "shared_flowmanagement"
+        }
+      },
+      "shared_office365users_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ms_sharedoffice365users_62208"
+        },
+        "api": {
+          "name": "shared_office365users"
+        }
+      },
+      "shared_onedriveforbusiness_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ms_sharedonedriveforbusiness_1e61f"
+        },
+        "api": {
+          "name": "shared_onedriveforbusiness"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence_-_Daily_at_Midnight": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2023-06-26T16:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "83958809-c203-4f88-9f3a-1e274d647f4a"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Get_Apps_as_Admin": {
+          "runAfter": {
+            "Initialize_variable_-_FlowArray": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "623f5e3b-4ad7-42b8-9ee3-78bef1c6d976"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_powerappsforadmins_1",
+              "operationId": "Get-AdminApps",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
+            },
+            "parameters": {
+              "environment": "@outputs('Compose_-_Environment_Name')",
+              "api-version": "2016-11-01",
+              "$top": 1100
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Select_-_Columns_for_Apps": {
+          "runAfter": {
+            "Get_Apps_as_Admin": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7d9d09d4-dd86-4b76-a9bd-31374718a8e9"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('Get_Apps_as_Admin')?['body/value']",
+            "select": {
+              "AppID": "@item()?['name']",
+              "PowerAppName": "@item()?['properties/displayName']",
+              "Creator": "@item()?['properties/createdBy/userPrincipalName']",
+              "CreatedOn": "@convertTimeZone(item()?['properties/createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd hh:mm')"
+            }
+          },
+          "description": "convertTimeZone(item()?['properties/createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd hh:mm')"
+        },
+        "Filter_array_-_Apps_with_no_Allowed_tag": {
+          "runAfter": {
+            "Select_-_Columns_for_Apps": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "158bd0a8-32cc-4a44-96ce-a1fba22eee89"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@body('Select_-_Columns_for_Apps')",
+            "where": "@not(startsWith(item()['PowerAppName'], outputs('Compose_-_Allowed_tag')))"
+          }
+        },
+        "Apply_to_each_-_Remove_App": {
+          "foreach": "@body('Filter_array_-_Apps_with_no_Allowed_tag')",
+          "actions": {
+            "Remove_App_as_Admin": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "aaacd847-f754-4e56-9ac8-acfb751841fc"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_powerappsforadmins_1",
+                  "operationId": "Remove-AdminApp",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
+                },
+                "parameters": {
+                  "environment": "@outputs('Compose_-_Environment_Name')",
+                  "app": "@items('Apply_to_each_-_Remove_App')['AppID']",
+                  "api-version": "2016-11-01"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Create_file_-_DeletedAppList.csv": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e207ae3c-bb39-41c2-9a16-b1bd883982db"
+          },
+          "type": "Foreach"
+        },
+        "List_Flows_as_Admin_(V2)": {
+          "runAfter": {
+            "Apply_to_each_-_Remove_App": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "051b9cb1-d052-468b-ad26-8f59cff43723"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_flowmanagement_1",
+              "operationId": "ListFlowsInEnvironment_V2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
+            },
+            "parameters": {
+              "environmentName": "@outputs('Compose_-_Environment_Name')"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Compose_-_Allowed_tag": {
+          "runAfter": {
+            "Compose_-_Environment_Name": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6ac93ddd-0bbd-4114-9b05-7bf3b162d3c2"
+          },
+          "type": "Compose",
+          "inputs": "[Allowed]"
+        },
+        "Compose_-_Environment_Name": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "7a2da58f-4302-4997-9edc-b73249f953b4"
+          },
+          "type": "Compose",
+          "inputs": "[Specify Environment Name]"
+        },
+        "Apply_to_each_-_List_Flow_Details_and_Append_to_Flow_Array": {
+          "foreach": "@outputs('List_Flows_as_Admin_(V2)')?['body/value']",
+          "actions": {
+            "Get_Flow_as_Admin": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "df1e7fae-b70f-4c62-b54d-63e44b67510c"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_flowmanagement_1",
+                  "operationId": "AdminGetFlow",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
+                },
+                "parameters": {
+                  "environmentName": "@outputs('Compose_-_Environment_Name')",
+                  "flowName": "@items('Apply_to_each_-_List_Flow_Details_and_Append_to_Flow_Array')?['name']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Parse_JSON_-_Get_Flow_Details": {
+              "runAfter": {
+                "Get_Flow_as_Admin": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "117d4c83-2d87-4556-aa3e-72dc221e6d99"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@body('Get_Flow_as_Admin')",
+                "schema": {
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "properties": {
+                      "properties": {
+                        "apiId": {
+                          "type": "string"
+                        },
+                        "connectionReferences": {
+                          "type": "array"
+                        },
+                        "createdTime": {
+                          "type": "string"
+                        },
+                        "creator": {
+                          "properties": {
+                            "objectId": {
+                              "type": "string"
+                            },
+                            "tenantId": {
+                              "type": "string"
+                            },
+                            "userId": {
+                              "type": "string"
+                            },
+                            "userType": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "definitionSummary": {
+                          "properties": {
+                            "actions": {
+                              "items": {
+                                "properties": {
+                                  "kind": {
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array"
+                            },
+                            "description": {
+                              "type": "string"
+                            },
+                            "triggers": {
+                              "items": {
+                                "properties": {
+                                  "kind": {
+                                    "type": "string"
+                                  },
+                                  "type": {
+                                    "type": "string"
+                                  }
+                                },
+                                "type": "object"
+                              },
+                              "type": "array"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "displayName": {
+                          "type": "string"
+                        },
+                        "environment": {
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "flowFailureAlertSubscribed": {
+                          "type": "boolean"
+                        },
+                        "flowSuspensionReason": {
+                          "type": "string"
+                        },
+                        "lastModifiedTime": {
+                          "type": "string"
+                        },
+                        "provisioningMethod": {
+                          "type": "string"
+                        },
+                        "referencedResources": {
+                          "type": "array"
+                        },
+                        "sharingType": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "triggerSchema": {
+                          "properties": {
+                            "properties": {
+                              "type": "object"
+                            },
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "userType": {
+                          "type": "string"
+                        },
+                        "workflowEntityId": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "Get_user_profile_(V2)": {
+              "runAfter": {
+                "Parse_JSON_-_Get_Flow_Details": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1b8ea154-e049-4de9-a670-e9b3c43d88c4"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365users_1",
+                  "operationId": "UserProfile_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365users"
+                },
+                "parameters": {
+                  "id": "@body('Parse_JSON_-_Get_Flow_Details')?['properties']?['creator']?['userId']"
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "description": "coalesce(outputs('Get_user_profile_(V2)')?['body/userPrincipalName'],body('Parse_JSON_-_Get_Flow_Details')?['properties']?['creator']?['userId'])"
+            },
+            "Compose_-_Flow_Details": {
+              "runAfter": {
+                "Get_user_profile_(V2)": [
+                  "Succeeded",
+                  "Failed"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "357c56ee-891b-4d54-b0e8-07a1c55a0046"
+              },
+              "type": "Compose",
+              "inputs": {
+                "FlowID": "@{body('Parse_JSON_-_Get_Flow_Details')?['name']}",
+                "FlowName": "@{body('Parse_JSON_-_Get_Flow_Details')?['properties']?['displayName']}",
+                "Creator": "@{coalesce(outputs('Get_user_profile_(V2)')?['body/userPrincipalName'],body('Parse_JSON_-_Get_Flow_Details')?['properties']?['creator']?['userId'])}",
+                "CreatedOn": "@{convertTimeZone(body('Parse_JSON_-_Get_Flow_Details')?['properties']?['createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd hh:mm')}",
+                "DeletedOn": "@{convertTimeZone(utcNow(),'UTC','Singapore Standard Time','yyyy-MM-dd HH:mm')}"
+              },
+              "description": "convertTimeZone(body('Parse_JSON_-_Get_Flow_Details')?['properties']?['createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd hh:mm')"
+            },
+            "Append_to_array_variable_-_FlowArray": {
+              "runAfter": {
+                "Compose_-_Flow_Details": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "aeeb0262-0779-4123-b1c3-5cdccfc6a339"
+              },
+              "type": "AppendToArrayVariable",
+              "inputs": {
+                "name": "FlowArray",
+                "value": "@outputs('Compose_-_Flow_Details')"
+              }
+            }
+          },
+          "runAfter": {
+            "List_Flows_as_Admin_(V2)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "aaf170d8-999a-4611-982b-398b87fa328f"
+          },
+          "type": "Foreach"
+        },
+        "Initialize_variable_-_AppEmailList": {
+          "runAfter": {
+            "Compose_-_X_Days": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2709fa10-3a01-4cbf-8ff6-29d08e69df3a"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "AppEmailList",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-_FlowEmailList": {
+          "runAfter": {
+            "Initialize_variable_-_AppEmailList": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6589f739-e32b-44f2-bd6f-5368acb786eb"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FlowEmailList",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-_FlowArray": {
+          "runAfter": {
+            "Initialize_variable_-_FlowEmailList": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a417df3b-8cf6-40ef-9968-99430e5e408a"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "FlowArray",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Filter_array_-_Apps_created_more_than_X_days": {
+          "runAfter": {
+            "Filter_array_-_Apps_with_no_Allowed_tag": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "997c3e21-0405-47c9-984a-027156f41f7d"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@body('Filter_array_-_Apps_with_no_Allowed_tag')",
+            "where": "@greaterOrEquals(float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd hh:mm')), ':')[0]), float(outputs('Compose_-_X_Days')))"
+          },
+          "description": "float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd hh:mm')), ':')[0]) float(outputs('Compose_-_X_Days'))"
+        },
+        "Compose_-_X_Days": {
+          "runAfter": {
+            "Compose_-_Allowed_tag": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e6e17476-e5d1-44a7-8d79-b9b226c44cc1"
+          },
+          "type": "Compose",
+          "inputs": 90
+        },
+        "Create_CSV_table_-_App_List": {
+          "runAfter": {
+            "Select_-_Columns_for_Apps_with_DeletedOn_Date": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e06013c5-6acf-4cff-848f-f4422d212cf5"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@body('Select_-_Columns_for_Apps_with_DeletedOn_Date')",
+            "format": "CSV"
+          }
+        },
+        "Filter_array_-_Flows_with_no_Allowed_tag": {
+          "runAfter": {
+            "Apply_to_each_-_List_Flow_Details_and_Append_to_Flow_Array": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1856d04c-cac8-426f-9a10-080719f397f9"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@variables('FlowArray')",
+            "where": "@not(startsWith(item()?['FlowName'], outputs('Compose_-_Allowed_tag')))"
+          }
+        },
+        "Filter_array_-_Flows_created_more_than_X_days": {
+          "runAfter": {
+            "Filter_array_-_Flows_with_no_Allowed_tag": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "72df141e-2d3d-4ef6-ac1d-8b5e3df7a199"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@body('Filter_array_-_Flows_with_no_Allowed_tag')",
+            "where": "@greaterOrEquals(float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd hh:mm')), ':')[0]), float(outputs('Compose_-_X_Days')))"
+          },
+          "description": "float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd hh:mm')), ':')[0]) float(outputs('Compose_-_X_Days'))"
+        },
+        "Apply_to_each_-_Remove_Flow": {
+          "foreach": "@body('Filter_array_-_Flows_created_more_than_X_days')",
+          "actions": {
+            "Delete_Flow": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "d5b45c9e-9719-4231-ae79-9ddaa2506a1e"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_flowmanagement_1",
+                  "operationId": "DeleteFlow",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
+                },
+                "parameters": {
+                  "environmentName": "@outputs('Compose_-_Environment_Name')",
+                  "flowName": "@items('Apply_to_each_-_Remove_Flow')?['FlowID']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Create_file_-_DeletedFlowList.csv": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "93e7dc43-d5a9-4e54-adff-921dfb5da0f8"
+          },
+          "type": "Foreach"
+        },
+        "Create_HTML_table_-_App_List": {
+          "runAfter": {
+            "Create_CSV_table_-_App_List": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7f59931c-7766-45c0-8fb2-e6cc93ad6596"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@body('Select_-_Columns_for_Apps_with_DeletedOn_Date')",
+            "format": "HTML"
+          }
+        },
+        "Create_file_-_DeletedAppList.csv": {
+          "runAfter": {
+            "Create_HTML_table_-_App_List": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8e2474e0-51c9-4e8b-bb7e-0af966a360cf"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_onedriveforbusiness_1",
+              "operationId": "CreateFile",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness"
+            },
+            "parameters": {
+              "folderPath": "[Specify folder path]",
+              "name": "DeletedAppList.csv",
+              "body": "@body('Create_CSV_table_-_App_List')"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "runtimeConfiguration": {
+            "contentTransfer": {
+              "transferMode": "Chunked"
+            }
+          }
+        },
+        "Create_CSV_table_-_Flow_List": {
+          "runAfter": {
+            "Filter_array_-_Flows_created_more_than_X_days": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a88c70bf-c61c-4480-87e0-26e2c076d3e9"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@body('Filter_array_-_Flows_created_more_than_X_days')",
+            "format": "CSV"
+          }
+        },
+        "Create_file_-_DeletedFlowList.csv": {
+          "runAfter": {
+            "Create_HTML_table_-_Flow_List": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e28371c7-b5e2-4a1d-bc8b-006943dfcde0"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_onedriveforbusiness_1",
+              "operationId": "CreateFile",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness"
+            },
+            "parameters": {
+              "folderPath": "[Specify folder path]",
+              "name": "DeletedFlowList.csv",
+              "body": "@body('Create_CSV_table_-_Flow_List')"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "runtimeConfiguration": {
+            "contentTransfer": {
+              "transferMode": "Chunked"
+            }
+          }
+        },
+        "Create_HTML_table_-_Flow_List": {
+          "runAfter": {
+            "Create_CSV_table_-_Flow_List": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ba1b0653-32e5-48e3-8f1c-6eebe243f8bc"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@body('Filter_array_-_Flows_created_more_than_X_days')",
+            "format": "HTML"
+          }
+        },
+        "Select_-_Columns_for_Apps_with_DeletedOn_Date": {
+          "runAfter": {
+            "Filter_array_-_Apps_created_more_than_X_days": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f4808a7d-adf3-4522-a315-08978baa06d7"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@body('Filter_array_-_Apps_created_more_than_X_days')",
+            "select": {
+              "AppID": "@item()?['AppID']",
+              "PowerAppName": "@item()?['PowerAppName']",
+              "Creator": "@item()?['Creator']",
+              "CreatedOn": "@item()?['CreatedOn']",
+              "DeletedOn": "@convertTimeZone(utcNow(),'UTC','Singapore Standard Time','yyyy-MM-dd HH:mm')"
+            }
+          },
+          "description": "convertTimeZone(utcNow(),'UTC','Singapore Standard Time','yyyy-MM-dd HH:mm')"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
