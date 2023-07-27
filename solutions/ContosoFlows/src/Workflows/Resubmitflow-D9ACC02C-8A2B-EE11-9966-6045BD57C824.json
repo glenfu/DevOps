@@ -1,0 +1,149 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_flowmanagement": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "admin_CoECorePowerAutomateManagement"
+        },
+        "api": {
+          "name": "shared_flowmanagement"
+        }
+      },
+      "shared_flowmanagement-5f7b7cf1bee59e0206-5f1e08caf3a3ab45f5": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedflowmanagement5f7b7cf1bee59e02065f1e08caf3a3ab45f5_4358c"
+        },
+        "api": {
+          "name": "shared_flowmanagement-5f7b7cf1bee59e0206-5f1e08caf3a3ab45f5"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "7082dd00-6238-482b-a40c-a2ea7e7e9d55"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_Flow_Runs": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "53b7d50d-4375-4408-b2e2-6c581c69876f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_flowmanagement-5f7b7cf1bee59e0206-5f1e08caf3a3ab45f5",
+              "operationId": "FlowRuns",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement-5f7b7cf1bee59e0206-5f1e08caf3a3ab45f5"
+            },
+            "parameters": {
+              "FlowEnvironment": "05a2eb5b-33e1-4734-bbc3-12cb19981391",
+              "FlowGUID": "4fab1dc8-1a60-41bd-adff-e026eb6edc42",
+              "api-version": "2021-02-01"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Filter_array_-_Failed_Flow_Runs": {
+          "runAfter": {
+            "Get_Flow_Runs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c80474e4-0dba-40b5-9df8-bf995370dc82"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@outputs('Get_Flow_Runs')?['body/value']",
+            "where": "@equals(item()?['properties/status'], 'Failed')"
+          }
+        },
+        "Filter_array_-_Earliest_Flow_Run_today": {
+          "runAfter": {
+            "Filter_array_-_Failed_Flow_Runs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "285f6b03-b2d1-4a4e-9794-211ebc941b04"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@body('Filter_array_-_Failed_Flow_Runs')",
+            "where": "@greaterOrEquals(item()?['properties']?['startTime'], startOfDay(utcNow()))"
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@body('Filter_array_-_Earliest_Flow_Run_today')",
+          "actions": {
+            "Resubmit_Flow": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "5585b665-0adb-4160-be00-2ee18251f33e"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_flowmanagement",
+                  "operationId": "ResubmitFlow",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
+                },
+                "parameters": {
+                  "environmentName": "05a2eb5b-33e1-4734-bbc3-12cb19981391",
+                  "flowName": "4fab1dc8-1a60-41bd-adff-e026eb6edc42",
+                  "triggerName": "manual",
+                  "runId": "@items('Apply_to_each')?['name']"
+                },
+                "authentication": {
+                  "type": "Raw",
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Filter_array_-_Earliest_Flow_Run_today": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6a0aa66b-8a12-4642-a702-c0c47bc25538"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

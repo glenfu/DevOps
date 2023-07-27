@@ -40,6 +40,13 @@
       <statecode>0</statecode>
       <statuscode>1</statuscode>
     </connectionreference>
+    <connectionreference connectionreferencelogicalname="con_sharedflowmanagement5f7b7cf1bee59e02065f1e08caf3a3ab45f5_4358c">
+      <connectionreferencedisplayname>FlowManagement ContosoFlows-4358c</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_flowmanagement-5f7b7cf1bee59e0206-5f1e08caf3a3ab45f5</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
     <connectionreference connectionreferencelogicalname="con_sharedoffice365_abc61">
       <connectionreferencedisplayname>Office 365 Outlook ContosoFlows-abc61</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>

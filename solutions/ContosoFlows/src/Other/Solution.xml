@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23064.176" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23071.154" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>ContosoFlows</UniqueName>
     <LocalizedNames>
@@ -94,6 +94,7 @@
       <RootComponent type="29" id="{a02d548d-d51f-ee11-9966-6045bd57c824}" behavior="0" />
       <RootComponent type="29" id="{a1b5a193-776c-ed11-81ac-000d3a856680}" behavior="0" />
       <RootComponent type="29" id="{b1785d06-c51f-ee11-9cbd-6045bd57c81b}" behavior="0" />
+      <RootComponent type="29" id="{d9acc02c-8a2b-ee11-9966-6045bd57c824}" behavior="0" />
       <RootComponent type="29" id="{f6ba8e55-45b7-ed11-b596-6045bd57c83a}" behavior="0" />
       <RootComponent type="29" id="{f7ba8e55-45b7-ed11-b596-6045bd57c83a}" behavior="0" />
       <RootComponent type="29" id="{fd434c9a-d607-ed11-82e5-000d3a819aba}" behavior="0" />
@@ -128,6 +129,10 @@
       <MissingDependency>
         <Required type="connectionreference" displayName="admin_CoECorePowerAutomateManagement" solution="CenterofExcellenceCoreComponents (4.3)" id.connectionreferencelogicalname="admin_CoECorePowerAutomateManagement" />
         <Dependent type="29" displayName="Remove app or flow" id="{b1785d06-c51f-ee11-9cbd-6045bd57c81b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="admin_CoECorePowerAutomateManagement" solution="CenterofExcellenceCoreComponents (4.3)" id.connectionreferencelogicalname="admin_CoECorePowerAutomateManagement" />
+        <Dependent type="29" displayName="Resubmit flow" id="{d9acc02c-8a2b-ee11-9966-6045bd57c824}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="connectionreference" displayName="admin_CoEGovPowerAutomateforAdmins" solution="CenterofExcellenceAuditComponents (3.6)" id.connectionreferencelogicalname="admin_CoEGovPowerAutomateforAdmins" />
