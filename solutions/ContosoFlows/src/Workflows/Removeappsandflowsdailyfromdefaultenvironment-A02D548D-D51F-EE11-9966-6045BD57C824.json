@@ -1,28 +1,28 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_powerappsforadmins": {
+      "shared_powerappsforadmins_1": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "admin_CoECorePowerAppsAdmin"
+          "connectionReferenceLogicalName": "ms_sharedpowerappsforadmins_ef463"
         },
         "api": {
           "name": "shared_powerappsforadmins"
         }
       },
-      "shared_flowmanagement": {
+      "shared_flowmanagement_1": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "admin_CoECorePowerAutomateManagement"
+          "connectionReferenceLogicalName": "ms_sharedflowmanagement_477f9"
         },
         "api": {
           "name": "shared_flowmanagement"
         }
       },
-      "shared_commondataserviceforapps": {
+      "shared_commondataserviceforapps_1": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_b7d8f"
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_14ee2"
         },
         "api": {
           "name": "shared_commondataserviceforapps"
@@ -76,7 +76,7 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_powerappsforadmins",
+              "connectionName": "shared_powerappsforadmins_1",
               "operationId": "Get-AdminApps",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
             },
@@ -115,7 +115,7 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_flowmanagement",
+              "connectionName": "shared_flowmanagement_1",
               "operationId": "ListFlowsInEnvironment_V2",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
             },
@@ -191,7 +191,7 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps_1",
               "operationId": "ListRecords",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
             },

@@ -1,19 +1,19 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_microsoftflowforadmins": {
+      "shared_microsoftflowforadmins_1": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "admin_CoEGovPowerAutomateforAdmins"
+          "connectionReferenceLogicalName": "con_sharedmicrosoftflowforadmins_5a120"
         },
         "api": {
           "name": "shared_microsoftflowforadmins"
         }
       },
-      "shared_powerappsforadmins": {
+      "shared_powerappsforadmins_1": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "admin_CoECorePowerAppsAdmin"
+          "connectionReferenceLogicalName": "ms_sharedpowerappsforadmins_ef463"
         },
         "api": {
           "name": "shared_powerappsforadmins"
@@ -339,7 +339,7 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "connectionName": "shared_microsoftflowforadmins",
+                      "connectionName": "shared_microsoftflowforadmins_1",
                       "operationId": "Remove-AdminFlow",
                       "apiId": "/providers/Microsoft.PowerApps/apis/shared_microsoftflowforadmins"
                     },
@@ -457,7 +457,7 @@
                   "type": "OpenApiConnection",
                   "inputs": {
                     "host": {
-                      "connectionName": "shared_powerappsforadmins",
+                      "connectionName": "shared_powerappsforadmins_1",
                       "operationId": "Remove-AdminApp",
                       "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
                     },

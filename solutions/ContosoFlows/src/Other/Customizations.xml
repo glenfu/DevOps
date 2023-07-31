@@ -47,9 +47,44 @@
       <statecode>0</statecode>
       <statuscode>1</statuscode>
     </connectionreference>
+    <connectionreference connectionreferencelogicalname="con_sharedmicrosoftflowforadmins_5a120">
+      <connectionreferencedisplayname>Power Automate for Admins ContosoFlows-5a120</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_microsoftflowforadmins</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
     <connectionreference connectionreferencelogicalname="con_sharedoffice365_abc61">
       <connectionreferencedisplayname>Office 365 Outlook ContosoFlows-abc61</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="ms_sharedflowmanagement_477f9">
+      <connectionreferencedisplayname>Power Automate Management DefaultEnvironmentManagement-477f9</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_flowmanagement</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="ms_sharedoffice365users_62208">
+      <connectionreferencedisplayname>Office 365 Users DefaultEnvironmentManagement-62208</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365users</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="ms_sharedonedriveforbusiness_1e61f">
+      <connectionreferencedisplayname>OneDrive for Business DefaultEnvironmentManagement-1e61f</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="ms_sharedpowerappsforadmins_ef463">
+      <connectionreferencedisplayname>Power Apps for Admins DefaultEnvironmentManagement-ef463</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins</connectorid>
       <iscustomizable>1</iscustomizable>
       <statecode>0</statecode>
       <statuscode>1</statuscode>

@@ -1,22 +1,22 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_powerappsforadmins": {
+      "shared_flowmanagement_1": {
         "runtimeSource": "invoker",
         "connection": {
-          "connectionReferenceLogicalName": "admin_CoECorePowerAppsAdmin"
-        },
-        "api": {
-          "name": "shared_powerappsforadmins"
-        }
-      },
-      "shared_flowmanagement": {
-        "runtimeSource": "invoker",
-        "connection": {
-          "connectionReferenceLogicalName": "admin_CoECorePowerAutomateManagement"
+          "connectionReferenceLogicalName": "ms_sharedflowmanagement_477f9"
         },
         "api": {
           "name": "shared_flowmanagement"
+        }
+      },
+      "shared_powerappsforadmins_1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "ms_sharedpowerappsforadmins_ef463"
+        },
+        "api": {
+          "name": "shared_powerappsforadmins"
         }
       }
     },
@@ -62,7 +62,7 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_flowmanagement",
+              "connectionName": "shared_flowmanagement_1",
               "operationId": "ListFlowsInEnvironment_V2",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
             },
@@ -100,7 +100,7 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_powerappsforadmins",
+              "connectionName": "shared_powerappsforadmins_1",
               "operationId": "Get-AdminApps",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
             },
@@ -127,7 +127,7 @@
           "type": "OpenApiConnection",
           "inputs": {
             "host": {
-              "connectionName": "shared_powerappsforadmins",
+              "connectionName": "shared_powerappsforadmins_1",
               "operationId": "Get-AdminApps",
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins"
             },
