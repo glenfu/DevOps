@@ -1,15 +1,6 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_flowmanagement": {
-        "runtimeSource": "invoker",
-        "connection": {
-          "connectionReferenceLogicalName": "admin_CoECorePowerAutomateManagement"
-        },
-        "api": {
-          "name": "shared_flowmanagement"
-        }
-      },
       "shared_flowmanagement-5f7b7cf1bee59e0206-5f1e08caf3a3ab45f5": {
         "runtimeSource": "invoker",
         "connection": {
@@ -17,6 +8,15 @@
         },
         "api": {
           "name": "shared_flowmanagement-5f7b7cf1bee59e0206-5f1e08caf3a3ab45f5"
+        }
+      },
+      "shared_flowmanagement_1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "ms_sharedflowmanagement_477f9"
+        },
+        "api": {
+          "name": "shared_flowmanagement"
         }
       }
     },
@@ -114,7 +114,7 @@
               "type": "OpenApiConnection",
               "inputs": {
                 "host": {
-                  "connectionName": "shared_flowmanagement",
+                  "connectionName": "shared_flowmanagement_1",
                   "operationId": "ResubmitFlow",
                   "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
                 },
