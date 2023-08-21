@@ -1,0 +1,188 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_msnweather": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedmsnweather_4c151"
+        },
+        "api": {
+          "name": "shared_msnweather"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "69262802-b4f4-4aca-bdaa-0cd148d4d2c4"
+          },
+          "type": "Request",
+          "kind": "PowerPages",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Location",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_current_weather": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "380cb93c-19b2-44fd-83b7-2eab1b22476f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_msnweather",
+              "connectionName": "shared_msnweather",
+              "operationId": "CurrentWeather"
+            },
+            "parameters": {
+              "Location": "@triggerBody()['text']",
+              "units": "C"
+            },
+            "authentication": {
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
+              "type": "Raw"
+            }
+          }
+        },
+        "Return_value(s)_to_Power_Pages": {
+          "runAfter": {
+            "Get_current_weather": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "08d749bc-8b5a-40bc-9b57-017c469f56dd"
+          },
+          "type": "Response",
+          "kind": "PowerPages",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "pressure": "@{outputs('Get_current_weather')?['body/responses/weather/current/baro']}",
+              "humidity": "@{outputs('Get_current_weather')?['body/responses/weather/current/rh']}",
+              "temperature": "@{outputs('Get_current_weather')?['body/responses/weather/current/temp']}",
+              "uv_index": "@{outputs('Get_current_weather')?['body/responses/weather/current/uv']}",
+              "wind_speed": "@{outputs('Get_current_weather')?['body/responses/weather/current/windSpd']}",
+              "location": "@outputs('Get_current_weather')?['body/responses/source/location']",
+              "visible_distance": "@{outputs('Get_current_weather')?['body/responses/weather/current/vis']}",
+              "latitude": "@{outputs('Get_current_weather')?['body/responses/source/coordinates/lat']}",
+              "longitude": "@{outputs('Get_current_weather')?['body/responses/source/coordinates/lon']}",
+              "temperature_units": "@outputs('Get_current_weather')?['body/units/temperature']",
+              "pressure_units": "@outputs('Get_current_weather')?['body/units/pressure']",
+              "speed_units": "@outputs('Get_current_weather')?['body/units/speed']",
+              "distance_units": "@outputs('Get_current_weather')?['body/units/distance']",
+              "conditions": "@outputs('Get_current_weather')?['body/responses/weather/current/cap']"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "pressure": {
+                  "title": "Pressure",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "humidity": {
+                  "title": "Humidity",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "temperature": {
+                  "title": "Temperature",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "uv_index": {
+                  "title": "UV index",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "wind_speed": {
+                  "title": "Wind speed",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "location": {
+                  "title": "Location",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "visible_distance": {
+                  "title": "Visible distance",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "latitude": {
+                  "title": "Latitude",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "longitude": {
+                  "title": "Longitude",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "temperature_units": {
+                  "title": "Temperature Units",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "pressure_units": {
+                  "title": "Pressure Units",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "speed_units": {
+                  "title": "Speed Units",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "distance_units": {
+                  "title": "Distance Units",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "conditions": {
+                  "title": "Conditions",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

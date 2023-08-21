@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23072.170" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23075.172" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>ContosoFlows</UniqueName>
     <LocalizedNames>
@@ -81,6 +81,7 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="29" id="{058c3992-0dcd-ec11-a7b6-000d3a8570bb}" behavior="0" />
+      <RootComponent type="29" id="{06c12310-443f-ee11-bdf4-6045bd57c6bd}" behavior="0" />
       <RootComponent type="29" id="{1d3b5b2e-f216-ee11-8f6e-0022481ffe73}" behavior="0" />
       <RootComponent type="29" id="{30b86f05-c209-ee11-8f6e-002248ecf212}" behavior="0" />
       <RootComponent type="29" id="{47938169-b81f-ee11-9966-002248ecfc1c}" behavior="0" />
@@ -102,7 +103,7 @@
     <MissingDependencies>
       <MissingDependency>
         <Required type="1" schemaName="incident" displayName="Case" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.23072.1019)</package>
+          <package>msdynce_ServiceAnchor (9.0.23074.1016)</package>
         </Required>
         <Dependent type="29" displayName="Route Case" id="{99ab76fe-79b6-ed11-b596-6045bd57c6bd}" />
       </MissingDependency>

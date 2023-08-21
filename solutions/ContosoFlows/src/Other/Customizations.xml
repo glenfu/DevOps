@@ -54,6 +54,13 @@
       <statecode>0</statecode>
       <statuscode>1</statuscode>
     </connectionreference>
+    <connectionreference connectionreferencelogicalname="con_sharedmsnweather_4c151">
+      <connectionreferencedisplayname>MSN Weather ContosoFlows-4c151</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_msnweather</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
     <connectionreference connectionreferencelogicalname="con_sharedoffice365_abc61">
       <connectionreferencedisplayname>Office 365 Outlook ContosoFlows-abc61</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
