@@ -22,6 +22,40 @@
                 </section>
               </sections>
             </column>
+            <column width="42%" id="1">
+              <sections>
+                <section name="SOCIAL_PANE_TAB" showlabel="false" showbar="false" id="{7a073b7c-5422-2418-3d26-b2a7eb290832}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" locklevel="0" celllabelalignment="Left" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{7e87ab43-7321-21c7-5704-24c5c38000c6}" showlabel="false" rowspan="23" auto="false" colspan="1" ordinalvalue="10001" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{baa99942-97d4-1629-5254-e344013802d2}" showlabel="false" colspan="1" auto="false" rowspan="1" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="listUserRoles" languagecode="1033" />
+                        </labels>
+                        <control id="WebResource_listUserRoles" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                          <parameters>
+                            <Url>con_listUserRoles</Url>
+                            <PassParameters>false</PassParameters>
+                            <ShowOnMobileClient>false</ShowOnMobileClient>
+                            <Security>false</Security>
+                            <Scrolling>auto</Scrolling>
+                            <Border>true</Border>
+                            <WebResourceId>{6C27969C-EE58-EE11-BE6F-6045BD57C83A}</WebResourceId>
+                          </parameters>
+                        </control>
+                        <events>
+                          <event name="onload" application="false">
+                            <dependencies />
+                          </event>
+                        </events>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
             <column width="25%" id="2">
               <sections>
                 <section name="SUMMARY_TAB_section_6" showlabel="false" showbar="false" locklevel="0" id="{d4c3ee9c-ba71-5cdb-31be-2aa505750472}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top" ordinalvalue="1">
@@ -88,12 +122,20 @@
                 <section name="DETAILS_TAB_Dynamic_Description" showlabel="true" showbar="false" locklevel="0" id="{e201b9ce-c3d5-c922-dba5-528c25066940}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Top" height="auto" ordinalvalue="1" solutionaction="Modified">
                   <rows>
                     <row>
-                      <cell id="{a4a726a2-8e3e-79d0-02c3-0a04a6b71089}" showlabel="false" locklevel="0" rowspan="3" auto="false" ordinalvalue="10000" solutionaction="Modified">
+                      <cell id="{a4a726a2-8e3e-79d0-02c3-0a04a6b71089}" showlabel="false" locklevel="0" rowspan="8" auto="true" ordinalvalue="10000" solutionaction="Modified">
                         <labels>
                           <label description="Description" languagecode="1033" solutionaction="Added" />
                           <label description="Descripción" languagecode="3082" solutionaction="Added" />
                         </labels>
-                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{48CCD2C0-E451-661C-20E1-67560D67E4D5}" solutionaction="Modified" />
+                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{96fad73e-9eb7-4505-955c-ee8c6ce03a98}" solutionaction="Modified" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{fdd54c31-2728-472b-a50c-5b5856402934}" locklevel="0" colspan="1" rowspan="8" auto="true" ordinalvalue="10001" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="con_stakeholderdetails" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_stakeholderdetails" disabled="false" uniqueid="{1fe464e7-c56c-4a24-bd7a-cd95966bba8e}" />
                       </cell>
                     </row>
                   </rows>
@@ -167,14 +209,30 @@
             <column width="33%" id="1">
               <sections>
                 <section name="tab_3_section_2" showlabel="false" showbar="false" locklevel="0" id="{26e829cb-9a5d-a0b5-b062-0a931e082a1e}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
-                  <rows />
+                  <rows>
+                    <row>
+                      <cell id="{d5bbc666-7a02-42bf-974c-26fd713135d7}" showlabel="false" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
                 </section>
               </sections>
             </column>
             <column width="33%" id="2">
               <sections>
                 <section name="tab_3_section_3" showlabel="false" showbar="false" locklevel="0" id="{329c50b5-c80d-155e-aae5-50ca4db32d1a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
-                  <rows />
+                  <rows>
+                    <row>
+                      <cell id="{7ad758f3-8ea1-4d72-a267-2f3a26adb872}" showlabel="false" ordinalvalue="10000" solutionaction="Added">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
                 </section>
               </sections>
             </column>
@@ -272,6 +330,13 @@
           </columns>
         </tab>
       </tabs>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="form_onload" libraryName="con_accountOnLoad" handlerUniqueId="{8899397a-6ed0-379b-8603-021308039abe}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="6" solutionaction="Added" />
+          </Handlers>
+        </event>
+      </events>
       <header id="{d5a03552-1183-4347-a237-1f894ba449eb}" columns="111" celllabelposition="Top" labelwidth="115">
         <rows>
           <row>
@@ -296,6 +361,9 @@
           </row>
         </rows>
       </header>
+      <Navigation>
+        <NavBar />
+      </Navigation>
       <controlDescriptions>
         <controlDescription forControl="{771DB681-B422-E9C8-E112-C1396655459D}" solutionaction="Modified">
           <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
@@ -319,18 +387,18 @@
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{48CCD2C0-E451-661C-20E1-67560D67E4D5}" solutionaction="Added">
-          <customControl id="{E0DECE4B-6FC8-4a8f-A065-082708572369}">
+        <controlDescription forControl="{96fad73e-9eb7-4505-955c-ee8c6ce03a98}" solutionaction="Added">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
             <parameters>
               <datafieldname>description</datafieldname>
             </parameters>
           </customControl>
-          <customControl formFactor="0" name="con_SampleNameSpace.DynamicTextInput">
+          <customControl formFactor="1" name="con_SampleNameSpace.DynamicTextInput">
             <parameters>
               <TextValue>description</TextValue>
             </parameters>
           </customControl>
-          <customControl formFactor="1" name="con_SampleNameSpace.DynamicTextInput">
+          <customControl formFactor="0" name="con_SampleNameSpace.DynamicTextInput">
             <parameters>
               <TextValue>description</TextValue>
             </parameters>
@@ -341,9 +409,52 @@
             </parameters>
           </customControl>
         </controlDescription>
+        <controlDescription forControl="{1fe464e7-c56c-4a24-bd7a-cd95966bba8e}" solutionaction="Added">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>con_stakeholderdetails</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="con_SampleNameSpace.DynamicTextInput">
+            <parameters>
+              <TextValue type="Multiple">con_stakeholderdetails</TextValue>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="con_SampleNameSpace.DynamicTextInput">
+            <parameters>
+              <TextValue type="Multiple">con_stakeholderdetails</TextValue>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="con_SampleNameSpace.DynamicTextInput">
+            <parameters>
+              <TextValue type="Multiple">con_stakeholderdetails</TextValue>
+            </parameters>
+          </customControl>
+        </controlDescription>
       </controlDescriptions>
+      <formLibraries>
+        <Library name="con_accountOnLoad" libraryUniqueId="{2b3eee49-c958-8184-c6d0-7b2d75d3d38c}" solutionaction="Added" />
+      </formLibraries>
       <footer id="{d1a76c7b-1e00-4114-8650-f399e6cd9112}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows />
+        <rows>
+          <row>
+            <cell id="{9014dce3-5ad8-4bde-bd65-a58f6e8b92b8}" showlabel="false" ordinalvalue="10000">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{95df4aab-fcf8-4e9e-bdd4-47322f30f84e}" showlabel="false" ordinalvalue="20001">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{153c3728-4648-4c60-8df8-0f3bb700b202}" showlabel="false" ordinalvalue="30002">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
       </footer>
     </form>
     <LocalizedNames>

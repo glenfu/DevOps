@@ -16,6 +16,7 @@
   <AppModules />
   <EntityDataProviders />
   <EntityDataSources />
+  <CanvasApps />
   <connectionreferences>
     <connectionreference connectionreferencelogicalname="con_AdventureWorksDB">
       <connectionreferencedisplayname>AdventureWorksDB</connectionreferencedisplayname>

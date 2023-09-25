@@ -1,0 +1,59 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List User Role</title>
+  <meta></head>
+  <body>
+    <button id="btnListRole" name="List User Role" title="List User Role" onclick="ListUserRole()">
+      List User Role
+    </button>
+    <script>
+      window._formContext = null;
+      window.Xrm = null;
+      // This script should be in the HTML web resource.
+      // No usage of Xrm or formContext should happen until this method is called.
+      function setClientApiContext(xrm, formContext) {
+        // Optionally set Xrm and formContext as global variables on the page.
+        window.Xrm = xrm;
+        window._formContext = formContext;
+
+        // Add script logic here that uses xrm or the formContext.
+      }
+
+      function ListUserRole() {
+        var fieldName = "name";
+
+        var control = window._formContext.getControl(fieldName);
+
+        var isLocked = control.getDisabled();
+
+        control.setDisabled(!isLocked);
+
+        var userSettings = window.Xrm.Utility.getGlobalContext().userSettings;
+        var roles = userSettings.roles;
+        var roleNames = null;
+
+        for (var i = 0; i <= roles.length; i++) {
+          roleNames += x.name + "\n";
+          console.log(x.name);
+        }
+
+        var alertStrings = {
+          confirmButtonLabel: "Yes",
+          text: roleNames,
+          title: userSettings.userName,
+        };
+        var alertOptions = { height: 120, width: 260 };
+        window.Xrm.Navigation.openAlertDialog(alertStrings, alertOptions).then(
+          function (success) {
+            console.log("Alert dialog closed");
+          },
+          function (error) {
+            console.log(error.message);
+          }
+        );
+      }
+    </script>
+  
+
+</body></html>

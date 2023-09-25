@@ -21,4 +21,13 @@
   <LocalizedNames>
     <LocalizedName description="ContactCards" languagecode="1033" />
   </LocalizedNames>
+  <appelements>
+    <appelement uniquename="con_con_ContactCards_canvasappid_con_accounts_a07f5">
+      <canvasappid>
+        <name>con_accounts_a07f5</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>con_con_ContactCards_canvasappid_con_accounts_a07f5</name>
+    </appelement>
+  </appelements>
 </AppModule>
