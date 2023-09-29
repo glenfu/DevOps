@@ -182,6 +182,7 @@
     <AppModuleComponent type="60" id="{a104b835-9f3b-e511-80d1-00155db10d2b}" />
     <AppModuleComponent type="60" id="{d201a642-6283-4f1d-81b7-da4b1685e698}" />
     <AppModuleComponent type="60" id="{acddedde-9140-4130-a1c1-96a5c6867a9f}" />
+    <AppModuleComponent type="60" id="{a6d9e075-5993-4a1b-b003-4a8d091c5d8b}" />
     <AppModuleComponent type="62" schemaName="Customerservicehub" />
   </AppModuleComponents>
   <AppModuleRoleMaps>

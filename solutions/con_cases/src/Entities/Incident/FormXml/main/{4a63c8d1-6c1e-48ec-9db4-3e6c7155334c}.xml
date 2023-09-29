@@ -5,7 +5,7 @@
     <IntroducedVersion>5.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form enablerelatedinformation="false" shownavigationbar="true" hasmargin="false" headerdensity="HighWithControls" solutionaction="Modified">
+    <form enablerelatedinformation="false" shownavigationbar="true" hasmargin="false" headerdensity="HighWithControls">
       <tabs showlabels="true">
         <tab name="general" verticallayout="true" id="{564b9a08-4626-46f5-8bd8-3d31e17a8873}" IsUserDefined="0" expanded="true" ordinalvalue="0" solutionaction="Modified">
           <columns>
@@ -19,6 +19,7 @@
                           <label description="Case Title" languagecode="1033" solutionaction="Added" />
                           <label description="Título de caso" languagecode="3082" solutionaction="Added" />
                         </labels>
+                        <control id="title" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="title" disabled="false" uniqueid="{2CBDB9B2-8E18-363A-488E-61C12C86D761}" solutionaction="Modified" />
                       </cell>
                     </row>
                     <row>
@@ -35,6 +36,7 @@
                           <label description="Customer" languagecode="1033" solutionaction="Added" />
                           <label description="Cliente" languagecode="3082" solutionaction="Added" />
                         </labels>
+                        <control id="customerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="customerid" disabled="false" uniqueid="{c277a4a6-09a9-3a90-d5ac-62ca400d7287}" solutionaction="Modified" />
                       </cell>
                     </row>
                     <row>
@@ -51,6 +53,7 @@
                           <label description="Contact" languagecode="1033" solutionaction="Added" />
                           <label description="Contacto" languagecode="3082" solutionaction="Added" />
                         </labels>
+                        <control id="primarycontactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="primarycontactid" disabled="false" uniqueid="{5c5e0e9d-91b8-2944-1ce6-00cb1c22ebca}" solutionaction="Modified" />
                       </cell>
                     </row>
                     <row>
@@ -67,6 +70,7 @@
                           <label description="Product" languagecode="1033" solutionaction="Added" />
                           <label description="Producto" languagecode="3082" solutionaction="Added" />
                         </labels>
+                        <control id="productid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="productid" uniqueid="{aa5236e4-6405-54c0-3dec-0b10ad502b15}" solutionaction="Modified" />
                       </cell>
                     </row>
                     <row>
@@ -82,7 +86,7 @@
                         <labels>
                           <label description="Portal Team" languagecode="1033" />
                         </labels>
-                        <control id="con_portalteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_portalteam" disabled="false" />
+                        <control id="con_portalteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_portalteam" disabled="false" uniqueid="{7c511a0e-deb9-94c0-ca37-61a440439a3a}" />
                       </cell>
                     </row>
                     <row>
@@ -104,6 +108,7 @@
                           <label description="Description" languagecode="1033" solutionaction="Added" />
                           <label description="Descripción" languagecode="3082" solutionaction="Added" />
                         </labels>
+                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{37AAD20A-4873-4F9C-BF5F-425FCD4557E2}" solutionaction="Modified" />
                       </cell>
                     </row>
                   </rows>
@@ -218,7 +223,7 @@
                   <rows>
                     <row>
                       <cell id="{c896a94e-e4c9-45ed-927c-a339d76a693c}" showlabel="false" colspan="1" auto="false" rowspan="7" ordinalvalue="10000" solutionaction="Modified">
-                        <control id="SLA_KPI_Instances_List" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{218d1388-eb22-d791-2a8c-59ee2390d3bb}" indicationOfSubgrid="true" solutionaction="Modified">
+                        <control id="SLA_KPI_Instances_List" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{218D1388-EB22-D791-2A8C-59EE2390D3BB}" indicationOfSubgrid="true" solutionaction="Modified">
                           <parameters>
                             <ViewId solutionaction="Modified">{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
                             <AutoExpand solutionaction="Modified">Fixed</AutoExpand>
@@ -443,21 +448,6 @@
                 </section>
               </sections>
             </column>
-            <column width="50%" id="1">
-              <sections>
-                <section name="tab_8_section_2" showlabel="false" showbar="false" locklevel="0" id="{02ee4497-88ad-0943-edb0-d08b60903ebb}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
-                  <rows>
-                    <row>
-                      <cell id="{b75bf619-c08c-4348-b962-0736e21a5b0c}" ordinalvalue="10000" solutionaction="Added">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-              </sections>
-            </column>
           </columns>
         </tab>
         <tab name="PCF Tab" id="{e59a58d5-ea20-975a-d95e-9b49b133612b}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" ordinalvalue="1" solutionaction="Added">
@@ -534,7 +524,7 @@
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{218d1388-eb22-d791-2a8c-59ee2390d3bb}" solutionaction="Added">
+        <controlDescription forControl="{218D1388-EB22-D791-2A8C-59EE2390D3BB}" solutionaction="Added">
           <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
             <parameters>
               <ViewId>{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
@@ -598,32 +588,58 @@
             </parameters>
           </customControl>
         </controlDescription>
+        <controlDescription forControl="{2CBDB9B2-8E18-363A-488E-61C12C86D761}" solutionaction="Added">
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="0">
+            <parameters>
+              <datafieldname>title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="1">
+            <parameters>
+              <datafieldname>title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="2">
+            <parameters>
+              <datafieldname>title</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="-1" name="genericl_GenericLookupPCFNamespace.GenericLookupPCFComponent">
+            <parameters>
+              <DummyLookupField>title</DummyLookupField>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{37AAD20A-4873-4F9C-BF5F-425FCD4557E2}" solutionaction="Added">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>description</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
       </controlDescriptions>
       <footer id="{bd97315b-576d-45b8-8015-18846ef3056c}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows>
-          <row>
-            <cell id="{3cd3a5c4-af40-4aef-8c69-b834dc1c1457}" ordinalvalue="10000">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-            <cell id="{f0924756-554f-4c1d-a033-f631bb837e1c}" ordinalvalue="20001">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-            <cell id="{72ca0b7c-7aa3-4d4c-b39d-906ae7675cb7}" ordinalvalue="30002">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-          </row>
-        </rows>
+        <rows />
       </footer>
     </form>
     <LocalizedNames>
       <LocalizedName description="Case" languagecode="1033" />
-      <LocalizedName description="Case" languagecode="3082" />
+      <LocalizedName description="Caso" languagecode="3082" />
     </LocalizedNames>
     <Descriptions>
       <Description description="Updated default Case form." languagecode="1033" />

@@ -5,7 +5,7 @@
     <IntroducedVersion>8.0.0.0</IntroducedVersion>
     <FormPresentation>2</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form relatedInformationCollapsed="false" enablerelatedinformation="false" shownavigationbar="true" showImage="false" maxWidth="1920">
+    <form relatedInformationCollapsed="false" enablerelatedinformation="false" shownavigationbar="true" showImage="false" maxWidth="1920" headerdensity="HighWithControls">
       <tabs>
         <tab name="Summary" id="{fcfdc216-e3c6-4bbe-baba-1d5774ea78f5}" IsUserDefined="0" locklevel="0" showlabel="false" expanded="true" ordinalvalue="0">
           <columns>
@@ -19,6 +19,30 @@
                           <label description="Customer" languagecode="1033" solutionaction="Added" />
                           <label description="Cliente" languagecode="3082" solutionaction="Added" />
                         </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0209cd98-c2cf-45c4-912c-98a6730b3b5c}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10001" solutionaction="Added">
+                        <labels>
+                          <label description="Shift Start Time" languagecode="1033" />
+                        </labels>
+                        <control id="con_shiftstarttime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="con_shiftstarttime" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3612a02c-3ad3-470d-aa20-d9bb64ede3b3}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10002" solutionaction="Added">
+                        <labels>
+                          <label description="Shift End Time" languagecode="1033" />
+                        </labels>
+                        <control id="con_shiftendtime" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="con_shiftendtime" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{adc6c94f-44e6-4d9e-8dba-82d12016c640}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10003" solutionaction="Added">
+                        <labels>
+                          <label description="Remaining SLA(secs)" languagecode="1033" />
+                        </labels>
+                        <control id="con_remainingslasecs" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="con_remainingslasecs" disabled="false" />
                       </cell>
                     </row>
                   </rows>
@@ -95,6 +119,7 @@
                           <label description="Description" languagecode="1033" solutionaction="Added" />
                           <label description="Descripción" languagecode="3082" solutionaction="Added" />
                         </labels>
+                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{9E28DD53-AD0D-4966-A2B9-537A7CC02849}" solutionaction="Modified" />
                       </cell>
                     </row>
                     <row>
@@ -121,6 +146,22 @@
                           <label description="Portal Team" languagecode="1033" />
                         </labels>
                         <control id="con_portalteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_portalteam" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="34%" id="1">
+              <sections>
+                <section name="copilot_summary_section" id="01b63d4b-4a49-4026-a4c1-2508beed206d" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{cc6b608d-e280-4c3d-bb00-6e7dc59a7880}" locklevel="0" colspan="1" rowspan="1" showlabel="false" ordinalvalue="10000">
+                        <labels>
+                          <label description="(Deprecated) Traversed Path" languagecode="1033" solutionaction="Added" />
+                          <label description="(Obsoleto) Ruta recorrida" languagecode="3082" solutionaction="Added" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -337,19 +378,9 @@
           <columns>
             <column width="33%" id="2">
               <sections>
-                <section name="KnowledgeArticles" showlabel="false" showbar="false" id="{952B0290-FC73-4228-BF24-2892A772A1EA}" IsUserDefined="0" layout="varwidth" labelwidth="102" celllabelposition="Left" height="auto" ordinalvalue="0" solutionaction="Modified">
-                  <rows />
-                </section>
+                <section name="KnowledgeArticles" showlabel="false" showbar="false" id="{952B0290-FC73-4228-BF24-2892A772A1EA}" IsUserDefined="0" layout="varwidth" labelwidth="102" celllabelposition="Left" height="auto" ordinalvalue="0" solutionaction="Modified" />
                 <section name="Solutions" showlabel="false" showbar="false" id="{495d18ec-aaba-483d-8684-822969df46b1}" IsUserDefined="0" layout="varwidth" labelwidth="102" celllabelposition="Left" columns="1" ordinalvalue="1">
-                  <rows>
-                    <row>
-                      <cell id="{8dac63a0-692f-493e-9663-952cbbca142f}" ordinalvalue="10000" solutionaction="Added">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                  </rows>
+                  <rows />
                 </section>
               </sections>
             </column>
@@ -363,7 +394,7 @@
                   <rows>
                     <row>
                       <cell id="{c13923a0-e143-4d0b-b921-f92852b5dc8e}" showlabel="false" colspan="1" auto="false" rowspan="4" ordinalvalue="10000">
-                        <control id="SLA_KPI_Instances_List" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{9441558a-b201-1903-71c7-023912e8d061}" indicationOfSubgrid="true" solutionaction="Modified">
+                        <control id="SLA_KPI_Instances_List" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{9441558A-B201-1903-71C7-023912E8D061}" indicationOfSubgrid="true" solutionaction="Modified">
                           <parameters>
                             <ViewId solutionaction="Modified">{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
                             <AutoExpand solutionaction="Modified">Fixed</AutoExpand>
@@ -417,7 +448,7 @@
                         <labels>
                           <label description="Uploader" languagecode="1033" />
                         </labels>
-                        <control id="con_uploader" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_uploader" disabled="false" uniqueid="{552271cb-5913-822c-e2dc-130638c5ce92}" />
+                        <control id="con_uploader" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_uploader" disabled="false" uniqueid="{552271CB-5913-822C-E2DC-130638C5CE92}" />
                       </cell>
                     </row>
                   </rows>
@@ -452,7 +483,7 @@
         </rows>
       </header>
       <controlDescriptions>
-        <controlDescription forControl="{9441558a-b201-1903-71c7-023912e8d061}" solutionaction="Added">
+        <controlDescription forControl="{9441558A-B201-1903-71C7-023912E8D061}" solutionaction="Added">
           <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
             <parameters>
               <ViewId>{8CB84C0D-91F6-43DC-A68A-A62D03FE3CF5}</ViewId>
@@ -516,7 +547,7 @@
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{552271cb-5913-822c-e2dc-130638c5ce92}" solutionaction="Added">
+        <controlDescription forControl="{552271CB-5913-822C-E2DC-130638C5CE92}" solutionaction="Added">
           <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
             <parameters>
               <datafieldname>con_uploader</datafieldname>
@@ -538,7 +569,32 @@
             </parameters>
           </customControl>
         </controlDescription>
+        <controlDescription forControl="{9E28DD53-AD0D-4966-A2B9-537A7CC02849}" solutionaction="Added">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>description</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">description</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
       </controlDescriptions>
+      <footer id="{d6772417-e8a1-4b61-b9a6-6dd41ea8d0db}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
+        <rows />
+      </footer>
     </form>
     <LocalizedNames>
       <LocalizedName description="Case for Interactive experience" languagecode="1033" />

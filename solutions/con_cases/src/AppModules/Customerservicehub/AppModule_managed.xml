@@ -42,10 +42,8 @@
     <AppModuleComponent type="60" id="{f7502aaf-4874-49fc-868d-cc201c6c4453}" solutionaction="Removed" />
   </AppModuleComponents>
   <AppModuleRoleMaps>
-    <Role id="{3dac4d9e-568c-e611-80d4-00155d42a122}" />
-    <Role id="{e8fb3146-7717-ec11-b1b7-000d3af68e17}" />
-    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
-    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    <Role id="{3dac4d9e-568c-e611-80d4-00155d42a122}" solutionaction="Added" />
+    <Role id="{e8fb3146-7717-ec11-b1b7-000d3af68e17}" solutionaction="Added" />
   </AppModuleRoleMaps>
   <LocalizedNames>
     <LocalizedName description="Customer Service Hub" languagecode="1033" />

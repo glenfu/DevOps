@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery unmodified="1">
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{e3057231-6ca6-48b3-8575-ce041f3f704e}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="msdyn_filename" select="1" preview="0" icon="1">
+        <row name="result" id="msdyn_kbattachmentid">
+          <cell name="msdyn_filename" />
+          <cell name="msdyn_filesize" />
+          <cell name="msdyn_kbattachmentid" />
+          <cell name="msdyn_fileattachment" />
+          <cell name="msdyn_filetype" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="msdyn_kbattachment">
+          <attribute name="msdyn_filename" />
+          <attribute name="msdyn_filesize" />
+          <attribute name="msdyn_kbattachmentid" />
+          <attribute name="msdyn_fileattachment" />
+          <attribute name="msdyn_filetype" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Portal Search" languagecode="1033" />
+      <LocalizedName description="Búsqueda del portal" languagecode="3082" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

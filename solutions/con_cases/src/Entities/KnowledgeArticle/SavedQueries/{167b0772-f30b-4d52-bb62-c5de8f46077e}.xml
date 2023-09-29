@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery unmodified="1">
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{167b0772-f30b-4d52-bb62-c5de8f46077e}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" icon="1" preview="1">
+        <row name="result" id="knowledgearticleid">
+          <cell name="articlepublicnumber" width="125" />
+          <cell name="title" width="300" />
+          <cell name="ownerid" width="125" />
+          <cell name="statecode" width="125" />
+          <cell name="majorversionnumber" width="125" />
+          <cell name="minorversionnumber" width="125" />
+          <cell name="knowledgearticleviews" width="125" LabelId="query.{3cd90632-a200-e511-80d2-00155d217c03}.cell.knowledgearticleview.label" />
+          <cell name="modifiedon" width="125" />
+          <cell name="languagelocaleid" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="knowledgearticle">
+          <attribute name="articlepublicnumber" />
+          <attribute name="knowledgearticleid" />
+          <attribute name="title" />
+          <attribute name="ownerid" />
+          <attribute name="languagelocaleid" />
+          <attribute name="modifiedon" />
+          <attribute name="majorversionnumber" />
+          <attribute name="minorversionnumber" />
+          <attribute name="statecode" />
+          <attribute name="statuscode" />
+          <attribute name="knowledgearticleviews" />
+          <order attribute="title" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="ne" value="5" />
+            <condition attribute="statecode" operator="ne" value="6" />
+            <condition attribute="statecode" operator="ne" value="4" />
+            <condition attribute="isrootarticle" operator="eq" value="0" />
+            <condition attribute="isprimary" operator="eq" value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>8.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Articles" languagecode="1033" />
+      <LocalizedName description="Active Articles" languagecode="3082" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

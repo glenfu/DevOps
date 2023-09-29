@@ -47,6 +47,14 @@
                       </cell>
                     </row>
                     <row>
+                      <cell id="{e29d0a9a-cf54-45bb-a05c-9f11301fb614}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Country" languagecode="1033" />
+                        </labels>
+                        <control id="con_country" classid="{4AA28AB7-9C13-4F57-A73D-AD894D048B5F}" datafieldname="con_country" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
                       <cell id="{b6f69544-6287-4b8a-b60c-3d66f1cac75d}" userspacer="0" labelid="{635c316c-6ba4-412b-b1bd-543afb7bc106}">
                         <labels>
                           <label description="Subject" languagecode="1033" />
@@ -116,11 +124,20 @@
                       </cell>
                     </row>
                     <row>
-                      <cell id="{81ae1924-5f61-4b20-a263-4228d867ca60}" locklevel="0" colspan="1" rowspan="1">
+                      <cell id="{81ae1924-5f61-4b20-a263-4228d867ca60}" locklevel="0" colspan="1" rowspan="1" showlabel="true">
                         <labels>
                           <label description="Approving Team" languagecode="1033" />
                         </labels>
-                        <control id="con_approvingteam" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_approvingteam" disabled="false" />
+                        <control id="con_approvingteam" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_approvingteam" disabled="false" uniqueid="{2e45a834-435e-005b-2891-47d7bd422984}">
+                          <parameters>
+                            <AutoResolve>true</AutoResolve>
+                            <DisableMru>false</DisableMru>
+                            <DisableQuickFind>false</DisableQuickFind>
+                            <DisableViewPicker>false</DisableViewPicker>
+                            <DefaultViewId>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB}</DefaultViewId>
+                            <AllowFilterOff>false</AllowFilterOff>
+                          </parameters>
+                        </control>
                       </cell>
                     </row>
                     <row>
@@ -1925,6 +1942,49 @@
             </parameters>
           </customControl>
         </controlDescription>
+        <controlDescription forControl="{2e45a834-435e-005b-2891-47d7bd422984}">
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" formFactor="0">
+            <parameters>
+              <datafieldname>con_approvingteam</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" formFactor="1">
+            <parameters>
+              <datafieldname>con_approvingteam</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" formFactor="2">
+            <parameters>
+              <datafieldname>con_approvingteam</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl name="ppm_ReactSelectLookup.PCF.Control.ReactSelectLookup" formFactor="-1">
+            <parameters>
+              <lookupfield>
+                <BindAttribute>con_approvingteam</BindAttribute>
+                <DefaultViewId>{A9AF0AB8-861D-4CFA-92A5-C6281FED7FAB}</DefaultViewId>
+                <FilterRelationshipName />
+                <DependentAttributeName />
+                <DependentAttributeType />
+                <AvailableViewIds />
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>false</DisableViewPicker>
+              </lookupfield>
+              <fetchxml static="true" type="Multiple">&lt;fetch&gt;
+  &lt;entity name="account"&gt;
+    &lt;filter type="and"&gt;
+      &lt;condition attribute="name" operator="like" value="%(filter)%" /&gt;
+    &lt;/filter&gt;
+  &lt;/entity&gt;
+&lt;/fetch&gt;</fetchxml>
+              <idValueLookup static="true" type="SingleLine.Text">name</idValueLookup>
+              <textValueLookup static="true" type="SingleLine.Text">test</textValueLookup>
+              <loadingMessage static="true" type="SingleLine.Text">testing</loadingMessage>
+              <noOptionsMessage static="true" type="SingleLine.Text">no options</noOptionsMessage>
+            </parameters>
+          </customControl>
+        </controlDescription>
       </controlDescriptions>
       <hiddencontrols>
         <data id="FirstResponseSLAStatus" datafieldname="firstresponseslastatus" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
@@ -2011,7 +2071,7 @@
           </Handlers>
         </event>
       </events>
-      <DisplayConditions FallbackForm="true" Order="11">
+      <DisplayConditions FallbackForm="true" Order="12">
         <Everyone />
       </DisplayConditions>
     </form>

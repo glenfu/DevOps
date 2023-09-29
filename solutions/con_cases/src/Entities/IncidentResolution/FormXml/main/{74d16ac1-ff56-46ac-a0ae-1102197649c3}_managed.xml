@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{74d16ac1-ff56-46ac-a0ae-1102197649c3}</formid>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls" solutionaction="Modified">
+      <tabs>
+        <tab name="general" verticallayout="true" id="{acb1bcfa-6591-4c82-a317-f58d83946c79}" IsUserDefined="0" ordinalvalue="0">
+          <columns>
+            <column width="100%" id="0">
+              <sections>
+                <section name="information" showlabel="false" showbar="false" locklevel="0" id="{e53bea03-bc24-4c69-b505-a3e096abb7bd}" IsUserDefined="0" layout="varwidth" columns="11" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{56c2484c-830d-9c75-64e8-1555b0de1b56}" showlabel="true" locklevel="0" rowspan="1" colspan="2" ordinalvalue="10000">
+                        <control id="resolutiontypecode" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="resolutiontypecode" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell auto="false" showlabel="false" locklevel="0" rowspan="1" colspan="2" id="{68c76a79-3fea-4628-a51e-6c1cdebd4fa6}" ordinalvalue="10001" solutionaction="Modified">
+                        <control id="subject" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="subject" disabled="false" uniqueid="{f4f1590f-42b3-4066-98bd-a7d7bf396836}" solutionaction="Modified" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{93c94992-ff05-4b61-8371-f153857e5f9a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
+        <rows>
+          <row>
+            <cell id="{b69119fe-16e5-44b1-b0ec-83721a8a3fea}" showlabel="false" ordinalvalue="10000">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4fee234b-bad9-4e84-926e-7c1dc3843860}" showlabel="false" ordinalvalue="20001">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{317c6a0f-e66f-4491-92c3-5883c644dc6b}" showlabel="false" ordinalvalue="30002">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{02fa39e5-6dde-47d9-a3f3-388df27251dc}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
+        <rows>
+          <row>
+            <cell id="{d790407b-c65b-42e0-9b9f-6eb886790259}" showlabel="false" ordinalvalue="10000">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{06d3bb42-0a44-4d5b-be6d-5be4f37b245c}" showlabel="false" ordinalvalue="20001">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{bd85894e-84ae-4529-a1fb-9c091b826347}" showlabel="false" ordinalvalue="30002">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true" solutionaction="Added">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions solutionaction="Added">
+        <controlDescription forControl="{f4f1590f-42b3-4066-98bd-a7d7bf396836}">
+          <customControl id="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}">
+            <parameters>
+              <datafieldname>subject</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">subject</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">subject</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.RichTextEditor.RichTextEditorControl">
+            <parameters>
+              <value type="Multiple">subject</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+      <LocalizedName description="" languagecode="3082" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+      <Description description="Formulario para esta entidad." languagecode="3082" />
+    </Descriptions>
+  </systemform>
+</forms>

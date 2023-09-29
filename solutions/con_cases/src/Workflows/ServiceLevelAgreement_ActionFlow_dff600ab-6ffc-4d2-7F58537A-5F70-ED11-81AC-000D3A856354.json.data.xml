@@ -21,6 +21,7 @@
   <RendererObjectTypeCode>9751</RendererObjectTypeCode>
   <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ThrottlingBehavior>1</ThrottlingBehavior>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
     <LocalizedName languagecode="1033" description="ServiceLevelAgreement_ActionFlow_dff600ab-6ffc-4d24-a8d9-925eed77d6f8" />

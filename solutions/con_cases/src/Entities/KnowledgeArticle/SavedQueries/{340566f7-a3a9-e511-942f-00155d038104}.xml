@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery unmodified="1">
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{340566f7-a3a9-e511-942f-00155d038104}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" preview="1" icon="1">
+        <row name="result" id="knowledgearticleid">
+          <cell name="title" width="150" />
+          <cell name="content" width="100" disableSorting="1" />
+          <cell name="createdon" width="100" />
+          <cell name="keywords" width="100" disableSorting="1" />
+          <cell name="languagelocaleid" width="100" />
+          <cell name="modifiedon" width="100" />
+          <cell name="articlepublicnumber" width="100" />
+          <cell name="statecode" width="100" />
+          <cell name="knowledgearticleviews" width="100" />
+          <cell name="rating" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+        <entity name="knowledgearticle">
+          <attribute name="title" />
+          <attribute name="statecode" />
+          <attribute name="modifiedon" />
+          <attribute name="languagelocaleid" />
+          <attribute name="keywords" />
+          <attribute name="createdon" />
+          <attribute name="content" />
+          <attribute name="isinternal" />
+          <attribute name="articlepublicnumber" />
+          <attribute name="knowledgearticleid" />
+          <attribute name="knowledgearticleviews" />
+          <attribute name="rating" />
+          <order attribute="title" descending="false" />
+          <filter type="and">
+            <condition attribute="isrootarticle" operator="eq" value="0" />
+            <condition attribute="statecode" operator="eq" value="3" />
+            <condition attribute="isinternal" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Portal Search" languagecode="1033" />
+      <LocalizedName description="Portal Search" languagecode="3082" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="View used by the portal search indexer. The columns included in the view will be indexed." languagecode="1033" />
+      <Description description="Vista usada por el indexador de búsqueda del portal. Las columnas incluidas en la vista estarán indexadas." languagecode="3082" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

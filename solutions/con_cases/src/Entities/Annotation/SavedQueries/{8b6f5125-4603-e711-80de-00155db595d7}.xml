@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery unmodified="1">
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{8b6f5125-4603-e711-80de-00155db595d7}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
+        <row name="result" id="annotationid">
+          <cell name="filename" width="100" />
+          <cell name="notetext" width="100" disableSorting="1" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="annotation">
+          <order attribute="filename" descending="false" />
+          <attribute name="filename" />
+          <attribute name="notetext" />
+          <attribute name="annotationid" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.19</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Portal Search" languagecode="1033" />
+      <LocalizedName description="Portal Search" languagecode="3082" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery unmodified="1">
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{d55e2282-dd0c-4aad-a0d3-89c3013f222a}</savedqueryid>
+    <queryapi></queryapi>
+    <layoutxml>
+      <grid name="resultset" jump="subject" select="1" preview="1" icon="1">
+        <row name="result" id="annotationid">
+          <cell name="subject" width="150" />
+          <cell name="notetext" width="200" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="annotation">
+          <attribute name="annotationid" />
+          <attribute name="subject" />
+          <attribute name="notetext" />
+          <order attribute="subject" descending="false" />
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="subject" operator="like" value="{0}" />
+            <condition attribute="notetext" operator="like" value="{0}" />
+            <condition attribute="filename" operator="like" value="{0}" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>5.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Annotations" languagecode="1033" />
+      <LocalizedName description="Búsqueda rápida de anotaciones" languagecode="3082" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModuleSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SiteMapUniqueName>Customerservicehub</SiteMapUniqueName>
+  <EnableCollapsibleGroups>False</EnableCollapsibleGroups>
+  <ShowHome>True</ShowHome>
+  <ShowPinned>True</ShowPinned>
+  <ShowRecents>True</ShowRecents>
+  <SiteMap IntroducedVersion="7.0.0.0">
+    <Area Id="Service_Area" ResourceId="SitemapDesigner.ServiceArea" Icon="/WebResources/msdyn_/Images/Area_Default_Icon.png" ShowGroups="false" ordinalvalue="0">
+      <Group Id="MyWorkGroup_b000e815" ResourceId="SitemapDesigner.MyWorkGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown" ordinalvalue="0">
+        <SubArea Id="subarea_b1ad7fb3" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="con_partner" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" ordinalvalue="2" solutionaction="Added" />
+        <SubArea Id="subarea_0b25bc1e" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="lead" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" ordinalvalue="3" solutionaction="Added" />
+        <SubArea Id="subarea_2b17c8ed" Icon="/_imgs/imagestrips/transparent_spacer.gif" Entity="con_portalteam" Client="All,Outlook,OutlookLaptopClient,OutlookWorkstationClient,Web" AvailableOffline="true" PassParams="false" Sku="All,OnPremise,Live,SPLA" ordinalvalue="4" solutionaction="Added" />
+      </Group>
+    </Area>
+    <Area Id="Service_Management" ResourceId="SitemapDesigner.ServiceManagement" VectorIcon="$webresource:msdynce_CustomerServiceHub/_imgs/Sitemap/ServiceManagement.svg" Icon="/WebResources/msdynce_CustomerServiceHub/_imgs/Sitemap/ServiceManagement.svg" ShowGroups="false" ordinalvalue="1" solutionaction="Modified">
+      <Group Id="UnifiedRouting_637482408399874575" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown" ordinalvalue="1" solutionaction="Modified" />
+      <Group Id="CSAnalyticsInsightsGroup" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown" ordinalvalue="6" solutionaction="Removed" />
+      <Group Id="MicrosoftTeamsIntegration_6c7492b3" ResourceId="SitemapDesigner.MicrosoftTeamsIntegration" IsProfile="false" ToolTipResourseId="SitemapDesigner.MicrosoftTeamsIntegration" ordinalvalue="8" solutionaction="Modified" />
+      <Group Id="DataManagementGroup_b70fad72" ResourceId="SitemapDesigner.DataManagementGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.DataManagementGroup" ordinalvalue="6" solutionaction="Modified" />
+      <Group Id="CSAnalyticsInsightsGroup_3c289202" ResourceId="SitemapDesigner.NewGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown" ordinalvalue="7" solutionaction="Added">
+        <Titles>
+          <Title LCID="1033" Title="Insights" />
+          <Title LCID="1025" Title="الرؤى" />
+          <Title LCID="1026" Title="Аналитични данни" />
+          <Title LCID="1027" Title="Informació detallada" />
+          <Title LCID="1029" Title="Přehledy" />
+          <Title LCID="1030" Title="Indsigt" />
+          <Title LCID="1031" Title="Erkenntnisse" />
+          <Title LCID="1032" Title="Πληροφορίες" />
+          <Title LCID="3082" Title="Conclusiones" />
+          <Title LCID="1061" Title="Ülevaated" />
+          <Title LCID="1069" Title="Xehetasunak" />
+          <Title LCID="1035" Title="Merkitykselliset tiedot" />
+          <Title LCID="1036" Title="Informations" />
+          <Title LCID="1110" Title="Información" />
+          <Title LCID="1037" Title="תובנות" />
+          <Title LCID="1081" Title="इनसाइट्स" />
+          <Title LCID="1050" Title="Uvidi" />
+          <Title LCID="1038" Title="Háttér-információk" />
+          <Title LCID="1057" Title="Wawasan" />
+          <Title LCID="1040" Title="Informazioni dettagliate" />
+          <Title LCID="1041" Title="分析情報" />
+          <Title LCID="1087" Title="Түсініктер" />
+          <Title LCID="1042" Title="인사이트" />
+          <Title LCID="1063" Title="Įžvalgos" />
+          <Title LCID="1062" Title="Ieskati" />
+          <Title LCID="1086" Title="Cerapan" />
+          <Title LCID="1044" Title="Innsikt" />
+          <Title LCID="1043" Title="Inzichten" />
+          <Title LCID="1045" Title="Wyniki analiz" />
+          <Title LCID="1046" Title="Insights" />
+          <Title LCID="2070" Title="Informações" />
+          <Title LCID="1048" Title="Detalii" />
+          <Title LCID="1049" Title="Аналитика" />
+          <Title LCID="1051" Title="Prehľady" />
+          <Title LCID="1060" Title="Vpogledi" />
+          <Title LCID="3098" Title="Увиди" />
+          <Title LCID="2074" Title="Uvidi" />
+          <Title LCID="1053" Title="Insikter" />
+          <Title LCID="1054" Title="ข้อมูลเชิงลึก" />
+          <Title LCID="1055" Title="İçgörüler" />
+          <Title LCID="1058" Title="Аналітика" />
+          <Title LCID="1066" Title="Thông tin chuyên sâu" />
+          <Title LCID="2052" Title="见解" />
+          <Title LCID="3076" Title="深入解析" />
+          <Title LCID="1028" Title="深入解析" />
+        </Titles>
+        <SubArea Id="AnalyticsInsightsAdminSettingsSubArea" VectorIcon="$webresource:msdyn_/Analytics/imgs/AnalyticsAndInsightsSettingsIcon.svg" Icon="$webresource:msdyn_/Analytics/imgs/AnalyticsAndInsightsSettingsIcon.svg" Entity="msdyn_datainsightsandanalyticsfeature" Client="Web" AvailableOffline="false" PassParams="false" Sku="All,OnPremise,Live,SPLA" ordinalvalue="0">
+          <Titles>
+            <Title LCID="1033" Title="Settings" ordinalvalue="0" />
+            <Title LCID="1025" Title="إعدادات‬" ordinalvalue="1" />
+            <Title LCID="1026" Title="Настройки" ordinalvalue="2" />
+            <Title LCID="1027" Title="Configuració" ordinalvalue="3" />
+            <Title LCID="1029" Title="Nastavení" ordinalvalue="4" />
+            <Title LCID="1030" Title="Indstillinger" ordinalvalue="5" />
+            <Title LCID="1031" Title="Einstellungen" ordinalvalue="6" />
+            <Title LCID="1032" Title="Ρυθμίσεις" ordinalvalue="7" />
+            <Title LCID="3082" Title="Configuración" ordinalvalue="8" />
+            <Title LCID="1061" Title="Sätted" ordinalvalue="9" />
+            <Title LCID="1069" Title="Ezarpenak" ordinalvalue="10" />
+            <Title LCID="1035" Title="Asetukset" ordinalvalue="11" />
+            <Title LCID="1036" Title="Paramètres" ordinalvalue="12" />
+            <Title LCID="1110" Title="Configuración" ordinalvalue="13" />
+            <Title LCID="1037" Title="הגדרות" ordinalvalue="14" />
+            <Title LCID="1081" Title="सेटिंग" ordinalvalue="15" />
+            <Title LCID="1050" Title="Postavke" ordinalvalue="16" />
+            <Title LCID="1038" Title="Beállítások" ordinalvalue="17" />
+            <Title LCID="1057" Title="Pengaturan" ordinalvalue="18" />
+            <Title LCID="1040" Title="Impostazioni" ordinalvalue="19" />
+            <Title LCID="1041" Title="設定" ordinalvalue="20" />
+            <Title LCID="1087" Title="Параметрлер" ordinalvalue="21" />
+            <Title LCID="1042" Title="설정" ordinalvalue="22" />
+            <Title LCID="1063" Title="Parametrai" ordinalvalue="23" />
+            <Title LCID="1062" Title="Iestatījumi" ordinalvalue="24" />
+            <Title LCID="1086" Title="Tetapan" ordinalvalue="25" />
+            <Title LCID="1044" Title="Innstillinger" ordinalvalue="26" />
+            <Title LCID="1043" Title="Instellingen" ordinalvalue="27" />
+            <Title LCID="1045" Title="Ustawienia" ordinalvalue="28" />
+            <Title LCID="1046" Title="Configurações" ordinalvalue="29" />
+            <Title LCID="2070" Title="Definições" ordinalvalue="30" />
+            <Title LCID="1048" Title="Setări" ordinalvalue="31" />
+            <Title LCID="1049" Title="Параметры" ordinalvalue="32" />
+            <Title LCID="1051" Title="Nastavenia" ordinalvalue="33" />
+            <Title LCID="1060" Title="Nastavitve" ordinalvalue="34" />
+            <Title LCID="3098" Title="Подешавања" ordinalvalue="35" />
+            <Title LCID="2074" Title="Podešavanja" ordinalvalue="36" />
+            <Title LCID="1053" Title="Inställningar" ordinalvalue="37" />
+            <Title LCID="1054" Title="การตั้งค่า" ordinalvalue="38" />
+            <Title LCID="1055" Title="Ayarlar" ordinalvalue="39" />
+            <Title LCID="1058" Title="Параметри" ordinalvalue="40" />
+            <Title LCID="1066" Title="Thiết đặt" ordinalvalue="41" />
+            <Title LCID="2052" Title="设置" ordinalvalue="42" />
+            <Title LCID="3076" Title="設定" ordinalvalue="43" />
+            <Title LCID="1028" Title="設定" ordinalvalue="44" />
+          </Titles>
+          <Privilege Entity="msdyn_datainsightsandanalyticsfeature" Privilege="All,Create,Read,Write,Delete,Append,AppendTo,Share,Assign" />
+        </SubArea>
+      </Group>
+    </Area>
+  </SiteMap>
+  <LocalizedNames>
+    <LocalizedName description="Customer Service Hub" languagecode="1033" />
+    <LocalizedName description="Centro de servicio al cliente" languagecode="3082" />
+  </LocalizedNames>
+</AppModuleSiteMap>
