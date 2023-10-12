@@ -5,7 +5,7 @@
     <IntroducedVersion>5.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
-    <form showImage="true" shownavigationbar="true" maxWidth="1920">
+    <form showImage="true" shownavigationbar="true" maxWidth="1920" headerdensity="HighWithControls" solutionaction="Modified">
       <tabs>
         <tab name="SUMMARY_TAB" id="{15bb2d4b-71da-74ea-3c5b-e497d78a55a2}" IsUserDefined="0" showlabel="true" expanded="true" ordinalvalue="0">
           <columns>
@@ -14,17 +14,20 @@
                 <section name="CONTACT_INFORMATION" showlabel="true" showbar="false" id="{9d943649-0387-1882-caa1-36de40d5a86c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" ordinalvalue="0">
                   <rows>
                     <row>
-                      <cell id="{1b54cdb3-1582-c29e-cc9e-9d4bc2a5700b}" showlabel="true" ordinalvalue="10010" solutionaction="Modified" />
+                      <cell id="{97f9d88b-e42a-45e5-a94c-4d29880a672e}" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10010" solutionaction="Modified" />
                     </row>
                     <row>
-                      <cell id="{408dda0b-48a7-c05c-e29a-56a93eb97172}" showlabel="true" ordinalvalue="10011" solutionaction="Modified">
+                      <cell id="{1b54cdb3-1582-c29e-cc9e-9d4bc2a5700b}" showlabel="true" ordinalvalue="10011" solutionaction="Modified" />
+                    </row>
+                    <row>
+                      <cell id="{408dda0b-48a7-c05c-e29a-56a93eb97172}" showlabel="true" ordinalvalue="10012" solutionaction="Modified">
                         <labels>
                           <label description="Método de contacto preferido" languagecode="3082" solutionaction="Modified" />
                         </labels>
                       </cell>
                     </row>
                     <row>
-                      <cell id="{133d09d6-c374-954a-315b-435e1eeb722c}" showlabel="true" locklevel="0" ordinalvalue="10012" solutionaction="Modified" />
+                      <cell id="{133d09d6-c374-954a-315b-435e1eeb722c}" showlabel="true" locklevel="0" ordinalvalue="10013" solutionaction="Modified" />
                     </row>
                     <row>
                       <cell locklevel="0" id="{d6175706-a6a2-4966-98e4-e1ab5fc5a8d7}" rowspan="1" colspan="1" showlabel="false" ordinalvalue="10009" solutionaction="Added">
@@ -48,7 +51,6 @@
                 <section name="SUMMARY_TAB_section_6" showlabel="true" showbar="false" locklevel="0" id="{8b406cb5-a885-9b5e-ad30-ab6e8707dc79}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="1">
                   <labels>
                     <label description="ADDRESS" languagecode="1033" solutionaction="Modified" />
-                    <label description="DIRECCIÓN" languagecode="3082" solutionaction="Modified" />
                   </labels>
                 </section>
                 <section name="BusinessCard" showlabel="true" locklevel="0" id="{d6928560-988d-56e4-55b6-99aa3c898561}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false" ordinalvalue="3">
@@ -70,7 +72,13 @@
                 <section name="SOCIAL_PANE_TAB" showlabel="false" showbar="false" id="{bea579b8-8901-77b0-1128-351760e68bd4}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" ordinalvalue="0">
                   <rows>
                     <row>
-                      <cell id="{db701364-1d99-369c-c409-11d17878e513}" showlabel="false" rowspan="23" auto="false" colspan="1" ordinalvalue="10001" solutionaction="Modified" />
+                      <cell id="{db701364-1d99-369c-c409-11d17878e513}" showlabel="false" rowspan="23" auto="false" colspan="1" ordinalvalue="10001" solutionaction="Modified">
+                        <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" disabled="false">
+                          <parameters solutionaction="Added">
+                            <UClientNotesConfigurationJSON>{"commandsConfig":{"order":[{"id":"Edit","isVisible":true},{"id":"CopyToClipboard","isVisible":true},{"id":"Delete","isVisible":true},{"id":"CreateRecordFromNote","isVisible":true}]},"createRecordFromNotesFilterMap":{"incident":{"enabled":true,"formType":"QuickCreateForm","formId":"8e10b902-0b3e-441c-8b12-88e6c1793848","mapNotesTitleTo":"title","mapNotesDescriptionTo":"description"},"account":{"enabled":true,"formType":"QuickCreateForm","formId":"c9e7ec2d-efca-4e4c-b3e3-f63c4bba5e4b","mapNotesTitleTo":"name","mapNotesDescriptionTo":"description"}}}</UClientNotesConfigurationJSON>
+                          </parameters>
+                        </control>
+                      </cell>
                     </row>
                     <row>
                       <cell locklevel="0" id="{4092c468-aa08-499a-8ff8-1d2212e6773a}" rowspan="1" colspan="1" ordinalvalue="10000" solutionaction="Added">

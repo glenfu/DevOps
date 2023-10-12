@@ -14,8 +14,11 @@
                 <section name="ACCOUNT_INFORMATION" showlabel="true" showbar="false" id="{0eb92e6c-bcb8-0d52-a188-d81543ddb7cd}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" ordinalvalue="0">
                   <rows>
                     <row>
-                      <cell id="{93c1423d-84b4-7754-8ec2-934301809167}" showlabel="true" locklevel="0" visible="false" ordinalvalue="10002">
-                        <control id="telephone1" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="telephone1" disabled="false" uniqueid="{771DB681-B422-E9C8-E112-C1396655459D}" solutionaction="Modified" />
+                      <cell id="{24be16a9-e3c4-a7bb-37a6-b5c7143460e8}" showlabel="true" locklevel="0" ordinalvalue="10007">
+                        <labels>
+                          <label description="Relationship Type" languagecode="1033" solutionaction="Modified" />
+                          <label description="Tipo de relación" languagecode="3082" solutionaction="Added" />
+                        </labels>
                       </cell>
                     </row>
                   </rows>
@@ -139,7 +142,7 @@
                           <label description="Description" languagecode="1033" solutionaction="Added" />
                           <label description="Descripción" languagecode="3082" solutionaction="Added" />
                         </labels>
-                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{96fad73e-9eb7-4505-955c-ee8c6ce03a98}" solutionaction="Modified" />
+                        <control id="description" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="description" disabled="false" uniqueid="{96FAD73E-9EB7-4505-955C-EE8C6CE03A98}" solutionaction="Modified" />
                       </cell>
                     </row>
                     <row>
@@ -147,7 +150,7 @@
                         <labels>
                           <label description="Stakeholder Details" languagecode="1033" />
                         </labels>
-                        <control id="con_stakeholderdetails" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_stakeholderdetails" disabled="false" uniqueid="{1fe464e7-c56c-4a24-bd7a-cd95966bba8e}" />
+                        <control id="con_stakeholderdetails" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_stakeholderdetails" disabled="false" uniqueid="{1FE464E7-C56C-4A24-BD7A-CD95966BBA8E}" />
                       </cell>
                     </row>
                   </rows>
@@ -207,40 +210,6 @@
                         <labels>
                           <label description="Account Name" languagecode="1033" solutionaction="Added" />
                           <label description="Nombre de cuenta" languagecode="3082" solutionaction="Added" />
-                        </labels>
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-              </sections>
-            </column>
-          </columns>
-        </tab>
-        <tab name="urstab" id="{c89e4b42-29b5-63b1-4666-65574779eddd}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false" ordinalvalue="3">
-          <columns>
-            <column width="33%" id="1">
-              <sections>
-                <section name="tab_3_section_2" showlabel="false" showbar="false" locklevel="0" id="{26e829cb-9a5d-a0b5-b062-0a931e082a1e}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
-                  <rows>
-                    <row>
-                      <cell id="{d5bbc666-7a02-42bf-974c-26fd713135d7}" showlabel="false" ordinalvalue="10000" solutionaction="Added">
-                        <labels>
-                          <label description="" languagecode="1033" />
-                        </labels>
-                      </cell>
-                    </row>
-                  </rows>
-                </section>
-              </sections>
-            </column>
-            <column width="33%" id="2">
-              <sections>
-                <section name="tab_3_section_3" showlabel="false" showbar="false" locklevel="0" id="{329c50b5-c80d-155e-aae5-50ca4db32d1a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
-                  <rows>
-                    <row>
-                      <cell id="{7ad758f3-8ea1-4d72-a267-2f3a26adb872}" showlabel="false" ordinalvalue="10000" solutionaction="Added">
-                        <labels>
-                          <label description="" languagecode="1033" />
                         </labels>
                       </cell>
                     </row>
@@ -345,6 +314,7 @@
       <events>
         <event name="onload" application="false" active="false">
           <Handlers>
+            <Handler functionName="AssetCommon.Account.OnLoad" libraryName="msdyn_/Account/AssetCommon.Account.Library.js" handlerUniqueId="{4537b2be-b015-726d-2973-c312209337ba}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="7" solutionaction="Modified" />
             <Handler functionName="form_onload" libraryName="con_accountOnLoad" handlerUniqueId="{8899397a-6ed0-379b-8603-021308039abe}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="6" solutionaction="Added" />
           </Handlers>
         </event>
@@ -373,33 +343,8 @@
           </row>
         </rows>
       </header>
-      <Navigation>
-        <NavBar />
-      </Navigation>
       <controlDescriptions>
-        <controlDescription forControl="{771DB681-B422-E9C8-E112-C1396655459D}" solutionaction="Modified">
-          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}">
-            <parameters>
-              <datafieldname>telephone1</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl formFactor="0" name="msdyn_SalesOmniChannel.SalesPhoneNumberControl">
-            <parameters>
-              <value>telephone1</value>
-            </parameters>
-          </customControl>
-          <customControl formFactor="1" name="msdyn_SalesOmniChannel.SalesPhoneNumberControl">
-            <parameters>
-              <value>telephone1</value>
-            </parameters>
-          </customControl>
-          <customControl formFactor="2" name="msdyn_SalesOmniChannel.SalesPhoneNumberControl">
-            <parameters>
-              <value>telephone1</value>
-            </parameters>
-          </customControl>
-        </controlDescription>
-        <controlDescription forControl="{96fad73e-9eb7-4505-955c-ee8c6ce03a98}" solutionaction="Added">
+        <controlDescription forControl="{96FAD73E-9EB7-4505-955C-EE8C6CE03A98}" solutionaction="Added">
           <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
             <parameters>
               <datafieldname>description</datafieldname>
@@ -421,7 +366,7 @@
             </parameters>
           </customControl>
         </controlDescription>
-        <controlDescription forControl="{1fe464e7-c56c-4a24-bd7a-cd95966bba8e}" solutionaction="Added">
+        <controlDescription forControl="{1FE464E7-C56C-4A24-BD7A-CD95966BBA8E}" solutionaction="Added">
           <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
             <parameters>
               <datafieldname>con_stakeholderdetails</datafieldname>
@@ -448,25 +393,7 @@
         <Library name="con_accountOnLoad" libraryUniqueId="{2b3eee49-c958-8184-c6d0-7b2d75d3d38c}" solutionaction="Added" />
       </formLibraries>
       <footer id="{d1a76c7b-1e00-4114-8650-f399e6cd9112}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows>
-          <row>
-            <cell id="{9014dce3-5ad8-4bde-bd65-a58f6e8b92b8}" showlabel="false" ordinalvalue="10000">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-            <cell id="{95df4aab-fcf8-4e9e-bdd4-47322f30f84e}" showlabel="false" ordinalvalue="20001">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-            <cell id="{153c3728-4648-4c60-8df8-0f3bb700b202}" showlabel="false" ordinalvalue="30002">
-              <labels>
-                <label description="" languagecode="1033" />
-              </labels>
-            </cell>
-          </row>
-        </rows>
+        <rows></rows>
       </footer>
     </form>
     <LocalizedNames>
