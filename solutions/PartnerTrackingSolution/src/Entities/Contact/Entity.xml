@@ -5,12 +5,15 @@
     <entity Name="Contact">
       <LocalizedNames>
         <LocalizedName description="Contact" languagecode="1033" />
+        <LocalizedName description="Contacto" languagecode="3082" />
       </LocalizedNames>
       <LocalizedCollectionNames>
         <LocalizedCollectionName description="Contacts" languagecode="1033" />
+        <LocalizedCollectionName description="Contactos" languagecode="3082" />
       </LocalizedCollectionNames>
       <Descriptions>
         <Description description="Person with whom a business unit has a relationship, such as customer, supplier, and colleague." languagecode="1033" />
+        <Description description="Persona con la que tiene una relación una unidad de negocio, como por ejemplo, un cliente, un distribuidor o un colega." languagecode="3082" />
       </Descriptions>
       <attributes />
       <EntitySetName>contacts</EntitySetName>

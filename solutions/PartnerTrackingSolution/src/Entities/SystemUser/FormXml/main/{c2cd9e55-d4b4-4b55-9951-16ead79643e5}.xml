@@ -7,6 +7,26 @@
     <FormActivationState>1</FormActivationState>
     <form showImage="true" headerdensity="HighWithControls" solutionaction="Modified">
       <tabs>
+        <tab name="VirtualAgentDetailsTab" id="{32d147e7-95f0-4497-b93b-d96b3a056afd}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" visible="false" ordinalvalue="1">
+          <columns>
+            <column width="50%" id="0">
+              <sections>
+                <section name="tab_8_section_1" showlabel="false" showbar="false" locklevel="0" id="{21b50cb0-8324-48ea-abcb-f9221580521f}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{f52c7f1d-fcaf-436e-9396-906497d90019}" showlabel="true" locklevel="0" ordinalvalue="10001">
+                        <labels>
+                          <label description="Microsoft Entra Object ID" languagecode="1033" solutionaction="Modified" />
+                          <label description="Id. de objeto de Microsoft Entra" languagecode="3082" solutionaction="Modified" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
         <tab name="usrstab" id="{d2d37b2a-d12c-bc13-1c6e-a8803487cdd8}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false" visible="false" ordinalvalue="2">
           <columns>
             <column width="33%" id="1">
@@ -248,7 +268,6 @@
                 <section name="mailing address" showlabel="true" showbar="true" id="{9cce3064-bdb7-4bfd-ac2b-83eeaa9a34c7}" IsUserDefined="0" ordinalvalue="0">
                   <labels>
                     <label description="Address" languagecode="1033" solutionaction="Modified" />
-                    <label description="Dirección" languagecode="3082" solutionaction="Modified" />
                   </labels>
                   <rows>
                     <row>
