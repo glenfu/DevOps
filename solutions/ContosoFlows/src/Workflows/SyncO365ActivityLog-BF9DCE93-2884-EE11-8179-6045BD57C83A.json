@@ -24,52 +24,47 @@
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$connections": {
-          "defaultValue": {},
-          "type": "Object"
-        },
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
         },
-        "Audit Logs - Client Secret (admin_AuditLogsClientSecret)": {
-          "defaultValue": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ",
-          "type": "String",
-          "metadata": {
-            "schemaName": "admin_AuditLogsClientSecret",
-            "description": "AuditLogs - Client secret of the Office 365 Management API Azure AD service principal"
-          }
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
         },
-        "TenantID (admin_TenantID)": {
-          "defaultValue": "1557f771-4c8e-4dbd-8b80-dd00a88e833e",
-          "type": "String",
-          "metadata": {
-            "schemaName": "admin_TenantID",
-            "description": "Inventory - REQUIRED. Azure Tenant ID"
-          }
-        },
-        "Audit Logs - Authority (admin_AuditLogsAuthority)": {
-          "defaultValue": "https://login.windows.net",
-          "type": "String",
-          "metadata": {
-            "schemaName": "admin_AuditLogsAuthority",
-            "description": "AuditLogs - The authority for the HTTP connector. Set by Setup wizard based on tenant type"
-          }
-        },
-        "Audit Logs - ClientID (admin_AuditLogsClientID)": {
+        "O365 API Client ID (con_O365APIClientID)": {
           "defaultValue": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203",
           "type": "String",
           "metadata": {
-            "schemaName": "admin_AuditLogsClientID",
-            "description": "AuditLogs - Client ID of the Office 365 Management API Azure AD service principal"
+            "schemaName": "con_O365APIClientID"
           }
         },
-        "Audit Logs - Audience (admin_AuditLogsAudience)": {
+        "O365 API Client Secret (con_O365APIClientSecret)": {
+          "defaultValue": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ",
+          "type": "String",
+          "metadata": {
+            "schemaName": "con_O365APIClientSecret"
+          }
+        },
+        "O365 API Audience (con_O365APIAudience)": {
           "defaultValue": "https://manage.office.com",
           "type": "String",
           "metadata": {
-            "schemaName": "admin_AuditLogsAudience",
-            "description": "AuditLogs - The audience for the HTTP connector. Set by Setup wizard based on tenant type"
+            "schemaName": "con_O365APIAudience"
+          }
+        },
+        "O365 API Tenant ID (con_O365APITenantID)": {
+          "defaultValue": "1557f771-4c8e-4dbd-8b80-dd00a88e833e",
+          "type": "String",
+          "metadata": {
+            "schemaName": "con_O365APITenantID"
+          }
+        },
+        "O365 API Authority (con_O365APIAuthority)": {
+          "defaultValue": "https://login.windows.net",
+          "type": "String",
+          "metadata": {
+            "schemaName": "con_O365APIAuthority"
           }
         }
       },
@@ -176,31 +171,30 @@
         "Do_until_-_Get_All_ContentIDs": {
           "actions": {
             "HTTP_-_Get_Content_Blobs": {
-              "runAfter": {},
               "metadata": {
                 "operationMetadataId": "1b6cf0a0-bf85-45ad-b18e-eb4eae24eae9"
               },
               "type": "Http",
               "inputs": {
+                "uri": "@{parameters('O365 API Audience (con_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (con_O365APITenantID)')}/activity/feed/subscriptions/content",
                 "method": "GET",
-                "uri": "@{parameters('Audit Logs - Audience (admin_AuditLogsAudience)')}/api/v1.0/@{parameters('TenantID (admin_TenantID)')}/activity/feed/subscriptions/content",
                 "headers": {
                   "Content-Type": "application/json"
                 },
                 "queries": {
                   "contentType": "Audit.General",
-                  "PublisherIdentifier": "@parameters('TenantID (admin_TenantID)')",
+                  "PublisherIdentifier": "@{parameters('O365 API Tenant ID (con_O365APITenantID)')}",
                   "startTime": "@{outputs('Compose_-_startTime_-_utcNow_minus_24_hours_-_yyyy-MM-ddThh:mm')}",
                   "endTime": "@{outputs('Compose_-_endTime_-utcNow')}",
-                  "nextpage": "@variables('NextPageParam')"
+                  "nextpage": "@{variables('NextPageParam')}"
                 },
                 "authentication": {
                   "type": "ActiveDirectoryOAuth",
-                  "authority": "@parameters('Audit Logs - Authority (admin_AuditLogsAuthority)')",
-                  "tenant": "@parameters('TenantID (admin_TenantID)')",
-                  "audience": "@parameters('Audit Logs - Audience (admin_AuditLogsAudience)')",
-                  "clientId": "@parameters('Audit Logs - ClientID (admin_AuditLogsClientID)')",
-                  "secret": "@parameters('Audit Logs - Client Secret (admin_AuditLogsClientSecret)')"
+                  "authority": "@{parameters('O365 API Authority (con_O365APIAuthority)')}",
+                  "tenant": "@{parameters('O365 API Tenant ID (con_O365APITenantID)')}",
+                  "audience": "@{parameters('O365 API Audience (con_O365APIAudience)')}",
+                  "clientId": "@{parameters('O365 API Client ID (con_O365APIClientID)')}",
+                  "secret": "@{parameters('O365 API Client Secret (con_O365APIClientSecret)')}"
                 }
               }
             },
@@ -224,7 +218,6 @@
             "Condition_-_Does_NextPageUri_Exist": {
               "actions": {
                 "Set_variable_-_NextPageUri": {
-                  "runAfter": {},
                   "metadata": {
                     "operationMetadataId": "29c801b3-f0de-4af6-8a96-ac2b13d8a354"
                   },
@@ -270,7 +263,6 @@
               "else": {
                 "actions": {
                   "Set_variable_-_NextPageUri_to_null": {
-                    "runAfter": {},
                     "metadata": {
                       "operationMetadataId": "9d8481ee-e206-46ec-aa40-8ca0f1fea6fb"
                     },
@@ -398,7 +390,6 @@
               "foreach": "@body('Select_-_ContentIDs')",
               "actions": {
                 "AppendContentIDsArray": {
-                  "runAfter": {},
                   "metadata": {
                     "operationMetadataId": "84e2b9ed-2f17-48fd-a39e-6fd92ba4c456"
                   },
@@ -466,16 +457,15 @@
           },
           "type": "OpenApiConnection",
           "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
             "parameters": {
               "entityName": "con_environments",
               "$select": "con_name,con_sharepointdocumentlibrary,con_sharepointsite"
             },
-            "authentication": "@parameters('$authentication')"
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
           }
         },
         "Apply_to_each_-_Environment": {
@@ -492,18 +482,17 @@
               },
               "type": "OpenApiConnection",
               "inputs": {
-                "host": {
-                  "connectionName": "shared_sharepointonline_1",
-                  "operationId": "CreateFile",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
-                },
                 "parameters": {
                   "dataset": "@items('Apply_to_each_-_Environment')?['con_sharepointsite']",
                   "folderPath": "@items('Apply_to_each_-_Environment')?['con_sharepointdocumentlibrary']",
                   "name": "@{items('Apply_to_each_-_Environment')?['con_sharepointdocumentlibrary']}_@{formatDateTime(utcNow(),'yyyy-MM-dd_hhmmss')}.csv",
                   "body": "@body('Create_CSV_table')"
                 },
-                "authentication": "@parameters('$authentication')"
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+                  "operationId": "CreateFile",
+                  "connectionName": "shared_sharepointonline_1"
+                }
               },
               "runtimeConfiguration": {
                 "contentTransfer": {
@@ -527,7 +516,6 @@
               }
             },
             "Set_variable_-_Empty_Activity_Logs_Array": {
-              "runAfter": {},
               "metadata": {
                 "operationMetadataId": "d14ea296-6bad-4ab8-a0d4-efde42445a3a"
               },
@@ -541,24 +529,23 @@
               "foreach": "@variables('ContentIDs')",
               "actions": {
                 "HTTP_-_Get_Content_Blob": {
-                  "runAfter": {},
                   "metadata": {
                     "operationMetadataId": "3e32020b-7c95-4687-8d31-7af5fabc78bf"
                   },
                   "type": "Http",
                   "inputs": {
+                    "uri": "@{parameters('O365 API Audience (con_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (con_O365APITenantID)')}/activity/feed/audit/@{item()?['contentId']}",
                     "method": "GET",
-                    "uri": "@{parameters('Audit Logs - Audience (admin_AuditLogsAudience)')}/api/v1.0/@{parameters('TenantID (admin_TenantID)')}/activity/feed/audit/@{item()?['contentId']}",
                     "headers": {
                       "Content-Type": "application/json"
                     },
                     "authentication": {
                       "type": "ActiveDirectoryOAuth",
-                      "authority": "@parameters('Audit Logs - Authority (admin_AuditLogsAuthority)')",
-                      "tenant": "@parameters('TenantID (admin_TenantID)')",
-                      "audience": "@parameters('Audit Logs - Audience (admin_AuditLogsAudience)')",
-                      "clientId": "@parameters('Audit Logs - ClientID (admin_AuditLogsClientID)')",
-                      "secret": "@parameters('Audit Logs - Client Secret (admin_AuditLogsClientSecret)')"
+                      "authority": "@{parameters('O365 API Authority (con_O365APIAuthority)')}",
+                      "tenant": "@{parameters('O365 API Tenant ID (con_O365APITenantID)')}",
+                      "audience": "@{parameters('O365 API Audience (con_O365APIAudience)')}",
+                      "clientId": "@{parameters('O365 API Client ID (con_O365APIClientID)')}",
+                      "secret": "@{parameters('O365 API Client Secret (con_O365APIClientSecret)')}"
                     }
                   }
                 },
@@ -597,7 +584,6 @@
                   "foreach": "@body('Filter_array_-_Environment_Activity_Logs')",
                   "actions": {
                     "Append_to_array_variable_-_Activity_Logs": {
-                      "runAfter": {},
                       "metadata": {
                         "operationMetadataId": "69aadb6d-fba4-4e61-bffa-6ca36934f5e2"
                       },
@@ -642,7 +628,7 @@
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

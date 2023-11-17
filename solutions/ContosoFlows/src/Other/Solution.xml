@@ -114,52 +114,12 @@
         <Dependent type="29" displayName="Route Case" id="{99ab76fe-79b6-ed11-b596-6045bd57c6bd}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAudience" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAudience" />
-        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAudience" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAudience" />
-        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAuthority" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAuthority" />
-        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAuthority" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAuthority" />
         <Dependent type="29" displayName="Get Service Health and Messages" id="{4db0bd61-8f83-ee11-8179-002248ecf212}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAuthority" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAuthority" />
-        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsClientID" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsClientID" />
-        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsClientID" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsClientID" />
-        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsClientSecret" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsClientSecret" />
-        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsClientSecret" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsClientSecret" />
-        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_TenantID" solution="CenterofExcellenceCoreComponents (4.3)" id.schemaname="admin_TenantID" />
-        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="EnvironmentVariableDefinition" displayName="admin_TenantID" solution="CenterofExcellenceCoreComponents (4.3)" id.schemaname="admin_TenantID" />
         <Dependent type="29" displayName="Get Service Health and Messages" id="{4db0bd61-8f83-ee11-8179-002248ecf212}" />
-      </MissingDependency>
-      <MissingDependency>
-        <Required type="EnvironmentVariableDefinition" displayName="admin_TenantID" solution="CenterofExcellenceCoreComponents (4.3)" id.schemaname="admin_TenantID" />
-        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>
