@@ -1,0 +1,95 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "TenantID (admin_TenantID)": {
+          "defaultValue": "1557f771-4c8e-4dbd-8b80-dd00a88e833e",
+          "type": "String",
+          "metadata": {
+            "schemaName": "admin_TenantID",
+            "description": "Inventory - REQUIRED. Azure Tenant ID"
+          }
+        },
+        "Audit Logs - Authority (admin_AuditLogsAuthority)": {
+          "defaultValue": "https://login.windows.net",
+          "type": "String",
+          "metadata": {
+            "schemaName": "admin_AuditLogsAuthority",
+            "description": "AuditLogs - The authority for the HTTP connector. Set by Setup wizard based on tenant type"
+          }
+        },
+        "Graph API Client Secret (con_GraphAPIClientSecret)": {
+          "defaultValue": "ybc8Q~W35PVZlk5zhcKlpuj8RPk-uz6UKTsl2caB",
+          "type": "String",
+          "metadata": {
+            "schemaName": "con_GraphAPIClientSecret"
+          }
+        },
+        "Graph API Audience (con_GraphAPIAudience)": {
+          "defaultValue": "https://graph.microsoft.com",
+          "type": "String",
+          "metadata": {
+            "schemaName": "con_GraphAPIAudience"
+          }
+        },
+        "Graph API Client ID (con_GraphAPIClientID)": {
+          "defaultValue": "37c4508c-de64-4eff-a956-07a175a06244",
+          "type": "String",
+          "metadata": {
+            "schemaName": "con_GraphAPIClientID"
+          }
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2023-11-15T12:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "6483c478-0284-4e1c-8f32-9e73e550eaa9"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "HTTP_-_List_Health_Overviews": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "787ade6d-e725-46c3-a061-51dd18e5d1a0"
+          },
+          "type": "Http",
+          "inputs": {
+            "uri": "https://graph.microsoft.com/v1.0/admin/serviceAnnouncement/healthOverviews",
+            "method": "GET",
+            "queries": {
+              "$orderby": "Service"
+            },
+            "authentication": {
+              "type": "ActiveDirectoryOAuth",
+              "authority": "@{parameters('Audit Logs - Authority (admin_AuditLogsAuthority)')}",
+              "tenant": "@{parameters('TenantID (admin_TenantID)')}",
+              "audience": "@{parameters('Graph API Audience (con_GraphAPIAudience)')}",
+              "clientId": "@{parameters('Graph API Client ID (con_GraphAPIClientID)')}",
+              "secret": "@{parameters('Graph API Client Secret (con_GraphAPIClientSecret)')}"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

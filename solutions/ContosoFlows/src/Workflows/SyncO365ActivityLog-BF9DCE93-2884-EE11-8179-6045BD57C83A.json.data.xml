@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{058c3992-0dcd-ec11-a7b6-000d3a8570bb}" Name="Create New Account Flow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/CreateNewAccountFlow-058C3992-0DCD-EC11-A7B6-000D3A8570BB.json</JsonFileName>
+<Workflow WorkflowId="{bf9dce93-2884-ee11-8179-6045bd57c83a}" Name="Sync O365 Activity Log" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/SyncO365ActivityLog-BF9DCE93-2884-EE11-8179-6045BD57C83A.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -19,9 +19,8 @@
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
-  <ThrottlingBehavior>1</ThrottlingBehavior>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Create New Account Flow" />
+    <LocalizedName languagecode="1033" description="Sync O365 Activity Log" />
   </LocalizedNames>
 </Workflow>

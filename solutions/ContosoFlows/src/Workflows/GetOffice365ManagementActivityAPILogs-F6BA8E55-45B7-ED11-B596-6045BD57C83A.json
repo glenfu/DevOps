@@ -58,7 +58,14 @@
             "operationMetadataId": "f5564fec-aa81-496f-8f14-3c65b5330e74"
           },
           "type": "Compose",
-          "inputs": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ"
+          "inputs": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ",
+          "runtimeConfiguration": {
+            "secureData": {
+              "properties": [
+                "inputs"
+              ]
+            }
+          }
         },
         "HTTP_-_Get_Token": {
           "runAfter": {
@@ -138,7 +145,7 @@
             }
           }
         },
-        "Initialize_variable_varLogsArray": {
+        "Initialize_variable_-_varLogsArray": {
           "runAfter": {},
           "metadata": {
             "operationMetadataId": "edb4e002-04c2-4f48-b936-7388cfffda11"
@@ -155,7 +162,7 @@
         },
         "Compose_-_startTime_-_utcNow_minus_24_hours_-_yyyy-MM-ddThh:mm": {
           "runAfter": {
-            "Initialize_variable": [
+            "Initialize_variable_-_InstanceUrl": [
               "Succeeded"
             ]
           },
@@ -163,7 +170,8 @@
             "operationMetadataId": "b2526839-3685-4725-bf4f-92b600fff0dd"
           },
           "type": "Compose",
-          "inputs": "@convertTimeZone(subtractFromTime(utcNow(),5,'Minute'),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')"
+          "inputs": "@\r\nconvertTimeZone(subtractFromTime(utcNow(),5,'Minute'),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')",
+          "description": "convertTimeZone(subtractFromTime(utcNow(),5,'Minute'),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')"
         },
         "Compose_-_endTime_-utcNow": {
           "runAfter": {
@@ -175,7 +183,8 @@
             "operationMetadataId": "b6534db4-f092-41cf-b7e8-d1d10c6a7a88"
           },
           "type": "Compose",
-          "inputs": "@convertTimeZone(utcNow(),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')"
+          "inputs": "@convertTimeZone(utcNow(),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')",
+          "description": "convertTimeZone(utcNow(),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')"
         },
         "HTTP_-_Get_Content_Blobs": {
           "runAfter": {
@@ -272,7 +281,8 @@
               "inputs": {
                 "from": "@json(body('HTTP_-_Get_Content_Blob'))",
                 "where": "@equals(item()?['RecordType'], 21)"
-              }
+              },
+              "description": "json(body('HTTP_-_Get_Content_Blob'))"
             },
             "Apply_to_each_2": {
               "foreach": "@body('Filter_array_-_Instance_Url')",
@@ -337,9 +347,9 @@
           "type": "Compose",
           "inputs": "@variables('varLogsArray')"
         },
-        "Initialize_variable": {
+        "Initialize_variable_-_InstanceUrl": {
           "runAfter": {
-            "Initialize_variable_varLogsArray": [
+            "Initialize_variable_-_varLogsArray": [
               "Succeeded"
             ]
           },
@@ -356,10 +366,181 @@
               }
             ]
           }
+        },
+        "Compose_-_SharePoint_Client_ID": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f07eabd1-67ff-4370-9d97-3035fbb243fa"
+          },
+          "type": "Compose",
+          "inputs": "94064131-1ca7-49de-8d8f-7785aefbd9e6"
+        },
+        "Compose_-_SharePoint_Client_Secret": {
+          "runAfter": {
+            "Compose_-_SharePoint_Client_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cb996dfb-f520-48d3-b77b-a309c0e877ce"
+          },
+          "type": "Compose",
+          "inputs": "S-Z8Q~6y8~Uh3Q3Umd4RseOPWnuZoLxMNhZX6dwY"
+        },
+        "HTTP_-_Get_Graph_API_access_token": {
+          "runAfter": {
+            "Compose_-_SharePoint_List_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "58e888e5-401d-409b-ab01-b20ff9098fdf"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://login.microsoftonline.com/@{outputs('Compose_-_Tenant_ID')}/oauth2/token",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "body": "grant_type=client_credentials&client_id=@{outputs('Compose_-_SharePoint_Client_ID')}&scope=https://graph.microsoft.com/.default&client_secret=@{outputs('Compose_-_SharePoint_Client_Secret')}&resource=https://graph.microsoft.com"
+          }
+        },
+        "Parse_JSON_-_Graph_API_access_token": {
+          "runAfter": {
+            "HTTP_-_Get_Graph_API_access_token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bc023081-fadc-4316-91ab-e9aaf9ab23db"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@body('HTTP_-_Get_Graph_API_access_token')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token_type": {
+                  "type": "string"
+                },
+                "expires_in": {
+                  "type": "string"
+                },
+                "ext_expires_in": {
+                  "type": "string"
+                },
+                "expires_on": {
+                  "type": "string"
+                },
+                "not_before": {
+                  "type": "string"
+                },
+                "resource": {
+                  "type": "string"
+                },
+                "access_token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Apply_to_each_3": {
+          "foreach": "@variables('varLogsArray')",
+          "actions": {
+            "HTTP_-_Create_Activity_Log_in_SharePoint": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "c9f0304d-22c7-4627-b5ce-2993c2d59b64"
+              },
+              "type": "Http",
+              "inputs": {
+                "method": "POST",
+                "uri": "https://graph.microsoft.com/v1.0/sites/@{outputs('Compose_-_SharePoint_Site_ID')}/lists/@{outputs('Compose_-_SharePoint_List_ID')}/items",
+                "headers": {
+                  "Authorization": "Bearer @{body('Parse_JSON_-_Graph_API_access_token')?['access_token']}",
+                  "Content-Type": "application/json"
+                },
+                "body": {
+                  "fields": {
+                    "CreationTime": "@items('Apply_to_each_3')?['CreationTime']",
+                    "AuditId": "@item()?['Id']",
+                    "Operation": "@items('Apply_to_each_3')?['Operation']",
+                    "OrganizationId": "@item()?['OrganizationId']",
+                    "RecordType": "@item()?['RecordType']",
+                    "ResultStatus": "@item()?['ResultStatus']",
+                    "UserKey": "@item()?['UserKey']",
+                    "UserType": "@item()?['UserType']",
+                    "AuditVersion": "@item()?['Version']",
+                    "Workload": "@item()?['Workload']",
+                    "ClientIP": "@item()?['ClientIP']",
+                    "ObjectId": "@item()?['ObjectId']",
+                    "UserId": "@item()?['UserId']",
+                    "CrmOrganizationUniqueName": "@item()?['CrmOrganizationUniqueName']",
+                    "Fields": "@join(item()?['Fields'],',')",
+                    "InstanceUrl": "@item()?['InstanceUrl']",
+                    "ItemType": "@item()?['ItemType']",
+                    "ItemUrl": "@item()?['ItemUrl']",
+                    "UserAgent": "@item()?['UserAgent']",
+                    "CorrelationId": "@item()?['CorrelationId']",
+                    "EntityId": "@item()?['EntityId']",
+                    "EntityName": "@item()?['EntityName']",
+                    "Message": "@item()?['Message']",
+                    "PrimaryFieldValue": "@item()?['PrimaryFieldValue']",
+                    "Query": "@item()?['Query']",
+                    "QueryResults": "@item()?['QueryResults']",
+                    "ServiceContextId": "@item()?['ServiceContextId']",
+                    "ServiceContextIdType": "@item()?['ServiceContextIdType']",
+                    "ServiceName": "@item()?['ServiceName']",
+                    "SystemUserId": "@item()?['SystemUserId']",
+                    "UserUpn": "@item()?['UserUpn']"
+                  }
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Parse_JSON_-_Graph_API_access_token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "651f6c42-6d3b-458d-b6ec-7146cbd8c7a0"
+          },
+          "type": "Foreach"
+        },
+        "Compose_-_SharePoint_Site_ID": {
+          "runAfter": {
+            "Compose_-_SharePoint_Client_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "27c38224-6ee8-4c0c-a1a2-b8c631e3638f"
+          },
+          "type": "Compose",
+          "inputs": "58e0c69c-0a64-4a74-961e-76eb3fde3ed9"
+        },
+        "Compose_-_SharePoint_List_ID": {
+          "runAfter": {
+            "Compose_-_SharePoint_Site_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b471b614-8a19-44dc-8048-7401b429138c"
+          },
+          "type": "Compose",
+          "inputs": "25a00e7e-f6c4-4184-956b-c97021e4829c"
         }
       }
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }

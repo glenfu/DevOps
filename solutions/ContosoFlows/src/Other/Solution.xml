@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23075.172" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23104.216" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>ContosoFlows</UniqueName>
     <LocalizedNames>
@@ -80,12 +80,16 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="1" schemaName="con_environment" behavior="0" />
       <RootComponent type="29" id="{04bcae29-ec3f-ee11-bdf4-6045bd57c806}" behavior="0" />
       <RootComponent type="29" id="{058c3992-0dcd-ec11-a7b6-000d3a8570bb}" behavior="0" />
       <RootComponent type="29" id="{06c12310-443f-ee11-bdf4-6045bd57c6bd}" behavior="0" />
+      <RootComponent type="29" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" behavior="0" />
       <RootComponent type="29" id="{1d3b5b2e-f216-ee11-8f6e-0022481ffe73}" behavior="0" />
       <RootComponent type="29" id="{30b86f05-c209-ee11-8f6e-002248ecf212}" behavior="0" />
+      <RootComponent type="29" id="{3e0d4f66-1c59-ee11-be6f-002248ecf212}" behavior="0" />
       <RootComponent type="29" id="{47938169-b81f-ee11-9966-002248ecfc1c}" behavior="0" />
+      <RootComponent type="29" id="{4db0bd61-8f83-ee11-8179-002248ecf212}" behavior="0" />
       <RootComponent type="29" id="{660d8399-86de-ed11-a7c7-6045bd57c789}" behavior="0" />
       <RootComponent type="29" id="{6b6e7421-7620-ee11-9cbd-6045bd57c81b}" behavior="0" />
       <RootComponent type="29" id="{7574061e-103e-ed11-bba2-000d3a8563cf}" behavior="0" />
@@ -96,6 +100,7 @@
       <RootComponent type="29" id="{a02d548d-d51f-ee11-9966-6045bd57c824}" behavior="0" />
       <RootComponent type="29" id="{a1b5a193-776c-ed11-81ac-000d3a856680}" behavior="0" />
       <RootComponent type="29" id="{b1785d06-c51f-ee11-9cbd-6045bd57c81b}" behavior="0" />
+      <RootComponent type="29" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" behavior="0" />
       <RootComponent type="29" id="{d9acc02c-8a2b-ee11-9966-6045bd57c824}" behavior="0" />
       <RootComponent type="29" id="{f6ba8e55-45b7-ed11-b596-6045bd57c83a}" behavior="0" />
       <RootComponent type="29" id="{f7ba8e55-45b7-ed11-b596-6045bd57c83a}" behavior="0" />
@@ -104,9 +109,65 @@
     <MissingDependencies>
       <MissingDependency>
         <Required type="1" schemaName="incident" displayName="Case" solution="msdynce_Service (9.0.5.56)">
-          <package>msdynce_ServiceAnchor (9.0.23074.1016)</package>
+          <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
         <Dependent type="29" displayName="Route Case" id="{99ab76fe-79b6-ed11-b596-6045bd57c6bd}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="new_sharedsharepointonline_1ac89" solution="Active" id.connectionreferencelogicalname="new_sharedsharepointonline_1ac89" />
+        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="new_sharedsharepointonline_1ac89" solution="Active" id.connectionreferencelogicalname="new_sharedsharepointonline_1ac89" />
+        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAudience" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAudience" />
+        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAudience" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAudience" />
+        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAuthority" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAuthority" />
+        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAuthority" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAuthority" />
+        <Dependent type="29" displayName="Get Service Health and Messages" id="{4db0bd61-8f83-ee11-8179-002248ecf212}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsAuthority" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsAuthority" />
+        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsClientID" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsClientID" />
+        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsClientID" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsClientID" />
+        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsClientSecret" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsClientSecret" />
+        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_AuditLogsClientSecret" solution="CenterofExcellenceCoreComponents_Upgrade (4.16)" id.schemaname="admin_AuditLogsClientSecret" />
+        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_TenantID" solution="CenterofExcellenceCoreComponents (4.3)" id.schemaname="admin_TenantID" />
+        <Dependent type="29" displayName="O365 Activity Log Sync" id="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_TenantID" solution="CenterofExcellenceCoreComponents (4.3)" id.schemaname="admin_TenantID" />
+        <Dependent type="29" displayName="Get Service Health and Messages" id="{4db0bd61-8f83-ee11-8179-002248ecf212}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="admin_TenantID" solution="CenterofExcellenceCoreComponents (4.3)" id.schemaname="admin_TenantID" />
+        <Dependent type="29" displayName="Sync O365 Activity Log" id="{bf9dce93-2884-ee11-8179-6045bd57c83a}" />
       </MissingDependency>
     </MissingDependencies>
   </SolutionManifest>

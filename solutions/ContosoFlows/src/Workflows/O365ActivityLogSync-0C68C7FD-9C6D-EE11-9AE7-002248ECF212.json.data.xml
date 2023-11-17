@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{058c3992-0dcd-ec11-a7b6-000d3a8570bb}" Name="Create New Account Flow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/CreateNewAccountFlow-058C3992-0DCD-EC11-A7B6-000D3A8570BB.json</JsonFileName>
+<Workflow WorkflowId="{0c68c7fd-9c6d-ee11-9ae7-002248ecf212}" Name="O365 Activity Log Sync" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/O365ActivityLogSync-0C68C7FD-9C6D-EE11-9AE7-002248ECF212.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -11,17 +11,16 @@
   <TriggerOnDelete>0</TriggerOnDelete>
   <AsyncAutodelete>0</AsyncAutodelete>
   <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
-  <StateCode>1</StateCode>
-  <StatusCode>2</StatusCode>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
   <IntroducedVersion>1.0.0.0</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
-  <ThrottlingBehavior>1</ThrottlingBehavior>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Create New Account Flow" />
+    <LocalizedName languagecode="1033" description="O365 Activity Log Sync" />
   </LocalizedNames>
 </Workflow>

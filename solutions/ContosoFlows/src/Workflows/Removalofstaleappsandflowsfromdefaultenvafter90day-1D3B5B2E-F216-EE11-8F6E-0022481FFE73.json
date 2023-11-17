@@ -105,12 +105,12 @@
               "AppID": "@item()?['name']",
               "PowerAppName": "@item()?['properties/displayName']",
               "Creator": "@item()?['properties/createdBy/userPrincipalName']",
-              "CreatedOn": "@convertTimeZone(item()?['properties/createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd hh:mm')"
+              "CreatedOn": "@convertTimeZone(item()?['properties/createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd HH:mm')"
             }
           },
-          "description": "convertTimeZone(item()?['properties/createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd hh:mm')"
+          "description": "convertTimeZone(item()?['properties/createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd HH:mm')"
         },
-        "Filter_array_-_Apps_with_no_Allowed_tag": {
+        "Filter_array_-_Apps_with_To_Delete_tag": {
           "runAfter": {
             "Select_-_Columns_for_Apps": [
               "Succeeded"
@@ -122,11 +122,11 @@
           "type": "Query",
           "inputs": {
             "from": "@body('Select_-_Columns_for_Apps')",
-            "where": "@not(startsWith(item()['PowerAppName'], outputs('Compose_-_Allowed_tag')))"
+            "where": "@startsWith(item()['PowerAppName'], outputs('Compose_-_To_Delete_tag'))"
           }
         },
         "Apply_to_each_-_Remove_App": {
-          "foreach": "@body('Filter_array_-_Apps_with_no_Allowed_tag')",
+          "foreach": "@body('Filter_array_-_Apps_with_To_Delete_tag')",
           "actions": {
             "Remove_App_as_Admin": {
               "runAfter": {},
@@ -181,7 +181,7 @@
             "authentication": "@parameters('$authentication')"
           }
         },
-        "Compose_-_Allowed_tag": {
+        "Compose_-_To_Delete_tag": {
           "runAfter": {
             "Compose_-_Environment_Name": [
               "Succeeded"
@@ -191,7 +191,7 @@
             "operationMetadataId": "6ac93ddd-0bbd-4114-9b05-7bf3b162d3c2"
           },
           "type": "Compose",
-          "inputs": "[Allowed]"
+          "inputs": "[ToDelete]"
         },
         "Compose_-_Environment_Name": {
           "runAfter": {},
@@ -411,10 +411,10 @@
                 "FlowID": "@{body('Parse_JSON_-_Get_Flow_Details')?['name']}",
                 "FlowName": "@{body('Parse_JSON_-_Get_Flow_Details')?['properties']?['displayName']}",
                 "Creator": "@{coalesce(outputs('Get_user_profile_(V2)')?['body/userPrincipalName'],body('Parse_JSON_-_Get_Flow_Details')?['properties']?['creator']?['userId'])}",
-                "CreatedOn": "@{convertTimeZone(body('Parse_JSON_-_Get_Flow_Details')?['properties']?['createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd hh:mm')}",
+                "CreatedOn": "@{convertTimeZone(body('Parse_JSON_-_Get_Flow_Details')?['properties']?['createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd HH:mm')}",
                 "DeletedOn": "@{convertTimeZone(utcNow(),'UTC','Singapore Standard Time','yyyy-MM-dd HH:mm')}"
               },
-              "description": "convertTimeZone(body('Parse_JSON_-_Get_Flow_Details')?['properties']?['createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd hh:mm')"
+              "description": "convertTimeZone(body('Parse_JSON_-_Get_Flow_Details')?['properties']?['createdTime'],'UTC','Singapore Standard Time', 'yyyy-MM-dd HH:mm')"
             },
             "Append_to_array_variable_-_FlowArray": {
               "runAfter": {
@@ -501,7 +501,7 @@
         },
         "Filter_array_-_Apps_created_more_than_X_days": {
           "runAfter": {
-            "Filter_array_-_Apps_with_no_Allowed_tag": [
+            "Filter_array_-_Apps_with_To_Delete_tag": [
               "Succeeded"
             ]
           },
@@ -510,14 +510,14 @@
           },
           "type": "Query",
           "inputs": {
-            "from": "@body('Filter_array_-_Apps_with_no_Allowed_tag')",
+            "from": "@body('Filter_array_-_Apps_with_To_Delete_tag')",
             "where": "@greaterOrEquals(float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd hh:mm')), ':')[0]), float(outputs('Compose_-_X_Days')))"
           },
-          "description": "float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd hh:mm')), ':')[0]) float(outputs('Compose_-_X_Days'))"
+          "description": "float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd HH:mm')), ':')[0]) float(outputs('Compose_-_X_Days'))"
         },
         "Compose_-_X_Days": {
           "runAfter": {
-            "Compose_-_Allowed_tag": [
+            "Compose_-_To_Delete_tag": [
               "Succeeded"
             ]
           },
@@ -525,7 +525,7 @@
             "operationMetadataId": "e6e17476-e5d1-44a7-8d79-b9b226c44cc1"
           },
           "type": "Compose",
-          "inputs": 90
+          "inputs": -24
         },
         "Create_CSV_table_-_App_List": {
           "runAfter": {
@@ -542,7 +542,7 @@
             "format": "CSV"
           }
         },
-        "Filter_array_-_Flows_with_no_Allowed_tag": {
+        "Filter_array_-_Flows_with_To_Delete_tag": {
           "runAfter": {
             "Apply_to_each_-_List_Flow_Details_and_Append_to_Flow_Array": [
               "Succeeded"
@@ -554,12 +554,12 @@
           "type": "Query",
           "inputs": {
             "from": "@variables('FlowArray')",
-            "where": "@not(startsWith(item()?['FlowName'], outputs('Compose_-_Allowed_tag')))"
+            "where": "@startsWith(item()?['FlowName'], outputs('Compose_-_To_Delete_tag'))"
           }
         },
         "Filter_array_-_Flows_created_more_than_X_days": {
           "runAfter": {
-            "Filter_array_-_Flows_with_no_Allowed_tag": [
+            "Filter_array_-_Flows_with_To_Delete_tag": [
               "Succeeded"
             ]
           },
@@ -568,10 +568,10 @@
           },
           "type": "Query",
           "inputs": {
-            "from": "@body('Filter_array_-_Flows_with_no_Allowed_tag')",
+            "from": "@body('Filter_array_-_Flows_with_To_Delete_tag')",
             "where": "@greaterOrEquals(float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd hh:mm')), ':')[0]), float(outputs('Compose_-_X_Days')))"
           },
-          "description": "float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd hh:mm')), ':')[0]) float(outputs('Compose_-_X_Days'))"
+          "description": "float(split(dateDifference(item()?['CreatedOn'], convertTimeZone(utcNow(), 'UTC', 'Singapore Standard Time', 'yyyy-MM-dd HH:mm')), ':')[0]) float(outputs('Compose_-_X_Days'))"
         },
         "Apply_to_each_-_Remove_Flow": {
           "foreach": "@body('Filter_array_-_Flows_created_more_than_X_days')",
@@ -638,7 +638,7 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness"
             },
             "parameters": {
-              "folderPath": "[Specify folder path]",
+              "folderPath": "[Specify Folder Path]",
               "name": "DeletedAppList.csv",
               "body": "@body('Create_CSV_table_-_App_List')"
             },
@@ -682,7 +682,7 @@
               "apiId": "/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness"
             },
             "parameters": {
-              "folderPath": "[Specify folder path]",
+              "folderPath": "[Specify Folder Path]",
               "name": "DeletedFlowList.csv",
               "body": "@body('Create_CSV_table_-_Flow_List')"
             },

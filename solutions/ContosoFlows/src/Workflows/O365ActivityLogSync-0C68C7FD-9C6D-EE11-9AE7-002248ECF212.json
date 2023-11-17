@@ -1,0 +1,623 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_b7d8f"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedsharepointonline_1ac89"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "Audit Logs - Client Secret (admin_AuditLogsClientSecret)": {
+          "defaultValue": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ",
+          "type": "String",
+          "metadata": {
+            "schemaName": "admin_AuditLogsClientSecret",
+            "description": "AuditLogs - Client secret of the Office 365 Management API Azure AD service principal"
+          }
+        },
+        "TenantID (admin_TenantID)": {
+          "defaultValue": "1557f771-4c8e-4dbd-8b80-dd00a88e833e",
+          "type": "String",
+          "metadata": {
+            "schemaName": "admin_TenantID",
+            "description": "Inventory - REQUIRED. Azure Tenant ID"
+          }
+        },
+        "Audit Logs - Authority (admin_AuditLogsAuthority)": {
+          "defaultValue": "https://login.windows.net",
+          "type": "String",
+          "metadata": {
+            "schemaName": "admin_AuditLogsAuthority",
+            "description": "AuditLogs - The authority for the HTTP connector. Set by Setup wizard based on tenant type"
+          }
+        },
+        "Audit Logs - ClientID (admin_AuditLogsClientID)": {
+          "defaultValue": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203",
+          "type": "String",
+          "metadata": {
+            "schemaName": "admin_AuditLogsClientID",
+            "description": "AuditLogs - Client ID of the Office 365 Management API Azure AD service principal"
+          }
+        },
+        "Audit Logs - Audience (admin_AuditLogsAudience)": {
+          "defaultValue": "https://manage.office.com",
+          "type": "String",
+          "metadata": {
+            "schemaName": "admin_AuditLogsAudience",
+            "description": "AuditLogs - The audience for the HTTP connector. Set by Setup wizard based on tenant type"
+          }
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "Singapore Standard Time",
+            "schedule": {
+              "hours": [
+                "19"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "2399d65d-6e35-4354-b77d-a4ad04981647"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Initialize_variable_-_ContentIDs": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "edb4e002-04c2-4f48-b936-7388cfffda11"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ContentIDs",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Compose_-_startTime_-_utcNow_minus_24_hours_-_yyyy-MM-ddThh:mm": {
+          "runAfter": {
+            "Initialize_variable_-_NextPageParam": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b2526839-3685-4725-bf4f-92b600fff0dd"
+          },
+          "type": "Compose",
+          "inputs": "@convertTimeZone(subtractFromTime(utcNow(),24,'Hour'),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')",
+          "description": "convertTimeZone(subtractFromTime(utcNow(),24,'Hour'),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')"
+        },
+        "Compose_-_endTime_-utcNow": {
+          "runAfter": {
+            "Compose_-_startTime_-_utcNow_minus_24_hours_-_yyyy-MM-ddThh:mm": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b6534db4-f092-41cf-b7e8-d1d10c6a7a88"
+          },
+          "type": "Compose",
+          "inputs": "@convertTimeZone(utcNow(),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')",
+          "description": "convertTimeZone(utcNow(),'UTC','Singapore Standard Time', 'yyyy-MM-ddThh:mm')"
+        },
+        "Apply_to_each_-_Get_Content_Blob": {
+          "foreach": "@variables('ContentIDs')",
+          "actions": {
+            "HTTP_-_Get_Content_Blob": {
+              "metadata": {
+                "operationMetadataId": "3e32020b-7c95-4687-8d31-7af5fabc78bf"
+              },
+              "type": "Http",
+              "inputs": {
+                "uri": "@{parameters('Audit Logs - Audience (admin_AuditLogsAudience)')}/api/v1.0/@{parameters('TenantID (admin_TenantID)')}/activity/feed/audit/@{item()?['contentId']}",
+                "method": "GET",
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "authentication": {
+                  "type": "ActiveDirectoryOAuth",
+                  "authority": "@parameters('Audit Logs - Authority (admin_AuditLogsAuthority)')",
+                  "tenant": "@parameters('TenantID (admin_TenantID)')",
+                  "audience": "@parameters('Audit Logs - Audience (admin_AuditLogsAudience)')",
+                  "clientId": "@parameters('Audit Logs - ClientID (admin_AuditLogsClientID)')",
+                  "secret": "@parameters('Audit Logs - Client Secret (admin_AuditLogsClientSecret)')"
+                }
+              }
+            },
+            "Filter_array_-_D365_Events": {
+              "runAfter": {
+                "HTTP_-_Get_Content_Blob": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a25cae7c-6db3-4bd3-97c1-f401a6133656"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@\r\njson(body('HTTP_-_Get_Content_Blob'))",
+                "where": "@equals(item()?['RecordType'], 21)"
+              },
+              "description": "json(body('HTTP_-_Get_Content_Blob'))"
+            },
+            "Apply_to_each_-_Append_Activity_Log": {
+              "foreach": "@body('Filter_array_-_D365_Events')",
+              "actions": {
+                "Append_to_array_variable_-_ActivityLogs": {
+                  "metadata": {
+                    "operationMetadataId": "c30f397d-f8e0-4b72-a131-9818caaddd5a"
+                  },
+                  "type": "AppendToArrayVariable",
+                  "inputs": {
+                    "name": "ActivityLogs",
+                    "value": "@items('Apply_to_each_-_Append_Activity_Log')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Filter_array_-_D365_Events": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "fc09a25d-b456-4004-8161-28f9d36a7a09"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Do_until_-_Get_All_ContentIDs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c5bf8c24-5475-45bc-bb27-1e3209058d9f"
+          },
+          "type": "Foreach"
+        },
+        "Initialize_variable_-_NextPageUri": {
+          "runAfter": {
+            "Initialize_variable_-_ActivityLogs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ee1e479c-81a1-4dc9-8e24-0f85da59efa6"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "NextPageUri",
+                "type": "string",
+                "value": "@{null}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_-_NextPageParam": {
+          "runAfter": {
+            "Initialize_variable_-_NextPageUri": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "aca604ee-d8b3-432f-9b7b-48e7ead47464"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "NextPageParam",
+                "type": "string",
+                "value": "@{null}"
+              }
+            ]
+          }
+        },
+        "Do_until_-_Get_All_ContentIDs": {
+          "actions": {
+            "HTTP_-_Get_Content_Blobs": {
+              "metadata": {
+                "operationMetadataId": "1b6cf0a0-bf85-45ad-b18e-eb4eae24eae9"
+              },
+              "type": "Http",
+              "inputs": {
+                "uri": "@{parameters('Audit Logs - Audience (admin_AuditLogsAudience)')}/api/v1.0/@{parameters('TenantID (admin_TenantID)')}/activity/feed/subscriptions/content",
+                "method": "GET",
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "queries": {
+                  "contentType": "Audit.General",
+                  "PublisherIdentifier": "@parameters('TenantID (admin_TenantID)')",
+                  "startTime": "@{outputs('Compose_-_startTime_-_utcNow_minus_24_hours_-_yyyy-MM-ddThh:mm')}",
+                  "endTime": "@{outputs('Compose_-_endTime_-utcNow')}",
+                  "nextpage": "@variables('NextPageParam')"
+                },
+                "authentication": {
+                  "type": "ActiveDirectoryOAuth",
+                  "authority": "@parameters('Audit Logs - Authority (admin_AuditLogsAuthority)')",
+                  "tenant": "@parameters('TenantID (admin_TenantID)')",
+                  "audience": "@parameters('Audit Logs - Audience (admin_AuditLogsAudience)')",
+                  "clientId": "@parameters('Audit Logs - ClientID (admin_AuditLogsClientID)')",
+                  "secret": "@parameters('Audit Logs - Client Secret (admin_AuditLogsClientSecret)')"
+                }
+              }
+            },
+            "Select_-_ContentIDs": {
+              "runAfter": {
+                "Parse_JSON_-_Body": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "bf3f03f7-0e91-49c8-903a-9b82153596b8"
+              },
+              "type": "Select",
+              "inputs": {
+                "from": "@body('Parse_JSON_-_Body')",
+                "select": {
+                  "ContentID": "@item()?['contentId']"
+                }
+              }
+            },
+            "Condition_-_Does_NextPageUri_Exist": {
+              "actions": {
+                "Set_variable_-_NextPageUri": {
+                  "metadata": {
+                    "operationMetadataId": "29c801b3-f0de-4af6-8a96-ac2b13d8a354"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "NextPageUri",
+                    "value": "@{body('Parse_JSON_-_Header')?['NextPageUri']}"
+                  }
+                },
+                "Set_variable_-_NextPageParam": {
+                  "runAfter": {
+                    "Compose_-_QueryString": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "efc26d6b-a5fb-43dd-87c2-4649c1f8b42a"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "NextPageParam",
+                    "value": "@{substring(outputs('Compose_-_QueryString'), add(indexOf(outputs('Compose_-_QueryString'), 'nextpage'), 9))}"
+                  }
+                },
+                "Compose_-_QueryString": {
+                  "runAfter": {
+                    "Set_variable_-_NextPageUri": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "f4b4e792-dadc-4004-a25b-1dc475dfb4e1"
+                  },
+                  "type": "Compose",
+                  "inputs": "@uriQuery(variables('NextPageUri'))"
+                }
+              },
+              "runAfter": {
+                "Apply_to_each_-_ContentID": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Set_variable_-_NextPageUri_to_null": {
+                    "metadata": {
+                      "operationMetadataId": "9d8481ee-e206-46ec-aa40-8ca0f1fea6fb"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "NextPageUri",
+                      "value": "@{null}"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "contains": [
+                  "@body('Parse_JSON_-_Header')",
+                  "NextPageUri"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "da581502-4972-44bb-ade8-8588a1bd7229"
+              },
+              "type": "If"
+            },
+            "Parse_JSON_-_Header": {
+              "runAfter": {
+                "HTTP_-_Get_Content_Blobs": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "baee9e2c-ca43-4c48-9b61-2c73f3346225"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@outputs('HTTP_-_Get_Content_Blobs')['headers']",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "headers": {
+                      "type": "object",
+                      "properties": {
+                        "Pragma": {
+                          "type": "string"
+                        },
+                        "NextPageUri": {
+                          "type": "string"
+                        },
+                        "Cache-Control": {
+                          "type": "string"
+                        },
+                        "Date": {
+                          "type": "string"
+                        },
+                        "Server": {
+                          "type": "string"
+                        },
+                        "X-AspNet-Version": {
+                          "type": "string"
+                        },
+                        "X-Powered-By": {
+                          "type": "string"
+                        },
+                        "Content-Length": {
+                          "type": "string"
+                        },
+                        "Content-Type": {
+                          "type": "string"
+                        },
+                        "Expires": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Parse_JSON_-_Body": {
+              "runAfter": {
+                "Parse_JSON_-_Header": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e4d1f48f-cb8e-4b92-b53c-cc287e5cd2d2"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@body('HTTP_-_Get_Content_Blobs')",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "contentUri": {
+                        "type": "string"
+                      },
+                      "contentId": {
+                        "type": "string"
+                      },
+                      "contentType": {
+                        "type": "string"
+                      },
+                      "contentCreated": {
+                        "type": "string"
+                      },
+                      "contentExpiration": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "contentUri",
+                      "contentId",
+                      "contentType",
+                      "contentCreated",
+                      "contentExpiration"
+                    ]
+                  }
+                }
+              }
+            },
+            "Apply_to_each_-_ContentID": {
+              "foreach": "@body('Select_-_ContentIDs')",
+              "actions": {
+                "AppendContentIDsArray": {
+                  "metadata": {
+                    "operationMetadataId": "84e2b9ed-2f17-48fd-a39e-6fd92ba4c456"
+                  },
+                  "type": "AppendToArrayVariable",
+                  "inputs": {
+                    "name": "ContentIDs",
+                    "value": "@items('Apply_to_each_-_ContentID')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Select_-_ContentIDs": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "3d9ddd1e-6846-4451-8919-6e80c80116af"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Compose_-_endTime_-utcNow": [
+              "Succeeded"
+            ]
+          },
+          "expression": "@less(length(variables('NextPageUri')), 1)",
+          "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+          },
+          "metadata": {
+            "operationMetadataId": "35d4cfff-2f2d-4da6-b900-0ef30a5cdbc3"
+          },
+          "type": "Until"
+        },
+        "Initialize_variable_-_ActivityLogs": {
+          "runAfter": {
+            "Initialize_variable_-_ContentIDs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "882e9179-7480-43b9-b86f-186e7d85f2e8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ActivityLogs",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "List_rows_-_Get_all_environments": {
+          "runAfter": {
+            "Apply_to_each_-_Get_Content_Blob": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e917dc8f-a98f-4437-8259-883819dfc9a5"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "con_environments",
+              "$select": "con_name,con_sharepointdocumentlibrary,con_sharepointsite"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          }
+        },
+        "Apply_to_each_-_Environment": {
+          "foreach": "@outputs('List_rows_-_Get_all_environments')?['body/value']",
+          "actions": {
+            "Filter_array_-_Environment_Activity_Logs": {
+              "metadata": {
+                "operationMetadataId": "77f07ec1-992c-4345-86a5-5f9af4cb2278"
+              },
+              "type": "Query",
+              "inputs": {
+                "from": "@variables('ActivityLogs')",
+                "where": "@equals(item()?['InstanceUrl'],items('Apply_to_each_-_Environment')?['con_name'])"
+              }
+            },
+            "Create_CSV_table": {
+              "runAfter": {
+                "Filter_array_-_Environment_Activity_Logs": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "7940d08a-912b-408e-bf59-e4ba54dc469d"
+              },
+              "type": "Table",
+              "inputs": {
+                "from": "@body('Filter_array_-_Environment_Activity_Logs')",
+                "format": "CSV"
+              }
+            },
+            "Create_file": {
+              "runAfter": {
+                "Create_CSV_table": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ef6e95c8-20d8-41ae-bd96-1b72cb95a561"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "dataset": "@items('Apply_to_each_-_Environment')?['con_sharepointsite']",
+                  "folderPath": "@items('Apply_to_each_-_Environment')?['con_sharepointdocumentlibrary']",
+                  "name": "@{items('Apply_to_each_-_Environment')?['con_sharepointdocumentlibrary']}_@{utcNow()}.csv",
+                  "body": "@body('Create_CSV_table')"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+                  "operationId": "CreateFile",
+                  "connectionName": "shared_sharepointonline"
+                }
+              },
+              "runtimeConfiguration": {
+                "contentTransfer": {
+                  "transferMode": "Chunked"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "List_rows_-_Get_all_environments": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "57101512-6cd6-4bf2-93b4-82b79a4b038a"
+          },
+          "type": "Foreach"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

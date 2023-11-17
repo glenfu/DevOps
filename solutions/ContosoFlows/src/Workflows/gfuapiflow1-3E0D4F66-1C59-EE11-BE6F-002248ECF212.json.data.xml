@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{058c3992-0dcd-ec11-a7b6-000d3a8570bb}" Name="Create New Account Flow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/CreateNewAccountFlow-058C3992-0DCD-EC11-A7B6-000D3A8570BB.json</JsonFileName>
+<Workflow WorkflowId="{3e0d4f66-1c59-ee11-be6f-002248ecf212}" Name="gfu api flow 1" Description="This flow will ensure consistency across systems." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/gfuapiflow1-3E0D4F66-1C59-EE11-BE6F-002248ECF212.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -15,13 +15,15 @@
   <StatusCode>2</StatusCode>
   <RunAs>1</RunAs>
   <IsTransacted>1</IsTransacted>
-  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IntroducedVersion>1.0</IntroducedVersion>
   <IsCustomizable>1</IsCustomizable>
   <BusinessProcessType>0</BusinessProcessType>
   <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
-  <ThrottlingBehavior>1</ThrottlingBehavior>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Create New Account Flow" />
+    <LocalizedName languagecode="1033" description="gfu api flow 1" />
   </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="This flow will ensure consistency across systems." />
+  </Descriptions>
 </Workflow>
