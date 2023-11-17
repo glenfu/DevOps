@@ -68,6 +68,13 @@
       <statecode>0</statecode>
       <statuscode>1</statuscode>
     </connectionreference>
+    <connectionreference connectionreferencelogicalname="con_sharedsharepointonline_f3e8d">
+      <connectionreferencedisplayname>SharePoint ContosoFlows-f3e8d</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
     <connectionreference connectionreferencelogicalname="ms_sharedflowmanagement_477f9">
       <connectionreferencedisplayname>Power Automate Management DefaultEnvironmentManagement-477f9</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_flowmanagement</connectorid>
