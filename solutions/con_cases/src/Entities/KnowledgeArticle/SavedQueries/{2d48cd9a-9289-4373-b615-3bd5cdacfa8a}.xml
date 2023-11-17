@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery unmodified="1">
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{2d48cd9a-9289-4373-b615-3bd5cdacfa8a}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="title" select="1" icon="1" preview="1">
+        <row name="result" id="knowledgearticleid">
+          <cell name="articlepublicnumber" width="50" />
+          <cell name="title" width="300" />
+          <cell name="languagelocaleid" width="50" />
+          <cell name="statecode" width="50" />
+          <cell name="majorversionnumber" width="50" />
+          <cell name="minorversionnumber" width="50" />
+          <cell name="knowledgearticleviews" width="50" />
+          <cell name="rating" width="50" />
+          <cell name="keywords" width="150" />
+          <cell name="createdon" width="100" />
+          <cell name="modifiedon" width="100" />
+          <cell name="msdyn_isingestedarticle" width="100" ishidden="1" />
+          <cell name="msdyn_ingestedarticleurl" width="100" ishidden="1" />
+          <cell name="content" width="100" ishidden="1" />
+          <cell name="isinternal" width="100" ishidden="1" />
+          <cell name="msdyn_integratedsearchproviderid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="knowledgearticle">
+          <attribute name="articlepublicnumber" />
+          <attribute name="knowledgearticleid" />
+          <attribute name="createdon" />
+          <attribute name="majorversionnumber" />
+          <attribute name="minorversionnumber" />
+          <attribute name="content" />
+          <attribute name="modifiedon" />
+          <attribute name="description" />
+          <attribute name="islatestversion" />
+          <attribute name="keywords" />
+          <attribute name="knowledgearticleviews" />
+          <attribute name="languagelocaleid" />
+          <attribute name="title" />
+          <attribute name="isprimary" />
+          <attribute name="statuscode" />
+          <attribute name="statecode" />
+          <attribute name="rating" />
+          <attribute name="isrootarticle" />
+          <attribute name="isinternal" />
+          <attribute name="msdyn_isingestedarticle" />
+          <attribute name="msdyn_ingestedarticleurl" />
+          <attribute name="msdyn_contentstore" />
+          <attribute name="msdyn_integratedsearchproviderid" />
+          <order attribute="articlepublicnumber" descending="false" />
+          <filter type="and">
+            <condition attribute="isrootarticle" operator="eq" value="0" />
+            <condition attribute="islatestversion" operator="eq" value="1" />
+            <condition attribute="statecode" operator="ne" value="5" />
+            <condition attribute="statecode" operator="ne" value="6" />
+            <condition attribute="statecode" operator="ne" value="4" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="content" operator="like" value="{0}" />
+            <condition attribute="description" operator="like" value="{0}" />
+            <condition attribute="keywords" operator="like" value="{0}" />
+            <condition attribute="title" operator="like" value="{0}" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>8.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Knowledge Articles" languagecode="1033" />
+      <LocalizedName description="Quick Find Active Knowledge Articles" languagecode="3082" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

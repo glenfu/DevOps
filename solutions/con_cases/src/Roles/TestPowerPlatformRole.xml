@@ -213,6 +213,7 @@
     <RolePrivilege name="prvAssignImport" level="Basic" />
     <RolePrivilege name="prvAssignImportFile" level="Basic" />
     <RolePrivilege name="prvAssignImportMap" level="Local" />
+    <RolePrivilege name="prvAssignIncident" level="Basic" />
     <RolePrivilege name="prvAssignInvoice" level="Basic" />
     <RolePrivilege name="prvAssignKnowledgeArticle" level="Global" />
     <RolePrivilege name="prvAssignKnowledgeArticleViews" level="Global" />

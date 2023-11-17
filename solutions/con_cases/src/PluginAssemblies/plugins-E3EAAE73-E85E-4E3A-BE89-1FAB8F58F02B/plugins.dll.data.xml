@@ -11,9 +11,6 @@
     <PluginType AssemblyQualifiedName="plugins.CaseAgePreOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="ee93d192-3203-40eb-8f54-ddc6ca7a5faf" Name="plugins.CaseAgePreOperation">
       <FriendlyName>ff5b2fa5-f1c3-4081-b6f2-6267479d33bb</FriendlyName>
     </PluginType>
-    <PluginType AssemblyQualifiedName="plugins.NotePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="85062262-38d6-469c-a00d-db445be80d4f" Name="plugins.NotePostOperation">
-      <FriendlyName>39f8d144-4b52-4e14-8bf3-eaf67772deea</FriendlyName>
-    </PluginType>
     <PluginType AssemblyQualifiedName="plugins.RouteCasePostOperation, plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" PluginTypeId="9f1babfc-6412-4679-9c92-5b1ba4b0daad" Name="plugins.RouteCasePostOperation">
       <FriendlyName>bd7189ed-7f1d-451e-82c6-0a3d6bde0161</FriendlyName>
     </PluginType>

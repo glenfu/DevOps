@@ -64,8 +64,8 @@
       <msdyn_entityname>incident</msdyn_entityname>
       <msdyn_kpifield>resolvebykpiid</msdyn_kpifield>
       <msdyn_name>Resolve By KPI (old)</msdyn_name>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
+      <statecode>1</statecode>
+      <statuscode>2</statuscode>
     </msdyn_slakpi>
     <msdyn_slakpi msdyn_slakpiid="d4fd31a8-6670-ed11-81ac-000d3a856354">
       <iscustomizable>1</iscustomizable>

@@ -166,6 +166,22 @@
                     </row>
                   </rows>
                 </section>
+                <section name="Timeline" showlabel="false" showbar="false" locklevel="0" id="{afcc2215-3dc0-43b7-b9dd-125c0a180700}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" ordinalvalue="1">
+                  <rows>
+                    <row>
+                      <cell id="{3fbc9cb7-5064-4cdc-893f-3b123b910837}" colspan="1" rowspan="20" showlabel="false" locklevel="0" ordinalvalue="10000">
+                        <control id="notescontrol" classid="{06375649-c143-495e-a496-c962e5b4488e}" disabled="false">
+                          <parameters solutionaction="Added">
+                            <UClientActivities>appointment,campaignactivity,email,incidentresolution,opportunityclose,orderclose,phonecall,quoteclose,recurringappointmentmaster,socialactivity,task,adx_alertsubscription,adx_inviteredemption,adx_portalcomment,chat,msdyn_bookingalert,msdyn_ocliveworkitem,msdyn_ocoutboundmessage,msdyn_ocsession,msdyn_ocvoicemail,msfp_alert,msfp_surveyinvite,msfp_surveyresponse,pp_docusignoutput</UClientActivities>
+                            <UClientDisplayActivityUsing>defaultfields</UClientDisplayActivityUsing>
+                            <UClientActivityCardMap>appointment:4201:,campaignactivity:4402:,campaignresponse:4401:,email:4202:,fax:4204:,incidentresolution:4206:,letter:4207:,opportunityclose:4208:,orderclose:4209:,phonecall:4210:,quoteclose:4211:,recurringappointmentmaster:4251:,serviceappointment:4214:,socialactivity:4216:,task:4212:,adx_alertsubscription:10598:,adx_inviteredemption:10603:,adx_portalcomment:10652:,chat:10575:,msdyn_bookingalert:10408:,msdyn_ocliveworkitem:10808:,msdyn_ocoutboundmessage:10901:,msdyn_ocsession:10825:,msdyn_ocvoicemail:11064:,msfp_alert:10292:,msfp_surveyinvite:10302:,msfp_surveyresponse:10304:,pp_docusignoutput:11482:,</UClientActivityCardMap>
+                            <UClientActivitiesConfigurationJSON>{"appointment":{"showTopDate":true,"showStatus":true,"canCreate":true,"createUsing":"default","openUsing":"default","commandsConfig":{"order":[{"id":"Assign","isVisible":true},{"id":"CloseActivity","isVisible":true},{"id":"AddToQueue","isVisible":true},{"id":"OpenEntityRecord","isVisible":true},{"id":"Pin","isVisible":true}]}}}</UClientActivitiesConfigurationJSON>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
               </sections>
             </column>
           </columns>

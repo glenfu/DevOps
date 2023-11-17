@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <savedquery unmodified="1">
+  <savedquery>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
     <isdefault>0</isdefault>
@@ -17,10 +17,10 @@
     <fetchxml>
       <fetch version="1.0" output-format="xml-platform" mapping="logical">
         <entity name="annotation">
-          <order attribute="filename" descending="false" />
           <attribute name="filename" />
           <attribute name="notetext" />
           <attribute name="annotationid" />
+          <order attribute="filename" descending="false" />
         </entity>
       </fetch>
     </fetchxml>

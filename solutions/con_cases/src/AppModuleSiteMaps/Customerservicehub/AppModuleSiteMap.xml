@@ -640,10 +640,10 @@
           <Title LCID="1054" Title="ข้อมูลเชิงลึก" />
           <Title LCID="1055" Title="İçgörüler" />
           <Title LCID="1058" Title="Аналітика" />
-          <Title LCID="1066" Title="Thông tin chuyên sâu" />
+          <Title LCID="1066" Title="Thông tin chi tiết" />
           <Title LCID="2052" Title="见解" />
-          <Title LCID="3076" Title="見解" />
-          <Title LCID="1028" Title="見解" />
+          <Title LCID="3076" Title="深入解析" />
+          <Title LCID="1028" Title="深入解析" />
         </Titles>
         <SubArea Id="KSIReportsSubArea" Icon="$webresource:msdyn_/Analytics/imgs/KnowledgeSearchIcon.svg" VectorIcon="$webresource:msdyn_/Analytics/imgs/KnowledgeSearchIcon.svg" Entity="msdyn_dataanalyticsreport_ksinsights" Client="Web" AvailableOffline="false" PassParams="false" Sku="All,OnPremise,Live,SPLA">
           <IsVisible settings="msdyn_ksianalyticssitemapvisibility" defaultValue="false" />
@@ -746,6 +746,56 @@
             <Title LCID="1028" Title="Customer Service 歷史分析" />
           </Titles>
           <Privilege Entity="msdyn_dataanalyticsreport_csrmanager" Privilege="Read" />
+        </SubArea>
+        <SubArea Id="ForecastReportsSubArea" Icon="$webresource:msdyn_/Analytics/imgs/CustomerServiceInsights.svg" VectorIcon="$webresource:msdyn_/Analytics/imgs/CustomerServiceInsights.svg" Entity="msdyn_dataanalyticsreport_forecast" Client="Web" AvailableOffline="false" PassParams="false" Sku="All,OnPremise,Live,SPLA">
+          <Titles>
+            <Title LCID="1033" Title="Forecast (preview)" />
+            <Title LCID="1025" Title="التنبؤ (إصدار أولي)" />
+            <Title LCID="1026" Title="Прогноза (преглед)" />
+            <Title LCID="1027" Title="Previsió (versió preliminar)" />
+            <Title LCID="1029" Title="Prognóza (Preview)" />
+            <Title LCID="1030" Title="Prognose (forhåndsversion)" />
+            <Title LCID="1031" Title="Prognose (Vorschauversion)" />
+            <Title LCID="1032" Title="Πρόβλεψη (έκδοση προεπισκόπησης)" />
+            <Title LCID="3082" Title="Previsión (versión preliminar)" />
+            <Title LCID="1061" Title="Prognoos (eelversioon)" />
+            <Title LCID="1069" Title="Iragarpena (aurreargitalpena)" />
+            <Title LCID="1035" Title="Ennuste (esiversio)" />
+            <Title LCID="1036" Title="Prévision (version préliminaire)" />
+            <Title LCID="1110" Title="Previsión (versión preliminar)" />
+            <Title LCID="1037" Title="תחזית (preview)" />
+            <Title LCID="1081" Title="पूर्वानुमान (पूर्वावलोकन)" />
+            <Title LCID="1050" Title="Predviđanje (pretpregled)" />
+            <Title LCID="1038" Title="Előrejelzés (előzetes verzió)" />
+            <Title LCID="1057" Title="Prakiraan (pratinjau)" />
+            <Title LCID="1040" Title="Previsione (anteprima)" />
+            <Title LCID="1041" Title="予測 (プレビュー)" />
+            <Title LCID="1087" Title="Болжам (алдын ала қарау нұсқасы)" />
+            <Title LCID="1042" Title="예측(프리뷰)" />
+            <Title LCID="1063" Title="Prognozė (peržiūros versija)" />
+            <Title LCID="1062" Title="Prognoze (priekšskatījums)" />
+            <Title LCID="1086" Title="Ramalan (pratonton)" />
+            <Title LCID="1044" Title="Prognose (forhåndsversjon)" />
+            <Title LCID="1043" Title="Prognose (preview)" />
+            <Title LCID="1045" Title="Prognoza (wersja zapoznawcza)" />
+            <Title LCID="1046" Title="Previsão (versão preliminar)" />
+            <Title LCID="2070" Title="Previsão (pré-visualização)" />
+            <Title LCID="1048" Title="Estimare (versiune preliminară)" />
+            <Title LCID="1049" Title="Прогноз (предварительная версия)" />
+            <Title LCID="1051" Title="Prognóza (verzia Preview)" />
+            <Title LCID="1060" Title="Predvidevanje (predogledna različica)" />
+            <Title LCID="3098" Title="Предвиђање (верзија за преглед)" />
+            <Title LCID="2074" Title="Predviđanje (verzija za pregled)" />
+            <Title LCID="1053" Title="Prognos (förhandsversion)" />
+            <Title LCID="1054" Title="การคาดการณ์ (พรีวิว)" />
+            <Title LCID="1055" Title="Tahmin (önizleme)" />
+            <Title LCID="1058" Title="Прогноз (підготовча версія)" />
+            <Title LCID="1066" Title="Dự báo (bản xem trước)" />
+            <Title LCID="2052" Title="预测(预览版)" />
+            <Title LCID="3076" Title="預測 (預覽版)" />
+            <Title LCID="1028" Title="預測 (預覽版)" />
+          </Titles>
+          <Privilege Entity="msdyn_dataanalyticsreport_forecast" Privilege="Read" />
         </SubArea>
       </Group>
       <Group Id="KnowledgeGroup_52e13ae9" ResourceId="SitemapDesigner.KnowledgeGroup" IsProfile="false" ToolTipResourseId="SitemapDesigner.Unknown">
