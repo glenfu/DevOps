@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FieldSecurityProfiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <FieldSecurityProfile name="PartnerRating" fieldsecurityprofileid="{c69ac36e-1c67-ee11-9ae7-6045bd57c6bd}">
+    <FieldPermissions>
+      <FieldPermission>
+        <EntityName>systemuser</EntityName>
+        <AttributeName>con_averagepartnerrating</AttributeName>
+        <CanRead>4</CanRead>
+        <CanUpdate>0</CanUpdate>
+        <CanCreate>0</CanCreate>
+      </FieldPermission>
+    </FieldPermissions>
+  </FieldSecurityProfile>
+</FieldSecurityProfiles>

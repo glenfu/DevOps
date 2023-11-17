@@ -1,14 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <CustomActions />
+  <CustomActions>
+    <CustomAction Id="con.adx.contact.CreateInvitation.Button.CustomAction" Location="Mscrm.HomepageGrid.contact.MainTab.Actions.Controls._children" Sequence="10">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:adx.contact.CreateInvitation.Button.Alt" Command="con.contact.Command1.Command" Id="adx.contact.CreateInvitation.Button" Image32by32="$webresource:adx_icon_invitation_medium" Image16by16="$webresource:adx_icon_invitation_small" LabelText="$LocLabels:adx.contact.CreateInvitation.Button.LabelText" Sequence="10" TemplateAlias="isv" ToolTipTitle="$LocLabels:adx.contact.CreateInvitation.Button.ToolTipTitle" ToolTipDescription="$LocLabels:adx.contact.CreateInvitation.Button.ToolTipDescription" ModernImage="$webresource:adx_create_invitation.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="con.adx.contact.form.CreateInvitation.Button.CustomAction" Location="Mscrm.Form.contact.MainTab.Save.Controls._children" Sequence="65">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:adx.contact.form.CreateInvitation.Button.Alt" Command="adx.contact.form.CreateInvitation.Command" Id="adx.contact.form.CreateInvitation.Button" Image32by32="$webresource:adx_icon_invitation_medium" Image16by16="$webresource:adx_icon_invitation_small" LabelText="$LocLabels:adx.contact.form.CreateInvitation.Button.LabelText" Sequence="65" TemplateAlias="isv" ToolTipTitle="$LocLabels:adx.contact.form.CreateInvitation.Button.ToolTipTitle" ToolTipDescription="$LocLabels:adx.contact.form.CreateInvitation.Button.ToolTipDescription" ModernImage="$webresource:adx_create_invitation.svg" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="con.Mscrm.HomepageGrid.contact.Assign.CustomAction" Location="Mscrm.HomepageGrid.contact.MainTab.Collaborate.Controls._children" Sequence="40">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.MainTab.Actions.Assign" Command="con.contact.Command1.Command" Id="Mscrm.HomepageGrid.contact.Assign" Image32by32="/_imgs/ribbon/Assign_32.png" Image16by16="/_imgs/ribbon/Assign_16.png" LabelText="$Resources:Ribbon.HomepageGrid.MainTab.Actions.Assign" Sequence="40" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.MainTab.Actions.Assign" ToolTipDescription="$Resources(EntityPluralDisplayName):Ribbon.Tooltip.Assign" ModernImage="Assign" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
   <Templates>
     <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
   </Templates>
-  <CommandDefinitions />
+  <CommandDefinitions>
+    <CommandDefinition Id="adx.contact.form.CreateInvitation.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="con.contact.EnableRule1.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="openNewInvitationFromContactForm" Library="$webresource:adx_invitation_form.js" />
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="con.contact.Command1.Command">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="con.contact.EnableRule1.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+  </CommandDefinitions>
   <RuleDefinitions>
     <TabDisplayRules />
     <DisplayRules />
-    <EnableRules />
+    <EnableRules>
+      <EnableRule Id="con.contact.EnableRule1.EnableRule">
+        <CustomRule FunctionName="hasCurrentUserRole" Library="$webresource:con_CheckUserSecurityRole">
+          <CrmParameter Value="PrimaryControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.FormStateNotNew">
+        <FormStateRule State="Create" InvertResult="true" />
+      </EnableRule>
+    </EnableRules>
   </RuleDefinitions>
-  <LocLabels />
+  <LocLabels>
+    <LocLabel Id="adx.contact.CreateInvitation.Button.Alt">
+      <Titles>
+        <Title description="Create Invitation" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="adx.contact.CreateInvitation.Button.LabelText">
+      <Titles>
+        <Title description="Create Invitation" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="adx.contact.CreateInvitation.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Create an invitation to a portal." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="adx.contact.CreateInvitation.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Create Invitation" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="adx.contact.form.CreateInvitation.Button.Alt">
+      <Titles>
+        <Title description="Create Invitation" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="adx.contact.form.CreateInvitation.Button.LabelText">
+      <Titles>
+        <Title description="Create Invitation" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="adx.contact.form.CreateInvitation.Button.ToolTipDescription">
+      <Titles>
+        <Title description="Create an invitation to a portal." languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="adx.contact.form.CreateInvitation.Button.ToolTipTitle">
+      <Titles>
+        <Title description="Create Invitation" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
 </RibbonDiffXml>
