@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23104.216" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23105.230" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>con_cases</UniqueName>
     <LocalizedNames>
@@ -100,7 +100,6 @@
       <RootComponent type="29" id="{f8167022-f8ed-ec11-bb3c-00224817478b}" behavior="0" />
       <RootComponent type="431" schemaName="incident con_caseimage" behavior="0" />
       <RootComponent type="62" schemaName="Customerservicehub" behavior="0" />
-      <RootComponent type="66" schemaName="genericl_GenericLookupPCFNamespace.GenericLookupPCFComponent" behavior="0" />
       <RootComponent type="80" schemaName="Customerservicehub" behavior="0" />
       <RootComponent type="9" schemaName="con_country" behavior="0" />
       <RootComponent type="91" id="{e3eaae73-e85e-4e3a-be89-1fab8f58f02b}" schemaName="plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=52eb79854a5fae2f" behavior="0" />
@@ -232,13 +231,13 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="lead" displayName="Lead" solution="msdynce_LeadManagement (9.0.4.0066)">
-          <package>msdynce_LeadManagementAnchor (9.0.23103.10001)</package>
+          <package>msdynce_LeadManagementAnchor (9.0.23105.10001)</package>
         </Required>
         <Dependent type="62" schemaName="Customerservicehub" />
       </MissingDependency>
       <MissingDependency>
         <Required type="1" schemaName="lead" displayName="Lead" solution="msdynce_LeadManagement (9.0.4.0066)">
-          <package>msdynce_LeadManagementAnchor (9.0.23103.10001)</package>
+          <package>msdynce_LeadManagementAnchor (9.0.23105.10001)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -250,15 +249,15 @@
         <Dependent type="62" schemaName="Customerservicehub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_applicationtabtemplate" displayName="Application Tab Template" solution="msdyn_AppProfileManager (10.1.23103.1015)">
-          <package>msdyn_AppProfileManagerAnchor (10.1.23103.1015)</package>
+        <Required type="1" schemaName="msdyn_applicationtabtemplate" displayName="Application Tab Template" solution="msdyn_AppProfileManager (10.1.23105.1010)">
+          <package>msdyn_AppProfileManagerAnchor (10.1.23105.1010)</package>
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
         <Dependent type="62" schemaName="Customerservicehub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_applicationtabtemplate" displayName="Application Tab Template" solution="msdyn_AppProfileManager (10.1.23103.1015)">
-          <package>msdyn_AppProfileManagerAnchor (10.1.23103.1015)</package>
+        <Required type="1" schemaName="msdyn_applicationtabtemplate" displayName="Application Tab Template" solution="msdyn_AppProfileManager (10.1.23105.1010)">
+          <package>msdyn_AppProfileManagerAnchor (10.1.23105.1010)</package>
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
@@ -524,20 +523,20 @@
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_kbattachment" displayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="1" schemaName="msdyn_kbattachment" displayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="1" schemaName="msdyn_kbattachment" displayName="Knowledge Article Attachment" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_kmfederatedsearchconfig" displayName="Search provider" solution="msdynce_KnowledgeManagementOnlineFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="1" schemaName="msdyn_kmfederatedsearchconfig" displayName="Search provider" solution="msdynce_KnowledgeManagementOnlineFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="62" schemaName="Customerservicehub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_knowledgearticletemplate" displayName="Knowledge Article Template" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="1" schemaName="msdyn_knowledgearticletemplate" displayName="Knowledge Article Template" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="62" schemaName="Customerservicehub" />
       </MissingDependency>
@@ -569,21 +568,21 @@
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_msteamssettingsv2" displayName="msdyn_msteamssettingsv2" solution="msdynce_OfficeProductivity (9.0.23103.10002)">
-          <package>msdynce_OfficeProductivityAnchor (9.0.23103.10002)</package>
+        <Required type="1" schemaName="msdyn_msteamssettingsv2" displayName="msdyn_msteamssettingsv2" solution="msdynce_OfficeProductivity (9.0.23105.10001)">
+          <package>msdynce_OfficeProductivityAnchor (9.0.23105.10001)</package>
         </Required>
         <Dependent type="62" schemaName="Customerservicehub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_notificationtemplate" displayName="Notification Template" solution="msdyn_AppProfileManager (10.1.23103.1015)">
-          <package>msdyn_AppProfileManagerAnchor (10.1.23103.1015)</package>
+        <Required type="1" schemaName="msdyn_notificationtemplate" displayName="Notification Template" solution="msdyn_AppProfileManager (10.1.23105.1010)">
+          <package>msdyn_AppProfileManagerAnchor (10.1.23105.1010)</package>
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
         <Dependent type="62" schemaName="Customerservicehub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_notificationtemplate" displayName="Notification Template" solution="msdyn_AppProfileManager (10.1.23103.1015)">
-          <package>msdyn_AppProfileManagerAnchor (10.1.23103.1015)</package>
+        <Required type="1" schemaName="msdyn_notificationtemplate" displayName="Notification Template" solution="msdyn_AppProfileManager (10.1.23105.1010)">
+          <package>msdyn_AppProfileManagerAnchor (10.1.23105.1010)</package>
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
@@ -616,15 +615,15 @@
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_sessiontemplate" displayName="Session Template" solution="msdyn_AppProfileManager (10.1.23103.1015)">
-          <package>msdyn_AppProfileManagerAnchor (10.1.23103.1015)</package>
+        <Required type="1" schemaName="msdyn_sessiontemplate" displayName="Session Template" solution="msdyn_AppProfileManager (10.1.23105.1010)">
+          <package>msdyn_AppProfileManagerAnchor (10.1.23105.1010)</package>
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
         <Dependent type="62" schemaName="Customerservicehub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="1" schemaName="msdyn_sessiontemplate" displayName="Session Template" solution="msdyn_AppProfileManager (10.1.23103.1015)">
-          <package>msdyn_AppProfileManagerAnchor (10.1.23103.1015)</package>
+        <Required type="1" schemaName="msdyn_sessiontemplate" displayName="Session Template" solution="msdyn_AppProfileManager (10.1.23105.1010)">
+          <package>msdyn_AppProfileManagerAnchor (10.1.23105.1010)</package>
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
@@ -1183,32 +1182,32 @@
         <Dependent type="2" schemaName="customerid" displayName="Customer" parentSchemaName="incident" parentDisplayName="Case" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_fileattachment" displayName="File Attachment" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="2" schemaName="msdyn_fileattachment" displayName="File Attachment" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" id="{e3057231-6ca6-48b3-8575-ce041f3f704e}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_filename" displayName="File Name" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="2" schemaName="msdyn_filename" displayName="File Name" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" id="{e3057231-6ca6-48b3-8575-ce041f3f704e}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_filename" displayName="File Name" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="2" schemaName="msdyn_filename" displayName="File Name" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="26" schemaName="Quick Find Active Knowledge Article Attachment" displayName="Quick Find Active Knowledge Article Attachment" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" id="{f5cdfc77-415c-ee11-be6f-002248ecf212}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_filesize" displayName="File Size (Bytes)" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="2" schemaName="msdyn_filesize" displayName="File Size (Bytes)" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" id="{e3057231-6ca6-48b3-8575-ce041f3f704e}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_filetype" displayName="File Type" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="2" schemaName="msdyn_filetype" displayName="File Type" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" id="{e3057231-6ca6-48b3-8575-ce041f3f704e}" />
       </MissingDependency>
@@ -1261,14 +1260,14 @@
         <Dependent type="60" displayName="Case for Interactive experience" parentDisplayName="Case" id="{915f6055-2e07-4276-ae08-2b96c8d02c57}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_kbattachmentid" displayName="Knowledge Article Attachment" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="2" schemaName="msdyn_kbattachmentid" displayName="Knowledge Article Attachment" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" id="{e3057231-6ca6-48b3-8575-ce041f3f704e}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="2" schemaName="msdyn_kbattachmentid" displayName="Knowledge Article Attachment" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="2" schemaName="msdyn_kbattachmentid" displayName="Knowledge Article Attachment" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="26" schemaName="Quick Find Active Knowledge Article Attachment" displayName="Quick Find Active Knowledge Article Attachment" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" id="{f5cdfc77-415c-ee11-be6f-002248ecf212}" />
       </MissingDependency>
@@ -1630,25 +1629,25 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Products Lookup View" displayName="Active Products Lookup View" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)" id="{58afc3c5-8add-4552-98cb-473bc8f75619}">
-          <package>msdynce_ProductManagementAnchor (9.0.23103.10001)</package>
+          <package>msdynce_ProductManagementAnchor (9.0.23105.10001)</package>
         </Required>
         <Dependent type="60" displayName="Portal Case Form" parentDisplayName="Case" id="{3fafeccd-74e5-ec11-bb3c-00224817478b}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Products Lookup View" displayName="Active Products Lookup View" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)" id="{58afc3c5-8add-4552-98cb-473bc8f75619}">
-          <package>msdynce_ProductManagementAnchor (9.0.23103.10001)</package>
+          <package>msdynce_ProductManagementAnchor (9.0.23105.10001)</package>
         </Required>
         <Dependent type="60" displayName="Case" parentDisplayName="Case" id="{4a63c8d1-6c1e-48ec-9db4-3e6c7155334c}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Products Lookup View" displayName="Active Products Lookup View" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)" id="{58afc3c5-8add-4552-98cb-473bc8f75619}">
-          <package>msdynce_ProductManagementAnchor (9.0.23103.10001)</package>
+          <package>msdynce_ProductManagementAnchor (9.0.23105.10001)</package>
         </Required>
         <Dependent type="60" displayName="Case Quick Create" parentDisplayName="Case" id="{8e10b902-0b3e-441c-8b12-88e6c1793848}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="26" schemaName="Active Products Lookup View" displayName="Active Products Lookup View" parentSchemaName="product" parentDisplayName="Product" solution="msdynce_ProductManagement (9.0.4.0066)" id="{58afc3c5-8add-4552-98cb-473bc8f75619}">
-          <package>msdynce_ProductManagementAnchor (9.0.23103.10001)</package>
+          <package>msdynce_ProductManagementAnchor (9.0.23105.10001)</package>
         </Required>
         <Dependent type="60" displayName="Case for Interactive experience" parentDisplayName="Case" id="{915f6055-2e07-4276-ae08-2b96c8d02c57}" />
       </MissingDependency>
@@ -1882,8 +1881,8 @@
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="My Active Contacts by Relationship" displayName="My Active Contacts by Relationship" parentSchemaName="contact" parentDisplayName="Contact" solution="RelationshipAnalytics (9.0.3.3239)" id="{ef26335d-6f4e-e611-80be-0024e8469fb9}">
-          <package>msdynce_SalesInsightsAnchor (9.0.23103.10015)</package>
+        <Required type="26" schemaName="My Active Contacts by Relationship" displayName="My Active Contacts by Relationship" parentSchemaName="contact" parentDisplayName="Contact" solution="RelationshipAnalytics (9.0.3.9036)" id="{ef26335d-6f4e-e611-80be-0024e8469fb9}">
+          <package>msdynce_SalesInsightsAnchor (9.0.23105.10008)</package>
           <package>SalesInsightsAddOn (9.0.23071.10002)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
@@ -1919,8 +1918,8 @@
         <Dependent type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="annotation" parentDisplayName="Note" id="{8b6f5125-4603-e711-80de-00155db595d7}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5007)" id="{e3057231-6ca6-48b3-8575-ce041f3f704e}">
-          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5007)</package>
+        <Required type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" solution="msdynce_KnowledgeManagementFeatures (9.0.23111.5008)" id="{e3057231-6ca6-48b3-8575-ce041f3f704e}">
+          <package>msdynce_KnowledgeManagementAnchor (9.0.23111.5008)</package>
         </Required>
         <Dependent type="26" schemaName="Portal Search" displayName="Portal Search" parentSchemaName="msdyn_kbattachment" parentDisplayName="Knowledge Article Attachment" id="{e3057231-6ca6-48b3-8575-ce041f3f704e}" />
       </MissingDependency>
@@ -2197,7 +2196,7 @@
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="60" displayName="Enhanced Email" parentDisplayName="Email" solution="msdynce_ActivitiesPatch (9.0.23103.231017003)" id="{63769d04-c74f-4808-b0aa-77339e1b9191}" />
+        <Required type="60" displayName="Enhanced Email" parentDisplayName="Email" solution="msdynce_ActivitiesPatch (9.0.23104.231025003)" id="{63769d04-c74f-4808-b0aa-77339e1b9191}" />
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
@@ -2231,7 +2230,7 @@
         <Dependent type="60" displayName="Information" parentDisplayName="Case Resolution" id="{74d16ac1-ff56-46ac-a0ae-1102197649c3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="60" displayName="Template" parentDisplayName="Email Template" solution="msdynce_ActivitiesPatch (9.0.23103.231017003)" id="{87dd6639-ef6a-4780-b454-6177eb7b3d6d}" />
+        <Required type="60" displayName="Template" parentDisplayName="Email Template" solution="msdynce_ActivitiesPatch (9.0.23104.231025003)" id="{87dd6639-ef6a-4780-b454-6177eb7b3d6d}" />
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
       <MissingDependency>
@@ -2318,7 +2317,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="60" displayName="Contact for Interactive experience" parentDisplayName="Contact" solution="msdynce_LeadManagement (9.0.4.0066)" id="{cc760212-3eab-4009-b5c3-ea9cf6f3e141}">
-          <package>msdynce_LeadManagementAnchor (9.0.23103.10001)</package>
+          <package>msdynce_LeadManagementAnchor (9.0.23105.10001)</package>
         </Required>
         <Dependent type="80" schemaName="Customerservicehub" displayName="Customer Service Hub" />
       </MissingDependency>
@@ -2584,7 +2583,7 @@
         <Required type="61" schemaName="Service/Incident/Convert/Incident_convert_library.js" displayName="Service/Incident/Convert/Incident_convert_library.js" solution="msdynce_Service (9.0.5.56)">
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
-        <Dependent type="60" displayName="Case Quick Create" parentDisplayName="Case" id="{8e10b902-0b3e-441c-8b12-88e6c1793848}" />
+        <Dependent type="60" displayName="Case for Interactive experience" parentDisplayName="Case" id="{915f6055-2e07-4276-ae08-2b96c8d02c57}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="Service/Incident/Incident_main_system_library.js" displayName="Service/Incident/Incident_main_system_library.js" solution="msdynce_Service (9.0.5.56)">
@@ -2649,6 +2648,10 @@
         <Dependent type="60" displayName="Case for Interactive experience" parentDisplayName="Case" id="{915f6055-2e07-4276-ae08-2b96c8d02c57}" />
       </MissingDependency>
       <MissingDependency>
+        <Required type="66" schemaName="genericl_GenericLookupPCFNamespace.GenericLookupPCFComponent" displayName="genericl_GenericLookupPCFNamespace.GenericLookupPCFComponent" solution="Active" />
+        <Dependent type="60" displayName="Case" parentDisplayName="Case" id="{4a63c8d1-6c1e-48ec-9db4-3e6c7155334c}" />
+      </MissingDependency>
+      <MissingDependency>
         <Required type="66" schemaName="MscrmControls.Containers.SimilarCasesGridControl" displayName="MscrmControls.Containers.SimilarCasesGridControl" solution="msdynce_Service (9.0.5.56)">
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>
@@ -2708,23 +2711,23 @@
         <Dependent type="60" displayName="Case for Customer Card" parentDisplayName="Case" id="{a4af0b8e-8095-ed11-aad1-6045bd00698c}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2854)" />
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2861)" />
         <Dependent type="60" displayName="Portal Case Form" parentDisplayName="Case" id="{3fafeccd-74e5-ec11-bb3c-00224817478b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2854)" />
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2861)" />
         <Dependent type="60" displayName="Case" parentDisplayName="Case" id="{4a63c8d1-6c1e-48ec-9db4-3e6c7155334c}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2854)" />
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2861)" />
         <Dependent type="60" displayName="Information" parentDisplayName="Case Resolution" id="{74d16ac1-ff56-46ac-a0ae-1102197649c3}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2854)" />
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2861)" />
         <Dependent type="60" displayName="Case Quick Create" parentDisplayName="Case" id="{8e10b902-0b3e-441c-8b12-88e6c1793848}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2854)" />
+        <Required type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.2861)" />
         <Dependent type="60" displayName="Case for Interactive experience" parentDisplayName="Case" id="{915f6055-2e07-4276-ae08-2b96c8d02c57}" />
       </MissingDependency>
       <MissingDependency>
