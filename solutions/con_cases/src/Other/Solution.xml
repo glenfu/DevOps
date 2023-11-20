@@ -2648,10 +2648,6 @@
         <Dependent type="60" displayName="Case for Interactive experience" parentDisplayName="Case" id="{915f6055-2e07-4276-ae08-2b96c8d02c57}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="genericl_GenericLookupPCFNamespace.GenericLookupPCFComponent" displayName="genericl_GenericLookupPCFNamespace.GenericLookupPCFComponent" solution="Active" />
-        <Dependent type="60" displayName="Case" parentDisplayName="Case" id="{4a63c8d1-6c1e-48ec-9db4-3e6c7155334c}" />
-      </MissingDependency>
-      <MissingDependency>
         <Required type="66" schemaName="MscrmControls.Containers.SimilarCasesGridControl" displayName="MscrmControls.Containers.SimilarCasesGridControl" solution="msdynce_Service (9.0.5.56)">
           <package>msdynce_ServiceAnchor (9.0.23103.1023)</package>
         </Required>

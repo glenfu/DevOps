@@ -19,7 +19,7 @@
                           <label description="Case Title" languagecode="1033" solutionaction="Added" />
                           <label description="Título de caso" languagecode="3082" solutionaction="Added" />
                         </labels>
-                        <control id="title" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="title" disabled="false" uniqueid="{2CBDB9B2-8E18-363A-488E-61C12C86D761}" solutionaction="Modified" />
+                        <control id="title" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="title" disabled="false" solutionaction="Modified" />
                       </cell>
                     </row>
                     <row>
@@ -585,28 +585,6 @@
               </data-set>
               <Update_Frequency static="true" type="Enum">1800</Update_Frequency>
               <EnableNegativeTimer static="true" type="Enum">1</EnableNegativeTimer>
-            </parameters>
-          </customControl>
-        </controlDescription>
-        <controlDescription forControl="{2CBDB9B2-8E18-363A-488E-61C12C86D761}" solutionaction="Added">
-          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="0">
-            <parameters>
-              <datafieldname>title</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="1">
-            <parameters>
-              <datafieldname>title</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl id="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" formFactor="2">
-            <parameters>
-              <datafieldname>title</datafieldname>
-            </parameters>
-          </customControl>
-          <customControl formFactor="-1" name="genericl_GenericLookupPCFNamespace.GenericLookupPCFComponent">
-            <parameters>
-              <DummyLookupField>title</DummyLookupField>
             </parameters>
           </customControl>
         </controlDescription>
