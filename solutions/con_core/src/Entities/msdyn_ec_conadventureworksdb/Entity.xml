@@ -462,6 +462,7 @@
       <IsEnabledForExternalChannels>0</IsEnabledForExternalChannels>
       <ExternalName>CDSEC_AdventureWorksDB</ExternalName>
       <ExternalCollectionName>CDSEC_AdventureWorksDBs</ExternalCollectionName>
+      <IsMSTeamsIntegrationEnabled>0</IsMSTeamsIntegrationEnabled>
       <IsSolutionAware>0</IsSolutionAware>
     </entity>
   </EntityInfo>

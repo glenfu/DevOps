@@ -547,6 +547,7 @@
       <IsEnabledForExternalChannels>0</IsEnabledForExternalChannels>
       <ExternalName>[Person].[Person]</ExternalName>
       <ExternalCollectionName>[Person].[Person]s</ExternalCollectionName>
+      <IsMSTeamsIntegrationEnabled>0</IsMSTeamsIntegrationEnabled>
       <IsSolutionAware>0</IsSolutionAware>
     </entity>
   </EntityInfo>
