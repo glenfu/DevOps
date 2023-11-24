@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workflow WorkflowId="{bf9dce93-2884-ee11-8179-6045bd57c83a}" Name="Sync O365 Activity Log" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <JsonFileName>/Workflows/SyncO365ActivityLog-BF9DCE93-2884-EE11-8179-6045BD57C83A.json</JsonFileName>
+<Workflow WorkflowId="{6c046367-7c8a-ee11-be36-6045bd57c6bd}" Name="Sync Activity Logs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/SyncActivityLogs-6C046367-7C8A-EE11-BE36-6045BD57C6BD.json</JsonFileName>
   <Type>1</Type>
   <Subprocess>0</Subprocess>
   <Category>5</Category>
@@ -22,6 +22,6 @@
   <ThrottlingBehavior>1</ThrottlingBehavior>
   <PrimaryEntity>none</PrimaryEntity>
   <LocalizedNames>
-    <LocalizedName languagecode="1033" description="Sync O365 Activity Log" />
+    <LocalizedName languagecode="1033" description="Sync Activity Logs" />
   </LocalizedNames>
 </Workflow>

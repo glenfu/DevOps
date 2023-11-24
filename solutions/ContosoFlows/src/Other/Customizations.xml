@@ -75,9 +75,23 @@
       <statecode>0</statecode>
       <statuscode>1</statuscode>
     </connectionreference>
+    <connectionreference connectionreferencelogicalname="ms_sharedcommondataserviceforapps_056ad">
+      <connectionreferencedisplayname>Microsoft Dataverse SyncO365ActivityLogs-056ad</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
     <connectionreference connectionreferencelogicalname="ms_sharedflowmanagement_477f9">
       <connectionreferencedisplayname>Power Automate Management DefaultEnvironmentManagement-477f9</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_flowmanagement</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="ms_sharedoffice365_8d8e0">
+      <connectionreferencedisplayname>Office 365 Outlook DefaultEnvironmentManagement-8d8e0</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_office365</connectorid>
       <iscustomizable>1</iscustomizable>
       <statecode>0</statecode>
       <statuscode>1</statuscode>
@@ -99,6 +113,13 @@
     <connectionreference connectionreferencelogicalname="ms_sharedpowerappsforadmins_ef463">
       <connectionreferencedisplayname>Power Apps for Admins DefaultEnvironmentManagement-ef463</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_powerappsforadmins</connectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+    <connectionreference connectionreferencelogicalname="ms_sharedsharepointonline_bb440">
+      <connectionreferencedisplayname>SharePoint SyncO365ActivityLogs-bb440</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_sharepointonline</connectorid>
       <iscustomizable>1</iscustomizable>
       <statecode>0</statecode>
       <statuscode>1</statuscode>

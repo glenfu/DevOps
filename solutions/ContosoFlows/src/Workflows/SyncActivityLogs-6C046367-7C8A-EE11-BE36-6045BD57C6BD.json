@@ -1,16 +1,17 @@
 {
   "properties": {
     "connectionReferences": {
-      "shared_commondataserviceforapps": {
+      "shared_commondataserviceforapps-2": {
+        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_b7d8f"
+          "connectionReferenceLogicalName": "ms_sharedcommondataserviceforapps_056ad"
         },
         "api": {
           "name": "shared_commondataserviceforapps"
         }
       },
-      "shared_sharepointonline_1": {
+      "shared_sharepointonline": {
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "con_sharedsharepointonline_f3e8d"
@@ -24,47 +25,47 @@
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$connections": {
-          "defaultValue": {},
-          "type": "Object"
-        },
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
         },
-        "O365 API Client ID (con_O365APIClientID)": {
-          "defaultValue": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203",
-          "type": "String",
-          "metadata": {
-            "schemaName": "con_O365APIClientID"
-          }
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
         },
-        "O365 API Client Secret (con_O365APIClientSecret)": {
-          "defaultValue": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ",
-          "type": "String",
-          "metadata": {
-            "schemaName": "con_O365APIClientSecret"
-          }
-        },
-        "O365 API Audience (con_O365APIAudience)": {
+        "O365 API Audience (ms_O365APIAudience)": {
           "defaultValue": "https://manage.office.com",
           "type": "String",
           "metadata": {
-            "schemaName": "con_O365APIAudience"
+            "schemaName": "ms_O365APIAudience"
           }
         },
-        "O365 API Tenant ID (con_O365APITenantID)": {
+        "O365 API Client ID (ms_O365APIClientID)": {
+          "defaultValue": "b5b1f32d-23c7-4be8-a1e4-e8f83b23e203",
+          "type": "String",
+          "metadata": {
+            "schemaName": "ms_O365APIClientID"
+          }
+        },
+        "O365 API Tenant ID (ms_O365APITenantID)": {
           "defaultValue": "1557f771-4c8e-4dbd-8b80-dd00a88e833e",
           "type": "String",
           "metadata": {
-            "schemaName": "con_O365APITenantID"
+            "schemaName": "ms_O365APITenantID"
           }
         },
-        "O365 API Authority (con_O365APIAuthority)": {
+        "O365 API Authority (ms_O365APIAuthority)": {
           "defaultValue": "https://login.windows.net",
           "type": "String",
           "metadata": {
-            "schemaName": "con_O365APIAuthority"
+            "schemaName": "ms_O365APIAuthority"
+          }
+        },
+        "O365 API Client Secret (ms_O365APIClientSecret)": {
+          "defaultValue": "6H38Q~7S8qEoEAtDx6n48KI6wwRi.KT76Cqr0cNJ",
+          "type": "String",
+          "metadata": {
+            "schemaName": "ms_O365APIClientSecret"
           }
         }
       },
@@ -77,7 +78,7 @@
             "startTime": "2023-11-24T16:00:00Z"
           },
           "metadata": {
-            "operationMetadataId": "2399d65d-6e35-4354-b77d-a4ad04981647"
+            "operationMetadataId": "c57b3019-e6b7-4d82-865d-65963b1b2797"
           },
           "type": "Recurrence"
         }
@@ -86,43 +87,38 @@
         "Initialize_variable_-_ContentIDs": {
           "runAfter": {},
           "metadata": {
-            "operationMetadataId": "edb4e002-04c2-4f48-b936-7388cfffda11"
+            "operationMetadataId": "16cef767-8bb6-4311-ac68-aa306e2429b0"
           },
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
               {
                 "name": "ContentIDs",
-                "type": "array"
+                "type": "array",
+                "value": "@null"
               }
             ]
           }
         },
-        "Compose_-_startTime_-_utcNow_minus_24_hours": {
+        "Initialize_variable_-_ActivityLogs": {
           "runAfter": {
-            "Initialize_variable_-_NextPageParam": [
+            "Initialize_variable_-_ContentIDs": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "b2526839-3685-4725-bf4f-92b600fff0dd"
+            "operationMetadataId": "45e51f91-0dcd-49bb-9907-077a4e0dd6e3"
           },
-          "type": "Compose",
-          "inputs": "@formatDateTime(addHours(utcNow(), -24), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
-          "description": "formatDateTime(addHours(utcNow(), -24), 'yyyy-MM-ddTHH:mm:ss.0000000Z')"
-        },
-        "Compose_-_endTime_-utcNow": {
-          "runAfter": {
-            "Compose_-_startTime_-_utcNow_minus_24_hours": [
-              "Succeeded"
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ActivityLogs",
+                "type": "array",
+                "value": "@null"
+              }
             ]
-          },
-          "metadata": {
-            "operationMetadataId": "b6534db4-f092-41cf-b7e8-d1d10c6a7a88"
-          },
-          "type": "Compose",
-          "inputs": "@formatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
-          "description": "formatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')"
+          }
         },
         "Initialize_variable_-_NextPageUri": {
           "runAfter": {
@@ -131,7 +127,7 @@
             ]
           },
           "metadata": {
-            "operationMetadataId": "ee1e479c-81a1-4dc9-8e24-0f85da59efa6"
+            "operationMetadataId": "8b2150a3-87fa-4c0b-9cc2-712e0979908a"
           },
           "type": "InitializeVariable",
           "inputs": {
@@ -151,7 +147,7 @@
             ]
           },
           "metadata": {
-            "operationMetadataId": "aca604ee-d8b3-432f-9b7b-48e7ead47464"
+            "operationMetadataId": "4a1edbfa-bb8d-472b-965f-43dff948d675"
           },
           "type": "InitializeVariable",
           "inputs": {
@@ -164,125 +160,61 @@
             ]
           }
         },
-        "Do_until_-_Get_All_ContentIDs": {
+        "Compose_-_startTime_-_utcNow_minus_24_hours": {
+          "runAfter": {
+            "Initialize_variable_-_NextPageParam": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cb157133-33ac-4624-9dd5-2bccca546afd"
+          },
+          "type": "Compose",
+          "inputs": "@formatDateTime(addHours(utcNow(), -1), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
+          "description": "formatDateTime(addHours(utcNow(), -24), 'yyyy-MM-ddTHH:mm:ss.0000000Z')"
+        },
+        "Compose_-_endTime_-utcNow": {
+          "runAfter": {
+            "Compose_-_startTime_-_utcNow_minus_24_hours": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4942d85f-2da9-46fc-8b4a-9bad3418155d"
+          },
+          "type": "Compose",
+          "inputs": "@formatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
+          "description": " formatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')"
+        },
+        "Do_until": {
           "actions": {
             "HTTP_-_Get_Content_Blobs": {
-              "runAfter": {},
               "metadata": {
-                "operationMetadataId": "1b6cf0a0-bf85-45ad-b18e-eb4eae24eae9"
+                "operationMetadataId": "d2bcb675-133f-4fda-ac52-ef91552c672e"
               },
               "type": "Http",
               "inputs": {
+                "uri": "@{parameters('O365 API Audience (ms_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (ms_O365APITenantID)')}/activity/feed/subscriptions/content",
                 "method": "GET",
-                "uri": "@{parameters('O365 API Audience (con_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (con_O365APITenantID)')}/activity/feed/subscriptions/content",
                 "headers": {
                   "Content-Type": "application/json"
                 },
                 "queries": {
                   "contentType": "Audit.General",
-                  "PublisherIdentifier": "@{parameters('O365 API Tenant ID (con_O365APITenantID)')}",
+                  "PublisherIdentifier": "@parameters('O365 API Tenant ID (ms_O365APITenantID)')",
                   "startTime": "@{outputs('Compose_-_startTime_-_utcNow_minus_24_hours')}",
                   "endTime": "@{outputs('Compose_-_endTime_-utcNow')}",
-                  "nextpage": "@{variables('NextPageParam')}"
+                  "nextpage": "@variables('NextPageParam')"
                 },
                 "authentication": {
                   "type": "ActiveDirectoryOAuth",
-                  "authority": "@{parameters('O365 API Authority (con_O365APIAuthority)')}",
-                  "tenant": "@{parameters('O365 API Tenant ID (con_O365APITenantID)')}",
-                  "audience": "@{parameters('O365 API Audience (con_O365APIAudience)')}",
-                  "clientId": "@{parameters('O365 API Client ID (con_O365APIClientID)')}",
-                  "secret": "@{parameters('O365 API Client Secret (con_O365APIClientSecret)')}"
+                  "authority": "@parameters('O365 API Authority (ms_O365APIAuthority)')",
+                  "tenant": "@parameters('O365 API Tenant ID (ms_O365APITenantID)')",
+                  "audience": "@parameters('O365 API Audience (ms_O365APIAudience)')",
+                  "clientId": "@parameters('O365 API Client ID (ms_O365APIClientID)')",
+                  "secret": "@parameters('O365 API Client Secret (ms_O365APIClientSecret)')"
                 }
               }
-            },
-            "Select_-_ContentIDs": {
-              "runAfter": {
-                "Parse_JSON_-_Body": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "bf3f03f7-0e91-49c8-903a-9b82153596b8"
-              },
-              "type": "Select",
-              "inputs": {
-                "from": "@body('Parse_JSON_-_Body')",
-                "select": {
-                  "ContentID": "@item()?['contentId']"
-                }
-              }
-            },
-            "Condition_-_Does_NextPageUri_Exist": {
-              "actions": {
-                "Set_variable_-_NextPageUri": {
-                  "runAfter": {},
-                  "metadata": {
-                    "operationMetadataId": "29c801b3-f0de-4af6-8a96-ac2b13d8a354"
-                  },
-                  "type": "SetVariable",
-                  "inputs": {
-                    "name": "NextPageUri",
-                    "value": "@{body('Parse_JSON_-_Header')?['NextPageUri']}"
-                  }
-                },
-                "Set_variable_-_NextPageParam": {
-                  "runAfter": {
-                    "Compose_-_QueryString": [
-                      "Succeeded"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "efc26d6b-a5fb-43dd-87c2-4649c1f8b42a"
-                  },
-                  "type": "SetVariable",
-                  "inputs": {
-                    "name": "NextPageParam",
-                    "value": "@{substring(outputs('Compose_-_QueryString'), add(indexOf(outputs('Compose_-_QueryString'), 'nextpage'), 9))}"
-                  }
-                },
-                "Compose_-_QueryString": {
-                  "runAfter": {
-                    "Set_variable_-_NextPageUri": [
-                      "Succeeded"
-                    ]
-                  },
-                  "metadata": {
-                    "operationMetadataId": "f4b4e792-dadc-4004-a25b-1dc475dfb4e1"
-                  },
-                  "type": "Compose",
-                  "inputs": "@uriQuery(variables('NextPageUri'))"
-                }
-              },
-              "runAfter": {
-                "Apply_to_each_-_ContentID": [
-                  "Succeeded"
-                ]
-              },
-              "else": {
-                "actions": {
-                  "Set_variable_-_NextPageUri_to_null": {
-                    "runAfter": {},
-                    "metadata": {
-                      "operationMetadataId": "9d8481ee-e206-46ec-aa40-8ca0f1fea6fb"
-                    },
-                    "type": "SetVariable",
-                    "inputs": {
-                      "name": "NextPageUri",
-                      "value": "@{null}"
-                    }
-                  }
-                }
-              },
-              "expression": {
-                "contains": [
-                  "@body('Parse_JSON_-_Header')",
-                  "NextPageUri"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "da581502-4972-44bb-ade8-8588a1bd7229"
-              },
-              "type": "If"
             },
             "Parse_JSON_-_Header": {
               "runAfter": {
@@ -291,7 +223,7 @@
                 ]
               },
               "metadata": {
-                "operationMetadataId": "baee9e2c-ca43-4c48-9b61-2c73f3346225"
+                "operationMetadataId": "1c55aff0-4454-4aa2-98e4-114693d94489"
               },
               "type": "ParseJson",
               "inputs": {
@@ -348,7 +280,7 @@
                 ]
               },
               "metadata": {
-                "operationMetadataId": "e4d1f48f-cb8e-4b92-b53c-cc287e5cd2d2"
+                "operationMetadataId": "01e63805-5c98-42cf-a763-2d87cfe4eac4"
               },
               "type": "ParseJson",
               "inputs": {
@@ -385,13 +317,29 @@
                 }
               }
             },
+            "Select_-_ContentIDs": {
+              "runAfter": {
+                "Parse_JSON_-_Body": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "7775b98f-6546-40dc-a082-0f9511143e7e"
+              },
+              "type": "Select",
+              "inputs": {
+                "from": "@body('Parse_JSON_-_Body')",
+                "select": {
+                  "ContentID": "@item()?['contentId']"
+                }
+              }
+            },
             "Apply_to_each_-_ContentID": {
               "foreach": "@body('Select_-_ContentIDs')",
               "actions": {
-                "AppendContentIDsArray": {
-                  "runAfter": {},
+                "Append_to_array_variable_-_ContentIDs": {
                   "metadata": {
-                    "operationMetadataId": "84e2b9ed-2f17-48fd-a39e-6fd92ba4c456"
+                    "operationMetadataId": "c4a65423-24ab-4b37-877d-53648e3952f0"
                   },
                   "type": "AppendToArrayVariable",
                   "inputs": {
@@ -406,9 +354,79 @@
                 ]
               },
               "metadata": {
-                "operationMetadataId": "3d9ddd1e-6846-4451-8919-6e80c80116af"
+                "operationMetadataId": "3dc8499b-a1fe-41a7-b982-ef0563dc2569"
               },
               "type": "Foreach"
+            },
+            "Condition_-_Does_NextPageUri_Exist": {
+              "actions": {
+                "Set_variable_-_NextPageUri": {
+                  "metadata": {
+                    "operationMetadataId": "44bf23f1-48f8-438d-a004-60df9ecf658d"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "NextPageUri",
+                    "value": "@{body('Parse_JSON_-_Header')?['NextPageUri']}"
+                  }
+                },
+                "Compose_-_QueryString": {
+                  "runAfter": {
+                    "Set_variable_-_NextPageUri": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "16ab0dcf-f620-4a8c-9c35-0c19c0241deb"
+                  },
+                  "type": "Compose",
+                  "inputs": "@uriQuery(variables('NextPageUri'))"
+                },
+                "Set_variable_-_NextPageParam": {
+                  "runAfter": {
+                    "Compose_-_QueryString": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "362f3cd6-5219-40b8-bf7d-706af4eda8da"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "NextPageParam",
+                    "value": "@{substring(outputs('Compose_-_QueryString'), add(indexOf(outputs('Compose_-_QueryString'), 'nextpage'), 9))}"
+                  }
+                }
+              },
+              "runAfter": {
+                "Apply_to_each_-_ContentID": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Set_variable_-_NextPageUri_to_null": {
+                    "metadata": {
+                      "operationMetadataId": "8a68d977-77a0-418d-864b-3353840e796d"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "NextPageUri",
+                      "value": "@{null}"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "contains": [
+                  "@body('Parse_JSON_-_Header')",
+                  "NextPageUri"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "4ac61548-f59a-4bc5-bc4b-2802137c79a7"
+              },
+              "type": "If"
             }
           },
           "runAfter": {
@@ -422,49 +440,30 @@
             "timeout": "PT1H"
           },
           "metadata": {
-            "operationMetadataId": "35d4cfff-2f2d-4da6-b900-0ef30a5cdbc3"
+            "operationMetadataId": "a8d24384-6023-41ea-81c2-a5a6e9f8e01d"
           },
-          "type": "Until"
-        },
-        "Initialize_variable_-_ActivityLogs": {
-          "runAfter": {
-            "Initialize_variable_-_ContentIDs": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "882e9179-7480-43b9-b86f-186e7d85f2e8"
-          },
-          "type": "InitializeVariable",
-          "inputs": {
-            "variables": [
-              {
-                "name": "ActivityLogs",
-                "type": "array",
-                "value": "@null"
-              }
-            ]
-          }
+          "type": "Until",
+          "description": "length(variables('NextPageUri'))"
         },
         "List_rows_-_Get_all_environments": {
           "runAfter": {
-            "Do_until_-_Get_All_ContentIDs": [
+            "Do_until": [
               "Succeeded"
             ]
           },
           "metadata": {
-            "operationMetadataId": "e917dc8f-a98f-4437-8259-883819dfc9a5"
+            "operationMetadataId": "618789d5-d237-44f3-81b0-7fda7736939c"
           },
           "type": "OpenApiConnection",
           "inputs": {
-            "host": {
-              "connectionName": "shared_commondataserviceforapps",
-              "operationId": "ListRecords",
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-            },
             "parameters": {
-              "entityName": "con_environments",
-              "$select": "con_name,con_sharepointdocumentlibrary,con_sharepointsite"
+              "entityName": "ms_auditenvironments",
+              "$select": "ms_name,ms_sharepointdocumentlibrary,ms_sharepointsite"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "connectionName": "shared_commondataserviceforapps-2",
+              "operationId": "ListRecords"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -472,55 +471,9 @@
         "Apply_to_each_-_Environment": {
           "foreach": "@outputs('List_rows_-_Get_all_environments')?['body/value']",
           "actions": {
-            "Create_file": {
-              "runAfter": {
-                "Create_CSV_table": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "ef6e95c8-20d8-41ae-bd96-1b72cb95a561"
-              },
-              "type": "OpenApiConnection",
-              "inputs": {
-                "host": {
-                  "connectionName": "shared_sharepointonline_1",
-                  "operationId": "CreateFile",
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
-                },
-                "parameters": {
-                  "dataset": "@items('Apply_to_each_-_Environment')?['con_sharepointsite']",
-                  "folderPath": "@items('Apply_to_each_-_Environment')?['con_sharepointdocumentlibrary']",
-                  "name": "@{items('Apply_to_each_-_Environment')?['con_sharepointdocumentlibrary']}_@{formatDateTime(utcNow(),'yyyy-MM-dd_hhmmss')}.csv",
-                  "body": "@body('Create_CSV_table')"
-                },
-                "authentication": "@parameters('$authentication')"
-              },
-              "runtimeConfiguration": {
-                "contentTransfer": {
-                  "transferMode": "Chunked"
-                }
-              }
-            },
-            "Create_CSV_table": {
-              "runAfter": {
-                "Apply_to_each_-_Get_Content_Blob": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "830d687a-0c76-44aa-ba60-90acf7881bd3"
-              },
-              "type": "Table",
-              "inputs": {
-                "from": "@variables('ActivityLogs')",
-                "format": "CSV"
-              }
-            },
             "Set_variable_-_Empty_Activity_Logs_Array": {
-              "runAfter": {},
               "metadata": {
-                "operationMetadataId": "d14ea296-6bad-4ab8-a0d4-efde42445a3a"
+                "operationMetadataId": "b4f1efec-32ce-4eb5-b742-6b2f5f39cb9c"
               },
               "type": "SetVariable",
               "inputs": {
@@ -532,24 +485,23 @@
               "foreach": "@variables('ContentIDs')",
               "actions": {
                 "HTTP_-_Get_Content_Blob": {
-                  "runAfter": {},
                   "metadata": {
-                    "operationMetadataId": "3e32020b-7c95-4687-8d31-7af5fabc78bf"
+                    "operationMetadataId": "a3fb1b9c-6f9a-435c-9063-c528cdb3d6e2"
                   },
                   "type": "Http",
                   "inputs": {
+                    "uri": "@{parameters('O365 API Audience (ms_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (ms_O365APITenantID)')}/activity/feed/audit/@{items('Apply_to_each_-_Get_Content_Blob')?['contentId']}",
                     "method": "GET",
-                    "uri": "@{parameters('O365 API Audience (con_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (con_O365APITenantID)')}/activity/feed/audit/@{item()?['contentId']}",
                     "headers": {
                       "Content-Type": "application/json"
                     },
                     "authentication": {
                       "type": "ActiveDirectoryOAuth",
-                      "authority": "@{parameters('O365 API Authority (con_O365APIAuthority)')}",
-                      "tenant": "@{parameters('O365 API Tenant ID (con_O365APITenantID)')}",
-                      "audience": "@{parameters('O365 API Audience (con_O365APIAudience)')}",
-                      "clientId": "@{parameters('O365 API Client ID (con_O365APIClientID)')}",
-                      "secret": "@{parameters('O365 API Client Secret (con_O365APIClientSecret)')}"
+                      "authority": "@parameters('O365 API Authority (ms_O365APIAuthority)')",
+                      "tenant": "@parameters('O365 API Tenant ID (ms_O365APITenantID)')",
+                      "audience": "@parameters('O365 API Audience (ms_O365APIAudience)')",
+                      "clientId": "@parameters('O365 API Client ID (ms_O365APIClientID)')",
+                      "secret": "@parameters('O365 API Client Secret (ms_O365APIClientSecret)')"
                     }
                   }
                 },
@@ -560,7 +512,7 @@
                     ]
                   },
                   "metadata": {
-                    "operationMetadataId": "a25cae7c-6db3-4bd3-97c1-f401a6133656"
+                    "operationMetadataId": "2fdc11e8-e507-47f9-a872-5bd5fd66d5c1"
                   },
                   "type": "Query",
                   "inputs": {
@@ -576,21 +528,20 @@
                     ]
                   },
                   "metadata": {
-                    "operationMetadataId": "77f07ec1-992c-4345-86a5-5f9af4cb2278"
+                    "operationMetadataId": "8420e399-b3b5-41ce-87a3-c391b73de70a"
                   },
                   "type": "Query",
                   "inputs": {
                     "from": "@body('Filter_array_-_D365_Events')",
-                    "where": "@equals(item()?['InstanceUrl'],items('Apply_to_each_-_Environment')?['con_name'])"
+                    "where": "@equals(item()?['InstanceUrl'], items('Apply_to_each_-_Environment')?['ms_name'])"
                   }
                 },
                 "Apply_to_each_-_Activity_Log": {
                   "foreach": "@body('Filter_array_-_Environment_Activity_Logs')",
                   "actions": {
                     "Append_to_array_variable_-_Activity_Logs": {
-                      "runAfter": {},
                       "metadata": {
-                        "operationMetadataId": "69aadb6d-fba4-4e61-bffa-6ca36934f5e2"
+                        "operationMetadataId": "ff7fb1e2-d1b0-4916-beba-0094a65de4b8"
                       },
                       "type": "AppendToArrayVariable",
                       "inputs": {
@@ -605,7 +556,7 @@
                     ]
                   },
                   "metadata": {
-                    "operationMetadataId": "2a52f7ea-7d2d-4860-862b-62c671d7bfa4"
+                    "operationMetadataId": "e9368518-9a1d-4c14-a69d-0a0c4c3591b0"
                   },
                   "type": "Foreach"
                 }
@@ -616,9 +567,54 @@
                 ]
               },
               "metadata": {
-                "operationMetadataId": "c5bf8c24-5475-45bc-bb27-1e3209058d9f"
+                "operationMetadataId": "3a830f10-a1a9-4818-b0de-66783d7c0584"
               },
               "type": "Foreach"
+            },
+            "Create_CSV_table": {
+              "runAfter": {
+                "Apply_to_each_-_Get_Content_Blob": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "eff47810-bb2b-4224-bdd8-dde40eb2dd39"
+              },
+              "type": "Table",
+              "inputs": {
+                "from": "@variables('ActivityLogs')",
+                "format": "CSV"
+              }
+            },
+            "Create_file": {
+              "runAfter": {
+                "Create_CSV_table": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "91ef14ad-f45f-4633-aa55-8d27b5aed070"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "dataset": "@items('Apply_to_each_-_Environment')?['ms_sharepointsite']",
+                  "folderPath": "@items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']",
+                  "name": "@{items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']}_@{formatDateTime(utcNow(), 'yyyy-MM-dd_hhmmss')}.csv",
+                  "body": "@body('Create_CSV_table')"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+                  "connectionName": "shared_sharepointonline",
+                  "operationId": "CreateFile"
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "runtimeConfiguration": {
+                "contentTransfer": {
+                  "transferMode": "Chunked"
+                }
+              }
             }
           },
           "runAfter": {
@@ -627,13 +623,13 @@
             ]
           },
           "metadata": {
-            "operationMetadataId": "57101512-6cd6-4bf2-93b4-82b79a4b038a"
+            "operationMetadataId": "ff6df96d-0852-4b98-b348-640310934247"
           },
           "type": "Foreach"
         }
       }
     },
-    "templateName": ""
+    "templateName": null
   },
   "schemaVersion": "1.0.0.0"
 }

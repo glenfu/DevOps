@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EntityRelationship Name="business_unit_con_environment" />
+  <EntityRelationship Name="business_unit_ms_auditenvironment" />
   <EntityRelationship Name="lk_con_environment_createdby" />
   <EntityRelationship Name="lk_con_environment_modifiedby" />
+  <EntityRelationship Name="lk_ms_auditenvironment_createdby" />
+  <EntityRelationship Name="lk_ms_auditenvironment_modifiedby" />
   <EntityRelationship Name="owner_con_environment" />
+  <EntityRelationship Name="owner_ms_auditenvironment" />
   <EntityRelationship Name="team_con_environment" />
+  <EntityRelationship Name="team_ms_auditenvironment" />
   <EntityRelationship Name="user_con_environment" />
+  <EntityRelationship Name="user_ms_auditenvironment" />
 </EntityRelationships>
