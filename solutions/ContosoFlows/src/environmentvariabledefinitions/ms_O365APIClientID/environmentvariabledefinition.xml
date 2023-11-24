@@ -1,5 +1,4 @@
 <environmentvariabledefinition schemaname="ms_O365APIClientID">
-  <defaultvalue>default</defaultvalue>
   <displayname default="O365 API Client ID">
     <label description="O365 API Client ID" languagecode="1033" />
   </displayname>

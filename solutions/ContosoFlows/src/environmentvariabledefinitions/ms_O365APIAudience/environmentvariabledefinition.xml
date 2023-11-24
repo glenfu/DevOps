@@ -1,5 +1,4 @@
 <environmentvariabledefinition schemaname="ms_O365APIAudience">
-  <defaultvalue>default</defaultvalue>
   <displayname default="O365 API Audience">
     <label description="O365 API Audience" languagecode="1033" />
   </displayname>
