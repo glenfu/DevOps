@@ -1,4 +1,5 @@
 <environmentvariabledefinition schemaname="ms_O365APIClientSecret">
+  <defaultvalue>default</defaultvalue>
   <displayname default="O365 API Client Secret">
     <label description="O365 API Client Secret" languagecode="1033" />
   </displayname>

@@ -1,4 +1,5 @@
 <environmentvariabledefinition schemaname="ms_O365APIAuthority">
+  <defaultvalue>default</defaultvalue>
   <displayname default="O365 API Authority">
     <label description="O365 API Authority" languagecode="1033" />
   </displayname>

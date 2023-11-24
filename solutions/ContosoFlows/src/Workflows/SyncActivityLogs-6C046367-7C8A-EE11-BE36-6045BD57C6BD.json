@@ -2,7 +2,6 @@
   "properties": {
     "connectionReferences": {
       "shared_commondataserviceforapps-2": {
-        "impersonation": {},
         "runtimeSource": "embedded",
         "connection": {
           "connectionReferenceLogicalName": "ms_sharedcommondataserviceforapps_056ad"
@@ -14,7 +13,7 @@
       "shared_sharepointonline": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "con_sharedsharepointonline_f3e8d"
+          "connectionReferenceLogicalName": "ms_sharedsharepointonline_bb440"
         },
         "api": {
           "name": "shared_sharepointonline"
@@ -25,13 +24,13 @@
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "$authentication": {
-          "defaultValue": {},
-          "type": "SecureObject"
-        },
         "$connections": {
           "defaultValue": {},
           "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
         },
         "O365 API Audience (ms_O365APIAudience)": {
           "defaultValue": "https://manage.office.com",
@@ -189,13 +188,14 @@
         "Do_until": {
           "actions": {
             "HTTP_-_Get_Content_Blobs": {
+              "runAfter": {},
               "metadata": {
                 "operationMetadataId": "d2bcb675-133f-4fda-ac52-ef91552c672e"
               },
               "type": "Http",
               "inputs": {
-                "uri": "@{parameters('O365 API Audience (ms_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (ms_O365APITenantID)')}/activity/feed/subscriptions/content",
                 "method": "GET",
+                "uri": "@{parameters('O365 API Audience (ms_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (ms_O365APITenantID)')}/activity/feed/subscriptions/content",
                 "headers": {
                   "Content-Type": "application/json"
                 },
@@ -338,6 +338,7 @@
               "foreach": "@body('Select_-_ContentIDs')",
               "actions": {
                 "Append_to_array_variable_-_ContentIDs": {
+                  "runAfter": {},
                   "metadata": {
                     "operationMetadataId": "c4a65423-24ab-4b37-877d-53648e3952f0"
                   },
@@ -361,6 +362,7 @@
             "Condition_-_Does_NextPageUri_Exist": {
               "actions": {
                 "Set_variable_-_NextPageUri": {
+                  "runAfter": {},
                   "metadata": {
                     "operationMetadataId": "44bf23f1-48f8-438d-a004-60df9ecf658d"
                   },
@@ -406,6 +408,7 @@
               "else": {
                 "actions": {
                   "Set_variable_-_NextPageUri_to_null": {
+                    "runAfter": {},
                     "metadata": {
                       "operationMetadataId": "8a68d977-77a0-418d-864b-3353840e796d"
                     },
@@ -456,14 +459,14 @@
           },
           "type": "OpenApiConnection",
           "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps-2",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
             "parameters": {
               "entityName": "ms_auditenvironments",
               "$select": "ms_name,ms_sharepointdocumentlibrary,ms_sharepointsite"
-            },
-            "host": {
-              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
-              "connectionName": "shared_commondataserviceforapps-2",
-              "operationId": "ListRecords"
             },
             "authentication": "@parameters('$authentication')"
           }
@@ -472,6 +475,7 @@
           "foreach": "@outputs('List_rows_-_Get_all_environments')?['body/value']",
           "actions": {
             "Set_variable_-_Empty_Activity_Logs_Array": {
+              "runAfter": {},
               "metadata": {
                 "operationMetadataId": "b4f1efec-32ce-4eb5-b742-6b2f5f39cb9c"
               },
@@ -485,13 +489,14 @@
               "foreach": "@variables('ContentIDs')",
               "actions": {
                 "HTTP_-_Get_Content_Blob": {
+                  "runAfter": {},
                   "metadata": {
                     "operationMetadataId": "a3fb1b9c-6f9a-435c-9063-c528cdb3d6e2"
                   },
                   "type": "Http",
                   "inputs": {
-                    "uri": "@{parameters('O365 API Audience (ms_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (ms_O365APITenantID)')}/activity/feed/audit/@{items('Apply_to_each_-_Get_Content_Blob')?['contentId']}",
                     "method": "GET",
+                    "uri": "@{parameters('O365 API Audience (ms_O365APIAudience)')}/api/v1.0/@{parameters('O365 API Tenant ID (ms_O365APITenantID)')}/activity/feed/audit/@{items('Apply_to_each_-_Get_Content_Blob')?['contentId']}",
                     "headers": {
                       "Content-Type": "application/json"
                     },
@@ -540,6 +545,7 @@
                   "foreach": "@body('Filter_array_-_Environment_Activity_Logs')",
                   "actions": {
                     "Append_to_array_variable_-_Activity_Logs": {
+                      "runAfter": {},
                       "metadata": {
                         "operationMetadataId": "ff7fb1e2-d1b0-4916-beba-0094a65de4b8"
                       },
@@ -597,16 +603,16 @@
               },
               "type": "OpenApiConnection",
               "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline",
+                  "operationId": "CreateFile",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
                 "parameters": {
                   "dataset": "@items('Apply_to_each_-_Environment')?['ms_sharepointsite']",
                   "folderPath": "@items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']",
                   "name": "@{items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']}_@{formatDateTime(utcNow(), 'yyyy-MM-dd_hhmmss')}.csv",
                   "body": "@body('Create_CSV_table')"
-                },
-                "host": {
-                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
-                  "connectionName": "shared_sharepointonline",
-                  "operationId": "CreateFile"
                 },
                 "authentication": "@parameters('$authentication')"
               },
@@ -629,7 +635,7 @@
         }
       }
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }
