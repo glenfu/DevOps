@@ -69,9 +69,9 @@
         }
       },
       "triggers": {
-        "Recurrence_-_Daily_at_Midnight": {
+        "Recurrence_-_Hourly": {
           "recurrence": {
-            "frequency": "Day",
+            "frequency": "Hour",
             "interval": 1,
             "timeZone": "UTC",
             "startTime": "2023-11-24T16:00:00Z"
@@ -159,7 +159,7 @@
             ]
           }
         },
-        "Compose_-_startTime_-_utcNow_minus_24_hours": {
+        "Compose_-_startTime_-_utcNow_minus_65_minutes": {
           "runAfter": {
             "Initialize_variable_-_NextPageParam": [
               "Succeeded"
@@ -169,12 +169,12 @@
             "operationMetadataId": "cb157133-33ac-4624-9dd5-2bccca546afd"
           },
           "type": "Compose",
-          "inputs": "@formatDateTime(addHours(utcNow(), -1), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
-          "description": "formatDateTime(addHours(utcNow(), -24), 'yyyy-MM-ddTHH:mm:ss.0000000Z')"
+          "inputs": "@formatDateTime(addMinutes(utcNow(), -65), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
+          "description": "formatDateTime(addMinutes(utcNow(), -65), 'yyyy-MM-ddTHH:mm:ss.0000000Z')"
         },
         "Compose_-_endTime_-utcNow": {
           "runAfter": {
-            "Compose_-_startTime_-_utcNow_minus_24_hours": [
+            "Compose_-_startTime_-_utcNow_minus_65_minutes": [
               "Succeeded"
             ]
           },
@@ -182,7 +182,7 @@
             "operationMetadataId": "4942d85f-2da9-46fc-8b4a-9bad3418155d"
           },
           "type": "Compose",
-          "inputs": "@formatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
+          "inputs": "@\r\nformatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
           "description": " formatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')"
         },
         "Do_until": {
@@ -202,7 +202,7 @@
                 "queries": {
                   "contentType": "Audit.General",
                   "PublisherIdentifier": "@parameters('O365 API Tenant ID (ms_O365APITenantID)')",
-                  "startTime": "@{outputs('Compose_-_startTime_-_utcNow_minus_24_hours')}",
+                  "startTime": "@{outputs('Compose_-_startTime_-_utcNow_minus_65_minutes')}",
                   "endTime": "@{outputs('Compose_-_endTime_-utcNow')}",
                   "nextpage": "@variables('NextPageParam')"
                 },
