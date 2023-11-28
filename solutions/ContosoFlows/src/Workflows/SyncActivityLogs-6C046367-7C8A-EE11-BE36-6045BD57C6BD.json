@@ -564,7 +564,12 @@
                   "metadata": {
                     "operationMetadataId": "e9368518-9a1d-4c14-a69d-0a0c4c3591b0"
                   },
-                  "type": "Foreach"
+                  "type": "Foreach",
+                  "runtimeConfiguration": {
+                    "concurrency": {
+                      "repetitions": 50
+                    }
+                  }
                 }
               },
               "runAfter": {
@@ -575,7 +580,12 @@
               "metadata": {
                 "operationMetadataId": "3a830f10-a1a9-4818-b0de-66783d7c0584"
               },
-              "type": "Foreach"
+              "type": "Foreach",
+              "runtimeConfiguration": {
+                "concurrency": {
+                  "repetitions": 50
+                }
+              }
             },
             "Create_CSV_table": {
               "runAfter": {
@@ -631,7 +641,12 @@
           "metadata": {
             "operationMetadataId": "ff6df96d-0852-4b98-b348-640310934247"
           },
-          "type": "Foreach"
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 50
+            }
+          }
         }
       }
     },
