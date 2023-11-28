@@ -73,8 +73,7 @@
           "recurrence": {
             "frequency": "Hour",
             "interval": 1,
-            "timeZone": "UTC",
-            "startTime": "2023-11-24T16:00:00Z"
+            "timeZone": "UTC"
           },
           "metadata": {
             "operationMetadataId": "c57b3019-e6b7-4d82-865d-65963b1b2797"
@@ -621,11 +620,12 @@
                 "parameters": {
                   "dataset": "@items('Apply_to_each_-_Environment')?['ms_sharepointsite']",
                   "folderPath": "@items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']",
-                  "name": "@{items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']}_@{formatDateTime(utcNow(), 'yyyy-MM-dd_hhmmss')}.csv",
+                  "name": "@{items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']}_@{formatDateTime(utcNow(), 'yyyy-MM-dd_hh')}.csv",
                   "body": "@body('Create_CSV_table')"
                 },
                 "authentication": "@parameters('$authentication')"
               },
+              "description": "items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']_formatDateTime(utcNow(), 'yyyy-MM-dd_hh').csv",
               "runtimeConfiguration": {
                 "contentTransfer": {
                   "transferMode": "Chunked"
