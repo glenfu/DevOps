@@ -181,7 +181,7 @@
             "operationMetadataId": "4942d85f-2da9-46fc-8b4a-9bad3418155d"
           },
           "type": "Compose",
-          "inputs": "@\r\nformatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
+          "inputs": "@formatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')",
           "description": " formatDateTime(utcNow(), 'yyyy-MM-ddTHH:mm:ss.0000000Z')"
         },
         "Do_until": {
@@ -356,7 +356,12 @@
               "metadata": {
                 "operationMetadataId": "3dc8499b-a1fe-41a7-b982-ef0563dc2569"
               },
-              "type": "Foreach"
+              "type": "Foreach",
+              "runtimeConfiguration": {
+                "concurrency": {
+                  "repetitions": 50
+                }
+              }
             },
             "Condition_-_Does_NextPageUri_Exist": {
               "actions": {
@@ -432,7 +437,7 @@
             }
           },
           "runAfter": {
-            "Compose_-_endTime_-utcNow": [
+            "Initialize_variable_-_CRLF": [
               "Succeeded"
             ]
           },
@@ -473,17 +478,6 @@
         "Apply_to_each_-_Environment": {
           "foreach": "@outputs('List_rows_-_Get_all_environments')?['body/value']",
           "actions": {
-            "Set_variable_-_Empty_Activity_Logs_Array": {
-              "runAfter": {},
-              "metadata": {
-                "operationMetadataId": "b4f1efec-32ce-4eb5-b742-6b2f5f39cb9c"
-              },
-              "type": "SetVariable",
-              "inputs": {
-                "name": "ActivityLogs",
-                "value": "@null"
-              }
-            },
             "Apply_to_each_-_Get_Content_Blob": {
               "foreach": "@variables('ContentIDs')",
               "actions": {
@@ -540,75 +534,84 @@
                     "where": "@equals(item()?['InstanceUrl'], items('Apply_to_each_-_Environment')?['ms_name'])"
                   }
                 },
-                "Apply_to_each_-_Activity_Log": {
-                  "foreach": "@body('Filter_array_-_Environment_Activity_Logs')",
-                  "actions": {
-                    "Append_to_array_variable_-_Activity_Logs": {
-                      "runAfter": {},
-                      "metadata": {
-                        "operationMetadataId": "ff7fb1e2-d1b0-4916-beba-0094a65de4b8"
-                      },
-                      "type": "AppendToArrayVariable",
-                      "inputs": {
-                        "name": "ActivityLogs",
-                        "value": "@items('Apply_to_each_-_Activity_Log')"
-                      }
-                    }
-                  },
+                "Compose_-_Get_file_content": {
                   "runAfter": {
                     "Filter_array_-_Environment_Activity_Logs": [
                       "Succeeded"
                     ]
                   },
                   "metadata": {
-                    "operationMetadataId": "e9368518-9a1d-4c14-a69d-0a0c4c3591b0"
+                    "operationMetadataId": "ef43779a-6854-490f-9a62-72a90ddbfa5f"
                   },
-                  "type": "Foreach",
-                  "runtimeConfiguration": {
-                    "concurrency": {
-                      "repetitions": 50
-                    }
+                  "type": "Compose",
+                  "inputs": "@skip(split(base64ToString(body('Get_file_content_using_path')?['$content']),variables('CRLF')),1)"
+                },
+                "Create_CSV_table": {
+                  "runAfter": {
+                    "Compose_-_Get_file_content": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "eff47810-bb2b-4224-bdd8-dde40eb2dd39"
+                  },
+                  "type": "Table",
+                  "inputs": {
+                    "from": "@body('Filter_array_-_Environment_Activity_Logs')",
+                    "format": "CSV"
                   }
+                },
+                "Update_file": {
+                  "runAfter": {
+                    "Compose_-_combine_content": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "4bfea8d1-3135-4a51-b10d-99cfa7c2278f"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sharepointonline",
+                      "operationId": "UpdateFile",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                    },
+                    "parameters": {
+                      "dataset": "@items('Apply_to_each_-_Environment')?['ms_sharepointsite']",
+                      "id": "@outputs('Get_file_metadata')?['body/Id']",
+                      "body": "@outputs('Compose_-_combine_content')"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Compose_-_combine_content": {
+                  "runAfter": {
+                    "Create_CSV_table": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "48373dc1-8049-4263-8036-5e80c88eac05"
+                  },
+                  "type": "Compose",
+                  "inputs": "@concat(body('Create_CSV_table'),join(outputs('Compose_-_Get_file_content'),variables('CRLF')))"
                 }
               },
               "runAfter": {
-                "Set_variable_-_Empty_Activity_Logs_Array": [
+                "Get_file_content_using_path": [
                   "Succeeded"
                 ]
               },
               "metadata": {
                 "operationMetadataId": "3a830f10-a1a9-4818-b0de-66783d7c0584"
               },
-              "type": "Foreach",
-              "runtimeConfiguration": {
-                "concurrency": {
-                  "repetitions": 50
-                }
-              }
+              "type": "Foreach"
             },
-            "Create_CSV_table": {
-              "runAfter": {
-                "Apply_to_each_-_Get_Content_Blob": [
-                  "Succeeded"
-                ]
-              },
+            "Create_file_-_headers": {
+              "runAfter": {},
               "metadata": {
-                "operationMetadataId": "eff47810-bb2b-4224-bdd8-dde40eb2dd39"
-              },
-              "type": "Table",
-              "inputs": {
-                "from": "@variables('ActivityLogs')",
-                "format": "CSV"
-              }
-            },
-            "Create_file": {
-              "runAfter": {
-                "Create_CSV_table": [
-                  "Succeeded"
-                ]
-              },
-              "metadata": {
-                "operationMetadataId": "91ef14ad-f45f-4633-aa55-8d27b5aed070"
+                "operationMetadataId": "3375b915-eb08-440f-83b6-5eac86afb4dc"
               },
               "type": "OpenApiConnection",
               "inputs": {
@@ -621,15 +624,61 @@
                   "dataset": "@items('Apply_to_each_-_Environment')?['ms_sharepointsite']",
                   "folderPath": "@items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']",
                   "name": "@{items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']}_@{formatDateTime(utcNow(), 'yyyy-MM-dd_hh')}.csv",
-                  "body": "@body('Create_CSV_table')"
+                  "body": "@outputs('Compose_-_csv_file_header')"
                 },
                 "authentication": "@parameters('$authentication')"
               },
-              "description": "items('Apply_to_each_-_Environment')?['ms_sharepointdocumentlibrary']_formatDateTime(utcNow(), 'yyyy-MM-dd_hh').csv",
               "runtimeConfiguration": {
                 "contentTransfer": {
                   "transferMode": "Chunked"
                 }
+              }
+            },
+            "Get_file_metadata": {
+              "runAfter": {
+                "Create_file_-_headers": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "caec980e-5793-4076-93c9-02f3c9d87c5a"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline",
+                  "operationId": "GetFileMetadata",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
+                "parameters": {
+                  "dataset": "@items('Apply_to_each_-_Environment')?['ms_sharepointsite']",
+                  "id": "@outputs('Create_file_-_headers')?['body/Id']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_file_content_using_path": {
+              "runAfter": {
+                "Get_file_metadata": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "7ec5ed7b-90bd-42ae-9172-b8ce7df826f1"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline",
+                  "operationId": "GetFileContentByPath",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
+                "parameters": {
+                  "dataset": "@items('Apply_to_each_-_Environment')?['ms_sharepointsite']",
+                  "path": "@outputs('Get_file_metadata')?['body/Path']",
+                  "inferContentType": true
+                },
+                "authentication": "@parameters('$authentication')"
               }
             }
           },
@@ -641,11 +690,38 @@
           "metadata": {
             "operationMetadataId": "ff6df96d-0852-4b98-b348-640310934247"
           },
-          "type": "Foreach",
-          "runtimeConfiguration": {
-            "concurrency": {
-              "repetitions": 50
-            }
+          "type": "Foreach"
+        },
+        "Compose_-_csv_file_header": {
+          "runAfter": {
+            "Compose_-_endTime_-utcNow": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "753120b7-f9e0-4cfe-8869-63e24b6a8e51"
+          },
+          "type": "Compose",
+          "inputs": "CreationTime,Id,Operation,OrganizationId,RecordType,ResultStatus,UserKey,UserType,Version,Workload,ClientIP,ObjectId,UserId,CrmOrganizationUniqueName,Fields,InstanceUrl,ItemType,ItemUrl,UserAgent,CorrelationId,EntityId,EntityName,Message,PrimaryFieldValue,Query,QueryResults,ServiceContextId,ServiceContextIdType,ServiceName,SystemUserId,UserUpn"
+        },
+        "Initialize_variable_-_CRLF": {
+          "runAfter": {
+            "Compose_-_csv_file_header": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "361b78a3-fd07-422e-b0c2-4c14bb929765"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "CRLF",
+                "type": "string",
+                "value": "@{uriComponentToString('%0D%0A')}"
+              }
+            ]
           }
         }
       }
