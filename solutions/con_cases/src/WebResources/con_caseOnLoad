@@ -1,0 +1,11 @@
+// JavaScript source code
+function caseOnLoad(executionContext) {
+  var formContext = executionContext.getFormContext();
+  var caseTitle = formContext.getAttribute("title").getValue();
+  console.log(caseTitle);
+
+  //   formContext.getControl("customerid").setDisabled(true);
+  //   window.parent.document.getElementById(
+  //     "id-915f6055-2e07-4276-ae08-2b96c8d02c57-10-customerid270bd3db-d9af-4782-9025-509e298dec0a-customerid.fieldControl-LookupResultsDropdown_customerid_1_selected_tag_0"
+  //   ).style.pointerEvents = "none";
+}

@@ -176,6 +176,7 @@
                             <UClientDisplayActivityUsing>defaultfields</UClientDisplayActivityUsing>
                             <UClientActivityCardMap>appointment:4201:,campaignactivity:4402:,campaignresponse:4401:,email:4202:,fax:4204:,incidentresolution:4206:,letter:4207:,opportunityclose:4208:,orderclose:4209:,phonecall:4210:,quoteclose:4211:,recurringappointmentmaster:4251:,serviceappointment:4214:,socialactivity:4216:,task:4212:,adx_alertsubscription:10598:,adx_inviteredemption:10603:,adx_portalcomment:10652:,chat:10575:,msdyn_bookingalert:10408:,msdyn_ocliveworkitem:10808:,msdyn_ocoutboundmessage:10901:,msdyn_ocsession:10825:,msdyn_ocvoicemail:11064:,msfp_alert:10292:,msfp_surveyinvite:10302:,msfp_surveyresponse:10304:,pp_docusignoutput:11482:,</UClientActivityCardMap>
                             <UClientActivitiesConfigurationJSON>{"appointment":{"showTopDate":true,"showStatus":true,"canCreate":true,"createUsing":"default","openUsing":"default","commandsConfig":{"order":[{"id":"Assign","isVisible":true},{"id":"CloseActivity","isVisible":true},{"id":"AddToQueue","isVisible":true},{"id":"OpenEntityRecord","isVisible":true},{"id":"Pin","isVisible":true}]}}}</UClientActivitiesConfigurationJSON>
+                            <UClientDefaultFilterJSON>{"modifiedDate":{"enabled":false,"value":[]}}</UClientDefaultFilterJSON>
                           </parameters>
                         </control>
                       </cell>
@@ -498,6 +499,13 @@
           </row>
         </rows>
       </header>
+      <events>
+        <event name="onload" application="true" active="true">
+          <Handlers>
+            <Handler functionName="caseOnLoad" libraryName="con_caseOnLoad" handlerUniqueId="{33c6b424-9304-42f5-9661-f55ddc70c6aa}" enabled="true" parameters="" passExecutionContext="true" ordinalvalue="3" solutionaction="Added" />
+          </Handlers>
+        </event>
+      </events>
       <controlDescriptions>
         <controlDescription forControl="{9441558A-B201-1903-71C7-023912E8D061}" solutionaction="Added">
           <customControl id="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
@@ -608,6 +616,9 @@
           </customControl>
         </controlDescription>
       </controlDescriptions>
+      <formLibraries>
+        <Library name="con_caseOnLoad" libraryUniqueId="{4a175948-b068-4231-a944-a4113159a6ce}" solutionaction="Added" />
+      </formLibraries>
       <footer id="{d6772417-e8a1-4b61-b9a6-6dd41ea8d0db}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
         <rows />
       </footer>

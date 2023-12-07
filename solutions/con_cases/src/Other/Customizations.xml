@@ -17,6 +17,7 @@
   <OrganizationSettings />
   <optionsets />
   <Slas />
+  <WebResources />
   <CustomControls />
   <SolutionPluginAssemblies />
   <SdkMessageProcessingSteps />
