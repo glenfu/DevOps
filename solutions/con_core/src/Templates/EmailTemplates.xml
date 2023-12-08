@@ -16,13 +16,13 @@
     <ActivityMimeAttachments>
       <ActivityMimeAttachment>
         <activitymimeattachmentid>{5193430e-7106-ee11-8f6e-6045bd57c806}</activitymimeattachmentid>
-        <attachmentid>{5493430e-7106-ee11-8f6e-6045bd57c806}</attachmentid>
+        <attachmentid>{d6629c53-7495-ee11-be37-000d3a85c697}</attachmentid>
         <attachmentnumber>0</attachmentnumber>
         <filename>ccx.png</filename>
         <filesize>199610</filesize>
         <objectid>{da45573e-ae8c-ed11-81ac-00224817beb0}</objectid>
         <mimetype>image/png</mimetype>
-        <SolutionAttachmentsFileName>/SolutionAttachments/5493430E-7106-EE11-8F6E-6045BD57C806/ccxpng</SolutionAttachmentsFileName>
+        <SolutionAttachmentsFileName>/SolutionAttachments/D6629C53-7495-EE11-BE37-000D3A85C697/ccxpng</SolutionAttachmentsFileName>
       </ActivityMimeAttachment>
     </ActivityMimeAttachments>
   </emailtemplate>

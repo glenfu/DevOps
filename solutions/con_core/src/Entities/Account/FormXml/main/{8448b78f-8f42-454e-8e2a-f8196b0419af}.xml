@@ -16,7 +16,7 @@
                     <row>
                       <cell id="{24be16a9-e3c4-a7bb-37a6-b5c7143460e8}" showlabel="true" locklevel="0" ordinalvalue="10007">
                         <labels>
-                          <label description="Relationship Type" languagecode="1033" solutionaction="Modified" />
+                          <label description="Relationship Type" languagecode="1033" solutionaction="Added" />
                           <label description="Tipo de relación" languagecode="3082" solutionaction="Added" />
                         </labels>
                       </cell>
@@ -28,7 +28,7 @@
                     <row>
                       <cell id="{7f4799ab-bcbe-4fca-8505-9c806f677894}" showlabel="false" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10000">
                         <labels>
-                          <label description="Address 1: Street 1" languagecode="1033" solutionaction="Modified" />
+                          <label description="Address 1: Street 1" languagecode="1033" solutionaction="Added" />
                           <label description="Dirección 1: calle 1" languagecode="3082" solutionaction="Added" />
                         </labels>
                       </cell>
@@ -393,7 +393,7 @@
         <Library name="con_accountOnLoad" libraryUniqueId="{2b3eee49-c958-8184-c6d0-7b2d75d3d38c}" solutionaction="Added" />
       </formLibraries>
       <footer id="{d1a76c7b-1e00-4114-8650-f399e6cd9112}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows></rows>
+        <rows />
       </footer>
     </form>
     <LocalizedNames>

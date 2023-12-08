@@ -365,7 +365,7 @@
         </rows>
       </footer>
       <header id="{297d99cb-c201-41a0-82c4-fc99de73b078}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows></rows>
+        <rows />
       </header>
     </form>
     <LocalizedNames>

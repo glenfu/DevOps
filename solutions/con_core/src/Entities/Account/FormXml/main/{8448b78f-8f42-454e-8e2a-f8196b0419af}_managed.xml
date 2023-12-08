@@ -9,6 +9,34 @@
       <tabs>
         <tab name="SUMMARY_TAB" id="{3b0b63a9-d379-689a-0ec3-e71eb4c6a841}" IsUserDefined="0" showlabel="true" expanded="true" locklevel="0" ordinalvalue="0">
           <columns>
+            <column width="33%" id="0">
+              <sections>
+                <section name="ACCOUNT_INFORMATION" showlabel="true" showbar="false" id="{0eb92e6c-bcb8-0d52-a188-d81543ddb7cd}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Left" ordinalvalue="0">
+                  <rows>
+                    <row>
+                      <cell id="{24be16a9-e3c4-a7bb-37a6-b5c7143460e8}" showlabel="true" locklevel="0" ordinalvalue="10007">
+                        <labels>
+                          <label description="Relationship Type" languagecode="1033" solutionaction="Added" />
+                          <label description="Tipo de relación" languagecode="3082" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="SUMMARY_TAB_ADDRESSINPUT_SECTION" id="95170053-ca2a-4db4-b161-fe2cadf151a0" IsUserDefined="0" locklevel="0" visible="false" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" ordinalvalue="2">
+                  <rows>
+                    <row>
+                      <cell id="{7f4799ab-bcbe-4fca-8505-9c806f677894}" showlabel="false" locklevel="0" colspan="1" rowspan="1" ordinalvalue="10000">
+                        <labels>
+                          <label description="Address 1: Street 1" languagecode="1033" solutionaction="Added" />
+                          <label description="Dirección 1: calle 1" languagecode="3082" solutionaction="Added" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
             <column width="42%" id="1">
               <sections>
                 <section name="SOCIAL_PANE_TAB" showlabel="false" showbar="false" id="{7a073b7c-5422-2418-3d26-b2a7eb290832}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelposition="Top" locklevel="0" celllabelalignment="Left" ordinalvalue="0">
@@ -120,7 +148,7 @@
                     <row>
                       <cell id="{fdd54c31-2728-472b-a50c-5b5856402934}" locklevel="0" colspan="1" rowspan="8" auto="true" ordinalvalue="10001" solutionaction="Added">
                         <labels>
-                          <label description="" languagecode="1033" />
+                          <label description="Stakeholder Details" languagecode="1033" />
                         </labels>
                         <control id="con_stakeholderdetails" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="con_stakeholderdetails" disabled="false" uniqueid="{1FE464E7-C56C-4A24-BD7A-CD95966BBA8E}" />
                       </cell>
@@ -365,7 +393,7 @@
         <Library name="con_accountOnLoad" libraryUniqueId="{2b3eee49-c958-8184-c6d0-7b2d75d3d38c}" solutionaction="Added" />
       </formLibraries>
       <footer id="{d1a76c7b-1e00-4114-8650-f399e6cd9112}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left" solutionaction="Added">
-        <rows></rows>
+        <rows />
       </footer>
     </form>
     <LocalizedNames>
